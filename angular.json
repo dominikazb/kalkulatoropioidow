@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -124,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "kalkulatoropioidow"
+  "defaultProject": "kalkulatoropioidow",
+  "cli": {
+    "analytics": "eb1673bf-246a-49a1-a5a1-7016a2f7f0a6"
+  }
 }
