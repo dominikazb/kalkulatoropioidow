@@ -1,0 +1,1333 @@
+<!--<div class="maindiv">-->
+
+
+
+
+
+<!--  <div class="emptyspace15px"></div>-->
+
+<!--  <div class="content">-->
+
+<!--    <div class="content_inside_resultspage">-->
+
+
+<!--                <span th:if="${showResults == 'no'}">-->
+<!--                    <br>-->
+<!--                    <h5 class="darkergray text-center">Nie wybrano żadnych leków.</h5>-->
+<!--                </span>-->
+
+
+
+
+<!--      <span th:if="${showResults == 'yes'}">-->
+<!--                <div class="darkbackground">-->
+<!--                    <h4>WYNIKI</h4>-->
+<!--                </div>-->
+
+<!--                <br>-->
+
+<!--                <table class="table table-striped">-->
+<!--                    <thead>-->
+<!--                    <tr>-->
+<!--                        <th scope="col">Opioid</th>-->
+<!--                        <th scope="col">Dawka dzienna</th>-->
+<!--                        <th scope="col">Ekwiwalent morfiny</th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+
+<!--                    <span th:if="${drugsResult.getFirstOpioidName() != '0'}">-->
+<!--                        <tr>-->
+<!--                            <td class="table1" th:text="${drugsResult.getFirstOpioidName()}"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:text="${#numbers.formatDecimal(firstOpioidTotalDailyDose,1,2)} + ' mg'"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:if="${firstOpioidMorphineEquivalentRange.getMin()} == ${firstOpioidMorphineEquivalentRange.getMax()}"-->
+<!--                                th:text="${#numbers.formatDecimal(firstOpioidMorphineEquivalentRange.getMin(),1,2)} + ' mg'"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:if="${firstOpioidMorphineEquivalentRange.getMin()} != ${firstOpioidMorphineEquivalentRange.getMax()}"-->
+<!--                                th:text="${#numbers.formatDecimal(firstOpioidMorphineEquivalentRange.getMin(),1,2)} + ' - ' +-->
+<!--                                 ${#numbers.formatDecimal(firstOpioidMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>-->
+<!--                        </tr>-->
+<!--                    </span>-->
+
+
+<!--                    <span th:if="${drugsResult.getSecondOpioidName() != '0'}">-->
+<!--                        <tr>-->
+<!--                            <td class="table1" th:text="${drugsResult.getSecondOpioidName()}"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:text="${#numbers.formatDecimal(secondOpioidTotalDailyDose,1,2)} + ' mg'"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:if="${secondOpioidMorphineEquivalentRange.getMin()} == ${secondOpioidMorphineEquivalentRange.getMax()}"-->
+<!--                                th:text="${#numbers.formatDecimal(secondOpioidMorphineEquivalentRange.getMin(),1,2)} + ' mg'"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:if="${secondOpioidMorphineEquivalentRange.getMin()} != ${secondOpioidMorphineEquivalentRange.getMax()}"-->
+<!--                                th:text="${#numbers.formatDecimal(secondOpioidMorphineEquivalentRange.getMin(),1,2)} + ' - ' +-->
+<!--                                 ${#numbers.formatDecimal(secondOpioidMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>-->
+<!--                        </tr>-->
+<!--                    </span>-->
+
+<!--                    <span th:if="${drugsResult.getThirdOpioidName() != '0'}">-->
+<!--                        <tr>-->
+<!--                            <td class="table1" th:text="${drugsResult.getThirdOpioidName()}"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:text="${#numbers.formatDecimal(thirdOpioidTotalDailyDose,1,2)} + ' mg'"></td>-->
+<!--                             <td class="table1"-->
+<!--                                 th:if="${thirdOpioidMorphineEquivalentRange.getMin()} == ${thirdOpioidMorphineEquivalentRange.getMax()}"-->
+<!--                                 th:text="${#numbers.formatDecimal(thirdOpioidMorphineEquivalentRange.getMin(),1,2)} + ' mg'"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:if="${thirdOpioidMorphineEquivalentRange.getMin()} != ${thirdOpioidMorphineEquivalentRange.getMax()}"-->
+<!--                                th:text="${#numbers.formatDecimal(thirdOpioidMorphineEquivalentRange.getMin(),1,2)} + ' - ' +-->
+<!--                                 ${#numbers.formatDecimal(thirdOpioidMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>-->
+<!--                        </tr>-->
+<!--                    </span>-->
+
+
+<!--                    <span th:if="${drugsResult.fentanylDose > 0}">-->
+<!--                        <tr>-->
+<!--                            <td class="table1">Fentanyl transdermalnie</td>-->
+<!--                            <td class="table1"-->
+<!--                                th:text="${#numbers.formatDecimal(fentanylPlasterDailyDose,1,2)} + ' mg'"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:text="${#numbers.formatDecimal(fentanylPlasterMorphineEquivalentRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(fentanylPlasterMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>-->
+<!--                        </tr>-->
+<!--                    </span>-->
+
+<!--                    <span th:if="${drugsResult.buprenorfinaDose > 0}">-->
+<!--                        <tr>-->
+<!--                            <td class="table1">Buprenorfina transdermalnie</td>-->
+<!--                            <td class="table1" th:text="${#numbers.formatDecimal(buprenorfinaPlasterDailyDose,1,2)} + ' mg'"></td>-->
+<!--                            <td class="table1"-->
+<!--                                th:text="${#numbers.formatDecimal(buprenorfinaPlasterMorphineEquivalentRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(buprenorfinaPlasterMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>-->
+<!--                        </tr>-->
+<!--                    </span>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+
+<!--                <div class="row">-->
+<!--                    <div class="col-md-6"></div>-->
+
+<!--                    <div class="col-md-6 darkbackground text-center">-->
+
+<!--                            <span th:if="${sumOfMorphineEquivalents.getMin() == sumOfMorphineEquivalents.getMax()}">-->
+<!--                                <h6 th:text="'SUMA: ' + ${#numbers.formatDecimal(sumOfMorphineEquivalents.getMin(),1,2)} + ' mg'">-->
+<!--                                </h6>-->
+<!--                            </span>-->
+
+<!--                            <span th:if="${sumOfMorphineEquivalents.getMin() != sumOfMorphineEquivalents.getMax()}">-->
+<!--                                <h6 th:text="'SUMA: ' + ${#numbers.formatDecimal(sumOfMorphineEquivalents.getMin(),1,2)} +-->
+<!--                                        ' - ' + ${#numbers.formatDecimal(sumOfMorphineEquivalents.getMax(),1,2)}-->
+<!--                                        + ' mg'"></h6>-->
+<!--                            </span>-->
+
+<!--                    </div>&lt;!&ndash; col-md-6 darkcbackground text-center &ndash;&gt;-->
+<!--                </div>&lt;!&ndash; row &ndash;&gt;-->
+
+
+
+
+<!--                <br>-->
+<!--                <hr>-->
+<!--                <br>-->
+
+<!--        &lt;!&ndash; ======================================== SHOW RESULTS ======================================== &ndash;&gt;-->
+
+
+
+
+
+<!--                 <span th:if="${showResultsAfterCalulation} == 'yes'">-->
+
+<!--                <div class="darkthick_frame">-->
+
+
+
+
+<!--                    &lt;!&ndash; ======== Buprenorfina (tbl. podjęzykowe, s.c., i.v., i.m.) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'buprenorfinaTabletki'">-->
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'buprenorfina_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+<!--                    <span th:if="${buprenorfinaTblGreaterThan4mg} == 'tak'">-->
+<!--                        <hr class="dark_line">-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                                <div class="col-md-1">-->
+<!--                                    <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                                </div>-->
+<!--                                <div class="col-md-11">-->
+<!--                                    <div class="bottomwarning">-->
+<!--                                        <h6 class="redcolor">-->
+<!--                                            UWAGA! Maksymalna dobowa dawka dla buprenorfiny to 4 mg!-->
+<!--                                        </h6>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                        </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                    </span>-->
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == buprenorfinaTabletki &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Buprenorfina (tbl. podjęzykowe, s.c., i.v., i.m.) / End ======== &ndash;&gt;-->
+
+
+<!--                  &lt;!&ndash; ======== Dihydrokodeina (tbl. doustne) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'dihydrokodeinaTabletki'">-->
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'dihydrokodeina_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+
+
+<!--                    <span th:if="${dihydrokodeinaTblGreaterThan240mg} == 'tak'">-->
+<!--                        <hr class="dark_line">-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-1">-->
+<!--                                <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-11">-->
+<!--                                <div class="bottomwarning">-->
+<!--                                    <h6 class="redcolor">-->
+<!--                                        UWAGA! Maksymalna dobowa dawka dla dihydrokodeiny to 240 mg!-->
+<!--                                    </h6>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                    </span>-->
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == dihydrokodeinaTabletki &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Dihydrokodeina (tbl. doustne) / End ======== &ndash;&gt;-->
+
+
+
+
+
+
+<!--                  &lt;!&ndash; ======== Fentanyl (tbl. podjęzykowe, spray donosowy, i.v.) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'fentanylTabletki'">-->
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'fentanyl_tbl_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == fentanylTabletki &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Fentanyl (tbl. podjęzykowe, spray donosowy, i.v.) / End ======== &ndash;&gt;-->
+
+
+
+<!--                  &lt;!&ndash; ======== Kodeina (w składzie złożonych tbl. doustnych) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'kodeinaTabletki'">-->
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'kodeina_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+<!--                    <span th:if="${kodeinaTblGreaterThan240mg} == 'tak'">-->
+<!--                        <hr class="dark_line">-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-1">-->
+<!--                                <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-11">-->
+<!--                                <div class="bottomwarning">-->
+<!--                                    <h6 class="redcolor">UWAGA! Maksymalna dobowa dawka dla kodeiny to 240 mg!</h6>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                    </span>-->
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == kodeinaTabletki &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Kodeina (w składzie złożonych tbl. doustnych) / End ======== &ndash;&gt;-->
+
+
+
+
+
+<!--                  &lt;!&ndash; ======== Metadon ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'metadonTabletki'">-->
+
+
+<!--                    &lt;!&ndash; tabelka &ndash;&gt;-->
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        &lt;!&ndash; dawka dzienna &ndash;&gt;-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ' (dawka dzienna):'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td colspan="2" class="fontsize14 darkergray"-->
+<!--                                    th:text="'Podawaj metadon w dawce: ' + ${#numbers.formatDecimal(administeredMetadonDoseEvery12Hours.getMin(),1,1)} + ' mg co 12h'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ' (dawka dzienna):'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td colspan="2" class="fontsize14 darkergray"-->
+<!--                                    th:text="'Podawaj metadon w dawce: ' + ${#numbers.formatDecimal(administeredMetadonDoseEvery12Hours.getMin(),1,1)} + ' - ' +-->
+<!--                                     ${#numbers.formatDecimal(administeredMetadonDoseEvery12Hours.getMax(),1,1)} + ' mg co 12h'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+
+<!--                        &lt;!&ndash; dawka dzienna zredukowana &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'metadon_reduced'}">-->
+<!--                        <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="'Dawka dzienna zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td colspan="2" class="fontsize14 darkergray"-->
+<!--                                    th:text="'Podawaj metadon w dawce: ' + ${#numbers.formatDecimal(administeredMetadonDoseEvery12HoursAfterReduction.getMin(),1,1)} + ' mg co 12h'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="'Dawka dzienna zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                                + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td colspan="2" class="fontsize14 darkergray"-->
+<!--                                    th:text="'Podawaj metadon w dawce: ' + ${#numbers.formatDecimal(administeredMetadonDoseEvery12HoursAfterReduction.getMin(),1,1)} + ' - ' +-->
+<!--                                     ${#numbers.formatDecimal(administeredMetadonDoseEvery12HoursAfterReduction.getMax(),1,1)} + ' mg co 12h'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        </span>&lt;!&ndash; if reduced &ndash;&gt;-->
+
+
+
+<!--                        &lt;!&ndash; dawka doraźna &ndash;&gt;-->
+<!--                        <span th:if="${metadonDawkaDorazna.getMin()} == ${metadonDawkaDorazna.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ' (dawka doraźna):'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(metadonDawkaDorazna.getMin(),1,1)} + ' mg'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${metadonDawkaDorazna.getMin()} != ${metadonDawkaDorazna.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ' (dawka doraźna):'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(metadonDawkaDorazna.getMin(),1,1)} + ' - ' +-->
+<!--                                        ${#numbers.formatDecimal(metadonDawkaDorazna.getMax(),1,1)}  + ' mg'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+
+<!--                        &lt;!&ndash; dawka doraźna zredukowana &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'metadon_reduced'}">-->
+<!--                        <span th:if="${metadonDawkaDoraznaAfterReduction.getMin()} == ${metadonDawkaDoraznaAfterReduction.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="'Dawka doraźna zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(metadonDawkaDoraznaAfterReduction.getMin(),1,2)} + ' mg'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${metadonDawkaDoraznaAfterReduction.getMin()} != ${metadonDawkaDoraznaAfterReduction.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="'Dawka doraźna zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(metadonDawkaDoraznaAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(metadonDawkaDoraznaAfterReduction.getMax(),1,2)} + ' mg'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        </span>&lt;!&ndash; if reduced &ndash;&gt;-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+<!--                    <span th:if="${dawkaMetadonuGreaterThan30mg == 'tak'}">-->
+<!--                        <hr class="dark_line">-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-1">-->
+<!--                                <div class="bottom">-->
+<!--                                    <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-11">-->
+<!--                                <div class="bottomwarning">-->
+<!--                                    <h6 class="redcolor">UWAGA! Maksymalna jednorazowa dawka dla metadonu to 30mg!</h6>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                    </span>-->
+
+<!--                    <span th:if="${dawkaDoraznaGreaterThan30mg == 'tak'}">-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-1">-->
+<!--                                <div class="bottom">-->
+<!--                                    <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-11">-->
+<!--                                <div class="bottomwarning">-->
+<!--                                    <h6 class="redcolor">UWAGA! Maksymalna jednorazowa dawka dla metadonu to 30mg!</h6>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                    </span>-->
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == metadonTabletki &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Metadon / End ======== &ndash;&gt;-->
+
+
+
+
+
+
+
+<!--                  &lt;!&ndash; ======== Morfina ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'morfinaTabletki'">-->
+
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'morfina_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == morfinaTabletki &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Morfina / End ======== &ndash;&gt;-->
+
+
+<!--                  &lt;!&ndash; ======== Morfina (s.c., i.v., i.m.) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'morfinaSC_IV_IM'">-->
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'morfina_SC_IV_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == morfinaSC_IV_IM &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Morfina (s.c., i.v., i.m.) / End ======== &ndash;&gt;-->
+
+
+<!--                  &lt;!&ndash; ======== Oksykodon, chlorowodorek (tbl. doustne, i.v., s.c.) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'oksykodonTabletki'">-->
+
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'oksykodon_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == oksykodonTabletki &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Oksykodon, chlorowodorek (tbl. doustne, i.v., s.c.) / End ======== &ndash;&gt;-->
+
+
+<!--                  &lt;!&ndash; ======== Tapentadol ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'tapentadolTabletki'">-->
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'tapentadol_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+<!--                    <span th:if="${tapentadolTblGreaterThan500mg} == 'tak'">-->
+<!--                        <hr class="dark_line">-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-1">-->
+<!--                                <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-11">-->
+<!--                                <div class="bottomwarning">-->
+<!--                                    <h6 class="redcolor">UWAGA! Maksymalna dobowa dawka dla tapentadolu to 500 mg!</h6>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                    </span>-->
+
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == tapentadolTabletki &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Tapentadol / End ======== &ndash;&gt;-->
+
+
+<!--                  &lt;!&ndash; ======== Tramadol (tbl. doustne lub krople) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'tramadolTabletki'">-->
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'tramadol_tbl_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+<!--                    <span th:if="${tramadolDoseGreaterThan400mg} == 'tak'">-->
+<!--                        <hr class="dark_line">-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-1">-->
+<!--                                <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-11">-->
+<!--                                <div class="bottomwarning">-->
+<!--                                    <h6 class="redcolor">-->
+<!--                                        UWAGA! Maksymalna dobowa dawka dla tramadolu (doustnie) to 400 mg!-->
+<!--                                    </h6>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                    </span>-->
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == tramadolTabletki &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Tramadol (tbl. doustne lub krople) / End ======== &ndash;&gt;-->
+
+
+<!--                  &lt;!&ndash; ======== Tramadol (s.c. lub i.v.) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'tramadolSC_IV'">-->
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                        </span>-->
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'tramadol_SC_IV_reduced'}">-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                            <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                                <tr>-->
+<!--                                    <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                    <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)}-->
+<!--                                            + ' - ' + ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} +-->
+<!--                                            ' mg/dzień'"></td>-->
+<!--                            </tr>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+<!--                    <span th:if="${tramadolIV_SC_DoseGreaterThan400mg} == 'tak'">-->
+<!--                        <hr class="dark_line">-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-1">-->
+<!--                                <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-11">-->
+<!--                                <div class="bottomwarning">-->
+<!--                                    <h6 class="redcolor">-->
+<!--                                        UWAGA! Maksymalna dobowa dawka dla tramadolu (s.c, i.v.) to 400 mg!-->
+<!--                                    </h6>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                    </span>-->
+
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == tramadolSC_IV &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Tramadol (s.c. lub i.v.) / End ======== &ndash;&gt;-->
+
+
+<!--                  &lt;!&ndash; ======== Fentanyl (transdermalnie) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'fentanylTransdermalnie'">-->
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' μg/h'"></td>-->
+<!--                            </tr>-->
+<!--                          &lt;!&ndash; proponowane plastry &ndash;&gt;-->
+<!--                            <span th:if="${!listOfSuggestedFentanylPlastersWithoutDuplicates.isEmpty()}">-->
+<!--                                <td th:text="'Proponowane plastry:'"></td>-->
+<!--                                <td>-->
+<!--                                    <ul th:each="element : ${listOfSuggestedFentanylPlastersWithoutDuplicates}">-->
+<!--                                        <li class="darkergray" th:text="${element}"></li>-->
+<!--                                    </ul>-->
+<!--                                </td>-->
+<!--                            </span>-->
+<!--                          &lt;!&ndash; proponowane plastry / End &ndash;&gt;-->
+
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' μg/h'"></td>-->
+<!--                            </tr>-->
+<!--                          &lt;!&ndash; proponowane plastry &ndash;&gt;-->
+<!--                            <span th:if="${!listOfSuggestedFentanylPlastersWithoutDuplicates.isEmpty()}">-->
+<!--                                <td th:text="'Proponowane plastry:'"></td>-->
+<!--                                <td>-->
+<!--                                    <ul th:each="element : ${listOfSuggestedFentanylPlastersWithoutDuplicates}">-->
+<!--                                        <li class="darkergray" th:text="${element}"></li>-->
+<!--                                    </ul>-->
+<!--                                </td>-->
+<!--                            </span>-->
+<!--                          &lt;!&ndash; proponowane plastry / End &ndash;&gt;-->
+<!--                        </span>-->
+
+
+
+
+
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'fentanyl_transdermalnie_reduced'}">-->
+<!--                        <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' μg/h'"></td>-->
+<!--                            </tr>-->
+<!--                          &lt;!&ndash; proponowane plastry &ndash;&gt;-->
+<!--                            <span th:if="${!listOfSuggestedFentanylPlastersAfterReduction.isEmpty()}">-->
+<!--                                <td th:text="'Proponowane plastry:'"></td>-->
+<!--                                <td>-->
+<!--                                    <ul th:each="element : ${listOfSuggestedFentanylPlastersAfterReduction.values()}">-->
+<!--                                        <li class="darkergray" th:text="${element}"></li>-->
+<!--                                    </ul>-->
+<!--                                </td>-->
+<!--                            </span>-->
+<!--                          &lt;!&ndash; proponowane plastry / End &ndash;&gt;-->
+<!--                        </span>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} + ' μg/h'"></td>-->
+<!--                            </tr>-->
+<!--                          &lt;!&ndash; proponowane plastry &ndash;&gt;-->
+<!--                            <span th:if="${!listOfSuggestedFentanylPlastersAfterReduction.isEmpty()}">-->
+<!--                                <td th:text="'Proponowane plastry:'"></td>-->
+<!--                                <td>-->
+<!--                                    <ul th:each="element : ${listOfSuggestedFentanylPlastersAfterReduction.values()}">-->
+<!--                                        <li class="darkergray" th:text="${element}"></li>-->
+<!--                                    </ul>-->
+<!--                                </td>-->
+<!--                            </span>-->
+<!--                          &lt;!&ndash; proponowane plastry / End &ndash;&gt;-->
+<!--                        </span>-->
+
+
+<!--                        </span>&lt;!&ndash; if dose reduced &ndash;&gt;-->
+
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+
+<!--                    <span th:if="${fentanlyPlastryDoseGreaterThan300ugPerHour == 'tak'}">-->
+<!--                        <div class="littlepadding">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-md-1">-->
+<!--                                    <div class="bottom">-->
+<!--                                        <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-md-11">-->
+<!--                                    <div class="bottom">-->
+<!--                                        <h6 class="redcolor">UWAGA! Wymagana dawka fentanylu przekracza 300 μg/h,-->
+<!--                                             rozważ dodatkową lub alternatywną metodę zwalczania bólu,-->
+<!--                                              albo dodatkowe zastosowanie opioidów.</h6>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                        </div>&lt;!&ndash; littlepadding &ndash;&gt;-->
+<!--                    </span>-->
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == fentanylTransdermalnie &ndash;&gt;-->
+
+
+
+<!--                  &lt;!&ndash; ======== Fentanyl (transdermalnie) / End ======== &ndash;&gt;-->
+
+
+<!--                  &lt;!&ndash; ======== Buprenorfina (transdermalnie) ======== &ndash;&gt;-->
+<!--                    <span th:if="${resultsOpioidName} == 'buprenorfinaTransdermalnie'">-->
+
+
+
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} == ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' μg/h'"></td>-->
+<!--                            </tr>-->
+<!--                          &lt;!&ndash; proponowane plastry &ndash;&gt;-->
+<!--                            <span th:if="${!listOfSuggestedBuprenorfinaPlastersWithoutDuplicates.isEmpty()}">-->
+<!--                                <td th:text="'Proponowane plastry:'"></td>-->
+<!--                                <td>-->
+<!--                                    <ul th:each="element : ${listOfSuggestedBuprenorfinaPlastersWithoutDuplicates.values()}">-->
+<!--                                        <li class="darkergray" th:text="${element}"></li>-->
+<!--                                    </ul>-->
+<!--                                </td>-->
+<!--                            </span>-->
+<!--                          &lt;!&ndash; proponowane plastry / End &ndash;&gt;-->
+
+<!--                        </span>-->
+<!--                        <span th:if="${opioidEquivalentDoseRange.getMin()} != ${opioidEquivalentDoseRange.getMax()}">-->
+<!--                            <tr>-->
+<!--                                <td th:text="${drugsResult.opioidToCovertTo} + ':'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRange.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRange.getMax(),1,2)} + ' μg/h'"></td>-->
+<!--                            </tr>-->
+<!--                          &lt;!&ndash; proponowane plastry &ndash;&gt;-->
+<!--                            <span th:if="${!listOfSuggestedBuprenorfinaPlastersWithoutDuplicates.isEmpty()}">-->
+<!--                                <td th:text="'Proponowane plastry:'"></td>-->
+<!--                                <td>-->
+<!--                                    <ul th:each="element : ${listOfSuggestedBuprenorfinaPlastersWithoutDuplicates.values()}">-->
+<!--                                        <li class="darkergray" th:text="${element}"></li>-->
+<!--                                    </ul>-->
+<!--                                </td>-->
+<!--                            </span>-->
+<!--                          &lt;!&ndash; proponowane plastry / End &ndash;&gt;-->
+<!--                        </span>-->
+
+
+
+
+
+
+<!--                        &lt;!&ndash; reduced dose &ndash;&gt;-->
+<!--                        <span th:if="${doseReduction_drug == 'buprenorfina_transdermalnie_reduced'}">-->
+<!--                        <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} == ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                            <tr>-->
+<!--                                 <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' μg/h'"></td>-->
+<!--                            </tr>-->
+<!--                          &lt;!&ndash; proponowane plastry &ndash;&gt;-->
+<!--                            <span th:if="${!listOfPlastersForReducedDoseOfBuprenorfina.isEmpty()}">-->
+<!--                                <td th:text="'Proponowane plastry:'"></td>-->
+<!--                                <td>-->
+<!--                                    <ul th:each="element : ${listOfPlastersForReducedDoseOfBuprenorfina.values()}">-->
+<!--                                        <li class="darkergray" th:text="${element}"></li>-->
+<!--                                    </ul>-->
+<!--                                </td>-->
+<!--                            </span>-->
+<!--                          &lt;!&ndash; proponowane plastry / End &ndash;&gt;-->
+<!--                        </span>-->
+
+<!--                        <span th:if="${opioidEquivalentDoseRangeAfterReduction.getMin()} != ${opioidEquivalentDoseRangeAfterReduction.getMax()}">-->
+<!--                            <tr>-->
+<!--                                  <td th:text="'Dawka zredukowana o ' + ${doseReduction} + '%:'"></td>-->
+<!--                                <td th:text="${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMin(),1,2)} + ' - ' +-->
+<!--                                    ${#numbers.formatDecimal(opioidEquivalentDoseRangeAfterReduction.getMax(),1,2)} + ' μg/h'"></td>-->
+<!--                            </tr>-->
+<!--                          &lt;!&ndash; proponowane plastry &ndash;&gt;-->
+<!--                            <span th:if="${!listOfPlastersForReducedDoseOfBuprenorfina.isEmpty()}">-->
+<!--                                <td th:text="'Proponowane plastry:'"></td>-->
+<!--                                <td>-->
+<!--                                    <ul th:each="element : ${listOfPlastersForReducedDoseOfBuprenorfina.values()}">-->
+<!--                                        <li class="darkergray" th:text="${element}"></li>-->
+<!--                                    </ul>-->
+<!--                                </td>-->
+<!--                            </span>-->
+<!--                          &lt;!&ndash; proponowane plastry / End &ndash;&gt;-->
+<!--                        </span>-->
+
+
+<!--                        </span>&lt;!&ndash; if dose reduced &ndash;&gt;-->
+
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+
+<!--                    <span th:if="${buprenorfinaPlastryDoseGreaterThan300ugPerHour == 'tak'}">-->
+<!--                        <hr class="dark_line">-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-1">-->
+<!--                                <div class="bottom">-->
+<!--                                    <h2 class="redcolor"><i class="fas fa-exclamation-triangle"></i></h2>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-11">-->
+<!--                                <div class="bottomwarning">-->
+<!--                                    <h6 class="redcolor">UWAGA! Wymagana dawka buprenorfiny przekracza 140 μg/h,-->
+<!--                                        rozważ dodatkową lub alternatywną metodę zwalczania bólu,-->
+<!--                                        albo dodatkowe zastosowanie opioidów.</h6>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>&lt;!&ndash; row &ndash;&gt;-->
+<!--                    </span>-->
+
+<!--                    </span>&lt;!&ndash; if resultsOpioidName == buprenorfinaTransdermalnie &ndash;&gt;-->
+<!--                  &lt;!&ndash; ======== Buprenorfina (transdermalnie) / End ======== &ndash;&gt;-->
+
+
+
+
+
+
+
+<!--                  &lt;!&ndash; =========== SHOW DRUG INFO =========== &ndash;&gt;-->
+<!--                    <span th:if="${show_buprenorfina_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">buprenorfinę</span>-->
+<!--                            wynosi 1:75 do 1:115. W wyniku kalkulacji otrzymasz obie liczby (przedział). Dobierając-->
+<!--                            dawkę weź pod uwagę wskazania kliniczne, sposób podania i zmienność osobniczą.<br>-->
+<!--                            Maksymalna dawka dobowa wynosi: dwa plastry po 70 μg/h.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_buprenorfina_results &ndash;&gt;-->
+
+<!--                    <span th:if="${show_dihydrokodeina_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">dihydrokodeinę</span>-->
+<!--                            wynosi 1:10.<br>-->
+<!--                            Maksymalna dawka dobowa wynosi 240 mg.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_dihydrokodeina_results &ndash;&gt;-->
+
+
+<!--                    <span th:if="${show_fentanylTbl_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">fentanyl</span>-->
+<!--                            wynosi 1:100 do 1:150. W wyniku kalkulacji otrzymasz obie liczby (przedział).<br>-->
+<!--                            Dobierając dawkę weź pod uwagę sytuację Chorego, zwłaszcza upośledzoną-->
+<!--                            czynność wątroby i nerek.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_fentanylTbl_results &ndash;&gt;-->
+
+
+
+<!--                    <span th:if="${show_kodeina_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">kodeinę</span> wynosi 1:10.-->
+<!--                            Maksymalna dawka dobowa wynosi 240 mg. Lek nie jest obecnie stosowany do leczenia-->
+<!--                            bólu nowotworowego.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_kodeina_results &ndash;&gt;-->
+
+
+
+
+<!--                    <span th:if="${show_metadon_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14">-->
+<!--                            Wykonuj rotację na metadon tylko w warunkach ścisłego nadzoru medycznego,-->
+<!--                            opierając się o zalecenia lekarza mającego doświadczenie w takiej rotacji.-->
+<!--                        </span>-->
+<!--                        <br>-->
+<!--                        <br>-->
+
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">metadon</span> wynosi:<br>-->
+<!--                            - dla dawek poniżej 100 mg 4:1,<br>-->
+<!--                            - dla dawek 100-300 mg 6:1,<br>-->
+<!--                            - dla dawek 301-1000 mg 12:1,<br>-->
+<!--                            - dla dawek powyżej 1000 mg 20:1.<br>-->
+<!--                            Dawka jednorazowa metadonu nie powinna przekraczać 30 mg. <br>-->
+<!--                            Rozpoczynając leczenie pamiętaj, że przez pierwsze 2-4 dni lek wypełnia rezerwuar tkankowy.-->
+<!--                        </span>-->
+
+<!--                    </span>&lt;!&ndash; show_metadon_results &ndash;&gt;-->
+
+<!--                    <span th:if="${show_dihydrokodeina_results} == 'yes'">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">dihydrokodeinę</span>-->
+<!--                            wynosi 1:10. Maksymalna dawka dobowa wynosi 240 mg.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_dihydrokodeina_results &ndash;&gt;-->
+
+
+
+<!--                    <span th:if="${show_morfinaSC_IV_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">morfinę (s.c., i.v., i.m.)</span>-->
+<!--                            wynosi: 1:2.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_morfinaSC_IV_results &ndash;&gt;-->
+
+
+<!--                    <span th:if="${show_oksykodon_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">Kalkulator wykorzystuje dawki</span>-->
+<!--                        <span class="fontsize14 fatter">chlorowodorku oksykodonu.</span>-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na (czysty)-->
+<!--                            oksykodon wynosi: 2:1. Z powodu indywidualnych różnic rozważ redukcję wyliczonej-->
+<!--                            dawki oksykodonu o 50-75%.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_oksykodon_results &ndash;&gt;-->
+
+
+<!--                    <span th:if="${show_tapentadol_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">tapentadol</span>-->
+<!--                            wynosi: 1:2,5 do 1:3,3. W wyniku kalkulacji otrzymasz obie-->
+<!--                            liczby (przedział). Maksymalna dobowa dawka tapentadolu wynosi 500 mg.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_tapentadol_results &ndash;&gt;-->
+
+
+
+
+<!--                    <span th:if="${show_tramadolTbl_results} == 'yes'">-->
+<!--                      <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">tramadol (doustnie)</span>-->
+<!--                            wynosi: 1:5 - 1:10. W wyniku kalkulacji otrzymasz obie liczby-->
+<!--                            (przedział).<br>-->
+<!--                            Stosowanie tramadolu w kroplach umożliwia dokładnie miareczkowanie bólu.-->
+<!--                            20 kropli = 50 mg tramadolu.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_tramadolTbl_results &ndash;&gt;-->
+
+
+
+
+
+<!--                    <span th:if="${show_tramadol_SC_results} == 'yes'">-->
+<!--                      <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray spanjustify">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">tramadol (s.c., i.v.)</span>-->
+<!--                            wynosi: 1:10.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_tramadol_SC_results &ndash;&gt;-->
+
+
+
+
+
+
+<!--                    <span th:if="${show_fentanylPlaster_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">fentanyl (plastry)</span> wynosi:<br>-->
+<!--                            <br>-->
+<!--                            - ≤44 mg/d – 12 µg/h<br>-->
+<!--                            - 45–89 mg/d – 25 µg/h<br>-->
+<!--                            - 90–149 mg/d – 50 µg/h<br>-->
+<!--                            - 150–209 mg/d - 75 µg/h<br>-->
+<!--                            - 210–269 mg/d – 100 µg/h<br>-->
+<!--                            - 270–329 mg/d – 125 µg/h<br>-->
+<!--                            - 330–389 mg/d – 150 µg/h<br>-->
+<!--                            - 390–449 mg/d – 175 µg/h<br>-->
+<!--                            - 450–509 mg/d – 200 µg/h<br>-->
+<!--                            - 510–569 mg/d – 225 µg/h<br>-->
+<!--                            - 570–629 mg/d – 250 µg/h<br>-->
+<!--                            - 630–689 mg/d – 275 µg/h<br>-->
+<!--                            - 690–749 mg/d – 300 µg/h<br>-->
+<!--                            <br>-->
+<!--                            Maksymalna dawka fentanylu w plastrach nie powinna przekraczać 300 µg/h.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_fentanylPlaster_results &ndash;&gt;-->
+
+
+<!--                    <span th:if="${show_buprenorfinaPlaster_results} == 'yes'">-->
+<!--                        <br>-->
+<!--                        <hr class="dark_line">-->
+<!--                        <span class="fontsize14 darkergray">-->
+<!--                            Wykorzystany w kalkulatorze przelicznik doustnej morfiny na-->
+<!--                            <span class="fontsize14 fatter">buprenorfinę (plastry)</span>-->
+<!--                            wynosi 1:75 do 1:115. W wyniku kalkulacji otrzymasz obie liczby (przedział). Dobierając-->
+<!--                            dawkę weź pod uwagę wskazania kliniczne, sposób podania i zmienność osobniczą.<br>-->
+<!--                            Maksymalna dawka dobowa wynosi: dwa plastry po 70 μg/h.-->
+<!--                        </span>-->
+<!--                    </span>&lt;!&ndash; show_buprenorfinaPlaster_results &ndash;&gt;-->
+
+<!--                  &lt;!&ndash; =========== SHOW DRUG INFO / End =========== &ndash;&gt;-->
+
+
+
+
+
+
+
+
+
+<!--                </div>&lt;!&ndash; darkthick_frame &ndash;&gt;-->
+<!--                </span>&lt;!&ndash; showResultsAfterCalulation == 'yes' &ndash;&gt;-->
+<!--                </span>&lt;!&ndash; if showResults == 'yes' &ndash;&gt;-->
+
+
+
+<!--      <br>-->
+<!--      <br>-->
+
+<!--      <div class="row">-->
+<!--        <div class="col-md-3"></div>-->
+
+<!--        <div class="col-md-6 redbackground text-center">-->
+<!--          <a class="blad" href="https://mistrzpolikarp.pl/kalkulator-kontakt/" target="_blank">-->
+<!--            Widzisz BŁĄD na stronie? Pomóż nam i napisz!-->
+<!--          </a>-->
+<!--        </div>&lt;!&ndash; col-md-6 &ndash;&gt;-->
+<!--        <div class="col-md-3"></div>-->
+<!--      </div>&lt;!&ndash; row &ndash;&gt;-->
+
+
+
+
+
+
+<!--    </div>&lt;!&ndash; content_inside_resultspage &ndash;&gt;-->
+
+
+<!--  </div>&lt;!&ndash; content &ndash;&gt;-->
+
+<!--  <div class="emptyspace15px"></div>-->
+
+
+
+
+
+<!--</div>-->

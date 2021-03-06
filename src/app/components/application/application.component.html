@@ -1,0 +1,75 @@
+<div class="maindiv">
+  <div class="emptyspace15px"></div>
+  <div class="content">
+    <div class="content_inside">
+      <h4 class="title">{{title}}</h4>
+      <hr class="paddingBottom10px">
+
+      <form autocomplete="on" [formGroup]="opioidForm" (ngSubmit)="onSubmit()">
+        <h5>{{conversionFromText}}</h5>
+
+        <!-- ===== opioid 1 ===== -->
+        <form-opioid [parentFormGroup]="opioidForm"></form-opioid>
+
+        <h8 class="gray">{{optionallyText}}</h8>
+        <div class="paddingBottom10px"></div>
+
+        <!-- ===== opioid 2 ===== -->
+        <div class="accordion modified-accordion">
+          <div class="accordion-group">
+            <div class="verythinspace"></div>
+            <form-opioid [parentFormGroup]="opioidForm"></form-opioid>
+          </div>
+
+          <!-- ===== opioid 3 ===== -->
+          <div class="accordion-group">
+            <div class="verythinspace"></div>
+            <form-opioid [parentFormGroup]="opioidForm"></form-opioid>
+          </div>
+        </div>
+
+
+        <!-- ===== fentanyl plastry ===== -->
+        <div class="accordion-group">
+          <div class="emptyspace15px"></div>
+          <div class="opioid_konwertowany_wrapper">
+            <div class="accordion-heading">
+              <div class="bottom">
+                <a class="accordion-toggle linkbeige displaynone" data-toggle="collapse"
+                   href="#collapseThree">
+                  <i class="fas fa-plus-circle"></i> fentanyl (transdermalnie)
+                </a>
+              </div>
+            </div>
+            <div class="verythinspace"></div>
+            <div id="collapseThree" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <form-fentanyl [parentFormGroup]="opioidForm"></form-fentanyl>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+        <!-- =============================== submit btn =============================== -->
+        <div class="d-flex justify-content-end">
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group" role="group">
+              <input class="btn btn-secondary my-1 btn-block mr-1" type="reset" value="Wyczyść">
+            </div>
+            <div class="btn-group" role="group">
+              <input class="btn btn-danger my-1 btn-block mr-1" type="submit" value="Przelicz">
+            </div>
+          </div>
+        </div>
+        <!-- =============================== submit btn / end =============================== -->
+
+      </form>
+    </div>
+  </div>
+  <div class="emptyspace15px"></div>
+</div>
