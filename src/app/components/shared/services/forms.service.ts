@@ -9,12 +9,32 @@ export class FormsService {
     unit: '.unit'
   };
 
+  public formFentanylFields: any = {
+    fentanylDose: 'fentanylDose'
+  };
+
+  public formBuprenorfineFields: any = {
+    buprenorphineDose: 'buprenorphineDose'
+  };
+
   public fillFormOpioid(name: string): FormGroup {
     return new FormGroup({
       [name + this.formOpioidFields.name]: new FormControl('-- wybierz lek --'),
       [name + this.formOpioidFields.numberOfDoses]: new FormControl('razy/doba'),
       [name + this.formOpioidFields.dose]: new FormControl(null),
       [name + this.formOpioidFields.unit]: new FormControl('mg')
+    });
+  }
+
+  public fillFormFentanyl(): FormGroup {
+    return new FormGroup({
+      [this.formFentanylFields.fentanylDose]: new FormControl(0)
+    });
+  }
+
+  public fillFormBuprenorphine(): FormGroup {
+    return new FormGroup({
+      [this.formBuprenorfineFields.buprenorphineDose]: new FormControl(0)
     });
   }
 }

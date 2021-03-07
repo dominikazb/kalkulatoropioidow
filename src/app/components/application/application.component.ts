@@ -35,8 +35,6 @@ export class ApplicationComponent implements OnInit {
 
   private buildForm(): void {
     this.opioidConversionForm = new FormGroup({
-      [this.opioidConversionFormFields.fentanyl]: new FormControl(),
-      [this.opioidConversionFormFields.buprenorphine]: new FormControl(),
       [this.opioidConversionFormFields.conversionTo]: new FormControl(),
       [this.opioidConversionFormFields.doseReduction]: new FormControl(),
     });
@@ -56,16 +54,48 @@ export class ApplicationComponent implements OnInit {
       this.opioidConversionForm.registerControl(key, control);
     });
 
+    const fentanylForm = this.formsService.fillFormFentanyl();
+    _.forEach(fentanylForm.controls, (control: AbstractControl, key: string) => {
+      this.opioidConversionForm.registerControl(key, control);
+    });
+
+    const buprenorphineForm = this.formsService.fillFormBuprenorphine();
+    _.forEach(buprenorphineForm.controls, (control: AbstractControl, key: string) => {
+      this.opioidConversionForm.registerControl(key, control);
+    });
+
+  }
+
+  private getValue(controlName: string): AbstractControl {
+    return this.opioidConversionForm.get([controlName])?.value;
   }
 
 
 
   public onSubmit(): void {
     console.log('form has been submitted');
-    console.log(this.opioidConversionForm.get(['firstOpioid.name'])?.value);
-    console.log(this.opioidConversionForm.get(['firstOpioid.numberOfDoses'])?.value);
-    console.log(this.opioidConversionForm.get(['firstOpioid.dose'])?.value);
-    console.log(this.opioidConversionForm.get(['firstOpioid.unit'])?.value);
-  }
+    console.log(this.opioidConversionForm);
 
+    console.log('firstOpioid: '
+                + this.getValue('firstOpioid.name') + ' | '
+                + this.getValue('firstOpioid.numberOfDoses') + ' | '
+                + this.getValue('firstOpioid.dose') + ' | '
+                + this.getValue('firstOpioid.unit'));
+
+    console.log('secondOpioid: '
+      + this.getValue('secondOpioid.name') + ' | '
+      + this.getValue('secondOpioid.numberOfDoses') + ' | '
+      + this.getValue('secondOpioid.dose') + ' | '
+      + this.getValue('secondOpioid.unit'));
+
+    console.log('thirdOpioid: '
+      + this.getValue('thirdOpioid.name') + ' | '
+      + this.getValue('thirdOpioid.numberOfDoses') + ' | '
+      + this.getValue('thirdOpioid.dose') + ' | '
+      + this.getValue('thirdOpioid.unit'));
+
+    console.log('fentanyl: ' + this.getValue('fentanylDose'));
+
+    console.log('buprenorphine: ' + this.getValue('buprenorphineDose'));
+  }
 }

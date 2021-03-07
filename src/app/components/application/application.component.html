@@ -6,6 +6,7 @@
       <hr class="paddingBottom10px">
 
       <form autocomplete="on" [formGroup]="opioidConversionForm" (ngSubmit)="onSubmit()">
+
         <h5>{{conversionFromText}}</h5>
 
         <form-opioid
@@ -13,52 +14,21 @@
           [parentFormGroup]="opioidConversionForm">
         </form-opioid>
 
-        <h6 class="gray">{{optionallyText}}</h6>
-        <div class="paddingBottom10px"></div>
+        <h6 class="gray paddingBottom10px">{{optionallyText}}</h6>
 
-        <div class="accordion modified-accordion">
-          <div class="accordion-group">
-            <div class="verythinspace"></div>
-            <form-opioid
-              [name]="opioidConversionFormFields.secondOpioid"
-              [parentFormGroup]="opioidConversionForm">
-            </form-opioid>
-          </div>
+        <form-opioid
+          [name]="opioidConversionFormFields.secondOpioid"
+          [parentFormGroup]="opioidConversionForm">
+        </form-opioid>
 
-          <div class="accordion-group">
-            <div class="verythinspace"></div>
-            <form-opioid
-              [name]="opioidConversionFormFields.thirdOpioid"
-              [parentFormGroup]="opioidConversionForm">
-            </form-opioid>
-          </div>
-        </div>
+        <form-opioid
+          [name]="opioidConversionFormFields.thirdOpioid"
+          [parentFormGroup]="opioidConversionForm">
+        </form-opioid>
 
-
-        <!-- ===== fentanyl plastry ===== -->
-        <div class="accordion-group">
-          <div class="emptyspace15px"></div>
-          <div class="opioid_konwertowany_wrapper">
-            <div class="accordion-heading">
-              <div class="bottom">
-                <a class="accordion-toggle linkbeige displaynone" data-toggle="collapse"
-                   href="#collapseThree">
-                  <i class="fas fa-plus-circle"></i> fentanyl (transdermalnie)
-                </a>
-              </div>
-            </div>
-            <div class="verythinspace"></div>
-            <div id="collapseThree" class="accordion-body collapse">
-              <div class="accordion-inner">
-                <form-fentanyl [parentFormGroup]="opioidConversionForm"></form-fentanyl>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
+        <form-fentanyl [parentFormGroup]="opioidConversionForm"></form-fentanyl>
+        <div class="paddingBottom20px"></div>
+        <form-buprenorphine [parentFormGroup]="opioidConversionForm"></form-buprenorphine>
 
 
         <!-- =============================== submit btn =============================== -->

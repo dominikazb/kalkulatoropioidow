@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {FormsService} from '../../shared/services/forms.service';
 
 @Component({
-  selector: 'app-form-buprenorphine',
+  // tslint:disable-next-line:component-selector
+  selector: 'form-buprenorphine',
   templateUrl: './form-buprenorphine.component.html',
   styleUrls: ['./form-buprenorphine.component.css']
 })
-export class FormBuprenorphineComponent implements OnInit {
+export class FormBuprenorphineComponent {
 
-  constructor() { }
+  // @ts-ignore
+  @Input() parentFormGroup: FormGroup;
+  public titleText = 'Buprenorfina transdermalnie:';
+  public buprenorphineDoses: number[] = [0, 17.5, 26.25, 35, 52.5, 70, 87.5, 105, 122.5, 140];
+  public unit = 'μg/h';
 
-  ngOnInit(): void {
-  }
-
+  constructor(public formsService: FormsService) { }
 }
