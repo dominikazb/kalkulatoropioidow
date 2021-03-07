@@ -5,26 +5,32 @@
       <h4 class="title">{{title}}</h4>
       <hr class="paddingBottom10px">
 
-      <form autocomplete="on" [formGroup]="opioidForm" (ngSubmit)="onSubmit()">
+      <form autocomplete="on" [formGroup]="opioidConversionForm" (ngSubmit)="onSubmit()">
         <h5>{{conversionFromText}}</h5>
 
-        <!-- ===== opioid 1 ===== -->
-        <form-opioid [parentFormGroup]="opioidForm"></form-opioid>
+        <form-opioid
+          [name]="opioidConversionFormFields.firstOpioid"
+          [parentFormGroup]="opioidConversionForm">
+        </form-opioid>
 
-        <h8 class="gray">{{optionallyText}}</h8>
+        <h6 class="gray">{{optionallyText}}</h6>
         <div class="paddingBottom10px"></div>
 
-        <!-- ===== opioid 2 ===== -->
         <div class="accordion modified-accordion">
           <div class="accordion-group">
             <div class="verythinspace"></div>
-            <form-opioid [parentFormGroup]="opioidForm"></form-opioid>
+            <form-opioid
+              [name]="opioidConversionFormFields.secondOpioid"
+              [parentFormGroup]="opioidConversionForm">
+            </form-opioid>
           </div>
 
-          <!-- ===== opioid 3 ===== -->
           <div class="accordion-group">
             <div class="verythinspace"></div>
-            <form-opioid [parentFormGroup]="opioidForm"></form-opioid>
+            <form-opioid
+              [name]="opioidConversionFormFields.thirdOpioid"
+              [parentFormGroup]="opioidConversionForm">
+            </form-opioid>
           </div>
         </div>
 
@@ -44,7 +50,7 @@
             <div class="verythinspace"></div>
             <div id="collapseThree" class="accordion-body collapse">
               <div class="accordion-inner">
-                <form-fentanyl [parentFormGroup]="opioidForm"></form-fentanyl>
+                <form-fentanyl [parentFormGroup]="opioidConversionForm"></form-fentanyl>
               </div>
             </div>
           </div>

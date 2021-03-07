@@ -11,6 +11,7 @@ import {FormFentanylComponent} from './components/sub-components/form-fentanyl/f
 import {FormBuprenorphineComponent} from './components/sub-components/form-buprenorphine/form-buprenorphine.component';
 import {FormConversionToComponent} from './components/sub-components/form-conversion-to/form-conversion-to.component';
 import {DrugService} from './components/shared/services/drug.service';
+import {FormsService} from './components/shared/services/forms.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {DrugService} from './components/shared/services/drug.service';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [DrugService],
+  providers: [DrugService, FormsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

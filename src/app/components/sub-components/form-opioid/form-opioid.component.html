@@ -1,11 +1,10 @@
-<div [formGroup]="opioidForm">
+<div [formGroup]="parentFormGroup">
 <div class="opioid_konwertowany__wrapper_top">
   <div class="row">
     <div class="form-group col-md-6" >
-      <select
-              formControlName="opioid"
-              id="opioid"
-              name="opioid"
+      <select [formControlName]="name+formsService.formOpioidFields.name"
+              [id]="name+formsService.formOpioidFields.name"
+              [name]="name+formsService.formOpioidFields.name"
               class="form-control">
         <option selected disabled value="-- wybierz lek --">-- wybierz lek --</option>
         <option *ngFor="let opioid of opioids" [value]="opioid.index">{{opioid.name}}</option>
@@ -13,10 +12,10 @@
     </div>
 
     <div class="form-group col-md-2">
-      <select class="form-control"
-              formControlName="opioidNumberOfDoses"
-              id="opioidNumberOfDoses"
-              name="opioidNumberOfDoses">
+      <select [formControlName]="name+formsService.formOpioidFields.numberOfDoses"
+              [id]="name+formsService.formOpioidFields.numberOfDoses"
+              [name]="name+formsService.formOpioidFields.numberOfDoses"
+              class="form-control">
         <option selected disabled value="razy/doba">razy/doba</option>
         <option *ngFor="let number of numberOfDoses" [value]="number">{{number}}</option>
       </select>
@@ -29,16 +28,17 @@
              inputmode="decimal"
              onfocus="this.value=''"
              class="form-control"
-             id="opioidDose"
+             [id]="name+formsService.formOpioidFields.dose"
+             [name]="name+formsService.formOpioidFields.dose"
              placeholder="dawka"
-             formControlName="opioidDose"/>
+             [formControlName]="name+formsService.formOpioidFields.dose">
     </div>
 
     <div class="form-group col-md-2">
-      <select class="form-control"
-              formControlName="opioidUnit"
-              id="opioidUnit"
-              name="opioidUnit">
+      <select [formControlName]="name+formsService.formOpioidFields.unit"
+              [id]="name+formsService.formOpioidFields.unit"
+              [name]="name+formsService.formOpioidFields.unit"
+              class="form-control">
         <option *ngFor="let unit of units" [value]="unit">{{unit}}</option>
       </select>
     </div>
