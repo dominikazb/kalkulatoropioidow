@@ -17,6 +17,11 @@ export class FormsService {
     buprenorphineDose: 'buprenorphineDose'
   };
 
+  public formConversionToFields: any = {
+    opioidToCovertTo: 'opioidToCovertTo',
+    doseReduction: 'doseReduction'
+  };
+
   public fillFormOpioid(name: string): FormGroup {
     return new FormGroup({
       [name + this.formOpioidFields.name]: new FormControl('-- wybierz lek --'),
@@ -35,6 +40,13 @@ export class FormsService {
   public fillFormBuprenorphine(): FormGroup {
     return new FormGroup({
       [this.formBuprenorfineFields.buprenorphineDose]: new FormControl(0)
+    });
+  }
+
+  public fillFormConversionTo(): FormGroup {
+    return new FormGroup({
+      [this.formConversionToFields.opioidToCovertTo]: new FormControl('-- wybierz lek --'),
+      [this.formConversionToFields.doseReduction]: new FormControl('0%')
     });
   }
 }

@@ -231,6 +231,14 @@ div.container.h-100 {
   color: #CCC;
 }
 
+.conversion_to_wrapper {
+  background-color: #E8E8E8;
+  border-radius: 10px;
+  padding-right:8px;
+  padding-left:8px;
+  padding-top:20px;
+}
+
 
 
 /* ------------------------------------------ tu skonczylam sprawdzac */
@@ -347,13 +355,7 @@ hr.dark_line {
   padding-bottom:3px;
 }
 
-.konwersjanawrapper {
-  background-color: #E8E8E8;
-  border-radius: 10px;
-  padding-right:8px;
-  padding-left:8px;
-  padding-top:20px;
-}
+
 
 
 

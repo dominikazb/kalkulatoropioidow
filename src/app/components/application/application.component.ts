@@ -34,10 +34,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   private buildForm(): void {
-    this.opioidConversionForm = new FormGroup({
-      [this.opioidConversionFormFields.conversionTo]: new FormControl(),
-      [this.opioidConversionFormFields.doseReduction]: new FormControl(),
-    });
+    this.opioidConversionForm = new FormGroup({});
 
     const firstOpioidForm = this.formsService.fillFormOpioid(this.opioidConversionFormFields.firstOpioid);
     _.forEach(firstOpioidForm.controls, (control: AbstractControl, key: string) => {
@@ -61,6 +58,11 @@ export class ApplicationComponent implements OnInit {
 
     const buprenorphineForm = this.formsService.fillFormBuprenorphine();
     _.forEach(buprenorphineForm.controls, (control: AbstractControl, key: string) => {
+      this.opioidConversionForm.registerControl(key, control);
+    });
+
+    const conversionToForm = this.formsService.fillFormConversionTo();
+    _.forEach(conversionToForm.controls, (control: AbstractControl, key: string) => {
       this.opioidConversionForm.registerControl(key, control);
     });
 
@@ -97,5 +99,9 @@ export class ApplicationComponent implements OnInit {
     console.log('fentanyl: ' + this.getValue('fentanylDose'));
 
     console.log('buprenorphine: ' + this.getValue('buprenorphineDose'));
+
+    console.log('conversionTo: '
+      + this.getValue('opioidToCovertTo') + ' | '
+      + this.getValue('doseReduction'));
   }
 }

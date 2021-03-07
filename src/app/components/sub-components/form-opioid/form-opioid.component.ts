@@ -18,15 +18,13 @@ export class FormOpioidComponent implements OnInit {
   public opioids: DrugModel[] = [];
   public numberOfDoses: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   public units: string[] = ['mg', 'μg'];
-  public opioidForm: FormGroup;
 
 
   constructor(public formsService: FormsService,
               private drugService: DrugService) {
-    this.opioidForm = new FormGroup({});
   }
 
   ngOnInit(): void {
-    this.opioids = this.drugService.createListOfDrugs();
+    this.opioids = this.drugService.listOfDrugs();
   }
 }

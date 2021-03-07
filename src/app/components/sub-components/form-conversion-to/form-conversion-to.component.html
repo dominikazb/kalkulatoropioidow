@@ -1,1 +1,35 @@
-<p>form-conversion-to works!</p>
+<div [formGroup]="parentFormGroup">
+  <h5>{{conversionToText}}</h5>
+  <div class="conversion_to_wrapper">
+    <div class="row justify-content-center align-items-center">
+      <div class="form-group col-md-12">
+        <select [formControlName]="formsService.formConversionToFields.opioidToCovertTo"
+                [id]="formsService.formConversionToFields.opioidToCovertTo"
+                [name]="formsService.formConversionToFields.opioidToCovertTo"
+                class="form-control">
+          <option selected disabled value="-- wybierz lek --">-- wybierz lek --</option>
+          <option *ngFor="let opioid of opioids" [value]="opioid.index">{{opioid.description}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="paddingBottom20px"></div>
+
+  <div class="row">
+    <div class="col-md-2 form-group">
+      <div class="bottom">
+        <h6 class="darkergray">{{doseReductionText}}</h6>
+      </div>
+    </div>
+    <div class="col-md-2 form-group">
+      <select [formControlName]="formsService.formConversionToFields.doseReduction"
+              [id]="formsService.formConversionToFields.doseReduction"
+              [name]="formsService.formConversionToFields.doseReduction"
+              class="form-control">
+        <option *ngFor="let doseReduction of doseReductionRange"
+                [value]="doseReduction">{{doseReduction}}%</option>
+      </select>
+    </div>
+  </div>
+</div>
