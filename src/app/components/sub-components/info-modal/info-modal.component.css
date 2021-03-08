@@ -1,0 +1,36 @@
+.modal-content {
+  font-family: Helvetica;
+  font-size: 12px;
+  width: 100%;
+}
+
+div.modal-header {
+  padding-top:30px;
+  padding-bottom:20px;
+}
+
+.text_red {
+  color:red;
+}
+
+
+.error {
+  color: #F00;
+  background-color: #FFF;
+}
+
+.justify_text {
+  text-align: justify;
+}
+
+.fontsize_14 {
+  font-size: 14px;
+}
+
+.fontsize_15 {
+  font-size: 15px;
+}
+
+.inline {
+  display: inline;
+}

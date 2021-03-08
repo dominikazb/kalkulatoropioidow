@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup} from '@angular/forms';
 import * as _ from 'underscore';
 import {FormsService} from '../shared/services/forms.service';
+import {BsModalRef, BsModalService, ModalOptions} from 'ngx-bootstrap/modal';
+import {InfoModalComponent} from '../sub-components/info-modal/info-modal.component';
 
 @Component({
   selector: 'app-application',
@@ -26,11 +28,24 @@ export class ApplicationComponent implements OnInit {
   public conversionFromText = 'Konwersja z:';
   public optionallyText = 'Opcjonalnie:';
 
-  constructor(private formsService: FormsService) {
+  config: ModalOptions = {
+    class: 'modal-xl',
+    ignoreBackdropClick: true,
+    keyboard: false
+  };
+  modalRef: BsModalRef;
+
+  constructor(private formsService: FormsService,
+              private modalService: BsModalService) {
   }
 
   ngOnInit(): void {
+    this.openModal();
     this.buildForm();
+  }
+
+  public openModal(): void {
+    this.modalRef = this.modalService.show(InfoModalComponent, this.config, );
   }
 
   private buildForm(): void {

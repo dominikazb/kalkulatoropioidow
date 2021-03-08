@@ -40,7 +40,7 @@ hr.dark_line {
 
 @media only screen and (max-width: 760px) , ( min-device-width : 768px)
 and (max-device-width: 1024px) {
-  h6.red_color {
+  h6.text_red {
     text-align: justify;
   }
   div.dark_thick_frame {
@@ -76,11 +76,11 @@ a.blad:hover {
   color: white;
 }
 
-.red_color {
+.text_red {
   color:red;
 }
 
-.fontsize14 {
+.fontsize_14 {
   font-size: 14px;
 }
 

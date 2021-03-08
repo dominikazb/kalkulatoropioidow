@@ -1,1 +1,79 @@
-<p>info-modal works!</p>
+<div class="modal-content">
+  <div class="modal-header d-block">
+    <h3 class="modal-title text-center text_red">{{infoModalData.title}}</h3>
+  </div>
+  <div class="modal-body">
+    <p class="fontsize_14 justify_text">
+      {{infoModalData.text1}}
+    </p>
+
+    <form [formGroup]="infoModalForm" (submit)="onSubmit()">
+      <div class="form-group">
+
+        <div class="form-check">
+          <input formControlName="checkBox1"
+                 id="checkBox1"
+                 class="form-check-input"
+                 type="checkbox"
+                 value="">
+          <label class="form-check-label fontsize_15 text_red" for="checkBox1">
+            {{infoModalData.consent1}}
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input formControlName="checkBox2"
+                 id="checkBox2"
+                 class="form-check-input"
+                 type="checkbox"
+                 value="">
+          <label class="form-check-label fontsize_15 text_red" for="checkBox2">
+            {{infoModalData.consent2a}}
+            <a href="{{infoModalData.consent2link}}" target="_blank">{{infoModalData.consent2b}}</a>
+            {{infoModalData.consent2c}}
+            <a href="{{infoModalData.consent2link}}" target="_blank">{{infoModalData.consent2d}}</a>.
+          </label>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <h5>{{infoModalData.subTitle1}}</h5>
+
+        <p class="justify_text">{{infoModalData.text2}}</p>
+
+        <br>
+
+        <b>{{infoModalData.owner1}}</b><br>
+        <b>{{infoModalData.owner2}}</b><br>
+        <b>{{infoModalData.owner3}}</b><br>
+        <b>{{infoModalData.owner4}}</b><br>
+        <b>{{infoModalData.owner5}}</b><br>
+        <b>{{infoModalData.owner6}}</b>
+
+        <br><br><br>
+
+        <h5>{{infoModalData.subTitle2}}</h5>
+        <p class="justify_text">
+          {{infoModalData.text3}}
+          <a href="{{infoModalData.consent2link}}" target="_blank">{{infoModalData.consent2link}}</a>
+        </p>
+        <p class="justify_text">{{infoModalData.text4}}</p>
+        <p class="justify_text">{{infoModalData.text5}}</p>
+        <p class="justify_text">{{infoModalData.text6}}</p>
+        <p class="justify_text">{{infoModalData.text7}}</p>
+        <h5>{{infoModalData.subTitle3}}</h5>
+        <p class="justify_text">{{infoModalData.text8}}</p>
+        <h5>{{infoModalData.subTitle4}}</h5>
+        <p class="justify_text">{{infoModalData.text9}}</p>
+      </div>
+      <div class="modal-footer">
+        <button [disabled]="!infoModalForm.valid"
+                type="submit"
+                class="btn btn-danger"
+                id="btnSaveIt">{{infoModalData.btnText}}</button>
+      </div>
+    </form>
+  </div>
+</div>

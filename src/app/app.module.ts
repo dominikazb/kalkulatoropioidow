@@ -12,7 +12,11 @@ import {FormBuprenorphineComponent} from './components/sub-components/form-bupre
 import {FormConversionToComponent} from './components/sub-components/form-conversion-to/form-conversion-to.component';
 import {DrugService} from './components/shared/services/drug.service';
 import {FormsService} from './components/shared/services/forms.service';
-import { InfoModalComponent } from './components/sub-components/info-modal/info-modal.component';
+import {InfoModalComponent} from './components/sub-components/info-modal/info-modal.component';
+import {RouterModule} from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -27,11 +31,19 @@ import { InfoModalComponent } from './components/sub-components/info-modal/info-
     InfoModalComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    BrowserModule,
+    ReactiveFormsModule,
+    RouterModule,
+    NgbModule,
+    ModalModule.forRoot(),
+    BrowserAnimationsModule
   ],
-  providers: [DrugService, FormsService],
-  bootstrap: [AppComponent]
+  providers: [
+    DrugService,
+    FormsService],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
