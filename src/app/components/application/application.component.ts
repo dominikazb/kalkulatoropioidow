@@ -2,9 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormGroup} from '@angular/forms';
 import * as _ from 'underscore';
 import {FormsService} from '../shared/services/forms.service';
-import {BsModalRef, BsModalService, ModalOptions} from 'ngx-bootstrap/modal';
-import {InfoModalComponent} from '../sub-components/info-modal/info-modal.component';
-import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-application',
@@ -29,27 +26,11 @@ export class ApplicationComponent implements OnInit {
   public conversionFromText = 'Konwersja z:';
   public optionallyText = 'Opcjonalnie:';
 
-  modalConfig: ModalOptions = {
-    class: 'modal-xl',
-    ignoreBackdropClick: true,
-    keyboard: false
-  };
-  modalRef: BsModalRef;
-
-  constructor(private formsService: FormsService,
-              private modalService: BsModalService,
-              private cookieService: CookieService) {
+  constructor(private formsService: FormsService) {
   }
 
   ngOnInit(): void {
-    this.openModal();
     this.buildForm();
-  }
-
-  public openModal(): void {
-    if (this.cookieService.get('modalWasOpen') !== 'true') {
-      this.modalRef = this.modalService.show(InfoModalComponent, this.modalConfig);
-    }
   }
 
   private buildForm(): void {
@@ -91,8 +72,6 @@ export class ApplicationComponent implements OnInit {
     return this.opioidConversionForm.get([controlName])?.value;
   }
 
-
-
   public onSubmit(): void {
     this.printResultsToConsole();
   }
@@ -133,9 +112,8 @@ export class ApplicationComponent implements OnInit {
       + this.getValue('thirdOpioid.unit'));
 
     console.log('fentanyl: ' + this.getValue('fentanylDose'));
-
     console.log('buprenorphine: ' + this.getValue('buprenorphineDose'));
-
+    
     console.log('conversionTo: '
       + this.getValue('opioidToCovertTo') + ' | '
       + this.getValue('doseReduction'));
