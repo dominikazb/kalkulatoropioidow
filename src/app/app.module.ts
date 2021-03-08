@@ -12,6 +12,7 @@ import {FormBuprenorphineComponent} from './components/sub-components/form-bupre
 import {FormConversionToComponent} from './components/sub-components/form-conversion-to/form-conversion-to.component';
 import {DrugService} from './components/shared/services/drug.service';
 import {FormsService} from './components/shared/services/forms.service';
+import { InfoModalComponent } from './components/sub-components/info-modal/info-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {FormsService} from './components/shared/services/forms.service';
     FormOpioidComponent,
     FormFentanylComponent,
     FormBuprenorphineComponent,
-    FormConversionToComponent
+    FormConversionToComponent,
+    InfoModalComponent
   ],
   imports: [
     BrowserModule,

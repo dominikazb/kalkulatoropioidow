@@ -46,7 +46,7 @@ export class FormsService {
   public fillFormConversionTo(): FormGroup {
     return new FormGroup({
       [this.formConversionToFields.opioidToCovertTo]: new FormControl('-- wybierz lek --'),
-      [this.formConversionToFields.doseReduction]: new FormControl('0%')
+      [this.formConversionToFields.doseReduction]: new FormControl(0)
     });
   }
 }

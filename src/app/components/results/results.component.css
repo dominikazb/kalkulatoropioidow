@@ -1,0 +1,86 @@
+
+/* ---------------------- results page ---------------------- */
+@media (max-width: 300px) {
+  .content_inside_resultspage {
+    padding: 10px 10px 50px;
+  }
+}
+@media (min-width: 301px) and (max-width: 600px) {
+  .content_inside_resultspage {
+    padding: 10px 10px 50px;
+  }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+  .content_inside_resultspage {
+    padding: 10px 10px 50px;
+  }
+}
+@media (min-width: 769px) {
+  .content_inside_resultspage {
+    padding: 30px 20px;
+  }
+}
+
+.dark_thick_frame {
+  background-color: #F8F8F8;
+  padding: 20px 15px;
+  border: 4px solid #555555;
+  border-radius: 10px;
+}
+
+
+hr.dark_line {
+  border: 0.5px solid #555555;
+}
+
+.padding_top_left_10 {
+  padding-top:10px;
+  padding-left: 10px;
+}
+
+@media only screen and (max-width: 760px) , ( min-device-width : 768px)
+and (max-device-width: 1024px) {
+  h6.red_color {
+    text-align: justify;
+  }
+  div.dark_thick_frame {
+    text-align: justify;
+  }
+}
+
+a.blad {
+  text-decoration: none;
+  color: white;
+}
+
+a.blad:hover {
+  text-decoration: none;
+  color: yellow;
+}
+
+.red_background {
+  padding: 15px 20px;
+  background-color: red;
+  border-radius: 10px;
+  color: white;
+}
+
+.fatter {
+  color: black;
+}
+
+.dark_background {
+  padding: 10px 15px;
+  background-color: #555555;
+  border-radius: 10px;
+  color: white;
+}
+
+.red_color {
+  color:red;
+}
+
+.fontsize14 {
+  font-size: 14px;
+}
+

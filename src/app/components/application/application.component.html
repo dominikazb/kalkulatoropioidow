@@ -1,12 +1,11 @@
-<div class="maindiv">
-  <div class="emptyspace15px"></div>
+<div class="main_div">
+  <div class="emptyspace20px"></div>
   <div class="content">
     <div class="content_inside">
       <h4 class="title">{{title}}</h4>
-      <hr class="paddingBottom10px">
+      <hr class="padding_bottom_10px">
 
       <form autocomplete="on" [formGroup]="opioidConversionForm" (ngSubmit)="onSubmit()">
-
         <h5>{{conversionFromText}}</h5>
 
         <form-opioid
@@ -14,7 +13,7 @@
           [parentFormGroup]="opioidConversionForm">
         </form-opioid>
 
-        <h6 class="gray paddingBottom10px">{{optionallyText}}</h6>
+        <h6 class="gray padding_bottom_10px">{{optionallyText}}</h6>
 
         <form-opioid
           [name]="opioidConversionFormFields.secondOpioid"
@@ -27,17 +26,17 @@
         </form-opioid>
 
         <form-fentanyl [parentFormGroup]="opioidConversionForm"></form-fentanyl>
-        <div class="paddingBottom20px"></div>
+        <div class="padding_bottom_20px"></div>
         <form-buprenorphine [parentFormGroup]="opioidConversionForm"></form-buprenorphine>
 
 
-        <hr class="paddingBottom20px">
+        <hr class="padding_bottom_20px">
 
-        <form-conversion-to [parentFormGroup]="opioidConversionForm"></form-conversion-to>
+        <form-conversion-to
+          [parentFormGroup]="opioidConversionForm"></form-conversion-to>
 
 
-        <!-- =============================== submit btn =============================== -->
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-end padding_bottom_20px">
           <div class="btn-toolbar" role="toolbar">
             <div class="btn-group" role="group">
               <input class="btn btn-secondary my-1 btn-block mr-1" type="reset" value="Wyczyść">
@@ -47,10 +46,13 @@
             </div>
           </div>
         </div>
-        <!-- =============================== submit btn / end =============================== -->
+
+
+        <hr class="padding_bottom_20px">
+        <branding-footer></branding-footer>
 
       </form>
     </div>
   </div>
-  <div class="emptyspace15px"></div>
+  <div class="emptyspace20px"></div>
 </div>

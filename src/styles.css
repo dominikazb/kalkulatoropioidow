@@ -1,4 +1,3 @@
-
 @media (max-width: 300px) {
   body, html {
     font-family: 'Roboto', sans-serif;
@@ -39,16 +38,12 @@
   }
 }
 
-.emptyspace10px {
-  height: 10px;
-}
-
-.emptyspace15px {
-  height: 15px;
+.emptyspace20px {
+  height: 20px;
 }
 
 @media (max-width: 300px) {
-  .maindiv {
+  .main_div {
     background-color: transparent;
     width: 98%;
     display: block;
@@ -57,7 +52,7 @@
   }
 }
 @media (min-width: 301px) and (max-width: 600px) {
-  .maindiv {
+  .main_div {
     background-color: transparent;
     width: 98%;
     display: block;
@@ -66,7 +61,7 @@
   }
 }
 @media (min-width: 601px) and (max-width: 768px) {
-  .maindiv {
+  .main_div {
     background-color: transparent;
     width: 98%;
     display: block;
@@ -75,7 +70,7 @@
   }
 }
 @media (min-width: 769px) {
-  .maindiv {
+  .main_div {
     background-color: transparent;
     width: 98%;
     display: block;
@@ -85,7 +80,7 @@
 }
 
 @media (min-width: 1000px) {
-  .maindiv {
+  .main_div {
     background-color: transparent;
     width: 90%;
     display: block;
@@ -94,7 +89,7 @@
   }
 }
 @media (min-width:1100px) {
-  .maindiv {
+  .main_div {
     background-color: transparent;
     width: 85%;
     display: block;
@@ -103,7 +98,7 @@
   }
 }
 @media (min-width:1300px) {
-  .maindiv {
+  .main_div {
     background-color: transparent;
     width: 85%;
     display: block;
@@ -112,7 +107,7 @@
   }
 }
 @media (min-width:1400px) {
-  .maindiv {
+  .main_div {
     background-color: transparent;
     width: 65%;
     display: block;
@@ -183,7 +178,6 @@
   }
 }
 
-
 @media (max-width: 300px) {
   .content_inside {
     padding: 10px 10px 30px;
@@ -210,16 +204,24 @@
   text-align: center;
 }
 
-.paddingBottom10px {
+.padding_bottom_10px {
   padding-bottom: 10px;
 }
 
-.paddingBottom20px {
+.padding_bottom_20px {
   padding-bottom: 20px;
 }
 
-.paddingTop15px {
+.padding_top_15px {
+  padding-top: 15px;
+}
+
+.padding_top_20px {
   padding-top: 20px;
+}
+
+.padding_top_30px {
+  padding-top:30px;
 }
 
 div.container.h-100 {
@@ -240,129 +242,48 @@ div.container.h-100 {
 }
 
 
-
-/* ------------------------------------------ tu skonczylam sprawdzac */
-
-
-
-.fatter {
-  color: black;
+.converted_opioid__wrapper_top {
+  background-color: #F8F8F8;
+  border-radius: 10px;
+  padding-right:8px;
+  padding-left:8px;
+  padding-top:20px;
 }
 
-@media (max-width: 300px) {
-  div {
-    width:100%;
-  }
-}
-@media (min-width: 301px) and (max-width: 600px) {
-  div {
-    width:100%;
-  }
-}
-@media (min-width: 601px) and (max-width: 768px) {
-  div {
-    width:100%;
-  }
-}
-@media (min-width: 769px) {
-  div {
-
-  }
+.converted_opioid__wrapper {
+  background-color: #F8F8F8;
+  border-radius: 10px;
+  padding: 10px 8px 3px;
 }
 
-.dialog {
-
-  width: 600px;
-  height: 600px;
-  background-color: white;
+.darker_gray {
+  color: #888;
 }
 
-.bottom {
+.bottom_warning {
+  padding-top: 10px;
+}
+
+div.btn-toolbar {
+  float: right;
+}
+
+.logo_ptmr {
+  height: 60px;
+}
+
+.shift_bottom_7px {
   padding-top: 7px;
   width: 100%;
 }
-
-.bottomwarning {
-  padding-top: 10px;
-}
-
-.darkbackground {
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #555555;
-  border-radius: 10px;
-  color: white;
-}
-
-
-.darkbackground_lighter {
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #dbdbdb;
-  border-radius: 10px;
-  color: black;
-}
-
-
 
 h4, h6 {
   margin: 0px;
 }
 
-
-.darkthick_frame {
-  background-color: #F8F8F8;
-  padding-right:15px;
-  padding-left:15px;
-  padding-top:20px;
-  padding-bottom:20px;
-
-  border: 4px solid #555555;
-  border-radius: 10px;
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+  background-color: #ac8e84;
 }
-
-
-hr.dark_line {
-  border: 0.5px solid #555555;
-}
-
-
-.littlepadding {
-  padding-top:10px;
-  padding-left: 10px;
-}
-
-
-
-.opioid_konwertowany__wrapper_top {
-  background-color: #F8F8F8;
-  border-radius: 10px;
-  padding-right:8px;
-  padding-left:8px;
-  padding-top:20px;
-}
-
-.opioid_konwertowany_wrapper {
-  background-color: #F8F8F8;
-  border-radius: 10px;
-  padding-right:8px;
-  padding-left:8px;
-  padding-top:10px;
-  padding-bottom:3px;
-}
-
-
-
-
-
-
-
-
-
 
 
 @media (max-width: 300px) {
@@ -394,55 +315,56 @@ hr.dark_line {
   }
 }
 
-
-/* ================== content of input forms ================== */
-
+@media (max-width: 300px) {
+  div {
+    width:100%;
+  }
+}
+@media (min-width: 301px) and (max-width: 600px) {
+  div {
+    width:100%;
+  }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+  div {
+    width:100%;
+  }
+}
 
 @media (max-width: 300px) {
   div.form-group.col-md-1 {
     padding: 0px;
   }
-
   div.form-group.col-md-2 {
     padding: 0px;
   }
-
   div.form-group.col-md-3 {
     padding: 0px;
   }
-
   div.form-group.col-md-4 {
     padding: 0px;
   }
-
   div.form-group.col-md-5 {
     padding: 0px;
   }
-
   div.form-group.col-md-6 {
     padding: 0px;
   }
-
   div.form-group.col-md-7 {
     padding: 0px;
   }
-
   div.form-group.col-md-8 {
     padding: 0px;
   }
-
   div.form-group.col-md-9 {
     padding: 0px;
   }
-
   div.form-group.col-md-10 {
     padding: 0px;
   }
-
   div.form-group.col-md-11 {
     padding: 0px;
   }
-
   div.form-group.col-md-12 {
     padding: 0px;
   }
@@ -451,162 +373,227 @@ hr.dark_line {
   div.form-group.col-md-1 {
     padding: 0px;
   }
-
   div.form-group.col-md-2 {
     padding: 0px;
   }
-
   div.form-group.col-md-3 {
     padding: 0px;
   }
-
   div.form-group.col-md-4 {
     padding: 0px;
   }
-
   div.form-group.col-md-5 {
     padding: 0px;
   }
-
   div.form-group.col-md-6 {
     padding: 0px;
   }
-
   div.form-group.col-md-7 {
     padding: 0px;
   }
-
   div.form-group.col-md-8 {
     padding: 0px;
   }
-
   div.form-group.col-md-9 {
     padding: 0px;
   }
-
   div.form-group.col-md-10 {
     padding: 0px;
   }
-
   div.form-group.col-md-11 {
     padding: 0px;
   }
-
   div.form-group.col-md-12 {
     padding: 0px;
   }
 }
+
 @media (min-width: 601px) and (max-width: 768px) {
   div.form-group.col-md-1 {
     padding: 0px;
   }
-
   div.form-group.col-md-2 {
     padding: 0px;
   }
-
   div.form-group.col-md-3 {
     padding: 0px;
   }
-
   div.form-group.col-md-4 {
     padding: 0px;
   }
-
   div.form-group.col-md-5 {
     padding: 0px;
   }
-
   div.form-group.col-md-6 {
     padding: 0px;
   }
-
   div.form-group.col-md-7 {
     padding: 0px;
   }
-
   div.form-group.col-md-8 {
     padding: 0px;
   }
-
   div.form-group.col-md-9 {
     padding: 0px;
   }
-
   div.form-group.col-md-10 {
     padding: 0px;
   }
-
   div.form-group.col-md-11 {
     padding: 0px;
   }
-
   div.form-group.col-md-12 {
     padding: 0px;
   }
-
 }
 @media (min-width: 769px) {
   div.form-group.col-md-1 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-2 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-3 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-4 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-5 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-6 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-7 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-8 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-9 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-10 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-11 {
     padding-right: 3px;
     padding-left: 3px;
   }
-
   div.form-group.col-md-12 {
     padding-right: 3px;
     padding-left: 3px;
   }
 }
+
+
+/* ======== TABLES ON MOBILE DEVICES ======== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+@media only screen and (max-width: 760px) , ( min-device-width : 768px)
+and (max-device-width: 1024px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    border: 1px solid #ccc;
+  }
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  td:before {
+    position: static;
+    color: grey;
+  }
+  td.table1:nth-of-type(1):before {
+    content: "Opioid:";
+  }
+  td.table1:nth-of-type(2):before {
+    content: "Dawka:";
+  }
+  td.table1:nth-of-type(3):before {
+    content: "Ekwiwalent morfiny:";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================ showing accordion collapsed on PC and hidden on mobile devices ================ */
+.modified-accordion .accordion-heading{
+  position: relative;
+}
+.modified-accordion .accordion-heading:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.modified-accordion .collapse:not(.show){
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .modified-accordion .collapse:not(.show){
+    display: none;
+  }
+  .modified-accordion .accordion-heading:after{
+    display: none;
+  }
+}
+.displaynone {
+  display: none;
+}
+@media (max-width: 767px) {
+  .displaynone {
+    display: inherit;
+  }
+}
+
+
+
+
+
+
 
 
 
@@ -631,17 +618,6 @@ hr.dark_line {
   }
 }
 
-
-
-
-
-.darkergray {
-  color: #888;
-}
-
-
-
-
 a.iconlink {
   text-decoration: none;
   color:red;
@@ -660,247 +636,4 @@ a.linkbeige {
 a.linkbeige:hover {
   text-decoration: none;
   color: red;
-}
-
-.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
-  background-color: #ac8e84;
-}
-
-
-
-/* ========================================= modal ========================================= */
-
-.modal-content {
-  font-family: Helvetica;
-  font-size: 12px;
-
-}
-
-div.modal-header {
-  padding-top:30px;
-  padding-bottom:20px;
-}
-
-.redcolor {
-  color:red;
-}
-
-
-.error {
-  color: #F00;
-  background-color: #FFF;
-}
-
-.justifytext {
-  text-align: justify;
-}
-
-.fontsize14 {
-  font-size: 14px;
-}
-
-.inline {
-  display: inline;
-}
-
-
-
-
-
-
-
-
-
-/* ================ showing accordion collapsed on PC and hidden on mobile devices ================ */
-.modified-accordion .accordion-heading{
-  position: relative;
-}
-
-.modified-accordion .accordion-heading:after{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-.modified-accordion .collapse:not(.show){
-  display: block;
-}
-
-@media (max-width: 767px) {
-  .modified-accordion .collapse:not(.show){
-    display: none;
-  }
-  .modified-accordion .accordion-heading:after{
-    display: none;
-  }
-}
-
-
-
-
-
-
-
-.displaynone {
-  display: none;
-}
-
-
-@media (max-width: 767px) {
-  .displaynone {
-    display: inherit;
-  }
-}
-
-.shiftright {
-  padding-left: 12px;
-}
-
-
-
-/* ======== TABLES ON MOBILE DEVICES ======== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-@media only screen and (max-width: 760px) , ( min-device-width : 768px)
-and (max-device-width: 1024px) {
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
-
-  thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  tr {
-    border: 1px solid #ccc;
-  }
-
-  td {
-    border: none;
-    border-bottom: 1px solid #eee;
-    position: relative;
-    padding-left: 50%;
-  }
-
-  td:before {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-  }
-
-  td:before {
-    position: static;
-    color: grey;
-  }
-
-  td.table1:nth-of-type(1):before {
-    content: "Opioid:";
-  }
-
-  td.table1:nth-of-type(2):before {
-    content: "Dawka:";
-  }
-
-  td.table1:nth-of-type(3):before {
-    content: "Ekwiwalent morfiny:";
-  }
-
-}
-
-
-.redbackground {
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: red;
-  border-radius: 10px;
-  color: white;
-}
-
-
-
-a.blad {
-  text-decoration: none;
-  color: white;
-}
-
-a.blad:hover {
-  text-decoration: none;
-  color: yellow;
-}
-
-
-
-
-
-@media only screen and (max-width: 760px) , ( min-device-width : 768px)
-and (max-device-width: 1024px) {
-  h6.redcolor {
-    text-align: justify;
-  }
-
-  div.darkthick_frame {
-    text-align: justify;
-  }
-
-}
-
-
-
-div.btn-toolbar {
-  text-align: right;
-}
-
-
-
-h4.centertext {
-  text-align: center;
-}
-
-.logoptmr {
-  height: 60px;
-}
-
-.bottomspace {
-  padding-top:30px;
-}
-
-.textaligncenter {
-  text-align: center;
-}
-
-
-
-
-/* ---------------------- results page ---------------------- */
-@media (max-width: 300px) {
-  .content_inside_resultspage {
-    padding: 10px 10px 50px;
-  }
-}
-@media (min-width: 301px) and (max-width: 600px) {
-  .content_inside_resultspage {
-    padding: 10px 10px 50px;
-  }
-}
-@media (min-width: 601px) and (max-width: 768px) {
-  .content_inside_resultspage {
-    padding: 10px 10px 50px;
-  }
-}
-@media (min-width: 769px) {
-  .content_inside_resultspage {
-    padding: 30px 20px;
-  }
 }
