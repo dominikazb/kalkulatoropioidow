@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import infoModalContent from '../../shared/data/infoModalContent.json';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -43,9 +44,10 @@ export class InfoModalComponent implements OnInit {
   } = infoModalContent;
 
   public infoModalForm: FormGroup;
+  public buttonDisabled = true;
 
-  constructor(public modalRef: BsModalRef) {
-    this.infoModalForm = new FormGroup({});
+  constructor(public modalRef: BsModalRef,
+              private cookieService: CookieService) {
   }
 
   ngOnInit(): void {
@@ -54,12 +56,13 @@ export class InfoModalComponent implements OnInit {
 
   public buildForm(): void {
     this.infoModalForm = new FormGroup({
-      checkBox1: new FormControl(null, Validators.required),
-      checkBox2: new FormControl(null, Validators.required)
+      checkBox1: new FormControl(false, Validators.requiredTrue),
+      checkBox2: new FormControl(false, Validators.requiredTrue)
     });
   }
 
   public onSubmit(): void {
+    this.cookieService.set('modalWasOpen', 'true');
     this.modalRef.hide();
   }
 

@@ -15,8 +15,9 @@ import {FormsService} from './components/shared/services/forms.service';
 import {InfoModalComponent} from './components/sub-components/info-modal/info-modal.component';
 import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import {ModalModule} from 'ngx-bootstrap/modal';
   ],
   providers: [
     DrugService,
-    FormsService],
+    FormsService,
+    CookieService
+  ],
   bootstrap: [
     AppComponent
   ]

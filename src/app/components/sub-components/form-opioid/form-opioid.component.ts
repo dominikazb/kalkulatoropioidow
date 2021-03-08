@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 import {DrugService} from '../../shared/services/drug.service';
 import {DrugModel} from '../../shared/model/drug.model';
 import {FormsService} from '../../shared/services/forms.service';

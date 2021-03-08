@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormGroup} from '@angular/forms';
 import * as _ from 'underscore';
 import {FormsService} from '../shared/services/forms.service';
 import {BsModalRef, BsModalService, ModalOptions} from 'ngx-bootstrap/modal';
 import {InfoModalComponent} from '../sub-components/info-modal/info-modal.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-application',
@@ -28,7 +29,7 @@ export class ApplicationComponent implements OnInit {
   public conversionFromText = 'Konwersja z:';
   public optionallyText = 'Opcjonalnie:';
 
-  config: ModalOptions = {
+  modalConfig: ModalOptions = {
     class: 'modal-xl',
     ignoreBackdropClick: true,
     keyboard: false
@@ -36,7 +37,8 @@ export class ApplicationComponent implements OnInit {
   modalRef: BsModalRef;
 
   constructor(private formsService: FormsService,
-              private modalService: BsModalService) {
+              private modalService: BsModalService,
+              private cookieService: CookieService) {
   }
 
   ngOnInit(): void {
@@ -45,7 +47,9 @@ export class ApplicationComponent implements OnInit {
   }
 
   public openModal(): void {
-    this.modalRef = this.modalService.show(InfoModalComponent, this.config, );
+    if (this.cookieService.get('modalWasOpen') !== 'true') {
+      this.modalRef = this.modalService.show(InfoModalComponent, this.modalConfig);
+    }
   }
 
   private buildForm(): void {
@@ -90,14 +94,31 @@ export class ApplicationComponent implements OnInit {
 
 
   public onSubmit(): void {
+    this.printResultsToConsole();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  private printResultsToConsole(): void {
     console.log('form has been submitted');
     console.log(this.opioidConversionForm);
 
     console.log('firstOpioid: '
-                + this.getValue('firstOpioid.name') + ' | '
-                + this.getValue('firstOpioid.numberOfDoses') + ' | '
-                + this.getValue('firstOpioid.dose') + ' | '
-                + this.getValue('firstOpioid.unit'));
+      + this.getValue('firstOpioid.name') + ' | '
+      + this.getValue('firstOpioid.numberOfDoses') + ' | '
+      + this.getValue('firstOpioid.dose') + ' | '
+      + this.getValue('firstOpioid.unit'));
 
     console.log('secondOpioid: '
       + this.getValue('secondOpioid.name') + ' | '

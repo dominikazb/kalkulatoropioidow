@@ -23,6 +23,7 @@
     "@types/underscore": "^1.11.0",
     "bootstrap": "^4.6.0",
     "ngx-bootstrap": "^6.2.0",
+    "ngx-cookie-service": "^11.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "underscore": "^1.12.0",
