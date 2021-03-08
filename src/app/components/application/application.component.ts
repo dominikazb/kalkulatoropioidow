@@ -26,8 +26,7 @@ export class ApplicationComponent implements OnInit {
   public conversionFromText = 'Konwersja z:';
   public optionallyText = 'Opcjonalnie:';
 
-  constructor(private formsService: FormsService) {
-  }
+  constructor(private formsService: FormsService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -113,7 +112,7 @@ export class ApplicationComponent implements OnInit {
 
     console.log('fentanyl: ' + this.getValue('fentanylDose'));
     console.log('buprenorphine: ' + this.getValue('buprenorphineDose'));
-    
+
     console.log('conversionTo: '
       + this.getValue('opioidToCovertTo') + ' | '
       + this.getValue('doseReduction'));

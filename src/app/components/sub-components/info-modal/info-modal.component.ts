@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import infoModalContent from '../../shared/data/infoModalContent.json';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
@@ -44,7 +44,6 @@ export class InfoModalComponent implements OnInit {
   } = infoModalContent;
 
   public infoModalForm: FormGroup;
-  public buttonDisabled = true;
 
   constructor(public modalRef: BsModalRef,
               private cookieService: CookieService) {
@@ -65,6 +64,4 @@ export class InfoModalComponent implements OnInit {
     this.cookieService.set('modalWasOpen', 'true');
     this.modalRef.hide();
   }
-
-
 }
