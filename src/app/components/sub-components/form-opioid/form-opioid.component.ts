@@ -7,8 +7,7 @@ import {FormsService} from '../../shared/services/forms.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'form-opioid',
-  templateUrl: './form-opioid.component.html',
-  styleUrls: ['./form-opioid.component.css']
+  templateUrl: './form-opioid.component.html'
 })
 export class FormOpioidComponent implements OnInit {
 

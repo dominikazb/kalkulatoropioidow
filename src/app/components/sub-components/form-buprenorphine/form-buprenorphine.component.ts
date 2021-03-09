@@ -5,8 +5,7 @@ import {FormsService} from '../../shared/services/forms.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'form-buprenorphine',
-  templateUrl: './form-buprenorphine.component.html',
-  styleUrls: ['./form-buprenorphine.component.css']
+  templateUrl: './form-buprenorphine.component.html'
 })
 export class FormBuprenorphineComponent {
 

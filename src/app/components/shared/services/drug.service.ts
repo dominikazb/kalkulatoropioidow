@@ -5,8 +5,7 @@ export class DrugService {
 
   private opioidDrugs: DrugModel[] = DRUGS;
 
-  constructor() {
-  }
+  constructor() { }
 
   public listOfDrugs(): DrugModel[] {
     return this.opioidDrugs;

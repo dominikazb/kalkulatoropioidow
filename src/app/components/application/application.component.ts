@@ -5,8 +5,7 @@ import {FormsService} from '../shared/services/forms.service';
 
 @Component({
   selector: 'app-application',
-  templateUrl: './application.component.html',
-  styleUrls: ['./application.component.css']
+  templateUrl: './application.component.html'
 })
 export class ApplicationComponent implements OnInit {
 
@@ -28,6 +27,8 @@ export class ApplicationComponent implements OnInit {
   public buprenorphineText = 'buprenorfina (transdermalnie)';
   public conversionFromText = 'Konwersja z:';
   public optionallyText = 'Opcjonalnie:';
+  public btnResetText = 'Wyczyść';
+  public btnCalculateText = 'Przelicz';
   private screenWidth: number;
 
   public firstIsCollapsed: boolean;
@@ -61,7 +62,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  getScreenSize(event?: any): void {
+  getScreenSize(): void {
     this.screenWidth = window.innerWidth;
     this.setFormsCollapsing();
   }
@@ -100,7 +101,7 @@ export class ApplicationComponent implements OnInit {
     });
   }
 
-  private getValue(controlName: string): AbstractControl {
+  private getControlValue(controlName: string): AbstractControl {
     return this.opioidConversionForm.get([controlName])?.value;
   }
 
@@ -126,28 +127,28 @@ export class ApplicationComponent implements OnInit {
     console.log(this.opioidConversionForm);
 
     console.log('firstOpioid: '
-      + this.getValue('firstOpioid.name') + ' | '
-      + this.getValue('firstOpioid.numberOfDoses') + ' | '
-      + this.getValue('firstOpioid.dose') + ' | '
-      + this.getValue('firstOpioid.unit'));
+      + this.getControlValue('firstOpioid.name') + ' | '
+      + this.getControlValue('firstOpioid.numberOfDoses') + ' | '
+      + this.getControlValue('firstOpioid.dose') + ' | '
+      + this.getControlValue('firstOpioid.unit'));
 
     console.log('secondOpioid: '
-      + this.getValue('secondOpioid.name') + ' | '
-      + this.getValue('secondOpioid.numberOfDoses') + ' | '
-      + this.getValue('secondOpioid.dose') + ' | '
-      + this.getValue('secondOpioid.unit'));
+      + this.getControlValue('secondOpioid.name') + ' | '
+      + this.getControlValue('secondOpioid.numberOfDoses') + ' | '
+      + this.getControlValue('secondOpioid.dose') + ' | '
+      + this.getControlValue('secondOpioid.unit'));
 
     console.log('thirdOpioid: '
-      + this.getValue('thirdOpioid.name') + ' | '
-      + this.getValue('thirdOpioid.numberOfDoses') + ' | '
-      + this.getValue('thirdOpioid.dose') + ' | '
-      + this.getValue('thirdOpioid.unit'));
+      + this.getControlValue('thirdOpioid.name') + ' | '
+      + this.getControlValue('thirdOpioid.numberOfDoses') + ' | '
+      + this.getControlValue('thirdOpioid.dose') + ' | '
+      + this.getControlValue('thirdOpioid.unit'));
 
-    console.log('fentanyl: ' + this.getValue('fentanylDose'));
-    console.log('buprenorphine: ' + this.getValue('buprenorphineDose'));
+    console.log('fentanyl: ' + this.getControlValue('fentanylDose'));
+    console.log('buprenorphine: ' + this.getControlValue('buprenorphineDose'));
 
     console.log('conversionTo: '
-      + this.getValue('opioidToCovertTo') + ' | '
-      + this.getValue('doseReduction'));
+      + this.getControlValue('opioidToCovertTo') + ' | '
+      + this.getControlValue('doseReduction'));
   }
 }

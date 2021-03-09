@@ -5,8 +5,7 @@ import {FormsService} from '../../shared/services/forms.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'form-fentanyl',
-  templateUrl: './form-fentanyl.component.html',
-  styleUrls: ['./form-fentanyl.component.css']
+  templateUrl: './form-fentanyl.component.html'
 })
 export class FormFentanylComponent {
 

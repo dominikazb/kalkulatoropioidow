@@ -7,8 +7,7 @@ import {FormsService} from '../../shared/services/forms.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'form-conversion-to',
-  templateUrl: './form-conversion-to.component.html',
-  styleUrls: ['./form-conversion-to.component.css']
+  templateUrl: './form-conversion-to.component.html'
 })
 export class FormConversionToComponent implements OnInit {
 
