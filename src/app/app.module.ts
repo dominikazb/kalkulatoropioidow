@@ -18,6 +18,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {CookieService} from 'ngx-cookie-service';
+import {ResultsService} from './components/shared/services/results.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {CookieService} from 'ngx-cookie-service';
   providers: [
     DrugService,
     FormsService,
-    CookieService
+    CookieService,
+    ResultsService
   ],
   bootstrap: [
     AppComponent

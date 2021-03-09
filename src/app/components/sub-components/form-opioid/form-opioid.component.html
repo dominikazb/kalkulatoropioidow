@@ -1,9 +1,9 @@
 <div [formGroup]="parentFormGroup">
   <div class="row">
     <div class="form-group col-md-6">
-      <select [formControlName]="name+formsService.formOpioidFields.name"
-              [id]="name+formsService.formOpioidFields.name"
-              [name]="name+formsService.formOpioidFields.name"
+      <select [formControlName]="name+formsService.formOpioidFields.index"
+              [id]="name+formsService.formOpioidFields.index"
+              [name]="name+formsService.formOpioidFields.index"
               class="form-control">
         <option selected disabled value="-- wybierz lek --">-- wybierz lek --</option>
         <option *ngFor="let opioid of opioids" [value]="opioid.index">{{opioid.description}}</option>
