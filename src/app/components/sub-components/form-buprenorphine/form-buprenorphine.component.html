@@ -1,27 +1,22 @@
 <div [formGroup]="parentFormGroup">
-  <div class="converted_opioid__wrapper">
-    <div class="padding_top_15px"></div>
-    <div class="row">
-      <div class="form-group col-md-6">
-        <div class="shift_bottom_7px">
-          <h6 class="darker_gray">{{titleText}}</h6>
-        </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <div class="shift_bottom_7px">
+        <h6 class="darker_gray padding_top_5px">{{titleText}}</h6>
       </div>
-      <div class="form-group col-md-2">
-        <select [formControlName]="formsService.formBuprenorfineFields.buprenorphineDose"
-                [id]="formsService.formBuprenorfineFields.buprenorphineDose"
-                [name]="formsService.formBuprenorfineFields.buprenorphineDose"
-                class="form-control">
-          <option *ngFor="let dose of buprenorphineDoses" [value]="dose">{{dose}}</option>
-        </select>
-      </div>
-      <div class="form-group col-md-1">
-        <div class="shift_bottom_7px">
-          <h6 class="darker_gray">{{unit}}</h6>
-        </div>
-      </div>
-
     </div>
-
+    <div class="form-group col-md-2">
+      <select [formControlName]="formsService.formBuprenorfineFields.buprenorphineDose"
+              [id]="formsService.formBuprenorfineFields.buprenorphineDose"
+              [name]="formsService.formBuprenorfineFields.buprenorphineDose"
+              class="form-control">
+        <option *ngFor="let dose of buprenorphineDoses" [value]="dose">{{dose}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-1">
+      <div class="shift_bottom_7px">
+        <h6 class="darker_gray">{{unit}}</h6>
+      </div>
+    </div>
   </div>
 </div>

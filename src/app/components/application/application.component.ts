@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {AbstractControl, FormGroup} from '@angular/forms';
 import * as _ from 'underscore';
 import {FormsService} from '../shared/services/forms.service';
@@ -23,13 +23,47 @@ export class ApplicationComponent implements OnInit {
   // @ts-ignore
   public opioidConversionForm: FormGroup;
   public title = 'Kalkulator konwersji leków opioidowych';
+  public addAnotherText = 'dodaj kolejny...';
+  public fentanylText = 'fentanyl (transdermalnie)';
+  public buprenorphineText = 'buprenorfina (transdermalnie)';
   public conversionFromText = 'Konwersja z:';
   public optionallyText = 'Opcjonalnie:';
+  private screenWidth: number;
+
+  public firstIsCollapsed: boolean;
+  public secondIsCollapsed: boolean;
+  public fentanylIsCollapsed: boolean;
+  public buprenorphineIsCollapsed: boolean;
 
   constructor(private formsService: FormsService) { }
 
   ngOnInit(): void {
+    this.getScreenSize();
     this.buildForm();
+  }
+
+  private setFormsCollapsing(): void {
+    if (this.screenWidth < 767) {
+      this.setFormsCollapsingValues(true, true, true, true);
+    } else {
+      this.setFormsCollapsingValues(false, false, false, false);
+    }
+  }
+
+  private setFormsCollapsingValues(firstIsCollapsed: boolean,
+                                   secondIsCollapsed: boolean,
+                                   fentanylIsCollapsed: boolean,
+                                   buprenorphineIsCollapsed: boolean): any {
+    this.firstIsCollapsed = firstIsCollapsed;
+    this.secondIsCollapsed = secondIsCollapsed;
+    this.fentanylIsCollapsed = fentanylIsCollapsed;
+    this.buprenorphineIsCollapsed = buprenorphineIsCollapsed;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?: any): void {
+    this.screenWidth = window.innerWidth;
+    this.setFormsCollapsing();
   }
 
   private buildForm(): void {
@@ -64,7 +98,6 @@ export class ApplicationComponent implements OnInit {
     _.forEach(conversionToForm.controls, (control: AbstractControl, key: string) => {
       this.opioidConversionForm.registerControl(key, control);
     });
-
   }
 
   private getValue(controlName: string): AbstractControl {
