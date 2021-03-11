@@ -1,125 +1,96 @@
 <div class="main_div">
+  <div class="empty_space_20px"></div>
   <div class="content">
     <div class="content_inside_resultspage">
+      <div *ngIf="!showResults">
+        <h5 class="darker_gray text-center padding_bottom_20px">{{noResultsText}}</h5>
+        <div class="text_align_center">
+        <a class="" href="#" routerLink="/">{{goBackText}}</a>
+        </div>
+      </div>
+      <div *ngIf="showResults">
+      <section>
+        <div class="dark_background"><h4>{{resultsText}}</h4></div><br>
 
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">{{opioidText}}</th>
+            <th scope="col">{{dailyDoseText}}</th>
+            <th scope="col">{{morphineEquivalentText}}</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="opioidWasChosen(data.firstOpioid)">
+              <td class="table1">{{data.firstOpioid.description}}</td>
+              <td class="table1">{{firstOpioidDailyDose | number : '1.2-2'}} mg</td>
+              <td class="table1" *ngIf="firstOpioidMorphineEquivalent.min === firstOpioidMorphineEquivalent.max">
+                {{firstOpioidMorphineEquivalent.min | number : '1.2-2'}} mg
+              </td>
+              <td class="table1" *ngIf="firstOpioidMorphineEquivalent.min !== firstOpioidMorphineEquivalent.max">
+                {{firstOpioidMorphineEquivalent.min | number : '1.2-2'}} - {{firstOpioidMorphineEquivalent.max |
+                  number : '1.2-2'}} mg
+              </td>
+            </tr>
+            <tr *ngIf="opioidWasChosen(data.secondOpioid)">
+              <td class="table1">{{data.secondOpioid.description}}</td>
+              <td class="table1">{{secondOpioidDailyDose | number : '1.2-2'}} mg</td>
+              <td class="table1" *ngIf="secondOpioidMorphineEquivalent.min === secondOpioidMorphineEquivalent.max">
+                {{secondOpioidMorphineEquivalent.min | number : '1.2-2'}} mg
+              </td>
+              <td class="table1" *ngIf="secondOpioidMorphineEquivalent.min !== secondOpioidMorphineEquivalent.max">
+                {{secondOpioidMorphineEquivalent.min | number : '1.2-2'}} - {{secondOpioidMorphineEquivalent.max |
+                number : '1.2-2'}} mg
+              </td>
+            </tr>
+            <tr *ngIf="opioidWasChosen(data.thirdOpioid)">
+              <td class="table1">{{data.thirdOpioid.description}}</td>
+              <td class="table1">{{thirdOpioidDailyDose | number : '1.2-2'}} mg</td>
+              <td class="table1" *ngIf="thirdOpioidMorphineEquivalent.min === thirdOpioidMorphineEquivalent.max">
+                {{thirdOpioidMorphineEquivalent.min | number : '1.2-2'}} mg
+              </td>
+              <td class="table1" *ngIf="thirdOpioidMorphineEquivalent.min !== thirdOpioidMorphineEquivalent.max">
+                {{thirdOpioidMorphineEquivalent.min | number : '1.2-2'}} - {{thirdOpioidMorphineEquivalent.max |
+                number : '1.2-2'}} mg
+              </td>
+            </tr>
+            <tr *ngIf="plasterWasChosen(data.fentanyl)">
+              <td class="table1">{{data.fentanyl.description}}</td>
+              <td class="table1">{{fentanylDailyDose | number : '1.2-2'}} mg</td>
+              <td class="table1">
+                {{fentanylMorphineEquivalent.min | number : '1.2-2'}} - {{fentanylMorphineEquivalent.max |
+                number : '1.2-2'}} mg
+              </td>
+            </tr>
+            <tr *ngIf="plasterWasChosen(data.buprenorphine)">
+              <td class="table1">{{data.buprenorphine.description}}</td>
+              <td class="table1">{{buprenorphineDailyDose | number : '1.2-2'}} mg</td>
+              <td class="table1">
+                {{buprenorphineMorphineEquivalent.min | number : '1.2-2'}} - {{buprenorphineMorphineEquivalent.max |
+                number : '1.2-2'}} mg
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-                <span th:if="${showResults == 'no'}">
-                    <br>
-                    <h5 class="darker_gray text-center">Nie wybrano żadnych leków.</h5>
-                </span>
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-6 dark_background text-center">
+            <div *ngIf="sumOfMorphineEquivalents.min === sumOfMorphineEquivalents.max">
+              {{sumOfMorphineEquivalents.min}} mg
+            </div>
+            <div *ngIf="sumOfMorphineEquivalents.min !== sumOfMorphineEquivalents.max">
+              {{sumOfMorphineEquivalents.min}} - {{sumOfMorphineEquivalents.max}} mg
+            </div>
+          </div>
+        </div>
 
-      <span th:if="${showResults == 'yes'}">
-                <div class="dark_background">
-                    <h4>WYNIKI</h4>
-                </div>
-
-                <br>
-
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Opioid</th>
-                        <th scope="col">Dawka dzienna</th>
-                        <th scope="col">Ekwiwalent morfiny</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <span th:if="${drugsResult.getFirstOpioidName() != '0'}">
-                        <tr>
-                            <td class="table1" th:text="${drugsResult.getFirstOpioidName()}"></td>
-                            <td class="table1"
-                                th:text="${#numbers.formatDecimal(firstOpioidTotalDailyDose,1,2)} + ' mg'"></td>
-                            <td class="table1"
-                                th:if="${firstOpioidMorphineEquivalentRange.getMin()} == ${firstOpioidMorphineEquivalentRange.getMax()}"
-                                th:text="${#numbers.formatDecimal(firstOpioidMorphineEquivalentRange.getMin(),1,2)} + ' mg'"></td>
-                            <td class="table1"
-                                th:if="${firstOpioidMorphineEquivalentRange.getMin()} != ${firstOpioidMorphineEquivalentRange.getMax()}"
-                                th:text="${#numbers.formatDecimal(firstOpioidMorphineEquivalentRange.getMin(),1,2)} + ' - ' +
-                                 ${#numbers.formatDecimal(firstOpioidMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>
-                        </tr>
-                    </span>
-
-
-                    <span th:if="${drugsResult.getSecondOpioidName() != '0'}">
-                        <tr>
-                            <td class="table1" th:text="${drugsResult.getSecondOpioidName()}"></td>
-                            <td class="table1"
-                                th:text="${#numbers.formatDecimal(secondOpioidTotalDailyDose,1,2)} + ' mg'"></td>
-                            <td class="table1"
-                                th:if="${secondOpioidMorphineEquivalentRange.getMin()} == ${secondOpioidMorphineEquivalentRange.getMax()}"
-                                th:text="${#numbers.formatDecimal(secondOpioidMorphineEquivalentRange.getMin(),1,2)} + ' mg'"></td>
-                            <td class="table1"
-                                th:if="${secondOpioidMorphineEquivalentRange.getMin()} != ${secondOpioidMorphineEquivalentRange.getMax()}"
-                                th:text="${#numbers.formatDecimal(secondOpioidMorphineEquivalentRange.getMin(),1,2)} + ' - ' +
-                                 ${#numbers.formatDecimal(secondOpioidMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>
-                        </tr>
-                    </span>
-
-                    <span th:if="${drugsResult.getThirdOpioidName() != '0'}">
-                        <tr>
-                            <td class="table1" th:text="${drugsResult.getThirdOpioidName()}"></td>
-                            <td class="table1"
-                                th:text="${#numbers.formatDecimal(thirdOpioidTotalDailyDose,1,2)} + ' mg'"></td>
-                             <td class="table1"
-                                 th:if="${thirdOpioidMorphineEquivalentRange.getMin()} == ${thirdOpioidMorphineEquivalentRange.getMax()}"
-                                 th:text="${#numbers.formatDecimal(thirdOpioidMorphineEquivalentRange.getMin(),1,2)} + ' mg'"></td>
-                            <td class="table1"
-                                th:if="${thirdOpioidMorphineEquivalentRange.getMin()} != ${thirdOpioidMorphineEquivalentRange.getMax()}"
-                                th:text="${#numbers.formatDecimal(thirdOpioidMorphineEquivalentRange.getMin(),1,2)} + ' - ' +
-                                 ${#numbers.formatDecimal(thirdOpioidMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>
-                        </tr>
-                    </span>
-
-
-                    <span th:if="${drugsResult.fentanylDose > 0}">
-                        <tr>
-                            <td class="table1">Fentanyl transdermalnie</td>
-                            <td class="table1"
-                                th:text="${#numbers.formatDecimal(fentanylPlasterDailyDose,1,2)} + ' mg'"></td>
-                            <td class="table1"
-                                th:text="${#numbers.formatDecimal(fentanylPlasterMorphineEquivalentRange.getMin(),1,2)} + ' - ' +
-                                    ${#numbers.formatDecimal(fentanylPlasterMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>
-                        </tr>
-                    </span>
-
-                    <span th:if="${drugsResult.buprenorfinaDose > 0}">
-                        <tr>
-                            <td class="table1">Buprenorfina transdermalnie</td>
-                            <td class="table1" th:text="${#numbers.formatDecimal(buprenorfinaPlasterDailyDose,1,2)} + ' mg'"></td>
-                            <td class="table1"
-                                th:text="${#numbers.formatDecimal(buprenorfinaPlasterMorphineEquivalentRange.getMin(),1,2)} + ' - ' +
-                                    ${#numbers.formatDecimal(buprenorfinaPlasterMorphineEquivalentRange.getMax(),1,2)} + ' mg'"></td>
-                        </tr>
-                    </span>
-                    </tbody>
-                </table>
-
-                <div class="row">
-                    <div class="col-md-6"></div>
-
-                    <div class="col-md-6 dark_background text-center">
-
-                            <span th:if="${sumOfMorphineEquivalents.getMin() == sumOfMorphineEquivalents.getMax()}">
-                                <h6 th:text="'SUMA: ' + ${#numbers.formatDecimal(sumOfMorphineEquivalents.getMin(),1,2)} + ' mg'">
-                                </h6>
-                            </span>
-
-                            <span th:if="${sumOfMorphineEquivalents.getMin() != sumOfMorphineEquivalents.getMax()}">
-                                <h6 th:text="'SUMA: ' + ${#numbers.formatDecimal(sumOfMorphineEquivalents.getMin(),1,2)} +
-                                        ' - ' + ${#numbers.formatDecimal(sumOfMorphineEquivalents.getMax(),1,2)}
-                                        + ' mg'"></h6>
-                            </span>
-
-                    </div><!-- col-md-6 darkcbackground text-center -->
-                </div><!-- row -->
+        <br><hr><br>
 
 
 
 
-                <br>
-                <hr>
-                <br>
+
 
         <!-- ======================================== SHOW RESULTS ======================================== -->
 
@@ -1285,7 +1256,7 @@
 
                 </div><!-- darkthick_frame -->
                 </span><!-- showResultsAfterCalulation == 'yes' -->
-                </span><!-- if showResults == 'yes' -->
+                </section><!-- if showResults == 'yes' -->
 
 
 
@@ -1306,17 +1277,8 @@
 
 
 
-
-
+      </div>
     </div><!-- content_inside_resultspage -->
-
-
   </div><!-- content -->
-
   <div class="emptyspace15px"></div>
-
-
-
-
-
 </div>

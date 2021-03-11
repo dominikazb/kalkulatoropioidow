@@ -2,7 +2,11 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {AbstractControl, FormGroup} from '@angular/forms';
 import * as _ from 'underscore';
 import {FormsService} from '../shared/services/forms.service';
-import {ResultsModel} from '../shared/model/results.model';
+import {Results} from '../shared/model/results';
+import {Router} from '@angular/router';
+import {ResultsService} from '../shared/services/results.service';
+import {Opioid} from '../shared/model/opioid';
+import {OpioidService} from '../shared/services/opioid.service';
 
 @Component({
   selector: 'app-application',
@@ -37,7 +41,10 @@ export class ApplicationComponent implements OnInit {
   public fentanylIsCollapsed: boolean;
   public buprenorphineIsCollapsed: boolean;
 
-  constructor(private formsService: FormsService) { }
+  constructor(private formsService: FormsService,
+              private opioidService: OpioidService,
+              private router: Router,
+              private results: ResultsService) { }
 
   ngOnInit(): void {
     this.getScreenSize();
@@ -103,47 +110,54 @@ export class ApplicationComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const results: ResultsModel = this.collectResults();
+    const formResults: Results = this.collectResults();
+    console.log(this.opioidConversionForm);
+    this.results.setResults(formResults);
+    this.router.navigate(['/results']).then(() => {});
  }
 
-  private collectResults(): ResultsModel {
-    const firstOpioidIndex: number = parseInt(
-      this.opioidConversionForm.controls['firstOpioid.index'].value, 10);
-    const firstOpioidNumberOfDoses: number = parseInt(
-      this.opioidConversionForm.controls['firstOpioid.numberOfDoses'].value, 10);
-    const firstOpioidDose: number = parseInt(
-      this.opioidConversionForm.controls['firstOpioid.dose'].value, 10);
-    const firstOpioidUnit: string =
-      this.opioidConversionForm.controls['firstOpioid.unit'].value;
-    const secondOpioidIndex: number = parseInt(
-      this.opioidConversionForm.controls['secondOpioid.index'].value, 10);
-    const secondOpioidNumberOfDoses: number = parseInt(
-      this.opioidConversionForm.controls['secondOpioid.numberOfDoses'].value, 10);
-    const secondOpioidDose: number = parseInt(
-      this.opioidConversionForm.controls['secondOpioid.dose'].value, 10);
-    const secondOpioidUnit: string =
-      this.opioidConversionForm.controls['secondOpioid.unit'].value;
-    const thirdOpioidIndex: number = parseInt(
-      this.opioidConversionForm.controls['thirdOpioid.index'].value, 10);
-    const thirdOpioidNumberOfDoses: number = parseInt(
-      this.opioidConversionForm.controls['thirdOpioid.numberOfDoses'].value, 10);
-    const thirdOpioidDose: number = parseInt(
-      this.opioidConversionForm.controls['thirdOpioid.dose'].value, 10);
-    const thirdOpioidUnit: string =
-      this.opioidConversionForm.controls['thirdOpioid.unit'].value;
-    const fentanylDose: number = parseInt(
-      this.opioidConversionForm.controls[this.formsService.formFentanylFields.fentanylDose].value, 10);
-    const buprenorphineDose: number = parseInt(
-      this.opioidConversionForm.controls[this.formsService.formBuprenorfineFields.buprenorphineDose].value, 10);
-    const opioidToConvertTo: number = parseInt(
-      this.opioidConversionForm.controls[this.formsService.formConversionToFields.opioidToCovertTo].value, 10);
-    const doseReduction: number = parseInt(
-      this.opioidConversionForm.controls[this.formsService.formConversionToFields.doseReduction].value, 10);
+  private collectResults(): Results {
+    const opioidToConvertToIndex: number = parseInt(this.getControlValue('opioidToCovertTo'), 10);
+    const opioidToConvertTo: Opioid = this.opioidService.getOpioid(opioidToConvertToIndex);
+    const doseReduction: number = parseInt(this.getControlValue('doseReduction'), 10);
 
-    return new ResultsModel(
-      firstOpioidIndex, firstOpioidNumberOfDoses, firstOpioidDose, firstOpioidUnit,
-      secondOpioidIndex, secondOpioidNumberOfDoses, secondOpioidDose, secondOpioidUnit,
-      thirdOpioidIndex, thirdOpioidNumberOfDoses, thirdOpioidDose, thirdOpioidUnit,
-      fentanylDose, buprenorphineDose, opioidToConvertTo, doseReduction);
+    return new Results(
+      this.setOpioidData('firstOpioid'),
+      this.setOpioidData('secondOpioid'),
+      this.setOpioidData('thirdOpioid'),
+      this.setFentanylData(),
+      this.setBuprenorphineData(),
+      opioidToConvertTo, doseReduction);
+  }
+
+  private setOpioidData(opioidNo: string): Opioid {
+    const index: number = parseFloat(this.getControlValue(opioidNo + '.index'));
+    const numberOfDoses: number = parseFloat(this.getControlValue(opioidNo + '.numberOfDoses'));
+    const dose: number = parseFloat(this.getControlValue(opioidNo + '.dose'));
+    const unit: string = this.getControlValue(opioidNo + '.unit');
+
+    const opioid: Opioid = this.opioidService.getOpioid(index);
+    opioid.setNumberOfDoses(numberOfDoses ? numberOfDoses : 0);
+    opioid.setDose(dose ? dose : 0);
+    opioid.setUnit(unit);
+    return opioid;
+  }
+
+  private setFentanylData(): Opioid {
+    const fentanylDose: number = parseFloat(this.getControlValue('fentanylDose'));
+    const fentanyl: Opioid = this.opioidService.getFentanyl();
+    fentanyl.setDose(fentanylDose);
+    return fentanyl;
+  }
+
+  private setBuprenorphineData(): Opioid {
+    const buprenorphineDose: number = parseFloat(this.getControlValue('buprenorphineDose'));
+    const buprenorphine: Opioid = this.opioidService.getBuprenorphine();
+    buprenorphine.setDose(buprenorphineDose);
+    return buprenorphine;
+  }
+
+  private getControlValue(controlName: any): any {
+    return this.opioidConversionForm.controls[controlName].value;
   }
 }

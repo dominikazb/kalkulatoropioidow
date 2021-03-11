@@ -24,7 +24,7 @@ export class FormsService {
 
   public fillFormOpioid(name: string): FormGroup {
     return new FormGroup({
-      [name + this.formOpioidFields.index]: new FormControl('-- wybierz lek --'),
+      [name + this.formOpioidFields.index]: new FormControl(0),
       [name + this.formOpioidFields.numberOfDoses]: new FormControl('razy/doba'),
       [name + this.formOpioidFields.dose]: new FormControl(null),
       [name + this.formOpioidFields.unit]: new FormControl('mg')
@@ -45,7 +45,7 @@ export class FormsService {
 
   public fillFormConversionTo(): FormGroup {
     return new FormGroup({
-      [this.formConversionToFields.opioidToCovertTo]: new FormControl('-- wybierz lek --'),
+      [this.formConversionToFields.opioidToCovertTo]: new FormControl(0),
       [this.formConversionToFields.doseReduction]: new FormControl(0)
     });
   }

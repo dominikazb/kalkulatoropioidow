@@ -5,7 +5,7 @@
       <h4 class="title">{{title}}</h4>
       <hr class="padding_bottom_10px">
 
-      <form autocomplete="on" [formGroup]="opioidConversionForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="opioidConversionForm" (ngSubmit)="onSubmit()">
         <h5>{{conversionFromText}}</h5>
 
         <div class="converted_opioid__wrapper_top">
@@ -93,10 +93,14 @@
         <div class="d-flex justify-content-end padding_bottom_20px">
           <div class="btn-toolbar" role="toolbar">
             <div class="btn-group" role="group">
-              <input class="btn btn-secondary my-1 btn-block mr-1" type="reset" value="{{btnResetText}}">
+              <input class="btn btn-secondary my-1 btn-block mr-1"
+                     type="reset"
+                     value="{{btnResetText}}">
             </div>
             <div class="btn-group" role="group">
-              <input class="btn btn-danger my-1 btn-block mr-1" type="submit" value="{{btnCalculateText}}">
+              <input class="btn btn-danger my-1 btn-block mr-1"
+                     type="submit"
+                     value="{{btnCalculateText}}">
             </div>
           </div>
         </div>

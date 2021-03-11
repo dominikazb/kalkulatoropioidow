@@ -10,7 +10,7 @@ import {FormOpioidComponent} from './components/sub-components/form-opioid/form-
 import {FormFentanylComponent} from './components/sub-components/form-fentanyl/form-fentanyl.component';
 import {FormBuprenorphineComponent} from './components/sub-components/form-buprenorphine/form-buprenorphine.component';
 import {FormConversionToComponent} from './components/sub-components/form-conversion-to/form-conversion-to.component';
-import {DrugService} from './components/shared/services/drug.service';
+import {OpioidService} from './components/shared/services/opioid.service';
 import {FormsService} from './components/shared/services/forms.service';
 import {InfoModalComponent} from './components/sub-components/info-modal/info-modal.component';
 import {RouterModule} from '@angular/router';
@@ -19,6 +19,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {CookieService} from 'ngx-cookie-service';
 import {ResultsService} from './components/shared/services/results.service';
+import {TotalDailyDoseService} from './components/shared/services/calculations/total.daily.dose.service';
+import {MorphineEquivalentService} from './components/shared/services/calculations/morphine.equivalent.service';
 
 @NgModule({
   declarations: [
@@ -42,10 +44,12 @@ import {ResultsService} from './components/shared/services/results.service';
     BrowserAnimationsModule
   ],
   providers: [
-    DrugService,
+    OpioidService,
     FormsService,
     CookieService,
-    ResultsService
+    MorphineEquivalentService,
+    ResultsService,
+    TotalDailyDoseService
   ],
   bootstrap: [
     AppComponent

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {DrugModel} from '../../shared/model/drug.model';
-import {DrugService} from '../../shared/services/drug.service';
+import {Opioid} from '../../shared/model/opioid';
+import {OpioidService} from '../../shared/services/opioid.service';
 import {FormsService} from '../../shared/services/forms.service';
 
 @Component({
@@ -13,15 +13,15 @@ export class FormConversionToComponent implements OnInit {
 
   // @ts-ignore
   @Input() parentFormGroup: FormGroup;
-  public opioids: DrugModel[] = [];
+  public opioids: Opioid[] = [];
   public conversionToText = 'Konwersja na:';
   public doseReductionText = 'Redukcja dawki:';
   public doseReductionRange: number[] = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90];
 
   constructor(public formsService: FormsService,
-              private drugService: DrugService) { }
+              private drugService: OpioidService) { }
 
   ngOnInit(): void {
-    this.opioids = this.drugService.listOfDrugsWithTransdermalPlasters();
+    this.opioids = this.drugService.getOpioids();
   }
 }
