@@ -81,6 +81,18 @@ a.blad:hover {
   font-size: 14px;
 }
 
+tr:nth-child(odd) {
+  background-color: transparent;
+}
+
+tr:nth-child(even) {
+  background-color: #F8F8F8;
+}
+
+th {
+  background-color: transparent;
+}
+
 /* ======== TABLES ON MOBILE DEVICES ======== */
 table {
   width: 100%;
@@ -103,7 +115,6 @@ and (max-device-width: 1024px) {
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
-    padding-left: 50%;
   }
   td:before {
     position: absolute;
