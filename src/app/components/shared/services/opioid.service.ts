@@ -4,7 +4,7 @@ import {OPIOIDS} from '../data/opioids';
 export class OpioidService {
 
   public getOpioid(index: number): Opioid {
-    let opioid: Opioid = new Opioid(0, '', '', 0, 0, 0, 0, 0, '');
+    let opioid: Opioid = new Opioid(0, '', 0, 0, 0);
     OPIOIDS.forEach(opioidFromList => {
       if (opioidFromList.index === index) {
         opioid = opioidFromList;

@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ResultsService} from '../shared/services/results.service';
-import {TotalDailyDoseService} from '../shared/services/calculations/total.daily.dose.service';
 import {Results} from '../shared/model/results';
-import {MorphineEquivalentService} from '../shared/services/calculations/morphine.equivalent.service';
 import {MinMax} from '../shared/model/minMax';
 import {Opioid} from '../shared/model/opioid';
 import {Router} from '@angular/router';
+import {CalculationsService} from '../shared/services/calculations.service';
 
 @Component({
   selector: 'app-results',
@@ -23,38 +22,35 @@ export class ResultsComponent implements OnInit {
 
   public data: Results;
 
-  public firstOpioidDailyDose: number;
-  public secondOpioidDailyDose: number;
-  public thirdOpioidDailyDose: number;
-  public fentanylDailyDose: number;
-  public buprenorphineDailyDose: number;
-
-  public firstOpioidMorphineEquivalent: MinMax;
-  public secondOpioidMorphineEquivalent: MinMax;
-  public thirdOpioidMorphineEquivalent: MinMax;
-  public fentanylMorphineEquivalent: MinMax;
-  public buprenorphineMorphineEquivalent: MinMax;
-
   public sumOfMorphineEquivalents: MinMax;
 
   public opioidToConvertTo: number;
   public doseReduction: number;
+  public opioidsForTable: Opioid[] = [];
 
   public showResults = true;
 
-  constructor(private totalDailyDoseService: TotalDailyDoseService,
-              private morphineEquivalentService: MorphineEquivalentService,
+  constructor(private calculationsService: CalculationsService,
               private results: ResultsService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.getResults();
+    this.createArrayOfOpioids();
     console.log(this.data);
     this.loadResultsOrRedirect();
   }
 
   private getResults(): void {
     this.data = this.results.getResults();
+  }
+
+  private createArrayOfOpioids(): void {
+    this.opioidsForTable.push(this.data.firstOpioid);
+    this.opioidsForTable.push(this.data.secondOpioid);
+    this.opioidsForTable.push(this.data.thirdOpioid);
+    this.opioidsForTable.push(this.data.fentanyl);
+    this.opioidsForTable.push(this.data.buprenorphine);
   }
 
   private loadResultsOrRedirect(): void {
@@ -89,59 +85,16 @@ export class ResultsComponent implements OnInit {
   }
 
   private getData(): void {
-    this.setDailyDoses(this.data);
-    this.setMorphineEquivalents();
-    this.setSumOfMorphineEquivalents();
-  }
-
-  private setDailyDoses(results: Results): void {
-    this.firstOpioidDailyDose = this.totalDailyDoseService.calculateOpioidTotalDailyDose(results.firstOpioid.index,
-      results.firstOpioid.numberOfDoses, results.firstOpioid.dose, results.firstOpioid.unit);
-    this.secondOpioidDailyDose = this.totalDailyDoseService.calculateOpioidTotalDailyDose(results.secondOpioid.index,
-      results.secondOpioid.numberOfDoses, results.secondOpioid.dose, results.secondOpioid.unit);
-    this.thirdOpioidDailyDose = this.totalDailyDoseService.calculateOpioidTotalDailyDose(results.thirdOpioid.index,
-      results.thirdOpioid.numberOfDoses, results.thirdOpioid.dose, results.thirdOpioid.unit);
-    this.fentanylDailyDose = this.totalDailyDoseService.calculateOpioidPlasterTotalDailyDose(results.fentanyl.dose);
-    this.buprenorphineDailyDose = this.totalDailyDoseService.calculateOpioidPlasterTotalDailyDose(results.buprenorphine.dose);
-  }
-
-  private setMorphineEquivalents(): void {
-    this.firstOpioidMorphineEquivalent = this.morphineEquivalent(this.firstOpioidDailyDose, this.data.firstOpioid);
-    this.secondOpioidMorphineEquivalent = this.morphineEquivalent(this.secondOpioidDailyDose, this.data.secondOpioid);
-    this.thirdOpioidMorphineEquivalent = this.morphineEquivalent(this.thirdOpioidDailyDose, this.data.thirdOpioid);
-    this.fentanylMorphineEquivalent =
-      this.morphineEquivalentService.calculateMorphineEquivalentForFentanylPlaster(this.data.fentanyl.dose);
-    this.buprenorphineMorphineEquivalent =
-      this.morphineEquivalentService.calculateMorphineEquivalentForBuprenorfinaPlaster(this.buprenorphineDailyDose);
-  }
-
-  private morphineEquivalent(dailyDose: number, opioid: Opioid): MinMax {
-    let morphineEquivalent: MinMax;
-    if (opioid.index === 7) {
-      morphineEquivalent = this.morphineEquivalentService.calculateMorphineEquivalentForMetadon(
-        dailyDose);
-    } else {
-      morphineEquivalent = this.morphineEquivalentService.calculateMorphineEquivalent(
-        opioid, dailyDose);
-    }
-    return morphineEquivalent;
+    this.calculationsService.setDailyDosesForOpioids(this.data);
+    this.calculationsService.setMorphineEquivalentsForOpioids(this.data);
+    this.sumOfMorphineEquivalents = this.calculationsService.setSumOfMorphineEquivalents(this.data);
   }
 
   public opioidWasChosen(opioid: Opioid): boolean {
-    return opioid.index !== 0 && opioid.numberOfDoses !== 0 && opioid.dose !== 0;
+    return opioid.index !== 0 && opioid.results.numberOfDoses !== 0 && opioid.results.dose !== 0;
   }
 
   public plasterWasChosen(opioid: Opioid): boolean {
-    return opioid.dose !== 0;
-  }
-
-  private setSumOfMorphineEquivalents(): void {
-    this.sumOfMorphineEquivalents = this.morphineEquivalentService.sumUpMorphineEquivalentRangeForAllDrugs(
-      this.firstOpioidMorphineEquivalent,
-      this.secondOpioidMorphineEquivalent,
-      this.thirdOpioidMorphineEquivalent,
-      this.fentanylMorphineEquivalent,
-      this.buprenorphineMorphineEquivalent
-    );
+    return opioid.results.dose !== 0;
   }
 }

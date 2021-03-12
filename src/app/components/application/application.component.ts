@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {ResultsService} from '../shared/services/results.service';
 import {Opioid} from '../shared/model/opioid';
 import {OpioidService} from '../shared/services/opioid.service';
+import {OpioidResults} from '../shared/model/opioid.results';
 
 @Component({
   selector: 'app-application',
@@ -137,23 +138,25 @@ export class ApplicationComponent implements OnInit {
     const unit: string = this.getControlValue(opioidNo + '.unit');
 
     const opioid: Opioid = this.opioidService.getOpioid(index);
-    opioid.setNumberOfDoses(numberOfDoses ? numberOfDoses : 0);
-    opioid.setDose(dose ? dose : 0);
-    opioid.setUnit(unit);
+    const results: OpioidResults = new OpioidResults(numberOfDoses ? numberOfDoses : 0,
+      dose ? dose : 0, unit);
+    opioid.setResults(results);
     return opioid;
   }
 
   private setFentanylData(): Opioid {
     const fentanylDose: number = parseFloat(this.getControlValue('fentanylDose'));
     const fentanyl: Opioid = this.opioidService.getFentanyl();
-    fentanyl.setDose(fentanylDose);
+    const results: OpioidResults = new OpioidResults(0, fentanylDose, '');
+    fentanyl.setResults(results);
     return fentanyl;
   }
 
   private setBuprenorphineData(): Opioid {
     const buprenorphineDose: number = parseFloat(this.getControlValue('buprenorphineDose'));
     const buprenorphine: Opioid = this.opioidService.getBuprenorphine();
-    buprenorphine.setDose(buprenorphineDose);
+    const results: OpioidResults = new OpioidResults(0, buprenorphineDose, '');
+    buprenorphine.setResults(results);
     return buprenorphine;
   }
 

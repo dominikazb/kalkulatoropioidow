@@ -21,6 +21,8 @@ import {CookieService} from 'ngx-cookie-service';
 import {ResultsService} from './components/shared/services/results.service';
 import {TotalDailyDoseService} from './components/shared/services/calculations/total.daily.dose.service';
 import {MorphineEquivalentService} from './components/shared/services/calculations/morphine.equivalent.service';
+import {CalculationsService} from './components/shared/services/calculations.service';
+import { OpioidInfoComponent } from './components/sub-components/opioid-info/opioid-info.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {MorphineEquivalentService} from './components/shared/services/calculatio
     FormFentanylComponent,
     FormBuprenorphineComponent,
     FormConversionToComponent,
-    InfoModalComponent
+    InfoModalComponent,
+    OpioidInfoComponent
   ],
   imports: [
     AppRoutingModule,
@@ -44,6 +47,7 @@ import {MorphineEquivalentService} from './components/shared/services/calculatio
     BrowserAnimationsModule
   ],
   providers: [
+    CalculationsService,
     OpioidService,
     FormsService,
     CookieService,
