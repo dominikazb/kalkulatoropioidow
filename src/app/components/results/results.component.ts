@@ -19,15 +19,14 @@ export class ResultsComponent implements OnInit {
   public morphineEquivalentText = 'Ekwiwalent morfiny';
   public goBackText = 'Wróć do strony głównej';
   public noResultsText = 'Nie wybrano żadnych leków.';
+  public contactText = 'https://mistrzpolikarp.pl/kalkulator-kontakt/';
+  public contactTextInfo = 'Widzisz BŁĄD na stronie? Pomóż nam i napisz!';
 
   public data: Results;
-
   public sumOfMorphineEquivalents: MinMax;
-
   public opioidToConvertTo: number;
   public doseReduction: number;
-  public opioidsForTable: Opioid[] = [];
-
+  public opioidsForHTML: Opioid[] = [];
   public showResults = true;
 
   constructor(private calculationsService: CalculationsService,
@@ -36,8 +35,7 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getResults();
-    this.createArrayOfOpioids();
-    console.log(this.data);
+    this.setOpioidsForHTML();
     this.loadResultsOrRedirect();
   }
 
@@ -45,12 +43,14 @@ export class ResultsComponent implements OnInit {
     this.data = this.results.getResults();
   }
 
-  private createArrayOfOpioids(): void {
-    this.opioidsForTable.push(this.data.firstOpioid);
-    this.opioidsForTable.push(this.data.secondOpioid);
-    this.opioidsForTable.push(this.data.thirdOpioid);
-    this.opioidsForTable.push(this.data.fentanyl);
-    this.opioidsForTable.push(this.data.buprenorphine);
+  private setOpioidsForHTML(): void {
+    if (this.data) {
+      this.opioidsForHTML.push(this.data.firstOpioid);
+      this.opioidsForHTML.push(this.data.secondOpioid);
+      this.opioidsForHTML.push(this.data.thirdOpioid);
+      this.opioidsForHTML.push(this.data.fentanyl);
+      this.opioidsForHTML.push(this.data.buprenorphine);
+    }
   }
 
   private loadResultsOrRedirect(): void {

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-opioid-info',
+  selector: 'opioid-info',
   templateUrl: './opioid-info.component.html',
   styleUrls: ['./opioid-info.component.css']
 })

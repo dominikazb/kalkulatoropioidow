@@ -112,7 +112,6 @@ export class ApplicationComponent implements OnInit {
 
   public onSubmit(): void {
     const formResults: Results = this.collectResults();
-    console.log(this.opioidConversionForm);
     this.results.setResults(formResults);
     this.router.navigate(['/results']).then(() => {});
  }
