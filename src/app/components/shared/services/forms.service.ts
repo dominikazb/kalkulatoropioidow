@@ -1,13 +1,10 @@
 import {FormControl, FormGroup} from '@angular/forms';
-import {ResultsService} from './results.service';
 import {Results} from '../model/results';
 import {Injectable} from '@angular/core';
 import {Opioid} from '../model/opioid';
 
 @Injectable()
 export class FormsService {
-
-  constructor(private results: ResultsService) {}
 
   public formOpioidFields: any = {
     index: '.index',

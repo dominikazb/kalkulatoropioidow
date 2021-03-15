@@ -5,6 +5,7 @@ import {MinMax} from '../shared/model/minMax';
 import {Opioid} from '../shared/model/opioid';
 import {Router} from '@angular/router';
 import {CalculationsService} from '../shared/services/calculations/calculations.service';
+import resultsContent from './../shared/data/resultsContent.json';
 
 @Component({
   selector: 'app-results',
@@ -13,14 +14,17 @@ import {CalculationsService} from '../shared/services/calculations/calculations.
 })
 export class ResultsComponent implements OnInit {
 
-  public resultsText = 'WYNIKI';
-  public opioidText = 'Opioid';
-  public dailyDoseText = 'Dawka dzienna';
-  public morphineEquivalentText = 'Ekwiwalent morfiny';
-  public goBackText = 'Wróć do strony głównej';
-  public noResultsText = 'Nie wybrano żadnych leków.';
-  public contactText = 'https://mistrzpolikarp.pl/kalkulator-kontakt/';
-  public contactTextInfo = 'Widzisz BŁĄD na stronie? Pomóż nam i napisz!';
+  resultsData: {
+    resultsText: string,
+    opioidText: string,
+    dailyDoseText: string,
+    morphineEquivalentText: string,
+    goBackText: string,
+    noResultsText: string,
+    contactText: string,
+    contactTextInfo: string
+  } = resultsContent;
+
 
   public data: Results;
   public sumOfMorphineEquivalents: MinMax;

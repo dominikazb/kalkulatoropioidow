@@ -3,21 +3,21 @@
   <div class="content">
     <div class="content_inside_resultspage">
       <div *ngIf="!showResults">
-        <h5 class="darker_gray text-center padding_bottom_20px">{{noResultsText}}</h5>
+        <h5 class="darker_gray text-center padding_bottom_20px">{{resultsData.noResultsText}}</h5>
         <div class="text_align_center">
-          <a class="" href="#" routerLink="/">{{goBackText}}</a>
+          <a class="" href="#" routerLink="/">{{resultsData.goBackText}}</a>
         </div>
       </div>
       <div *ngIf="showResults">
-        <div class="dark_background"><h4>{{resultsText}}</h4></div>
+        <div class="dark_background"><h4>{{resultsData.resultsText}}</h4></div>
         <br>
 
         <table class="table">
           <thead>
           <tr>
-            <th scope="col">{{opioidText}}</th>
-            <th scope="col">{{dailyDoseText}}</th>
-            <th scope="col">{{morphineEquivalentText}}</th>
+            <th scope="col">{{resultsData.opioidText}}</th>
+            <th scope="col">{{resultsData.dailyDoseText}}</th>
+            <th scope="col">{{resultsData.morphineEquivalentText}}</th>
           </tr>
           </thead>
           <tbody>
@@ -75,8 +75,8 @@
           <div class="col-md-3"></div>
 
           <div class="col-md-6 red_background text-center">
-            <a class="blad" href="{{contactText}}" target="_blank">
-              {{contactTextInfo}}
+            <a class="blad" href="{{resultsData.contactText}}" target="_blank">
+              {{resultsData.contactTextInfo}}
             </a>
           </div>
           <div class="col-md-3"></div>

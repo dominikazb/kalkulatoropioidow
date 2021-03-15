@@ -124,13 +124,6 @@ export class ApplicationComponent implements OnInit {
     });
   }
 
-  public onSubmit(): void {
-    const formResults: Results = this.collectResults();
-    this.results.setResults(formResults);
-    console.log(this.results.results);
-    this.router.navigate(['/results']).then(() => {});
- }
-
   private collectResults(): Results {
     const opioidToConvertToIndex: number = parseInt(this.getControlValue('opioidToCovertTo'), 10);
     const opioidToConvertTo: Opioid = this.opioidService.getOpioid(opioidToConvertToIndex);
@@ -176,5 +169,12 @@ export class ApplicationComponent implements OnInit {
 
   private getControlValue(controlName: any): any {
     return this.opioidConversionForm.controls[controlName].value;
+  }
+
+  public onSubmit(): void {
+    const formResults: Results = this.collectResults();
+    this.results.setResults(formResults);
+    console.log(this.results.results);
+    this.router.navigate(['/results']).then(() => {});
   }
 }
