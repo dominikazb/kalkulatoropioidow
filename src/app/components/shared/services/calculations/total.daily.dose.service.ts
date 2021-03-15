@@ -11,7 +11,7 @@ export class TotalDailyDoseService {
   }
 
   public calculateOpioidPlasterTotalDailyDose(opioidDosePerHour: number): number {
-    return opioidDosePerHour * 24 * 0.001; // *24 hrs and convert from ug to mg
+    return opioidDosePerHour * 24 * 0.001; // * 24 hrs and convert from μg to mg
   }
 
   private calculateTotalOpioidDailyDoseFromMgToMg(numberOfDoses: number, doseInMg: number): number {

@@ -50,6 +50,9 @@ export class CalculationsService {
     if (opioid.index === 7) {
       morphineEquivalent = this.morphineEquivalentService.calculateMorphineEquivalentForMetadon(
         dailyDose);
+    } else if (opioid.index === 10) {
+      morphineEquivalent = this.morphineEquivalentService.calculateMorphineEquivalentForOxycodone(
+        dailyDose);
     } else {
       morphineEquivalent = this.morphineEquivalentService.calculateMorphineEquivalent(
         opioid, dailyDose);
