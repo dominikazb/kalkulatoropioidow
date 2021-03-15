@@ -22,7 +22,7 @@
           </thead>
           <tbody>
           <ng-container *ngFor="let opioidNo of opioidsForHTML">
-          <tr *ngIf="opioidWasChosen(opioidNo) || plasterWasChosen(opioidNo)">
+          <tr *ngIf="opioidWasChosen(opioidNo)">
             <td class="table1">{{opioidNo.description}}</td>
             <td class="table1">{{opioidNo.results.dailyDose | number : '1.2-2'}} mg</td>
             <td class="table1"
@@ -36,6 +36,18 @@
               number : '1.2-2'}} mg
             </td>
           </tr>
+          </ng-container>
+          <ng-container *ngFor="let plasterNo of plastersForHTML">
+            <tr *ngIf="plasterWasChosen(plasterNo)">
+              <td class="table1">{{plasterNo.description}}</td>
+              <td class="table1">{{plasterNo.results.dailyDose | number : '1.2-2'}} mg</td>
+              <td class="table1"
+                  *ngIf="plasterNo.results.morphineEquivalent.min !== plasterNo.results.morphineEquivalent.max">
+                {{plasterNo.results.morphineEquivalent.min | number : '1.2-2'}}
+                - {{plasterNo.results.morphineEquivalent.max |
+                number : '1.2-2'}} mg
+              </td>
+            </tr>
           </ng-container>
           </tbody>
         </table>

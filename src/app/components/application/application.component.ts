@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {AbstractControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup} from '@angular/forms';
 import * as _ from 'underscore';
 import {FormsService} from '../shared/services/forms.service';
 import {Results} from '../shared/model/results';
@@ -79,33 +79,47 @@ export class ApplicationComponent implements OnInit {
   private buildForm(): void {
     this.opioidConversionForm = new FormGroup({});
 
-    const firstOpioidForm = this.formsService.fillFormOpioid(this.opioidConversionFormFields.firstOpioid);
-    _.forEach(firstOpioidForm.controls, (control: AbstractControl, key: string) => {
-      this.opioidConversionForm.registerControl(key, control);
-    });
+    let firstOpioidForm;
+    let secondOpioidForm;
+    let thirdOpioidForm;
+    let fentanylForm;
+    let buprenorphineForm;
+    let conversionToForm;
 
-    const secondOpioidForm = this.formsService.fillFormOpioid(this.opioidConversionFormFields.secondOpioid);
-    _.forEach(secondOpioidForm.controls, (control: AbstractControl, key: string) => {
-      this.opioidConversionForm.registerControl(key, control);
-    });
+    if (this.results.results) {
+      firstOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.firstOpioid, this.results.results.firstOpioid);
+      secondOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.secondOpioid, this.results.results.secondOpioid);
+      thirdOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.thirdOpioid, this.results.results.thirdOpioid);
+      fentanylForm = this.formsService.fillFormFentanyl(this.results.results);
+      buprenorphineForm = this.formsService.fillFormBuprenorphine(this.results.results);
+      conversionToForm = this.formsService.fillFormConversionTo(this.results.results);
+    } else {
+      firstOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.firstOpioid);
+      secondOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.secondOpioid);
+      thirdOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.thirdOpioid);
+      fentanylForm = this.formsService.fillFormFentanyl();
+      buprenorphineForm = this.formsService.fillFormBuprenorphine();
+      conversionToForm = this.formsService.fillFormConversionTo();
+    }
 
-    const thirdOpioidForm = this.formsService.fillFormOpioid(this.opioidConversionFormFields.thirdOpioid);
-    _.forEach(thirdOpioidForm.controls, (control: AbstractControl, key: string) => {
-      this.opioidConversionForm.registerControl(key, control);
-    });
+    this.registerControls(firstOpioidForm);
+    this.registerControls(secondOpioidForm);
+    this.registerControls(thirdOpioidForm);
+    this.registerControls(fentanylForm);
+    this.registerControls(buprenorphineForm);
+    this.registerControls(conversionToForm);
+  }
 
-    const fentanylForm = this.formsService.fillFormFentanyl();
-    _.forEach(fentanylForm.controls, (control: AbstractControl, key: string) => {
-      this.opioidConversionForm.registerControl(key, control);
-    });
+  private addControlsToMainForm(name: string, opioid?: Opioid): FormGroup {
+    if (opioid) {
+      return this.formsService.fillFormOpioid(name, opioid);
+    } else {
+      return this.formsService.fillFormOpioid(name);
+    }
+  }
 
-    const buprenorphineForm = this.formsService.fillFormBuprenorphine();
-    _.forEach(buprenorphineForm.controls, (control: AbstractControl, key: string) => {
-      this.opioidConversionForm.registerControl(key, control);
-    });
-
-    const conversionToForm = this.formsService.fillFormConversionTo();
-    _.forEach(conversionToForm.controls, (control: AbstractControl, key: string) => {
+  private registerControls(opioidForm: FormGroup): void {
+    _.forEach(opioidForm.controls, (control: AbstractControl, key: string) => {
       this.opioidConversionForm.registerControl(key, control);
     });
   }
@@ -113,6 +127,7 @@ export class ApplicationComponent implements OnInit {
   public onSubmit(): void {
     const formResults: Results = this.collectResults();
     this.results.setResults(formResults);
+    console.log(this.results.results);
     this.router.navigate(['/results']).then(() => {});
  }
 
@@ -146,7 +161,7 @@ export class ApplicationComponent implements OnInit {
   private setFentanylData(): Opioid {
     const fentanylDose: number = parseFloat(this.getControlValue('fentanylDose'));
     const fentanyl: Opioid = this.opioidService.getFentanyl();
-    const results: OpioidResults = new OpioidResults(0, fentanylDose, '');
+    const results: OpioidResults = new OpioidResults(0, fentanylDose, 'μg/h');
     fentanyl.setResults(results);
     return fentanyl;
   }
@@ -154,7 +169,7 @@ export class ApplicationComponent implements OnInit {
   private setBuprenorphineData(): Opioid {
     const buprenorphineDose: number = parseFloat(this.getControlValue('buprenorphineDose'));
     const buprenorphine: Opioid = this.opioidService.getBuprenorphine();
-    const results: OpioidResults = new OpioidResults(0, buprenorphineDose, '');
+    const results: OpioidResults = new OpioidResults(0, buprenorphineDose, 'μg/h');
     buprenorphine.setResults(results);
     return buprenorphine;
   }

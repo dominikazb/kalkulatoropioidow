@@ -1,8 +1,8 @@
-import {Results} from '../model/results';
-import {Opioid} from '../model/opioid';
-import {MinMax} from '../model/minMax';
-import {MorphineEquivalentService} from './calculations/morphine.equivalent.service';
-import {TotalDailyDoseService} from './calculations/total.daily.dose.service';
+import {Results} from '../../model/results';
+import {Opioid} from '../../model/opioid';
+import {MinMax} from '../../model/minMax';
+import {MorphineEquivalentService} from './morphine.equivalent.service';
+import {TotalDailyDoseService} from './total.daily.dose.service';
 import {Injectable} from '@angular/core';
 
 @Injectable()

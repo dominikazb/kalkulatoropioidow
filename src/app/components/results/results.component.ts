@@ -4,7 +4,7 @@ import {Results} from '../shared/model/results';
 import {MinMax} from '../shared/model/minMax';
 import {Opioid} from '../shared/model/opioid';
 import {Router} from '@angular/router';
-import {CalculationsService} from '../shared/services/calculations.service';
+import {CalculationsService} from '../shared/services/calculations/calculations.service';
 
 @Component({
   selector: 'app-results',
@@ -27,6 +27,7 @@ export class ResultsComponent implements OnInit {
   public opioidToConvertTo: number;
   public doseReduction: number;
   public opioidsForHTML: Opioid[] = [];
+  public plastersForHTML: Opioid[] = [];
   public showResults = true;
 
   constructor(private calculationsService: CalculationsService,
@@ -48,8 +49,8 @@ export class ResultsComponent implements OnInit {
       this.opioidsForHTML.push(this.data.firstOpioid);
       this.opioidsForHTML.push(this.data.secondOpioid);
       this.opioidsForHTML.push(this.data.thirdOpioid);
-      this.opioidsForHTML.push(this.data.fentanyl);
-      this.opioidsForHTML.push(this.data.buprenorphine);
+      this.plastersForHTML.push(this.data.fentanyl);
+      this.plastersForHTML.push(this.data.buprenorphine);
     }
   }
 
@@ -79,9 +80,13 @@ export class ResultsComponent implements OnInit {
   }
 
   private oneOfOpioidsWasChosen(): boolean {
-    return this.opioidWasChosen(this.data.firstOpioid) || this.opioidWasChosen(this.data.secondOpioid) ||
-      this.opioidWasChosen(this.data.thirdOpioid) || this.plasterWasChosen(this.data.fentanyl) ||
-      this.plasterWasChosen(this.data.buprenorphine);
+    if (this.data) {
+      return this.opioidWasChosen(this.data.firstOpioid) || this.opioidWasChosen(this.data.secondOpioid) ||
+        this.opioidWasChosen(this.data.thirdOpioid) || this.plasterWasChosen(this.data.fentanyl) ||
+        this.plasterWasChosen(this.data.buprenorphine);
+    } else {
+      return false;
+    }
   }
 
   private getData(): void {

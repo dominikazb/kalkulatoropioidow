@@ -21,8 +21,8 @@ import {CookieService} from 'ngx-cookie-service';
 import {ResultsService} from './components/shared/services/results.service';
 import {TotalDailyDoseService} from './components/shared/services/calculations/total.daily.dose.service';
 import {MorphineEquivalentService} from './components/shared/services/calculations/morphine.equivalent.service';
-import {CalculationsService} from './components/shared/services/calculations.service';
-import { OpioidInfoComponent } from './components/sub-components/opioid-info/opioid-info.component';
+import {CalculationsService} from './components/shared/services/calculations/calculations.service';
+import {OpioidInfoComponent} from './components/sub-components/opioid-info/opioid-info.component';
 
 @NgModule({
   declarations: [
