@@ -1,13 +1,15 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormGroup} from '@angular/forms';
 import * as _ from 'underscore';
-import {FormsService} from '../shared/services/forms.service';
-import {Results} from '../shared/model/results';
+import {FormsService} from '../shared/services/form/forms.service';
 import {Router} from '@angular/router';
-import {ResultsService} from '../shared/services/results.service';
+import {ResultsService} from '../shared/services/results/results.service';
 import {Opioid} from '../shared/model/opioid';
 import {OpioidService} from '../shared/services/opioid.service';
-import {OpioidResults} from '../shared/model/opioid.results';
+import {OpioidResults} from '../shared/model/results/opioid.results';
+import {MinMax} from '../shared/model/minMax';
+import {Results} from '../shared/model/results/results';
+import appComponentContent from '../shared/data/appComponentContent.json';
 
 @Component({
   selector: 'app-application',
@@ -25,18 +27,20 @@ export class ApplicationComponent implements OnInit {
     doseReduction: 'doseReduction'
   };
 
-  // @ts-ignore
-  public opioidConversionForm: FormGroup;
-  public title = 'Kalkulator konwersji leków opioidowych';
-  public addAnotherText = 'dodaj kolejny...';
-  public fentanylText = 'fentanyl (transdermalnie)';
-  public buprenorphineText = 'buprenorfina (transdermalnie)';
-  public conversionFromText = 'Konwersja z:';
-  public optionallyText = 'Opcjonalnie:';
-  public btnResetText = 'Wyczyść';
-  public btnCalculateText = 'Przelicz';
-  private screenWidth: number;
+  public textData: {
+    title: string,
+    addAnotherText: string,
+    fentanylText: string,
+    buprenorphineText: string,
+    conversionFromText: string,
+    optionallyText: string,
+    btnResetText: string,
+    btnCalculateText: string
+  } = appComponentContent;
 
+
+  public opioidConversionForm: FormGroup;
+  private screenWidth: number;
   public firstIsCollapsed: boolean;
   public secondIsCollapsed: boolean;
   public fentanylIsCollapsed: boolean;
@@ -44,12 +48,19 @@ export class ApplicationComponent implements OnInit {
 
   constructor(private formsService: FormsService,
               private opioidService: OpioidService,
-              private router: Router,
-              private results: ResultsService) { }
+              private resultsService: ResultsService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getScreenSize();
     this.buildForm();
+    this.resultsService.results = new Results();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(): void {
+    this.screenWidth = window.innerWidth;
+    this.setFormsCollapsing();
   }
 
   private setFormsCollapsing(): void {
@@ -70,12 +81,6 @@ export class ApplicationComponent implements OnInit {
     this.buprenorphineIsCollapsed = buprenorphineIsCollapsed;
   }
 
-  @HostListener('window:resize', ['$event'])
-  getScreenSize(): void {
-    this.screenWidth = window.innerWidth;
-    this.setFormsCollapsing();
-  }
-
   private buildForm(): void {
     this.opioidConversionForm = new FormGroup({});
 
@@ -86,13 +91,16 @@ export class ApplicationComponent implements OnInit {
     let buprenorphineForm;
     let conversionToForm;
 
-    if (this.results.results) {
-      firstOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.firstOpioid, this.results.results.firstOpioid);
-      secondOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.secondOpioid, this.results.results.secondOpioid);
-      thirdOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.thirdOpioid, this.results.results.thirdOpioid);
-      fentanylForm = this.formsService.fillFormFentanyl(this.results.results);
-      buprenorphineForm = this.formsService.fillFormBuprenorphine(this.results.results);
-      conversionToForm = this.formsService.fillFormConversionTo(this.results.results);
+    if (this.resultsService.results) {
+      firstOpioidForm =
+        this.addControlsToMainForm(this.opioidConversionFormFields.firstOpioid, this.resultsService.results.firstOpioid);
+      secondOpioidForm =
+        this.addControlsToMainForm(this.opioidConversionFormFields.secondOpioid, this.resultsService.results.secondOpioid);
+      thirdOpioidForm =
+        this.addControlsToMainForm(this.opioidConversionFormFields.thirdOpioid, this.resultsService.results.thirdOpioid);
+      fentanylForm = this.formsService.fillFormFentanyl(this.resultsService.results);
+      buprenorphineForm = this.formsService.fillFormBuprenorphine(this.resultsService.results);
+      conversionToForm = this.formsService.fillFormConversionTo(this.resultsService.results);
     } else {
       firstOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.firstOpioid);
       secondOpioidForm = this.addControlsToMainForm(this.opioidConversionFormFields.secondOpioid);
@@ -110,9 +118,9 @@ export class ApplicationComponent implements OnInit {
     this.registerControls(conversionToForm);
   }
 
-  private addControlsToMainForm(name: string, opioid?: Opioid): FormGroup {
-    if (opioid) {
-      return this.formsService.fillFormOpioid(name, opioid);
+  private addControlsToMainForm(name: string, opioidResults?: OpioidResults): FormGroup {
+    if (opioidResults) {
+      return this.formsService.fillFormOpioid(name, opioidResults);
     } else {
       return this.formsService.fillFormOpioid(name);
     }
@@ -124,47 +132,58 @@ export class ApplicationComponent implements OnInit {
     });
   }
 
-  private collectResults(): Results {
-    const opioidToConvertToIndex: number = parseInt(this.getControlValue('opioidToCovertTo'), 10);
-    const opioidToConvertTo: Opioid = this.opioidService.getOpioid(opioidToConvertToIndex);
-    const doseReduction: number = parseInt(this.getControlValue('doseReduction'), 10);
-
-    return new Results(
-      this.setOpioidData('firstOpioid'),
-      this.setOpioidData('secondOpioid'),
-      this.setOpioidData('thirdOpioid'),
-      this.setFentanylData(),
-      this.setBuprenorphineData(),
-      opioidToConvertTo, doseReduction);
+  private setFormResults(): void {
+    const firstOpioid: OpioidResults = this.setOpioidData('firstOpioid');
+    const secondOpioid: OpioidResults = this.setOpioidData('secondOpioid');
+    const thirdOpioid: OpioidResults = this.setOpioidData('thirdOpioid');
+    this.resultsService.results.setFirstOpioid(firstOpioid);
+    this.resultsService.results.setSecondOpioid(secondOpioid);
+    this.resultsService.results.setThirdOpioid(thirdOpioid);
+    this.setFentanylData();
+    this.setBuprenorphineData();
+    this.setConversionToResults();
+    this.setEmptyResultsCalculations();
   }
 
-  private setOpioidData(opioidNo: string): Opioid {
+  private setOpioidData(opioidNo: string): OpioidResults {
     const index: number = parseFloat(this.getControlValue(opioidNo + '.index'));
     const numberOfDoses: number = parseFloat(this.getControlValue(opioidNo + '.numberOfDoses'));
     const dose: number = parseFloat(this.getControlValue(opioidNo + '.dose'));
     const unit: string = this.getControlValue(opioidNo + '.unit');
-
-    const opioid: Opioid = this.opioidService.getOpioid(index);
-    const results: OpioidResults = new OpioidResults(numberOfDoses ? numberOfDoses : 0,
-      dose ? dose : 0, unit);
-    opioid.setResults(results);
-    return opioid;
+    const opioidResults: OpioidResults = new OpioidResults(this.opioidService.getOpioid(index),
+      numberOfDoses ? numberOfDoses : 0, dose ? dose : 0, unit);
+    return opioidResults;
   }
 
-  private setFentanylData(): Opioid {
+  private setFentanylData(): void {
     const fentanylDose: number = parseFloat(this.getControlValue('fentanylDose'));
     const fentanyl: Opioid = this.opioidService.getFentanyl();
-    const results: OpioidResults = new OpioidResults(0, fentanylDose, 'μg/h');
-    fentanyl.setResults(results);
-    return fentanyl;
+    const results: OpioidResults = new OpioidResults(fentanyl, 0, fentanylDose, 'μg/h');
+    this.resultsService.results.setFentanyl(results);
   }
 
-  private setBuprenorphineData(): Opioid {
+  private setBuprenorphineData(): void {
     const buprenorphineDose: number = parseFloat(this.getControlValue('buprenorphineDose'));
     const buprenorphine: Opioid = this.opioidService.getBuprenorphine();
-    const results: OpioidResults = new OpioidResults(0, buprenorphineDose, 'μg/h');
-    buprenorphine.setResults(results);
-    return buprenorphine;
+    const results: OpioidResults = new OpioidResults(buprenorphine, 0, buprenorphineDose, 'μg/h');
+    this.resultsService.results.setBuprenorphine(results);
+  }
+
+  private setConversionToResults(): void {
+    const opioidToConvertToIndex: number = parseInt(this.getControlValue('opioidToCovertTo'), 10);
+    const opioidToConvertTo: Opioid = this.opioidService.getOpioid(opioidToConvertToIndex);
+    const doseReduction: number = parseInt(this.getControlValue('doseReduction'), 10);
+
+    this.resultsService.results.setOpioidToConvertToIndex(opioidToConvertToIndex);
+    this.resultsService.results.setOpioidToConvertTo(opioidToConvertTo);
+    this.resultsService.results.setDoseReduction(doseReduction);
+  }
+
+  private setEmptyResultsCalculations(): void {
+    this.resultsService.results.setSumOfMorphineEquivalents(new MinMax(0, 0));
+    this.resultsService.results.setOpioidToConvertToDoseRange(new MinMax(0, 0));
+    this.resultsService.results.setOpioidToConvertToReducedDoseRange(new MinMax(0, 0));
+    this.resultsService.results.setOpioidToConvertToDoseExceeded(false);
   }
 
   private getControlValue(controlName: any): any {
@@ -172,9 +191,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const formResults: Results = this.collectResults();
-    this.results.setResults(formResults);
-    console.log(this.results.results);
+    this.setFormResults();
     this.router.navigate(['/results']).then(() => {});
   }
 }

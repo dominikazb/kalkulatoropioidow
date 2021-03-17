@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FormsService} from '../../shared/services/forms.service';
+import {FormsService} from '../../shared/services/form/forms.service';
 
 @Component({
   // tslint:disable-next-line:component-selector

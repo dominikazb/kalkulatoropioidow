@@ -11,47 +11,51 @@ import {FormFentanylComponent} from './components/sub-components/form-fentanyl/f
 import {FormBuprenorphineComponent} from './components/sub-components/form-buprenorphine/form-buprenorphine.component';
 import {FormConversionToComponent} from './components/sub-components/form-conversion-to/form-conversion-to.component';
 import {OpioidService} from './components/shared/services/opioid.service';
-import {FormsService} from './components/shared/services/forms.service';
+import {FormsService} from './components/shared/services/form/forms.service';
 import {InfoModalComponent} from './components/sub-components/info-modal/info-modal.component';
 import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {CookieService} from 'ngx-cookie-service';
-import {ResultsService} from './components/shared/services/results.service';
+import {ResultsService} from './components/shared/services/results/results.service';
 import {TotalDailyDoseService} from './components/shared/services/calculations/total.daily.dose.service';
 import {MorphineEquivalentService} from './components/shared/services/calculations/morphine.equivalent.service';
 import {CalculationsService} from './components/shared/services/calculations/calculations.service';
-import {OpioidInfoComponent} from './components/sub-components/opioid-info/opioid-info.component';
+import {ResultsOpioidInfoComponent} from './components/sub-components/results-opioid-info/results-opioid-info.component';
+import {ResultsConversionToComponent} from './components/sub-components/results-conversion-to/results-conversion-to.component';
+import {ResultsSumUpComponent} from './components/sub-components/results-sum-up/results-sum-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResultsComponent,
     ApplicationComponent,
     BrandingFooterComponent,
-    FormOpioidComponent,
-    FormFentanylComponent,
     FormBuprenorphineComponent,
     FormConversionToComponent,
+    FormFentanylComponent,
+    FormOpioidComponent,
     InfoModalComponent,
-    OpioidInfoComponent
+    ResultsComponent,
+    ResultsConversionToComponent,
+    ResultsOpioidInfoComponent,
+    ResultsSumUpComponent
   ],
   imports: [
     AppRoutingModule,
+    BrowserAnimationsModule,
     BrowserModule,
-    ReactiveFormsModule,
-    RouterModule,
     NgbModule,
     ModalModule.forRoot(),
-    BrowserAnimationsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [
     CalculationsService,
-    OpioidService,
-    FormsService,
     CookieService,
+    FormsService,
     MorphineEquivalentService,
+    OpioidService,
     ResultsService,
     TotalDailyDoseService
   ],

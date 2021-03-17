@@ -1,7 +1,7 @@
 import {FormControl, FormGroup} from '@angular/forms';
-import {Results} from '../model/results';
+import {Results} from '../../model/results/results';
 import {Injectable} from '@angular/core';
-import {Opioid} from '../model/opioid';
+import {OpioidResults} from '../../model/results/opioid.results';
 
 @Injectable()
 export class FormsService {
@@ -26,9 +26,9 @@ export class FormsService {
     doseReduction: 'doseReduction'
   };
 
-  public fillFormOpioid(name: string, opioid?: Opioid): FormGroup {
-    if (opioid) {
-      return this.fillForm(name, opioid.index, opioid.results.numberOfDoses, opioid.results.dose, opioid.results.unit);
+  public fillFormOpioid(name: string, opioidResults?: OpioidResults): FormGroup {
+    if (opioidResults) {
+      return this.fillForm(name, opioidResults.opioid.index, opioidResults.numberOfDoses, opioidResults.dose, opioidResults.unit);
     } else {
       return this.fillForm(name, 0, 0, 'dawka', 'mg');
     }
@@ -45,12 +45,12 @@ export class FormsService {
 
   public fillFormFentanyl(results?: Results): FormGroup {
     return this.returnFormGroup(this.formFentanylFields.fentanylDose,
-      results?.fentanyl.results.dose ? results.fentanyl.results.dose : 0);
+      results?.fentanyl.dose ? results.fentanyl.dose : 0);
   }
 
   public fillFormBuprenorphine(results?: Results): FormGroup {
       return this.returnFormGroup(this.formBuprenorfineFields.buprenorphineDose,
-        results?.buprenorphine.results.dose ? results.buprenorphine.results.dose : 0);
+        results?.buprenorphine.dose ? results.buprenorphine.dose : 0);
     }
 
   private returnFormGroup(name: string, dose: number): FormGroup {

@@ -1,20 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {ResultsService} from '../shared/services/results.service';
-import {Results} from '../shared/model/results';
-import {MinMax} from '../shared/model/minMax';
-import {Opioid} from '../shared/model/opioid';
+import {ResultsService} from '../shared/services/results/results.service';
+import {Results} from '../shared/model/results/results';
 import {Router} from '@angular/router';
 import {CalculationsService} from '../shared/services/calculations/calculations.service';
 import resultsContent from './../shared/data/resultsContent.json';
+import opioidInfoContent from '../shared/data/opioidInfoContent.json';
+import {OpioidService} from '../shared/services/opioid.service';
 
 @Component({
   selector: 'app-results',
-  templateUrl: './results.component.html',
-  styleUrls: ['./results.component.css']
+  templateUrl: './results.component.html'
 })
 export class ResultsComponent implements OnInit {
 
-  resultsData: {
+  public resultsTextData: {
     resultsText: string,
     opioidText: string,
     dailyDoseText: string,
@@ -25,58 +24,53 @@ export class ResultsComponent implements OnInit {
     contactTextInfo: string
   } = resultsContent;
 
+  public showResults: boolean;
+  public results: Results;
 
-  public data: Results;
-  public sumOfMorphineEquivalents: MinMax;
-  public opioidToConvertTo: number;
-  public doseReduction: number;
-  public opioidsForHTML: Opioid[] = [];
-  public plastersForHTML: Opioid[] = [];
-  public showResults = true;
+  public opioidInfoData: [{
+    index: number,
+    name: string,
+    text1: string, text2: string, text3: string, text4: string, text5: string, text6: string, text7: string,
+    doseCanBeExceeded: boolean,
+    doseLimit: number,
+    doseLimitUnit: string,
+    warning: string
+  }] = opioidInfoContent;
 
-  constructor(private calculationsService: CalculationsService,
-              private results: ResultsService,
+  constructor(public opioidService: OpioidService,
+              private calculationsService: CalculationsService,
+              private resultsService: ResultsService,
               private router: Router) { }
 
   ngOnInit(): void {
-    this.getResults();
-    this.setOpioidsForHTML();
+    this.results = this.resultsService.getResults();
     this.loadResultsOrRedirect();
-  }
 
-  private getResults(): void {
-    this.data = this.results.getResults();
-  }
-
-  private setOpioidsForHTML(): void {
-    if (this.data) {
-      this.opioidsForHTML.push(this.data.firstOpioid);
-      this.opioidsForHTML.push(this.data.secondOpioid);
-      this.opioidsForHTML.push(this.data.thirdOpioid);
-      this.plastersForHTML.push(this.data.fentanyl);
-      this.plastersForHTML.push(this.data.buprenorphine);
+    if (this.results.opioidToConvertToIndex !== 0) {
+      this.setDoseRangeForOpioidToConvertTo();
+      this.setReducedDoseRangeForOpioidToConvertTo();
+      this.setDoseExceededForOpioidToConvertTo();
     }
   }
 
   private loadResultsOrRedirect(): void {
-    if (this.resultsAreNotUndefined(this.data)) {
+    if (this.results) {
       if (this.oneOfOpioidsWasChosen()) {
         this.getData();
         this.showResults = true;
       } else {
-        this.showResults = false;
-        setTimeout(() => {
-          this.redirectToMainPage();
-        }, 1000);
+        this.hideResults();
       }
     } else {
-      this.showResults = false;
-      this.redirectToMainPage();
+      this.hideResults();
     }
   }
 
-  private resultsAreNotUndefined(results: Results): boolean {
-    return results !== null || results !== undefined;
+  private hideResults(): void {
+    this.showResults = false;
+    setTimeout(() => {
+      this.redirectToMainPage();
+    }, 1000);
   }
 
   private redirectToMainPage(): void {
@@ -84,26 +78,44 @@ export class ResultsComponent implements OnInit {
   }
 
   private oneOfOpioidsWasChosen(): boolean {
-    if (this.data) {
-      return this.opioidWasChosen(this.data.firstOpioid) || this.opioidWasChosen(this.data.secondOpioid) ||
-        this.opioidWasChosen(this.data.thirdOpioid) || this.plasterWasChosen(this.data.fentanyl) ||
-        this.plasterWasChosen(this.data.buprenorphine);
-    } else {
-      return false;
-    }
+    return this.opioidService.oneOfOpioidsWasChosen(this.results);
   }
 
   private getData(): void {
-    this.calculationsService.setDailyDosesForOpioids(this.data);
-    this.calculationsService.setMorphineEquivalentsForOpioids(this.data);
-    this.sumOfMorphineEquivalents = this.calculationsService.setSumOfMorphineEquivalents(this.data);
+    this.calculationsService.setDailyDosesForOpioids(this.results);
+    this.calculationsService.setMorphineEquivalentsForOpioids(this.results);
+    const sumOfMorphineEquivalents = this.calculationsService.setSumOfMorphineEquivalents(this.results);
+    this.results.setSumOfMorphineEquivalents(sumOfMorphineEquivalents);
   }
 
-  public opioidWasChosen(opioid: Opioid): boolean {
-    return opioid.index !== 0 && opioid.results.numberOfDoses !== 0 && opioid.results.dose !== 0;
+  private setDoseRangeForOpioidToConvertTo(): void {
+    const opioidToConvertToDoseRange = this.calculationsService.calculateOpioidToConvertToDoseRange(
+      this.results.opioidToConvertTo, this.results.sumOfMorphineEquivalents);
+    this.results.setOpioidToConvertToDoseRange(opioidToConvertToDoseRange);
   }
 
-  public plasterWasChosen(opioid: Opioid): boolean {
-    return opioid.results.dose !== 0;
+  private setReducedDoseRangeForOpioidToConvertTo(): void {
+    if (this.results.doseReduction > 0) {
+      const opioidToConvertToReducedDoseRange = this.calculationsService.calculateOpioidToConvertToReducedDoseRange(
+        this.results.doseReduction, this.results.opioidToConvertToDoseRange);
+      this.results.setOpioidToConvertToReducedDoseRange(opioidToConvertToReducedDoseRange);
+    }
+  }
+
+  // TODO: to musi być dla dawki normalnej + dla dawki przekroczonej (!!!)
+  private setDoseExceededForOpioidToConvertTo(): void {
+    let doseLimit = 100000000000; // TODO! DO ZAORANIA!
+    this.opioidInfoData.forEach(opioid => {
+      if (opioid.index === this.results.opioidToConvertToIndex) {
+        doseLimit = opioid.doseLimit;
+      }
+    });
+    const doseExceeded =
+      this.calculationsService.opioidToConvertToDoseWasExceeded(this.results.opioidToConvertToDoseRange, doseLimit);
+    this.results.setOpioidToConvertToDoseExceeded(doseExceeded);
+  }
+
+  public opioidToConvertToWasChosen(): boolean {
+    return this.results.opioidToConvertToIndex !== 0;
   }
 }

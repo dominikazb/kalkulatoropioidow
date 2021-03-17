@@ -2,11 +2,11 @@
   <div class="empty_space_20px"></div>
   <div class="content">
     <div class="content_inside">
-      <h4 class="title">{{title}}</h4>
+      <h4 class="title">{{textData.title}}</h4>
       <hr class="padding_bottom_10px">
 
       <form [formGroup]="opioidConversionForm" (ngSubmit)="onSubmit()">
-        <h5>{{conversionFromText}}</h5>
+        <h5>{{textData.conversionFromText}}</h5>
 
         <div class="converted_opioid__wrapper_top">
           <form-opioid
@@ -16,13 +16,13 @@
         </div>
         <div class="padding_bottom_20px"></div>
 
-        <h6 class="gray padding_bottom_10px">{{optionallyText}}</h6>
+        <h6 class="gray padding_bottom_10px">{{textData.optionallyText}}</h6>
 
         <div class="converted_opioid__wrapper">
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse1.toggle()"
              [attr.aria-expanded]="!firstIsCollapsed">
-            <i class="fas fa-plus-circle"></i> {{addAnotherText}}
+            <i class="fas fa-plus-circle"></i> {{textData.addAnotherText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
@@ -41,7 +41,7 @@
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse2.toggle()"
              [attr.aria-expanded]="!secondIsCollapsed">
-            <i class="fas fa-plus-circle"></i> {{addAnotherText}}
+            <i class="fas fa-plus-circle"></i> {{textData.addAnotherText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
@@ -60,7 +60,7 @@
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse3.toggle()"
              [attr.aria-expanded]="!fentanylIsCollapsed">
-            <i class="fas fa-plus-circle"></i> {{fentanylText}}
+            <i class="fas fa-plus-circle"></i> {{textData.fentanylText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
@@ -76,7 +76,7 @@
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse4.toggle()"
              [attr.aria-expanded]="!buprenorphineIsCollapsed">
-            <i class="fas fa-plus-circle"></i> {{buprenorphineText}}
+            <i class="fas fa-plus-circle"></i> {{textData.buprenorphineText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
@@ -95,12 +95,12 @@
             <div class="btn-group" role="group">
               <input class="btn btn-secondary my-1 btn-block mr-1"
                      type="reset"
-                     value="{{btnResetText}}">
+                     value="{{textData.btnResetText}}">
             </div>
             <div class="btn-group" role="group">
               <input class="btn btn-danger my-1 btn-block mr-1"
                      type="submit"
-                     value="{{btnCalculateText}}">
+                     value="{{textData.btnCalculateText}}">
             </div>
           </div>
         </div>

@@ -1,0 +1,52 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">{{resultsTextData.opioidText}}</th>
+    <th scope="col">{{resultsTextData.dailyDoseText}}</th>
+    <th scope="col">{{resultsTextData.morphineEquivalentText}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let opioidNo of opioidsForHTML">
+    <tr *ngIf="opioidService.opioidWasChosen(opioidNo)">
+      <td class="table1">{{opioidNo.opioid.description}}</td>
+      <td class="table1">{{opioidNo.dailyDose | number : '1.2-2'}} mg</td>
+      <td class="table1"
+          *ngIf="opioidNo.morphineEquivalent.min === opioidNo.morphineEquivalent.max">
+        {{opioidNo.morphineEquivalent.min | number : '1.2-2'}} mg
+      </td>
+      <td class="table1"
+          *ngIf="opioidNo.morphineEquivalent.min !== opioidNo.morphineEquivalent.max">
+        {{opioidNo.morphineEquivalent.min | number : '1.2-2'}}
+        - {{opioidNo.morphineEquivalent.max |
+        number : '1.2-2'}} mg
+      </td>
+    </tr>
+  </ng-container>
+  <ng-container *ngFor="let plasterNo of plastersForHTML">
+    <tr *ngIf="opioidService.plasterWasChosen(plasterNo)">
+      <td class="table1">{{plasterNo.opioid.description}}</td>
+      <td class="table1">{{plasterNo.dailyDose | number : '1.2-2'}} mg</td>
+      <td class="table1"
+          *ngIf="plasterNo.morphineEquivalent.min !== plasterNo.morphineEquivalent.max">
+        {{plasterNo.morphineEquivalent.min | number : '1.2-2'}}
+        - {{plasterNo.morphineEquivalent.max |
+        number : '1.2-2'}} mg
+      </td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-md-6"></div>
+  <div class="col-md-6 dark_background text-center">
+    <div *ngIf="results.sumOfMorphineEquivalents.min === results.sumOfMorphineEquivalents.max">
+      {{results.sumOfMorphineEquivalents.min | number : '1.2-2'}} mg
+    </div>
+    <div *ngIf="results.sumOfMorphineEquivalents.min !== results.sumOfMorphineEquivalents.max">
+      {{results.sumOfMorphineEquivalents.min | number : '1.2-2'}}
+      - {{results.sumOfMorphineEquivalents.max | number : '1.2-2'}} mg
+    </div>
+  </div>
+</div>

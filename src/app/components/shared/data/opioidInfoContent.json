@@ -1,0 +1,32 @@
+[
+  {
+    "index": 1,
+    "name": "Buprenorfina (tbl. podjęzykowe, s.c., i.v., i.m.)",
+    "text1": "Wykorzystany w kalkulatorze przelicznik doustnej",
+    "text2": "morfiny",
+    "text3": "na dihydrokodeinę wynosi 1:10.",
+    "text4": "Maksymalna dawka dobowa wynosi 240 mg.",
+    "text5": "",
+    "text6": "",
+    "text7": "",
+    "doseCanBeExceeded": true,
+    "doseLimit": 4,
+    "doseLimitUnit": "mg",
+    "warning": "UWAGA! Maksymalna dobowa dawka dla buprenorfiny to 4 mg!"
+  },
+  {
+    "index": 2,
+    "name": "Buprenorfina (transdermalnie)",
+    "text1": "",
+    "text2": "",
+    "text3": "",
+    "text4": "",
+    "text5": "",
+    "text6": "",
+    "text7": "",
+    "doseCanBeExceeded": true,
+    "doseLimit": 140,
+    "doseLimitUnit": "mg",
+    "warning": ""
+  }
+]

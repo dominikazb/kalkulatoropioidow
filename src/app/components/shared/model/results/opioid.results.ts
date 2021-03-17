@@ -1,13 +1,16 @@
-import {MinMax} from './minMax';
+import {MinMax} from '../minMax';
+import {Opioid} from '../opioid';
 
 export class OpioidResults {
+  public opioid: Opioid;
   public numberOfDoses: number;
   public dose: number;
   public unit: string;
   public dailyDose: number;
   public morphineEquivalent: MinMax;
 
-  constructor(numberOfDoses: number, dose: number, unit: string) {
+  constructor(opioid: Opioid, numberOfDoses: number, dose: number, unit: string) {
+    this.opioid = opioid;
     this.numberOfDoses = numberOfDoses;
     this.dose = dose;
     this.unit = unit;

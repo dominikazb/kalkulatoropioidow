@@ -9,7 +9,7 @@ export class MorphineEquivalentService {
     let max = 0;
 
     OPIOIDS.forEach(drugModel => {
-      if (drug.index === drugModel.index) {
+      if (drugModel.index === drug.index) {
         min = dailyDose * drug.minMultiplier;
         max = dailyDose * drug.maxMultiplier;
       }

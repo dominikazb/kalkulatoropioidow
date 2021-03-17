@@ -2,81 +2,36 @@
   <div class="empty_space_20px"></div>
   <div class="content">
     <div class="content_inside_resultspage">
+
       <div *ngIf="!showResults">
-        <h5 class="darker_gray text-center padding_bottom_20px">{{resultsData.noResultsText}}</h5>
+        <h5 class="darker_gray text-center padding_bottom_20px">{{resultsTextData.noResultsText}}</h5>
         <div class="text_align_center">
-          <a class="" href="#" routerLink="/">{{resultsData.goBackText}}</a>
+          <a class="" href="#" routerLink="/">{{resultsTextData.goBackText}}</a>
         </div>
       </div>
+
       <div *ngIf="showResults">
-        <div class="dark_background"><h4>{{resultsData.resultsText}}</h4></div>
-        <br>
+        <div class="dark_background"><h4>{{resultsTextData.resultsText}}</h4></div><br>
 
-        <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">{{resultsData.opioidText}}</th>
-            <th scope="col">{{resultsData.dailyDoseText}}</th>
-            <th scope="col">{{resultsData.morphineEquivalentText}}</th>
-          </tr>
-          </thead>
-          <tbody>
-          <ng-container *ngFor="let opioidNo of opioidsForHTML">
-          <tr *ngIf="opioidWasChosen(opioidNo)">
-            <td class="table1">{{opioidNo.description}}</td>
-            <td class="table1">{{opioidNo.results.dailyDose | number : '1.2-2'}} mg</td>
-            <td class="table1"
-                *ngIf="opioidNo.results.morphineEquivalent.min === opioidNo.results.morphineEquivalent.max">
-              {{opioidNo.results.morphineEquivalent.min | number : '1.2-2'}} mg
-            </td>
-            <td class="table1"
-                *ngIf="opioidNo.results.morphineEquivalent.min !== opioidNo.results.morphineEquivalent.max">
-              {{opioidNo.results.morphineEquivalent.min | number : '1.2-2'}}
-              - {{opioidNo.results.morphineEquivalent.max |
-              number : '1.2-2'}} mg
-            </td>
-          </tr>
-          </ng-container>
-          <ng-container *ngFor="let plasterNo of plastersForHTML">
-            <tr *ngIf="plasterWasChosen(plasterNo)">
-              <td class="table1">{{plasterNo.description}}</td>
-              <td class="table1">{{plasterNo.results.dailyDose | number : '1.2-2'}} mg</td>
-              <td class="table1"
-                  *ngIf="plasterNo.results.morphineEquivalent.min !== plasterNo.results.morphineEquivalent.max">
-                {{plasterNo.results.morphineEquivalent.min | number : '1.2-2'}}
-                - {{plasterNo.results.morphineEquivalent.max |
-                number : '1.2-2'}} mg
-              </td>
-            </tr>
-          </ng-container>
-          </tbody>
-        </table>
+        <results-sum-up
+          [resultsTextData]="resultsTextData"></results-sum-up>
 
-        <div class="row">
-          <div class="col-md-6"></div>
-          <div class="col-md-6 dark_background text-center">
-            <div *ngIf="sumOfMorphineEquivalents.min === sumOfMorphineEquivalents.max">
-              {{sumOfMorphineEquivalents.min | number : '1.2-2'}} mg
-            </div>
-            <div *ngIf="sumOfMorphineEquivalents.min !== sumOfMorphineEquivalents.max">
-              {{sumOfMorphineEquivalents.min | number : '1.2-2'}}
-              - {{sumOfMorphineEquivalents.max | number : '1.2-2'}} mg
-            </div>
+        <hr class="padding_bottom_20px padding_top_20px">
+
+        <ng-container *ngIf="opioidToConvertToWasChosen()">
+          <h1>sdfjhsdkfhdskjfhsdjkhfkj</h1>
+          <div class="dark_thick_frame">
+                  <results-conversion-to
+                      [opioidInfoData]="opioidInfoData"></results-conversion-to>
           </div>
-        </div>
+        </ng-container>
 
-        <br><hr><br>
-
-        <opioid-info></opioid-info>
-
-        <br><br>
 
         <div class="row">
           <div class="col-md-3"></div>
-
           <div class="col-md-6 red_background text-center">
-            <a class="blad" href="{{resultsData.contactText}}" target="_blank">
-              {{resultsData.contactTextInfo}}
+            <a class="blad" href="{{resultsTextData.contactText}}" target="_blank">
+              {{resultsTextData.contactTextInfo}}
             </a>
           </div>
           <div class="col-md-3"></div>
