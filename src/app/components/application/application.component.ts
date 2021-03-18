@@ -84,12 +84,12 @@ export class ApplicationComponent implements OnInit {
   private buildForm(): void {
     this.opioidConversionForm = new FormGroup({});
 
-    let firstOpioidForm;
-    let secondOpioidForm;
-    let thirdOpioidForm;
-    let fentanylForm;
-    let buprenorphineForm;
-    let conversionToForm;
+    let firstOpioidForm: FormGroup;
+    let secondOpioidForm: FormGroup;
+    let thirdOpioidForm: FormGroup;
+    let fentanylForm: FormGroup;
+    let buprenorphineForm: FormGroup;
+    let conversionToForm: FormGroup;
 
     if (this.resultsService.results) {
       firstOpioidForm =

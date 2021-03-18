@@ -3,9 +3,9 @@ import {ResultsService} from '../shared/services/results/results.service';
 import {Results} from '../shared/model/results/results';
 import {Router} from '@angular/router';
 import {CalculationsService} from '../shared/services/calculations/calculations.service';
+import {OpioidService} from '../shared/services/opioid/opioid.service';
 import resultsContent from '../shared/data/textContent/resultsContent.json';
 import opioidInfoContent from '../shared/data/opioid/opioidInfoContent.json';
-import {OpioidService} from '../shared/services/opioid/opioid.service';
 
 @Component({
   selector: 'app-results',
@@ -55,7 +55,7 @@ export class ResultsComponent implements OnInit {
 
   private loadResultsOrRedirect(): void {
     if (this.results) {
-      if (this.oneOfOpioidsWasChosen()) {
+      if (this.opioidService.oneOfOpioidsWasChosen(this.results)) {
         this.getData();
         this.showResults = true;
       } else {
@@ -70,22 +70,17 @@ export class ResultsComponent implements OnInit {
     this.showResults = false;
     setTimeout(() => {
       this.redirectToMainPage();
-    }, 1000);
+    }, 800);
   }
 
   private redirectToMainPage(): void {
     this.router.navigate(['/']).then(() => {});
   }
 
-  private oneOfOpioidsWasChosen(): boolean {
-    return this.opioidService.oneOfOpioidsWasChosen(this.results);
-  }
-
   private getData(): void {
     this.calculationsService.setDailyDosesForOpioids(this.results);
     this.calculationsService.setMorphineEquivalentsForOpioids(this.results);
-    const sumOfMorphineEquivalents = this.calculationsService.setSumOfMorphineEquivalents(this.results);
-    this.results.setSumOfMorphineEquivalents(sumOfMorphineEquivalents);
+    this.calculationsService.setSumOfMorphineEquivalents(this.results);
   }
 
   private setDoseRangeForOpioidToConvertTo(): void {

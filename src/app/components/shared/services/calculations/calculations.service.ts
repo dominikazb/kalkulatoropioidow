@@ -5,6 +5,7 @@ import {MorphineEquivalentService} from './morphine.equivalent.service';
 import {TotalDailyDoseService} from './total.daily.dose.service';
 import {Injectable} from '@angular/core';
 import {OPIOIDS} from '../../data/opioid/opioids';
+import {ResultsService} from '../results/results.service';
 
 @Injectable()
 export class CalculationsService {
@@ -15,7 +16,8 @@ export class CalculationsService {
   private oxycodoneIndex = 10;
 
   constructor(private totalDailyDoseService: TotalDailyDoseService,
-              private morphineEquivalentService: MorphineEquivalentService) {
+              private morphineEquivalentService: MorphineEquivalentService,
+              private resultsService: ResultsService) {
   }
 
   public setDailyDosesForOpioids(results: Results): void {
