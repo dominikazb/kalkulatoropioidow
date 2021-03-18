@@ -13,13 +13,14 @@
       <div *ngIf="showResults">
         <div class="dark_background"><h4>{{textData.resultsText}}</h4></div><br>
 
-        <results-sum-up
-          [resultsTextData]="textData"></results-sum-up>
+        <ng-container *ngIf="opioidService.oneOfOpioidsWasChosen(results)">
+          <results-sum-up
+            [resultsTextData]="textData"></results-sum-up>
 
-        <hr class="padding_bottom_20px padding_top_20px">
+          <hr class="padding_bottom_20px padding_top_20px">
+        </ng-container>
 
         <ng-container *ngIf="opioidToConvertToWasChosen()">
-          <h1>sdfjhsdkfhdskjfhsdjkhfkj</h1>
           <div class="dark_thick_frame">
                   <results-conversion-to
                       [opioidInfoData]="opioidInfoData"></results-conversion-to>

@@ -44,6 +44,6 @@ export class OpioidService {
   }
 
   public plasterWasChosen(opioidResults: OpioidResults): boolean {
-    return opioidResults.dose !== 0;
+    return !Number.isNaN(opioidResults.dose) && (opioidResults.dose !== 0);
   }
 }

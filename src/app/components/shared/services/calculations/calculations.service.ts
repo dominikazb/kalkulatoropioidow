@@ -5,7 +5,6 @@ import {MorphineEquivalentService} from './morphine.equivalent.service';
 import {TotalDailyDoseService} from './total.daily.dose.service';
 import {Injectable} from '@angular/core';
 import {OPIOIDS} from '../../data/opioid/opioids';
-import {ResultsService} from '../results/results.service';
 
 @Injectable()
 export class CalculationsService {
@@ -16,8 +15,7 @@ export class CalculationsService {
   private oxycodoneIndex = 10;
 
   constructor(private totalDailyDoseService: TotalDailyDoseService,
-              private morphineEquivalentService: MorphineEquivalentService,
-              private resultsService: ResultsService) {
+              private morphineEquivalentService: MorphineEquivalentService) {
   }
 
   public setDailyDosesForOpioids(results: Results): void {
@@ -68,14 +66,15 @@ export class CalculationsService {
     return morphineEquivalent;
   }
 
-  public setSumOfMorphineEquivalents(results: Results): MinMax {
-      return this.morphineEquivalentService.sumUpMorphineEquivalentRangeForAllDrugs(
+  public setSumOfMorphineEquivalents(results: Results): void {
+    const sumOfMorphineEquivalents = this.morphineEquivalentService.sumUpMorphineEquivalentRangeForAllDrugs(
       results.firstOpioid.morphineEquivalent,
       results.secondOpioid.morphineEquivalent,
       results.thirdOpioid.morphineEquivalent,
       results.fentanyl.morphineEquivalent,
       results.buprenorphine.morphineEquivalent
     );
+    results.setSumOfMorphineEquivalents(sumOfMorphineEquivalents);
   }
 
   public calculateOpioidToConvertToDoseRange(opioid: Opioid, sumOfMorphineEquivalents: MinMax): MinMax {
@@ -92,8 +91,8 @@ export class CalculationsService {
       min = this.setMetadonDoseRange(sumOfMorphineEquivalents.min);
       max = this.setMetadonDoseRange(sumOfMorphineEquivalents.max);
     } else if (opioid.index === this.oxycodoneIndex) {
-      min = sumOfMorphineEquivalents.min * 100 / 90;
-      max = sumOfMorphineEquivalents.max * 100 / 90;
+      min = sumOfMorphineEquivalents.min / 2 * 100 / 90;
+      max = sumOfMorphineEquivalents.max / 2 * 100 / 90;
     } else {
       OPIOIDS.forEach(drugModel => {
         if (drugModel.index === opioid.index) {
@@ -178,5 +177,4 @@ export class CalculationsService {
   public opioidToConvertToDoseWasExceeded(doseRange: MinMax, maximumDose: number): boolean {
     return doseRange.min >= maximumDose || doseRange.max >= maximumDose;
   }
-
 }
