@@ -5,11 +5,12 @@ import {MorphineEquivalentService} from './morphine.equivalent.service';
 import {TotalDailyDoseService} from './total.daily.dose.service';
 import {Injectable} from '@angular/core';
 import {OPIOIDS} from '../../data/opioid/opioids';
+import {ResultsService} from '../results/results.service';
 
 @Injectable()
 export class CalculationsService {
 
-  private buprenorphineIndex = 2;
+  private buprenorphineIndex = 1;
   private fentanylIndex = 5;
   private metadonIndex = 7;
   private oxycodoneIndex = 10;
@@ -77,27 +78,37 @@ export class CalculationsService {
     results.setSumOfMorphineEquivalents(sumOfMorphineEquivalents);
   }
 
-  public calculateOpioidToConvertToDoseRange(opioid: Opioid, sumOfMorphineEquivalents: MinMax): MinMax {
+  public calculateOpioidToConvertToDoseRange(opioidToConvertToIndex: number,
+                                             sumOfMorphineEquivalents: MinMax,
+                                             results: Results,
+                                             opioid: Opioid): MinMax {
     let min = 0;
     let max = 0;
 
-    if (opioid.index === this.buprenorphineIndex) {
-      min = sumOfMorphineEquivalents.min / 115 / 24 * 1000;
-      max = sumOfMorphineEquivalents.max / 75 / 24 * 1000;
-    } else if (opioid.index === this.fentanylIndex) {
+    if (opioidToConvertToIndex === this.buprenorphineIndex) {
+      const minTemp = sumOfMorphineEquivalents.min / 75;
+      const maxTemp = sumOfMorphineEquivalents.max / 115;
+      min = minTemp < maxTemp ? minTemp : maxTemp;
+      max = minTemp < maxTemp ? maxTemp : minTemp;
+      results.setDoseForResults('mg/dzień');
+    } else if (opioidToConvertToIndex === this.fentanylIndex) {
       min = this.calculateFentanylDoseRange(sumOfMorphineEquivalents.min);
-      min = this.calculateFentanylDoseRange(sumOfMorphineEquivalents.max);
-    } else if (opioid.index === this.metadonIndex) {
+      max = this.calculateFentanylDoseRange(sumOfMorphineEquivalents.max);
+      results.setDoseForResults('μg/h');
+    } else if (opioidToConvertToIndex === this.metadonIndex) {
       min = this.setMetadonDoseRange(sumOfMorphineEquivalents.min);
       max = this.setMetadonDoseRange(sumOfMorphineEquivalents.max);
-    } else if (opioid.index === this.oxycodoneIndex) {
+      results.setDoseForResults('μg/h');
+    } else if (opioidToConvertToIndex === this.oxycodoneIndex) {
       min = sumOfMorphineEquivalents.min / 2 * 100 / 90;
       max = sumOfMorphineEquivalents.max / 2 * 100 / 90;
+      results.setDoseForResults('mg/dzień');
     } else {
       OPIOIDS.forEach(drugModel => {
-        if (drugModel.index === opioid.index) {
+        if (drugModel.index === opioidToConvertToIndex) {
           min = sumOfMorphineEquivalents.min / opioid.minMultiplier;
           max = sumOfMorphineEquivalents.max / opioid.maxMultiplier;
+          results.setDoseForResults('mg/dzień');
         }
       });
     }

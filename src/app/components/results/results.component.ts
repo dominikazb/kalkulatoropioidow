@@ -84,8 +84,9 @@ export class ResultsComponent implements OnInit {
   }
 
   private setDoseRangeForOpioidToConvertTo(): void {
-    const opioidToConvertToDoseRange = this.calculationsService.calculateOpioidToConvertToDoseRange(
-      this.results.opioidToConvertTo, this.results.sumOfMorphineEquivalents);
+    const opioidToConvertToDoseRange =
+      this.calculationsService.calculateOpioidToConvertToDoseRange(this.results.opioidToConvertToIndex,
+        this.results.sumOfMorphineEquivalents, this.results, this.results.opioidToConvertTo);
     this.results.setOpioidToConvertToDoseRange(opioidToConvertToDoseRange);
   }
 

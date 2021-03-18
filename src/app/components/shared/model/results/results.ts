@@ -17,6 +17,8 @@ export class Results {
   public opioidToConvertToReducedDoseRange: MinMax;
   public opioidToConvertToDoseExceeded: boolean;
 
+  public doseForResults: string;
+
   constructor() { }
 
   public setFirstOpioid(firstOpioid: OpioidResults): void {
@@ -65,5 +67,9 @@ export class Results {
 
   public setOpioidToConvertToDoseExceeded(doseExceeded: boolean): void {
     this.opioidToConvertToDoseExceeded = doseExceeded;
+  }
+
+  public setDoseForResults(dose: string): void {
+    this.doseForResults = dose;
   }
 }
