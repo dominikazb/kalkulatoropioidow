@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {OpioidService} from '../../shared/services/opioid.service';
-import {Opioid} from '../../shared/model/opioid';
+import {OpioidService} from '../../shared/services/opioid/opioid.service';
+import {Opioid} from '../../shared/model/opioid/opioid';
 import {FormsService} from '../../shared/services/form/forms.service';
 
 @Component({
@@ -20,8 +20,7 @@ export class FormOpioidComponent implements OnInit {
 
 
   constructor(public formsService: FormsService,
-              private drugService: OpioidService) {
-  }
+              private drugService: OpioidService) { }
 
   ngOnInit(): void {
     this.opioids = this.drugService.getOpioidsWithoutPlasters();

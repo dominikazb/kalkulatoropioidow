@@ -1,4 +1,4 @@
-import {Opioid} from '../model/opioid';
+import {Opioid} from '../../model/opioid/opioid';
 
 export const OPIOIDS: Opioid[] = [
   new Opioid(1, 'Buprenorfina (tbl. podjęzykowe, s.c., i.v., i.m.)', 0, 75, 115, 4),

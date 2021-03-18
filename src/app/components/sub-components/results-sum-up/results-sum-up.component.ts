@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ResultsService} from '../../shared/services/results/results.service';
 import {Results} from '../../shared/model/results/results';
 import {OpioidResults} from '../../shared/model/results/opioid.results';
-import {OpioidService} from '../../shared/services/opioid.service';
+import {OpioidService} from '../../shared/services/opioid/opioid.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -39,5 +39,4 @@ export class ResultsSumUpComponent implements OnInit {
       this.plastersForHTML.push(this.results.buprenorphine);
     }
   }
-
 }

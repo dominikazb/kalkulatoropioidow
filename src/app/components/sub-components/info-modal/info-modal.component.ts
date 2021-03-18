@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import infoModalContent from '../../shared/data/infoModalContent.json';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 import {CookieService} from 'ngx-cookie-service';
+import infoModalContent from '../../shared/data/textContent/infoModalContent.json';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -12,7 +12,7 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class InfoModalComponent implements OnInit {
 
-  infoModalData: {
+  public textData: {
     title: string,
     text1: string,
     consent1: string,

@@ -1,10 +1,10 @@
 import {Results} from '../../model/results/results';
-import {Opioid} from '../../model/opioid';
-import {MinMax} from '../../model/minMax';
+import {Opioid} from '../../model/opioid/opioid';
+import {MinMax} from '../../model/opioid/minMax';
 import {MorphineEquivalentService} from './morphine.equivalent.service';
 import {TotalDailyDoseService} from './total.daily.dose.service';
 import {Injectable} from '@angular/core';
-import {OPIOIDS} from '../../data/opioids';
+import {OPIOIDS} from '../../data/opioid/opioids';
 
 @Injectable()
 export class CalculationsService {

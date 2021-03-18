@@ -1,7 +1,7 @@
-import {Opioid} from '../model/opioid';
-import {OPIOIDS} from '../data/opioids';
-import {Results} from '../model/results/results';
-import {OpioidResults} from '../model/results/opioid.results';
+import {Opioid} from '../../model/opioid/opioid';
+import {OPIOIDS} from '../../data/opioid/opioids';
+import {Results} from '../../model/results/results';
+import {OpioidResults} from '../../model/results/opioid.results';
 
 export class OpioidService {
 

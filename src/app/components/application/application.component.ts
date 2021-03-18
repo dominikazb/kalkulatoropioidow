@@ -4,12 +4,12 @@ import * as _ from 'underscore';
 import {FormsService} from '../shared/services/form/forms.service';
 import {Router} from '@angular/router';
 import {ResultsService} from '../shared/services/results/results.service';
-import {Opioid} from '../shared/model/opioid';
-import {OpioidService} from '../shared/services/opioid.service';
+import {Opioid} from '../shared/model/opioid/opioid';
+import {OpioidService} from '../shared/services/opioid/opioid.service';
 import {OpioidResults} from '../shared/model/results/opioid.results';
-import {MinMax} from '../shared/model/minMax';
+import {MinMax} from '../shared/model/opioid/minMax';
 import {Results} from '../shared/model/results/results';
-import appComponentContent from '../shared/data/appComponentContent.json';
+import applicationContent from '../shared/data/textContent/applicationContent.json';
 
 @Component({
   selector: 'app-application',
@@ -36,7 +36,7 @@ export class ApplicationComponent implements OnInit {
     optionallyText: string,
     btnResetText: string,
     btnCalculateText: string
-  } = appComponentContent;
+  } = applicationContent;
 
 
   public opioidConversionForm: FormGroup;

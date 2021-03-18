@@ -10,7 +10,7 @@ import {FormOpioidComponent} from './components/sub-components/form-opioid/form-
 import {FormFentanylComponent} from './components/sub-components/form-fentanyl/form-fentanyl.component';
 import {FormBuprenorphineComponent} from './components/sub-components/form-buprenorphine/form-buprenorphine.component';
 import {FormConversionToComponent} from './components/sub-components/form-conversion-to/form-conversion-to.component';
-import {OpioidService} from './components/shared/services/opioid.service';
+import {OpioidService} from './components/shared/services/opioid/opioid.service';
 import {FormsService} from './components/shared/services/form/forms.service';
 import {InfoModalComponent} from './components/sub-components/info-modal/info-modal.component';
 import {RouterModule} from '@angular/router';

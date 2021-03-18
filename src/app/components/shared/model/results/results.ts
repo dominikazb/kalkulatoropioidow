@@ -1,5 +1,5 @@
-import {Opioid} from '../opioid';
-import {MinMax} from '../minMax';
+import {Opioid} from '../opioid/opioid';
+import {MinMax} from '../opioid/minMax';
 import {OpioidResults} from './opioid.results';
 
 export class Results {

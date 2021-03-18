@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {Opioid} from '../../shared/model/opioid';
-import {OpioidService} from '../../shared/services/opioid.service';
+import {Opioid} from '../../shared/model/opioid/opioid';
+import {OpioidService} from '../../shared/services/opioid/opioid.service';
 import {FormsService} from '../../shared/services/form/forms.service';
 
 @Component({

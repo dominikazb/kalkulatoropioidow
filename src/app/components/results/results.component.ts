@@ -3,9 +3,9 @@ import {ResultsService} from '../shared/services/results/results.service';
 import {Results} from '../shared/model/results/results';
 import {Router} from '@angular/router';
 import {CalculationsService} from '../shared/services/calculations/calculations.service';
-import resultsContent from './../shared/data/resultsContent.json';
-import opioidInfoContent from '../shared/data/opioidInfoContent.json';
-import {OpioidService} from '../shared/services/opioid.service';
+import resultsContent from '../shared/data/textContent/resultsContent.json';
+import opioidInfoContent from '../shared/data/opioid/opioidInfoContent.json';
+import {OpioidService} from '../shared/services/opioid/opioid.service';
 
 @Component({
   selector: 'app-results',
@@ -13,7 +13,7 @@ import {OpioidService} from '../shared/services/opioid.service';
 })
 export class ResultsComponent implements OnInit {
 
-  public resultsTextData: {
+  public textData: {
     resultsText: string,
     opioidText: string,
     dailyDoseText: string,

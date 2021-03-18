@@ -1,6 +1,6 @@
-import {MinMax} from '../../model/minMax';
-import {Opioid} from '../../model/opioid';
-import {OPIOIDS} from '../../data/opioids';
+import {MinMax} from '../../model/opioid/minMax';
+import {Opioid} from '../../model/opioid/opioid';
+import {OPIOIDS} from '../../data/opioid/opioids';
 
 export class MorphineEquivalentService {
 
