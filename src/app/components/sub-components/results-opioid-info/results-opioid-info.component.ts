@@ -36,7 +36,7 @@ export class ResultsOpioidInfoComponent implements OnInit{
     const opioidsFiltered =
       opioidsToShow
         .filter((value, index) => opioidsToShow.indexOf(value) === index)
-        .filter(value => value !== 0);
+        .filter(value => value !== 0 && value !== 9);
     return opioidsFiltered;
   }
 }

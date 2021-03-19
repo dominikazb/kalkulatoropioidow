@@ -658,6 +658,10 @@ a.blad:hover {
   color: black;
 }
 
+.red_color {
+  color: red;
+}
+
 .dark_background {
   padding: 10px 15px;
   background-color: #555555;

@@ -6,6 +6,7 @@ import {CalculationsService} from '../shared/services/calculations/calculations.
 import {OpioidService} from '../shared/services/opioid/opioid.service';
 import resultsContent from '../shared/data/textContent/resultsContent.json';
 import opioidInfoContent from '../shared/data/opioid/opioidInfoContent.json';
+import {Opioid} from '../shared/model/opioid/opioid';
 
 @Component({
   selector: 'app-results',
@@ -92,17 +93,22 @@ export class ResultsComponent implements OnInit {
     }
   }
 
-  // TODO: to musi być dla dawki normalnej + dla dawki przekroczonej (!!!)
   private setDoseExceededForOpioidToConvertTo(): void {
-    // let doseLimit = 100000000000; // TODO! DO ZAORANIA!
-    // this.opioidInfoData.forEach(opioid => {
-    //   if (opioid.index === this.results.opioidToConvertToIndex) {
-    //     doseLimit = opioid.doseLimit;
-    //   }
-    // });
-    // const doseExceeded =
-    //   this.calculationsService.opioidToConvertToDoseWasExceeded(this.results.opioidToConvertToDoseRange, doseLimit);
-    // this.results.setOpioidToConvertToDoseExceeded(doseExceeded);
+    const opioidToConvertToIndex: number = this.resultsService.results.opioidToConvertToIndex;
+    // @ts-ignore
+    const doseCanBeExceeded = this.opioidInfoData[opioidToConvertToIndex].doseCanBeExceeded;
+
+    if (doseCanBeExceeded) {
+      // @ts-ignore
+      const doseLimit = this.opioidInfoData[opioidToConvertToIndex].doseLimit;
+
+      if (this.calculationsService.opioidToConvertToDoseWasExceeded(
+        this.resultsService.results.opioidToConvertToDoseRange, doseLimit)) {
+        this.resultsService.results.opioidToConvertToDoseExceeded = true;
+      }
+
+      // dla buprenorfiny transdermalnie (?)
+    }
   }
 
   public opioidToConvertToWasChosen(): boolean {

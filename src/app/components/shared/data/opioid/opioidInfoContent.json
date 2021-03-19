@@ -30,7 +30,7 @@
     "text2": "dihydrokodeinę",
     "text3": "wynosi 1:10.",
     "text4": "Maksymalna dawka dobowa wynosi 240 mg.",
-    "doseCanBeExceeded": false,
+    "doseCanBeExceeded": true,
     "doseLimit": 240,
     "doseLimitUnit": "mg",
     "warning": "UWAGA! Maksymalna dobowa dawka dla dihydrokodeiny to 240 mg!"
@@ -43,8 +43,8 @@
     "text3": "wynosi 1:100 do 1:150. W wyniku kalkulacji otrzymasz obie liczby (przedział).",
     "text4": "Dobierając dawkę weź pod uwagę sytuację Chorego, zwłaszcza upośledzoną czynność wątroby i nerek.",
     "doseCanBeExceeded": false,
-    "doseLimit": 0,
-    "doseLimitUnit": "mg",
+    "doseLimit": null,
+    "doseLimitUnit": null,
     "warning": ""
   },
   "5": {
@@ -67,10 +67,10 @@
     "text15": "- 630–689 mg/d – 275 µg/h",
     "text16": "- 690–749 mg/d – 300 µg/h",
     "text17": "Maksymalna dawka fentanylu w plastrach nie powinna przekraczać 300 µg/h.",
-    "doseCanBeExceeded": false,
-    "doseLimit": 0,
-    "doseLimitUnit": "mg",
-    "warning": ""
+    "doseCanBeExceeded": true,
+    "doseLimit": 300,
+    "doseLimitUnit": "µg/h",
+    "warning": "Maksymalna dawka fentanylu w plastrach nie powinna przekraczać 300 µg/h."
   },
   "6": {
     "index": 6,
@@ -79,8 +79,8 @@
     "text2": "kodeinę",
     "text3": "wynosi 1:10. Maksymalna dawka dobowa wynosi 240 mg.",
     "text4": "Lek nie jest obecnie stosowany do leczenia bólu nowotworowego.",
-    "doseCanBeExceeded": false,
-    "doseLimit": 0,
+    "doseCanBeExceeded": true,
+    "doseLimit": 240,
     "doseLimitUnit": "mg",
     "warning": "UWAGA! Maksymalna dobowa dawka dla kodeiny to 240 mg!"
   },
@@ -97,10 +97,14 @@
     "text8": "- dla dawek powyżej 1000 mg 20:1.",
     "text9": "Dawka jednorazowa metadonu nie powinna przekraczać 30 mg.",
     "text10": "Rozpoczynając leczenie pamiętaj, że przez pierwsze 2-4 dni lek wypełnia rezerwuar tkankowy.",
-    "doseCanBeExceeded": false,
-    "doseLimit": 0,
+    "doseCanBeExceeded": true,
+    "doseLimit": 30,
     "doseLimitUnit": "mg",
-    "warning": ""
+    "warning": "UWAGA! Maksymalna jednorazowa dawka dla metadonu to 30mg!",
+    "metadonDoseText1": "Podawaj metadon w dawce:",
+    "metadonDoseText2": "Metadon (dawka doraźna):",
+    "metadonDoseText3": "Dawka doraźna zredukowana o",
+    "metadonDoseText4": "mg co 12h"
   },
   "8": {
     "index": 8,
@@ -110,8 +114,8 @@
     "text3": "wynosi: 1:2.",
     "text4": "",
     "doseCanBeExceeded": false,
-    "doseLimit": 0,
-    "doseLimitUnit": "mg",
+    "doseLimit": null,
+    "doseLimitUnit": null,
     "warning": ""
   },
   "9": {
@@ -119,11 +123,11 @@
     "name": "Morfina (tbl. doustne)",
     "text1": "Wykorzystany w kalkulatorze przelicznik doustnej morfiny na",
     "text2": "morfinę (tbl. doustne)",
-    "text3": "wynosiL 1:1.",
+    "text3": "wynosi 1:1.",
     "text4": "",
     "doseCanBeExceeded": false,
-    "doseLimit": 0,
-    "doseLimitUnit": "mg",
+    "doseLimit": null,
+    "doseLimitUnit": null,
     "warning": ""
   },
   "10": {
@@ -134,8 +138,8 @@
     "text3": "Wykorzystany w kalkulatorze przelicznik doustnej morfiny na (czysty) oksykodon wynosi: 2:1. Z powodu indywidualnych różnic rozważ redukcję wyliczonej dawki oksykodonu o 50-75%.",
     "text4": "",
     "doseCanBeExceeded": false,
-    "doseLimit": 0,
-    "doseLimitUnit": "mg",
+    "doseLimit": null,
+    "doseLimitUnit": null,
     "warning": ""
   },
   "11": {
@@ -157,8 +161,8 @@
     "text2": "tramadol (s.c., i.v.)",
     "text3": "wynosi: 1:10.",
     "text4": "",
-    "doseCanBeExceeded": false,
-    "doseLimit": 0,
+    "doseCanBeExceeded": true,
+    "doseLimit": 400,
     "doseLimitUnit": "mg",
     "warning": "UWAGA! Maksymalna dobowa dawka dla tramadolu (s.c, i.v.) to 400 mg!"
   },
@@ -169,8 +173,8 @@
     "text2": "tramadol (doustnie)",
     "text3": "wynosi: 1:5 - 1:10. W wyniku kalkulacji otrzymasz obie liczby (przedział).",
     "text4": "Stosowanie tramadolu w kroplach umożliwia dokładnie miareczkowanie bólu. 20 kropli = 50 mg tramadolu.",
-    "doseCanBeExceeded": false,
-    "doseLimit": 0,
+    "doseCanBeExceeded": true,
+    "doseLimit": 400,
     "doseLimitUnit": "mg",
     "warning": "UWAGA! Maksymalna dobowa dawka dla tramadolu (doustnie) to 400 mg!"
   }
