@@ -10,11 +10,9 @@ import {ResultsService} from '../../shared/services/results/results.service';
 export class ResultsConversionToComponent implements OnInit {
 
   @Input() opioidInfoData: any;
-
   public results: Results;
 
-  constructor(public resultsService: ResultsService) {
-  }
+  constructor(public resultsService: ResultsService) { }
 
   ngOnInit(): void {
     this.results = this.resultsService.getResults();

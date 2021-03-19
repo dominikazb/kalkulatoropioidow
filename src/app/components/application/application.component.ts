@@ -150,8 +150,9 @@ export class ApplicationComponent implements OnInit {
     const numberOfDoses: number = parseFloat(this.getControlValue(opioidNo + '.numberOfDoses'));
     const dose: number = parseFloat(this.getControlValue(opioidNo + '.dose'));
     const unit: string = this.getControlValue(opioidNo + '.unit');
-    const opioidResults: OpioidResults = new OpioidResults(this.opioidService.getOpioid(index),
-      numberOfDoses ? numberOfDoses : 0, dose ? dose : 0, unit);
+    const opioid: Opioid = this.opioidService.getOpioid(index);
+    const opioidResults: OpioidResults = new OpioidResults(opioid, numberOfDoses ? numberOfDoses : 0,
+      dose ? dose : 0, unit);
     return opioidResults;
   }
 

@@ -42,10 +42,10 @@
   <div class="col-md-6"></div>
   <div class="col-md-6 dark_background text-center">
     <div *ngIf="results.sumOfMorphineEquivalents.min === results.sumOfMorphineEquivalents.max">
-      {{results.sumOfMorphineEquivalents.min | number : '1.2-2'}} mg
+      SUMA: {{results.sumOfMorphineEquivalents.min | number : '1.2-2'}} mg
     </div>
     <div *ngIf="results.sumOfMorphineEquivalents.min !== results.sumOfMorphineEquivalents.max">
-      {{results.sumOfMorphineEquivalents.min | number : '1.2-2'}}
+      SUMA: {{results.sumOfMorphineEquivalents.min | number : '1.2-2'}}
       - {{results.sumOfMorphineEquivalents.max | number : '1.2-2'}} mg
     </div>
   </div>

@@ -27,15 +27,9 @@ export class ResultsComponent implements OnInit {
   public showResults: boolean;
   public results: Results;
 
-  public opioidInfoData: [{
-    index: number,
-    name: string,
-    text1: string, text2: string, text3: string, text4: string, text5: string, text6: string, text7: string,
-    doseCanBeExceeded: boolean,
-    doseLimit: number,
-    doseLimitUnit: string,
-    warning: string
-  }] = opioidInfoContent;
+  public opioidInfoData: {'1': any, '2': any, '3': any, '4': any, '5': any, '6': any, '7': any,
+                           '8': any, '9': any, '10': any, '11': any, '12': any, '13': any
+  } = opioidInfoContent;
 
   constructor(public opioidService: OpioidService,
               private calculationsService: CalculationsService,
@@ -46,7 +40,7 @@ export class ResultsComponent implements OnInit {
     this.results = this.resultsService.getResults();
     this.loadResultsOrRedirect();
 
-    if (this.results.opioidToConvertToIndex !== 0) {
+    if (this.results && this.results.opioidToConvertToIndex !== 0) {
       this.setDoseRangeForOpioidToConvertTo();
       this.setReducedDoseRangeForOpioidToConvertTo();
       this.setDoseExceededForOpioidToConvertTo();
@@ -100,15 +94,15 @@ export class ResultsComponent implements OnInit {
 
   // TODO: to musi być dla dawki normalnej + dla dawki przekroczonej (!!!)
   private setDoseExceededForOpioidToConvertTo(): void {
-    let doseLimit = 100000000000; // TODO! DO ZAORANIA!
-    this.opioidInfoData.forEach(opioid => {
-      if (opioid.index === this.results.opioidToConvertToIndex) {
-        doseLimit = opioid.doseLimit;
-      }
-    });
-    const doseExceeded =
-      this.calculationsService.opioidToConvertToDoseWasExceeded(this.results.opioidToConvertToDoseRange, doseLimit);
-    this.results.setOpioidToConvertToDoseExceeded(doseExceeded);
+    // let doseLimit = 100000000000; // TODO! DO ZAORANIA!
+    // this.opioidInfoData.forEach(opioid => {
+    //   if (opioid.index === this.results.opioidToConvertToIndex) {
+    //     doseLimit = opioid.doseLimit;
+    //   }
+    // });
+    // const doseExceeded =
+    //   this.calculationsService.opioidToConvertToDoseWasExceeded(this.results.opioidToConvertToDoseRange, doseLimit);
+    // this.results.setOpioidToConvertToDoseExceeded(doseExceeded);
   }
 
   public opioidToConvertToWasChosen(): boolean {
