@@ -6,7 +6,6 @@ import {CalculationsService} from '../shared/services/calculations/calculations.
 import {OpioidService} from '../shared/services/opioid/opioid.service';
 import resultsContent from '../shared/data/textContent/resultsContent.json';
 import opioidInfoContent from '../shared/data/opioid/opioidInfoContent.json';
-import {Opioid} from '../shared/model/opioid/opioid';
 
 @Component({
   selector: 'app-results',
@@ -65,7 +64,7 @@ export class ResultsComponent implements OnInit {
     this.showResults = false;
     setTimeout(() => {
       this.redirectToMainPage();
-    }, 800);
+    }, 500);
   }
 
   private redirectToMainPage(): void {
@@ -106,12 +105,6 @@ export class ResultsComponent implements OnInit {
         this.resultsService.results.opioidToConvertToDoseRange, doseLimit)) {
         this.resultsService.results.opioidToConvertToDoseExceeded = true;
       }
-
-      // dla buprenorfiny transdermalnie (?)
     }
-  }
-
-  public opioidToConvertToWasChosen(): boolean {
-    return this.results.opioidToConvertToIndex !== 0;
   }
 }

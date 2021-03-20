@@ -20,12 +20,11 @@
           <hr class="padding_bottom_20px padding_top_20px">
         </ng-container>
 
-        <ng-container *ngIf="opioidToConvertToWasChosen()">
-          <div class="dark_thick_frame">
-                  <results-conversion-to
-                      [opioidInfoData]="opioidInfoData"></results-conversion-to>
-          </div>
-        </ng-container>
+
+        <div class="dark_thick_frame">
+          <results-conversion-to
+            [opioidInfoData]="opioidInfoData"></results-conversion-to>
+        </div>
 
         <br>
 

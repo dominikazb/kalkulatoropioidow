@@ -92,4 +92,8 @@ export class ResultsConversionToComponent implements OnInit {
     }
     return buprenorphinePlasters.filter((value, index) => buprenorphinePlasters.indexOf(value) === index);
   }
+
+  public opioidToConvertToWasChosen(): boolean {
+    return this.results.opioidToConvertToIndex !== 0;
+  }
 }
