@@ -199,10 +199,10 @@ export class CalculationsService {
         const plasterValue: number = value;
         const fentanylPlasterMinus25 =
           opioidToConvertToDoseRange.min - (opioidToConvertToDoseRange.min * 25 / 100);
-        const fentanylPlasterPlus25 =
-          opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 25 / 100);
+        const fentanylPlasterPlus15 =
+          opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 15 / 100);
 
-        if (plasterValue >= fentanylPlasterMinus25 && plasterValue <= fentanylPlasterPlus25) {
+        if (plasterValue >= fentanylPlasterMinus25 && plasterValue <= fentanylPlasterPlus15) {
           listOfPossiblePlasters.push(key);
         }
       }
@@ -232,10 +232,10 @@ export class CalculationsService {
         const plasterValue: number = value;
         const buprenorphinePlasterMinus15 =
           opioidToConvertToDoseRange.min - (opioidToConvertToDoseRange.min * 15 / 100);
-        const buprenorphinePlasterPlus15 =
-          opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 15 / 100);
+        const buprenorphinePlasterPlus8 =
+          opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 8 / 100);
 
-        if (plasterValue >= buprenorphinePlasterMinus15 && plasterValue <= buprenorphinePlasterPlus15) {
+        if (plasterValue >= buprenorphinePlasterMinus15 && plasterValue <= buprenorphinePlasterPlus8) {
           listOfPossiblePlasters.push(key);
         }
       }
