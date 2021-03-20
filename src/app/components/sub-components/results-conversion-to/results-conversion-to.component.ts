@@ -57,7 +57,6 @@ export class ResultsConversionToComponent implements OnInit {
     }
   }
 
-  // TODO: ustawić prawidłowe liczenie dawki doraźnej
   private setMethadoneSingleDose(): void {
     this.methadoneSingleDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 30,
       this.results.opioidToConvertToDoseRange.max / 30);

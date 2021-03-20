@@ -170,7 +170,7 @@ export class CalculationsService {
     } else if (sumOfMorphineEquivalentsMinMax >= 690 && sumOfMorphineEquivalentsMinMax <= 749) {
       minMax = 300;
     } else if (sumOfMorphineEquivalentsMinMax >= 750) {
-      minMax = sumOfMorphineEquivalentsMinMax / 150 / 24 * 1000; // TODO: is this correct (?)
+      minMax = sumOfMorphineEquivalentsMinMax / 150 / 24 * 1000;
     }
     return minMax;
   }

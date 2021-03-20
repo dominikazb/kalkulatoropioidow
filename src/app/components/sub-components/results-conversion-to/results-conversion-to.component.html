@@ -101,11 +101,11 @@
         {{opioidInfoData[methadoneIndex].methadoneDoseText3}} {{results.doseReduction}}%:
       </td>
       <td *ngIf="results.opioidToConvertToDoseRange.min === results.opioidToConvertToDoseRange.max">
-            {{methadoneSingleDoseReduced.min | number : '1.2-2'}} {{opioidInfoData[methadoneIndex].methadoneDoseText4}}
+            {{methadoneSingleDoseReduced.min | number : '1.2-2'}} {{results.doseForResults}}
       </td>
       <td *ngIf="results.opioidToConvertToDoseRange.min !== results.opioidToConvertToDoseRange.max">
             {{methadoneSingleDoseReduced.min | number : '1.2-2'}} -
-            {{methadoneSingleDoseReduced.max | number : '1.2-2'}} {{opioidInfoData[methadoneIndex].methadoneDoseText4}}
+            {{methadoneSingleDoseReduced.max | number : '1.2-2'}} {{results.doseForResults}}
       </td>
     </tr>
   </ng-container>

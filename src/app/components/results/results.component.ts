@@ -27,8 +27,8 @@ export class ResultsComponent implements OnInit {
   public showResults: boolean;
   public results: Results;
 
-  public opioidInfoData: {'1': any, '2': any, '3': any, '4': any, '5': any, '6': any, '7': any,
-                           '8': any, '9': any, '10': any, '11': any, '12': any, '13': any
+  public opioidInfoData: {1: number, 2: number, 3: number, 4: number, 5: number, 6: number, 7: number,
+                           8: number, 9: number, 10: number, 11: number, 12: number, 13: number
   } = opioidInfoContent;
 
   constructor(public opioidService: OpioidService,
