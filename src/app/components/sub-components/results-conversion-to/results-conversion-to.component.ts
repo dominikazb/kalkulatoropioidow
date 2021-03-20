@@ -14,12 +14,12 @@ export class ResultsConversionToComponent implements OnInit {
   @Input() opioidInfoData: any;
   public results: Results;
 
-  public metadonProposedDailyDose: MinMax;
-  public metadonProposedDailyDoseReduced: MinMax;
-  public metadonSingleDose: MinMax;
-  public metadonSingleDoseReduced: MinMax;
+  public methadoneProposedDailyDose: MinMax;
+  public methadoneProposedDailyDoseReduced: MinMax;
+  public methadoneSingleDose: MinMax;
+  public methadoneSingleDoseReduced: MinMax;
 
-  public metadonIndex = 7;
+  public methadoneIndex = 7;
   public buprenorphineTransdermalIndex = 2;
   public fentanylTransdermalIndex = 5;
 
@@ -31,11 +31,11 @@ export class ResultsConversionToComponent implements OnInit {
 
   ngOnInit(): void {
     this.results = this.resultsService.getResults();
-    if (this.results.opioidToConvertToIndex === this.metadonIndex) {
-      this.setMetadonProposedDailyDose();
-      this.setMetadonProposedDailyDoseReduced();
-      this.setMetadonSingleDose();
-      this.setMetadonSingleDoseReduced();
+    if (this.results.opioidToConvertToIndex === this.methadoneIndex) {
+      this.setMethadoneProposedDailyDose();
+      this.setMethadoneProposedDailyDoseReduced();
+      this.setMethadoneSingleDose();
+      this.setMethadoneSingleDoseReduced();
     }
     if (this.results.opioidToConvertToIndex === this.fentanylTransdermalIndex) {
       this.listOfProposedFentanylPlasters = this.setListOfProposedFentanylPlasters();
@@ -45,27 +45,27 @@ export class ResultsConversionToComponent implements OnInit {
     }
   }
 
-  private setMetadonProposedDailyDose(): void {
-    this.metadonProposedDailyDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 2,
+  private setMethadoneProposedDailyDose(): void {
+    this.methadoneProposedDailyDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 2,
       this.results.opioidToConvertToDoseRange.max / 2);
   }
 
-  private setMetadonProposedDailyDoseReduced(): void {
+  private setMethadoneProposedDailyDoseReduced(): void {
     if (this.results.doseReduction > 0) {
-      this.metadonProposedDailyDoseReduced = new MinMax(this.results.opioidToConvertToReducedDoseRange.min / 2,
+      this.methadoneProposedDailyDoseReduced = new MinMax(this.results.opioidToConvertToReducedDoseRange.min / 2,
         this.results.opioidToConvertToReducedDoseRange.max / 2);
     }
   }
 
   // TODO: ustawić prawidłowe liczenie dawki doraźnej
-  private setMetadonSingleDose(): void {
-    this.metadonSingleDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 30,
+  private setMethadoneSingleDose(): void {
+    this.methadoneSingleDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 30,
       this.results.opioidToConvertToDoseRange.max / 30);
   }
 
-  private setMetadonSingleDoseReduced(): void {
+  private setMethadoneSingleDoseReduced(): void {
     if (this.results.doseReduction > 0) {
-      this.metadonSingleDoseReduced = new MinMax(this.results.opioidToConvertToReducedDoseRange.min / 30,
+      this.methadoneSingleDoseReduced = new MinMax(this.results.opioidToConvertToReducedDoseRange.min / 30,
         this.results.opioidToConvertToReducedDoseRange.max / 30);
     }
   }

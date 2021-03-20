@@ -11,7 +11,7 @@ export class CalculationsService {
 
   private buprenorphineTransdermalIndex = 2;
   private fentanylTransdermalIndex = 5;
-  private metadonIndex = 7;
+  private methadoneIndex = 7;
   private oxycodoneIndex = 10;
 
   constructor(private totalDailyDoseService: TotalDailyDoseService,
@@ -54,7 +54,7 @@ export class CalculationsService {
   private calculateMorphineEquivalent(dailyDose: number, opioid: Opioid): MinMax {
     let morphineEquivalent: MinMax;
     if (opioid.index === 7) {
-      morphineEquivalent = this.morphineEquivalentService.calculateMorphineEquivalentForMetadon(
+      morphineEquivalent = this.morphineEquivalentService.calculateMorphineEquivalentForMethadone(
         dailyDose);
     } else if (opioid.index === 10) {
       morphineEquivalent = this.morphineEquivalentService.calculateMorphineEquivalentForOxycodone(
@@ -94,9 +94,9 @@ export class CalculationsService {
       min = this.calculateFentanylDoseRange(sumOfMorphineEquivalents.min);
       max = this.calculateFentanylDoseRange(sumOfMorphineEquivalents.max);
       results.setDoseForResults('μg/h');
-    } else if (opioidToConvertToIndex === this.metadonIndex) {
-      min = this.setMetadonDoseRange(sumOfMorphineEquivalents.min);
-      max = this.setMetadonDoseRange(sumOfMorphineEquivalents.max);
+    } else if (opioidToConvertToIndex === this.methadoneIndex) {
+      min = this.setMethadoneDoseRange(sumOfMorphineEquivalents.min);
+      max = this.setMethadoneDoseRange(sumOfMorphineEquivalents.max);
       results.setDoseForResults('mg/dzień');
     } else if (opioidToConvertToIndex === this.oxycodoneIndex) {
       min = sumOfMorphineEquivalents.min / 2 * 100 / 90;
@@ -116,7 +116,7 @@ export class CalculationsService {
     return new MinMax(min, max);
   }
 
-  private setMetadonDoseRange(sumOfMorphineEquivalentsMinMax: number): number {
+  private setMethadoneDoseRange(sumOfMorphineEquivalentsMinMax: number): number {
     let minMax = 0;
     if (sumOfMorphineEquivalentsMinMax >= 0 && sumOfMorphineEquivalentsMinMax <= 100) {
       minMax = sumOfMorphineEquivalentsMinMax / 4;

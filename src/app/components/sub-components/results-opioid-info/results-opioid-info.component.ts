@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Opioid} from '../../shared/model/opioid/opioid';
 import {ResultsService} from '../../shared/services/results/results.service';
 import {Results} from '../../shared/model/results/results';
 
@@ -12,6 +11,9 @@ export class ResultsOpioidInfoComponent implements OnInit{
 
   @Input() opioidInfoData: any;
   public opioidsToShow: number[] = [];
+
+  public fentanylTransdermalIndex = 5;
+  public methadoneIndex = 7;
 
   constructor(private resultsService: ResultsService) { }
 

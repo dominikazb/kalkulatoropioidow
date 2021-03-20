@@ -101,10 +101,10 @@
     "doseLimit": 30,
     "doseLimitUnit": "mg",
     "warning": "UWAGA! Maksymalna jednorazowa dawka dla metadonu to 30mg!",
-    "metadonDoseText1": "Podawaj metadon w dawce:",
-    "metadonDoseText2": "Metadon (dawka doraźna):",
-    "metadonDoseText3": "Dawka doraźna zredukowana o",
-    "metadonDoseText4": "mg co 12h"
+    "methadoneDoseText1": "Podawaj metadon w dawce:",
+    "methadoneDoseText2": "Metadon (dawka doraźna):",
+    "methadoneDoseText3": "Dawka doraźna zredukowana o",
+    "methadoneDoseText4": "mg co 12h"
   },
   "8": {
     "index": 8,

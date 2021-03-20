@@ -18,7 +18,7 @@ export class MorphineEquivalentService {
     return new MinMax(min, max);
   }
 
-  public calculateMorphineEquivalentForMetadon(dailyDose: number): MinMax {
+  public calculateMorphineEquivalentForMethadone(dailyDose: number): MinMax {
     let morphineEquivalentRange: MinMax = new MinMax(0, 0);
 
     if (dailyDose >= 0 && dailyDose <= 25) {
