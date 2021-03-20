@@ -59,9 +59,9 @@
     </tr>
   </ng-container>
 
-  <tr *ngIf="results.opioidToConvertToIndex === buprenorphineTransdermalIndex">
+  <tr *ngIf="listOfProposedBuprenorphinePlasters.length > 0">
     <td>
-      Proponowane plastry:
+      {{opioidInfoData[buprenorphineTransdermalIndex].buprenorphineProposedPlastersText}}
     </td>
     <td>
       <ul *ngFor="let plaster of listOfProposedBuprenorphinePlasters">
@@ -70,9 +70,9 @@
     </td>
   </tr>
 
-  <tr *ngIf="results.opioidToConvertToIndex === fentanylTransdermalIndex">
+  <tr *ngIf="listOfProposedFentanylPlasters.length > 0">
     <td>
-      Proponowane plastry:
+      {{opioidInfoData[fentanylTransdermalIndex].fentanylProposedPlastersText}}
     </td>
     <td>
       <ul *ngFor="let plaster of listOfProposedFentanylPlasters">

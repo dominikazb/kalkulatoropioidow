@@ -23,8 +23,8 @@ export class ResultsConversionToComponent implements OnInit {
   public buprenorphineTransdermalIndex = 2;
   public fentanylTransdermalIndex = 5;
 
-  public listOfProposedFentanylPlasters: string[];
-  public listOfProposedBuprenorphinePlasters: string[];
+  public listOfProposedFentanylPlasters: string[] = [];
+  public listOfProposedBuprenorphinePlasters: string[] = [];
 
   constructor(public resultsService: ResultsService,
               private calculationsService: CalculationsService) { }
@@ -38,10 +38,10 @@ export class ResultsConversionToComponent implements OnInit {
       this.setMethadoneSingleDoseReduced();
     }
     if (this.results.opioidToConvertToIndex === this.fentanylTransdermalIndex) {
-      this.listOfProposedFentanylPlasters = this.setListOfProposedFentanylPlasters();
+      this.listOfProposedFentanylPlasters = this.getListOfProposedFentanylPlasters();
     }
     if (this.results.opioidToConvertToIndex === this.buprenorphineTransdermalIndex) {
-      this.listOfProposedBuprenorphinePlasters = this.setListOfProposedBuprenorphinePlasters();
+      this.listOfProposedBuprenorphinePlasters = this.getListOfProposedBuprenorphinePlasters();
     }
   }
 
@@ -70,18 +70,18 @@ export class ResultsConversionToComponent implements OnInit {
     }
   }
 
-  private setListOfProposedFentanylPlasters(): string[] {
+  private getListOfProposedFentanylPlasters(): string[] {
     let fentanylPlasters: string[] = [];
     if (this.results.doseReduction === 0) {
       fentanylPlasters = this.calculationsService.getListOfProposedFentanylPlasters(this.results.opioidToConvertToDoseRange, this.results);
     } else {
       fentanylPlasters =
-        this.calculationsService.getListOfProposedFentanylPlasters(this.results.opioidToConvertToDoseRange, this.results);
+        this.calculationsService.getListOfProposedFentanylPlasters(this.results.opioidToConvertToReducedDoseRange, this.results);
     }
     return fentanylPlasters.filter((value, index) => fentanylPlasters.indexOf(value) === index);
   }
 
-  private setListOfProposedBuprenorphinePlasters(): string[] {
+  private getListOfProposedBuprenorphinePlasters(): string[] {
     let buprenorphinePlasters: string[] = [];
     if (this.results.doseReduction === 0) {
       buprenorphinePlasters =

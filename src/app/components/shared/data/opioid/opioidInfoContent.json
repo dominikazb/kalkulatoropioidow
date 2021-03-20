@@ -21,7 +21,8 @@
     "doseCanBeExceeded": true,
     "doseLimit": 140,
     "doseLimitUnit": "mg",
-    "warning": "UWAGA! Wymagana dawka buprenorfiny przekracza 140 μg/h, rozważ dodatkową lub alternatywną metodę zwalczania bólu, albo dodatkowe zastosowanie opioidów."
+    "warning": "UWAGA! Wymagana dawka buprenorfiny przekracza 140 μg/h, rozważ dodatkową lub alternatywną metodę zwalczania bólu, albo dodatkowe zastosowanie opioidów.",
+    "buprenorphineProposedPlastersText": "Proponowane plastry:"
   },
   "3": {
     "index": 3,
@@ -70,7 +71,8 @@
     "doseCanBeExceeded": true,
     "doseLimit": 300,
     "doseLimitUnit": "µg/h",
-    "warning": "Maksymalna dawka fentanylu w plastrach nie powinna przekraczać 300 µg/h."
+    "warning": "Maksymalna dawka fentanylu w plastrach nie powinna przekraczać 300 µg/h.",
+    "fentanylProposedPlastersText": "Proponowane plastry:"
   },
   "6": {
     "index": 6,
