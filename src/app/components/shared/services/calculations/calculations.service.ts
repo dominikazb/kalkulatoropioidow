@@ -116,56 +116,6 @@ export class CalculationsService {
     return new MinMax(min, max);
   }
 
-  private calculateFentanylDoseRange(sumOfMorphineEquivalentsMinMax: number): number {
-    let minMax = 0;
-
-    if (sumOfMorphineEquivalentsMinMax >= 0 && sumOfMorphineEquivalentsMinMax <= 44) {
-        minMax = 12;
-    } else if (sumOfMorphineEquivalentsMinMax >= 45 && sumOfMorphineEquivalentsMinMax <= 89) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 25 μg/h");
-        minMax = 25;
-    } else if (sumOfMorphineEquivalentsMinMax >= 90 && sumOfMorphineEquivalentsMinMax <= 149 ) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 50 μg/h");
-      minMax = 50;
-    } else if (sumOfMorphineEquivalentsMinMax >= 150 && sumOfMorphineEquivalentsMinMax <= 209) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 75 μg/h");
-        minMax = 75;
-    } else if (sumOfMorphineEquivalentsMinMax >= 210 && sumOfMorphineEquivalentsMinMax <= 269) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 100 μg/h");
-        minMax =  100;
-    } else if (sumOfMorphineEquivalentsMinMax >= 270 && sumOfMorphineEquivalentsMinMax <= 329) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 25 μg/h + 100 μg/h");
-        minMax = 125;
-    } else if (sumOfMorphineEquivalentsMinMax >= 330 && sumOfMorphineEquivalentsMinMax <= 389) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 50 μg/h + 100 μg/h");
-        minMax =  150;
-    } else if (sumOfMorphineEquivalentsMinMax >= 390 && sumOfMorphineEquivalentsMinMax <= 449) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 75 μg/h + 100 μg/h");
-        minMax = 175;
-    } else if (sumOfMorphineEquivalentsMinMax >= 450 && sumOfMorphineEquivalentsMinMax <= 509) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 2 x 100 μg/h");
-        minMax = 200;
-    } else if (sumOfMorphineEquivalentsMinMax >= 510 && sumOfMorphineEquivalentsMinMax <= 569) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 2 x 100 μg/h + 25 μg/h");
-        minMax = 225;
-    } else if (sumOfMorphineEquivalentsMinMax >= 570 && sumOfMorphineEquivalentsMinMax <= 629) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 2 x 100 μg/h + 50 μg/h");
-        minMax = 250;
-    } else if (sumOfMorphineEquivalentsMinMax >= 630 && sumOfMorphineEquivalentsMinMax <= 689) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 2 x 100 μg/h + 75 μg/h");
-        minMax = 275;
-    } else if (sumOfMorphineEquivalentsMinMax >= 690 && sumOfMorphineEquivalentsMinMax <= 749) {
-        // listOfSuggestedFentanylPlasters.add("Plaster: 3 x 100 μg/h");
-        minMax = 300;
-    } else if (sumOfMorphineEquivalentsMinMax >= 750) {
-        // minMax = sumOfMorphineEquivalents.getMin()/150 /24 * 1000;
-        // if (minimalNumber <= 300) {
-        //   listOfSuggestedFentanylPlasters.add("Plaster: 3 x 100 μg/h");
-        // }
-    }
-    return minMax;
-  }
-
   private setMetadonDoseRange(sumOfMorphineEquivalentsMinMax: number): number {
     let minMax = 0;
     if (sumOfMorphineEquivalentsMinMax >= 0 && sumOfMorphineEquivalentsMinMax <= 100) {
@@ -188,5 +138,109 @@ export class CalculationsService {
 
   public opioidToConvertToDoseWasExceeded(doseRange: MinMax, maximumDose: number): boolean {
     return doseRange.min >= maximumDose || doseRange.max >= maximumDose;
+  }
+
+  private calculateFentanylDoseRange(sumOfMorphineEquivalentsMinMax: number): number {
+    let minMax = 0;
+
+    if (sumOfMorphineEquivalentsMinMax >= 0 && sumOfMorphineEquivalentsMinMax <= 44) {
+      minMax = 12;
+    } else if (sumOfMorphineEquivalentsMinMax >= 45 && sumOfMorphineEquivalentsMinMax <= 89) {
+      minMax = 25;
+    } else if (sumOfMorphineEquivalentsMinMax >= 90 && sumOfMorphineEquivalentsMinMax <= 149 ) {
+      minMax = 50;
+    } else if (sumOfMorphineEquivalentsMinMax >= 150 && sumOfMorphineEquivalentsMinMax <= 209) {
+      minMax = 75;
+    } else if (sumOfMorphineEquivalentsMinMax >= 210 && sumOfMorphineEquivalentsMinMax <= 269) {
+      minMax =  100;
+    } else if (sumOfMorphineEquivalentsMinMax >= 270 && sumOfMorphineEquivalentsMinMax <= 329) {
+      minMax = 125;
+    } else if (sumOfMorphineEquivalentsMinMax >= 330 && sumOfMorphineEquivalentsMinMax <= 389) {
+      minMax =  150;
+    } else if (sumOfMorphineEquivalentsMinMax >= 390 && sumOfMorphineEquivalentsMinMax <= 449) {
+      minMax = 175;
+    } else if (sumOfMorphineEquivalentsMinMax >= 450 && sumOfMorphineEquivalentsMinMax <= 509) {
+      minMax = 200;
+    } else if (sumOfMorphineEquivalentsMinMax >= 510 && sumOfMorphineEquivalentsMinMax <= 569) {
+      minMax = 225;
+    } else if (sumOfMorphineEquivalentsMinMax >= 570 && sumOfMorphineEquivalentsMinMax <= 629) {
+      minMax = 250;
+    } else if (sumOfMorphineEquivalentsMinMax >= 630 && sumOfMorphineEquivalentsMinMax <= 689) {
+      minMax = 275;
+    } else if (sumOfMorphineEquivalentsMinMax >= 690 && sumOfMorphineEquivalentsMinMax <= 749) {
+      minMax = 300;
+    } else if (sumOfMorphineEquivalentsMinMax >= 750) {
+      minMax = sumOfMorphineEquivalentsMinMax / 150 / 24 * 1000; // TODO: is this correct (?)
+    }
+    return minMax;
+  }
+
+  public getListOfProposedFentanylPlasters(opioidToConvertToDoseRange: MinMax, results: Results): string[] {
+    const listOfPossiblePlasters: string[] = [];
+    const fentanylPlasters = new Map();
+
+    fentanylPlasters
+      .set(25, 'Plaster 25μg/h')
+      .set(50, 'Plaster: 50 μg/h')
+      .set(75, 'Plaster: 75 μg/h')
+      .set(100, 'Plaster: 100 μg/h')
+      .set(125, 'Plaster: 25 μg/h + 100 μg/h')
+      .set(150, 'Plaster: 50 μg/h + 100 μg/h')
+      .set(175, 'Plaster: 75 μg/h + 100 μg/h')
+      .set(200, 'Plaster: 2 x 100 μg/h')
+      .set(225, 'Plaster: 2 x 100 μg/h + 25 μg/h')
+      .set(250, 'Plaster: 2 x 100 μg/h + 50 μg/h')
+      .set(275, 'Plaster: 2 x 100 μg/h + 75 μg/h')
+      .set(300, 'Plaster: 3 x 100 μg/h');
+
+    fentanylPlasters.forEach((key, value) => {
+      if (results.opioidToConvertToIndex === this.fentanylTransdermalIndex) {
+
+        const plasterValue: number = value;
+        const fentanylPlasterMinus25 =
+          opioidToConvertToDoseRange.min - (opioidToConvertToDoseRange.min * 25 / 100);
+        const fentanylPlasterPlus25 =
+          opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 25 / 100);
+
+        if (plasterValue >= fentanylPlasterMinus25 && plasterValue <= fentanylPlasterPlus25) {
+          listOfPossiblePlasters.push(key);
+        }
+      }
+    });
+
+    return listOfPossiblePlasters;
+  }
+
+  public getListOfProposedBuprenorphinePlasters(opioidToConvertToDoseRange: MinMax, results: Results): string[] {
+    const listOfPossiblePlasters: string[] = [];
+    const buprenorphinePlasters = new Map();
+
+    buprenorphinePlasters
+      .set(17.5, 'Plaster: 17.5μg/h (pół plastra 35 μg/h)')
+      .set(26.25, 'Plaster: 26.25μg/h (pół plastra 52.5 μg/h)')
+      .set(35, 'Plaster: 35μg/h')
+      .set(52.5, 'Plaster: 52.5μg/h')
+      .set(70, 'Plaster: 70μg/h')
+      .set(87.5, 'Plaster: 87.5μg/h (plaster 52.5 μg/h + plaster 35.5 μg/h)')
+      .set(105, 'Plaster: 105μg/h (2 x plaster 52.5 μg/h)')
+      .set(122.5, 'Plaster: 122.5μg/h (plaster 70 μg/h + plaster 52.5 μg/h)')
+      .set(140, 'Plaster: 140μg/h (2 x plaster 70 μg/h)');
+
+    buprenorphinePlasters.forEach((key, value) => {
+      if (results.opioidToConvertToIndex === this.buprenorphineTransdermalIndex) {
+
+        const plasterValue: number = value;
+        const buprenorphinePlasterMinus15 =
+          opioidToConvertToDoseRange.min - (opioidToConvertToDoseRange.min * 15 / 100);
+        const buprenorphinePlasterPlus15 =
+          opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 15 / 100);
+
+        if (plasterValue >= buprenorphinePlasterMinus15 && plasterValue <= buprenorphinePlasterPlus15) {
+          listOfPossiblePlasters.push(key);
+        }
+      }
+    });
+
+    return listOfPossiblePlasters;
   }
 }

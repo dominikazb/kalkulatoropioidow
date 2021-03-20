@@ -1,6 +1,6 @@
 <table class="table table-striped">
   <tbody>
-  
+
   <tr *ngIf="results.opioidToConvertToDoseRange.min === results.opioidToConvertToDoseRange.max">
     <td>{{results.opioidToConvertTo.description}}:</td>
     <td>{{results.opioidToConvertToDoseRange.min | number : '1.2-2'}} {{results.doseForResults}}</td>
@@ -18,16 +18,15 @@
     <td>
       <span *ngIf="results.opioidToConvertToDoseRange.min === results.opioidToConvertToDoseRange.max">
         <span class="fontsize_14 darker_gray">{{opioidInfoData[metadonIndex].metadonDoseText1}}
-          {{metadonRealDailyDose.min | number : '1.2-2'}} {{opioidInfoData[metadonIndex].metadonDoseText4}}</span>
+          {{metadonProposedDailyDose.min | number : '1.2-2'}} {{opioidInfoData[metadonIndex].metadonDoseText4}}</span>
       </span>
       <span *ngIf="results.opioidToConvertToDoseRange.min !== results.opioidToConvertToDoseRange.max">
         <span class="fontsize_14 darker_gray">{{opioidInfoData[metadonIndex].metadonDoseText1}}
-          {{metadonRealDailyDose.min | number : '1.2-2'}} -
-          {{metadonRealDailyDose.max | number : '1.2-2'}} {{opioidInfoData[metadonIndex].metadonDoseText4}}</span>
+          {{metadonProposedDailyDose.min | number : '1.2-2'}} -
+          {{metadonProposedDailyDose.max | number : '1.2-2'}} {{opioidInfoData[metadonIndex].metadonDoseText4}}</span>
       </span>
     </td>
   </tr>
-
 
   <ng-container *ngIf="results.doseReduction > 0">
     <tr>
@@ -46,16 +45,38 @@
       <td colspan="2">
           <span *ngIf="results.opioidToConvertToReducedDoseRange.min === results.opioidToConvertToReducedDoseRange.max">
             <span class="fontsize_14 darker_gray">{{opioidInfoData[metadonIndex].metadonDoseText1}}
-              {{metadonRealDailyDoseReduced.min | number : '1.2-2'}} {{opioidInfoData[metadonIndex].metadonDoseText4}}</span>
+              {{metadonProposedDailyDoseReduced.min | number : '1.2-2'}} {{opioidInfoData[metadonIndex].metadonDoseText4}}</span>
           </span>
         <span *ngIf="results.opioidToConvertToReducedDoseRange.min !== results.opioidToConvertToReducedDoseRange.max">
             <span class="fontsize_14 darker_gray">{{opioidInfoData[metadonIndex].metadonDoseText1}}
-              {{metadonRealDailyDoseReduced.min | number : '1.2-2'}} -
-              {{metadonRealDailyDoseReduced.max | number : '1.2-2'}} {{results.doseForResults}}</span>
+              {{metadonProposedDailyDoseReduced.min | number : '1.2-2'}} -
+              {{metadonProposedDailyDoseReduced.max | number : '1.2-2'}} {{results.doseForResults}}</span>
           </span>
       </td>
     </tr>
   </ng-container>
+
+  <tr *ngIf="results.opioidToConvertToIndex === buprenorphineTransdermalIndex">
+    <td>
+      Proponowane plastry:
+    </td>
+    <td>
+      <ul *ngFor="let plaster of listOfProposedBuprenorphinePlasters">
+        <li>{{plaster}}</li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr *ngIf="results.opioidToConvertToIndex === fentanylTransdermalIndex">
+    <td>
+      Proponowane plastry:
+    </td>
+    <td>
+      <ul *ngFor="let plaster of listOfProposedFentanylPlasters">
+        <li>{{plaster}}</li>
+      </ul>
+    </td>
+  </tr>
 
   <ng-container *ngIf="results.opioidToConvertToIndex === metadonIndex">
     <tr>
