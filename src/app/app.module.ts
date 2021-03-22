@@ -25,6 +25,9 @@ import {CalculationsService} from './components/shared/services/calculations/cal
 import {ResultsOpioidInfoComponent} from './components/sub-components/results-opioid-info/results-opioid-info.component';
 import {ResultsConversionToComponent} from './components/sub-components/results-conversion-to/results-conversion-to.component';
 import {ResultsSumUpComponent} from './components/sub-components/results-sum-up/results-sum-up.component';
+import {OpioidConversionToComponent} from './components/sub-components/conversion-to/opioid-conversion-to/opioid-conversion-to.component';
+import {MethadoneConversionToComponent} from './components/sub-components/conversion-to/methadone-conversion-to/methadone-conversion-to.component';
+import {PlasterListComponent} from './components/sub-components/conversion-to/plaster-list/plaster-list.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +39,13 @@ import {ResultsSumUpComponent} from './components/sub-components/results-sum-up/
     FormFentanylComponent,
     FormOpioidComponent,
     InfoModalComponent,
+    MethadoneConversionToComponent,
+    OpioidConversionToComponent,
     ResultsComponent,
     ResultsConversionToComponent,
     ResultsOpioidInfoComponent,
-    ResultsSumUpComponent
+    ResultsSumUpComponent,
+    PlasterListComponent
   ],
   imports: [
     AppRoutingModule,

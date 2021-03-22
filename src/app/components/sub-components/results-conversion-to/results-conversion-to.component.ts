@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Results} from '../../shared/model/results/results';
 import {ResultsService} from '../../shared/services/results/results.service';
-import {MinMax} from '../../shared/model/opioid/minMax';
+import {Results} from '../../shared/model/results/results';
 import {CalculationsService} from '../../shared/services/calculations/calculations.service';
 
 @Component({
@@ -12,12 +11,8 @@ import {CalculationsService} from '../../shared/services/calculations/calculatio
 export class ResultsConversionToComponent implements OnInit {
 
   @Input() opioidInfoData: any;
-  public results: Results;
 
-  public methadoneProposedDailyDose: MinMax;
-  public methadoneProposedDailyDoseReduced: MinMax;
-  public methadoneSingleDose: MinMax;
-  public methadoneSingleDoseReduced: MinMax;
+  public results: Results;
 
   public methadoneIndex = 7;
   public buprenorphineTransdermalIndex = 2;
@@ -26,46 +21,19 @@ export class ResultsConversionToComponent implements OnInit {
   public listOfProposedFentanylPlasters: string[] = [];
   public listOfProposedBuprenorphinePlasters: string[] = [];
 
+  // TODO: czy komunikat o dose exceeded ma się pojawiać przy przekroczonej dawce czy dawce reduced?
+
   constructor(public resultsService: ResultsService,
               private calculationsService: CalculationsService) { }
 
   ngOnInit(): void {
-    this.results = this.resultsService.getResults();
-    if (this.results.opioidToConvertToIndex === this.methadoneIndex) {
-      this.setMethadoneProposedDailyDose();
-      this.setMethadoneProposedDailyDoseReduced();
-      this.setMethadoneSingleDose();
-      this.setMethadoneSingleDoseReduced();
-    }
+    this.results = this.resultsService.results;
     if (this.results.opioidToConvertToIndex === this.fentanylTransdermalIndex) {
       this.listOfProposedFentanylPlasters = this.getListOfProposedFentanylPlasters();
     }
+
     if (this.results.opioidToConvertToIndex === this.buprenorphineTransdermalIndex) {
       this.listOfProposedBuprenorphinePlasters = this.getListOfProposedBuprenorphinePlasters();
-    }
-  }
-
-  private setMethadoneProposedDailyDose(): void {
-    this.methadoneProposedDailyDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 2,
-      this.results.opioidToConvertToDoseRange.max / 2);
-  }
-
-  private setMethadoneProposedDailyDoseReduced(): void {
-    if (this.results.doseReduction > 0) {
-      this.methadoneProposedDailyDoseReduced = new MinMax(this.results.opioidToConvertToReducedDoseRange.min / 2,
-        this.results.opioidToConvertToReducedDoseRange.max / 2);
-    }
-  }
-
-  private setMethadoneSingleDose(): void {
-    this.methadoneSingleDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 30,
-      this.results.opioidToConvertToDoseRange.max / 30);
-  }
-
-  private setMethadoneSingleDoseReduced(): void {
-    if (this.results.doseReduction > 0) {
-      this.methadoneSingleDoseReduced = new MinMax(this.results.opioidToConvertToReducedDoseRange.min / 30,
-        this.results.opioidToConvertToReducedDoseRange.max / 30);
     }
   }
 

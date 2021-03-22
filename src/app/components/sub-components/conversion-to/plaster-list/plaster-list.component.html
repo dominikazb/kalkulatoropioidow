@@ -1,0 +1,14 @@
+<table class="table">
+  <tbody>
+    <tr *ngIf="listOfProposedPlasters.length > 0">
+      <td class="darker_gray fontsize_14">
+        Proponowane plastry:
+      </td>
+      <td>
+        <ul *ngFor="let plaster of listOfProposedPlasters">
+          <li class="darker_gray fontsize_14">{{plaster}}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

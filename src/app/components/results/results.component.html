@@ -4,15 +4,15 @@
     <div class="content_inside_resultspage">
 
       <div *ngIf="!showResults">
-        <h5 class="darker_gray text-center padding_bottom_20px">{{textData.noResultsText}}</h5>
+        <h5 class="darker_gray text-center padding_bottom_20px padding_top_30px">{{resultsTextData.noResultsText}}</h5>
       </div>
 
       <div *ngIf="showResults">
-        <div class="dark_background"><h4>{{textData.resultsText}}</h4></div><br>
+        <div class="dark_background"><h4>{{resultsTextData.resultsText}}</h4></div><br>
 
         <ng-container *ngIf="opioidService.oneOfOpioidsWasChosen(results)">
           <results-sum-up
-            [resultsTextData]="textData"></results-sum-up>
+            [resultsTextData]="resultsTextData"></results-sum-up>
 
           <hr class="padding_bottom_20px padding_top_20px">
         </ng-container>
@@ -28,8 +28,8 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-6 red_background text-center">
-            <a class="blad" href="{{textData.contactText}}" target="_blank">
-              {{textData.contactTextInfo}}
+            <a class="blad" href="{{resultsTextData.contactText}}" target="_blank">
+              {{resultsTextData.contactTextInfo}}
             </a>
           </div>
           <div class="col-md-3"></div>

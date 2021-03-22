@@ -180,7 +180,7 @@ export class CalculationsService {
     const fentanylPlasters = new Map();
 
     fentanylPlasters
-      .set(25, 'Plaster 25μg/h')
+      .set(25, 'Plaster 25 μg/h')
       .set(50, 'Plaster: 50 μg/h')
       .set(75, 'Plaster: 75 μg/h')
       .set(100, 'Plaster: 100 μg/h')
@@ -202,6 +202,9 @@ export class CalculationsService {
         const fentanylPlasterPlus15 =
           opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 15 / 100);
 
+        if (plasterValue >= 14 && plasterValue <= 25) {
+          listOfPossiblePlasters.push(key);
+        }
         if (plasterValue >= fentanylPlasterMinus25 && plasterValue <= fentanylPlasterPlus15) {
           listOfPossiblePlasters.push(key);
         }
@@ -216,15 +219,15 @@ export class CalculationsService {
     const buprenorphinePlasters = new Map();
 
     buprenorphinePlasters
-      .set(17.5, 'Plaster: 17.5μg/h (pół plastra 35 μg/h)')
-      .set(26.25, 'Plaster: 26.25μg/h (pół plastra 52.5 μg/h)')
-      .set(35, 'Plaster: 35μg/h')
-      .set(52.5, 'Plaster: 52.5μg/h')
-      .set(70, 'Plaster: 70μg/h')
-      .set(87.5, 'Plaster: 87.5μg/h (plaster 52.5 μg/h + plaster 35.5 μg/h)')
-      .set(105, 'Plaster: 105μg/h (2 x plaster 52.5 μg/h)')
-      .set(122.5, 'Plaster: 122.5μg/h (plaster 70 μg/h + plaster 52.5 μg/h)')
-      .set(140, 'Plaster: 140μg/h (2 x plaster 70 μg/h)');
+      .set(17.5, 'Plaster: 17.5 μg/h (pół plastra 35 μg/h)')
+      .set(26.25, 'Plaster: 26.2 5μg/h (pół plastra 52.5 μg/h)')
+      .set(35, 'Plaster: 35 μg/h')
+      .set(52.5, 'Plaster: 52.5 μg/h')
+      .set(70, 'Plaster: 70 μg/h')
+      .set(87.5, 'Plaster: 87.5 μg/h (plaster 52.5 μg/h + plaster 35.5 μg/h)')
+      .set(105, 'Plaster: 105 μg/h (2 x plaster 52.5 μg/h)')
+      .set(122.5, 'Plaster: 122.5 μg/h (plaster 70 μg/h + plaster 52.5 μg/h)')
+      .set(140, 'Plaster: 140 μg/h (2 x plaster 70 μg/h)');
 
     buprenorphinePlasters.forEach((key, value) => {
       if (results.opioidToConvertToIndex === this.buprenorphineTransdermalIndex) {
@@ -235,6 +238,9 @@ export class CalculationsService {
         const buprenorphinePlasterPlus8 =
           opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 8 / 100);
 
+        if (plasterValue >= 8 && plasterValue <= 17.5) {
+          listOfPossiblePlasters.push(key);
+        }
         if (plasterValue >= buprenorphinePlasterMinus15 && plasterValue <= buprenorphinePlasterPlus8) {
           listOfPossiblePlasters.push(key);
         }

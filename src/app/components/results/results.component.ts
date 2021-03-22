@@ -13,7 +13,7 @@ import opioidInfoContent from '../shared/data/opioid/opioidInfoContent.json';
 })
 export class ResultsComponent implements OnInit {
 
-  public textData: {
+  public resultsTextData: {
     resultsText: string,
     opioidText: string,
     dailyDoseText: string,

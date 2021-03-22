@@ -62,6 +62,7 @@ export class InfoModalComponent implements OnInit {
 
   public onSubmit(): void {
     this.cookieService.set('modalWasOpen', 'true');
+    localStorage.setItem('modalWasVisited', 'true');
     this.modalRef.hide();
   }
 }

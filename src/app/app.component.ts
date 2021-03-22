@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   public openModal(): void {
-    if (this.cookieService.get('modalWasOpen') !== 'true') {
+    if (this.cookieService.get('modalWasOpen') !== 'true' || localStorage.getItem('modalWasVisited') !== 'true') {
       this.modalRef = this.modalService.show(InfoModalComponent, this.modalConfig);
     }
   }
