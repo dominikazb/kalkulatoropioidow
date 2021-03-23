@@ -43,14 +43,15 @@ export class MethadoneConversionToComponent implements OnInit {
 
   // TODO: sprawdzić czy tu ma być podzielone opioidToConvertToDoseRange/30 czy ekwiwalent morfiny/30 ?
   private setMethadoneSingleDose(): void {
-    this.methadoneSingleDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 30,
+    this.methadoneSingleDose = new MinMax(this.results.sumOfMorphineEquivalents.min / 30,
       this.results.opioidToConvertToDoseRange.max / 30);
   }
 
   private setMethadoneSingleDoseReduced(): void {
     if (this.results.doseReduction > 0) {
-      this.methadoneSingleDoseReduced = new MinMax(this.results.opioidToConvertToReducedDoseRange.min / 30,
-        this.results.opioidToConvertToReducedDoseRange.max / 30);
+      const minReduced: number = this.results.sumOfMorphineEquivalents.min * (100 - this.results.doseReduction) / 100;
+      const maxReduced: number = this.results.sumOfMorphineEquivalents.max * (100 - this.results.doseReduction) / 100;
+      this.methadoneSingleDoseReduced = new MinMax(minReduced / 30, maxReduced / 30);
     }
   }
 }

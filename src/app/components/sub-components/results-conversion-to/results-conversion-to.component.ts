@@ -21,8 +21,6 @@ export class ResultsConversionToComponent implements OnInit {
   public listOfProposedFentanylPlasters: string[] = [];
   public listOfProposedBuprenorphinePlasters: string[] = [];
 
-  // TODO: czy komunikat o dose exceeded ma się pojawiać przy przekroczonej dawce czy dawce reduced?
-
   constructor(public resultsService: ResultsService,
               private calculationsService: CalculationsService) { }
 
