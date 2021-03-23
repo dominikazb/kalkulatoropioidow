@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
-import {CookieService} from 'ngx-cookie-service';
 import infoModalContent from '../../shared/data/textContent/infoModalContent.json';
 
 @Component({
@@ -45,8 +44,7 @@ export class InfoModalComponent implements OnInit {
 
   public infoModalForm: FormGroup;
 
-  constructor(public modalRef: BsModalRef,
-              private cookieService: CookieService) {
+  constructor(public modalRef: BsModalRef) {
   }
 
   ngOnInit(): void {

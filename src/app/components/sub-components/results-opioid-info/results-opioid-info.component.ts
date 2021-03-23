@@ -14,14 +14,15 @@ export class ResultsOpioidInfoComponent implements OnInit{
 
   public fentanylTransdermalIndex = 5;
   public methadoneIndex = 7;
+  public morphinePillsIndex = 9;
 
   constructor(private resultsService: ResultsService) { }
 
   ngOnInit(): void {
-    this.opioidsToShow = this.getListOfChosenOpioidsFromResuls(this.resultsService.results);
+    this.opioidsToShow = this.getListOfChosenOpioidsFromResults(this.resultsService.results);
   }
 
-  private getListOfChosenOpioidsFromResuls(results: Results): number[] {
+  private getListOfChosenOpioidsFromResults(results: Results): number[] {
     const opioidsToShow: number[] = [];
 
     opioidsToShow.push(results.firstOpioid.opioid.index);
@@ -38,7 +39,7 @@ export class ResultsOpioidInfoComponent implements OnInit{
     const opioidsFiltered =
       opioidsToShow
         .filter((value, index) => opioidsToShow.indexOf(value) === index)
-        .filter(value => value !== 0 && value !== 9);
+        .filter(value => value !== 0 && value !== this.morphinePillsIndex);
     return opioidsFiltered;
   }
 }

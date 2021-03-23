@@ -13,6 +13,7 @@ export class FormConversionToComponent implements OnInit {
 
   // @ts-ignore
   @Input() parentFormGroup: FormGroup;
+
   public opioids: Opioid[] = [];
   public conversionToText = 'Konwersja na:';
   public doseReductionText = 'Redukcja dawki:';

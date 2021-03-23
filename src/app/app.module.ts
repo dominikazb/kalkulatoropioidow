@@ -17,7 +17,6 @@ import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ModalModule} from 'ngx-bootstrap/modal';
-import {CookieService} from 'ngx-cookie-service';
 import {ResultsService} from './components/shared/services/results/results.service';
 import {TotalDailyDoseService} from './components/shared/services/calculations/total.daily.dose.service';
 import {MorphineEquivalentService} from './components/shared/services/calculations/morphine.equivalent.service';
@@ -58,7 +57,6 @@ import {PlasterListComponent} from './components/sub-components/conversion-to/pl
   ],
   providers: [
     CalculationsService,
-    CookieService,
     FormsService,
     MorphineEquivalentService,
     OpioidService,

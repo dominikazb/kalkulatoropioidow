@@ -14,9 +14,9 @@ export class ResultsConversionToComponent implements OnInit {
 
   public results: Results;
 
-  public methadoneIndex = 7;
   public buprenorphineTransdermalIndex = 2;
   public fentanylTransdermalIndex = 5;
+  public methadoneIndex = 7;
 
   public listOfProposedFentanylPlasters: string[] = [];
   public listOfProposedBuprenorphinePlasters: string[] = [];

@@ -5,6 +5,9 @@ import {OpioidResults} from '../../model/results/opioid.results';
 
 export class OpioidService {
 
+  private buprenorphineTransdermalIndex = 2;
+  private fentanylTransdermalIndex = 5;
+
   public getOpioid(index: number): Opioid {
     let opioid: Opioid = new Opioid(0, '', 0, 0, 0, 0);
     OPIOIDS.forEach(opioidFromList => {
@@ -16,11 +19,11 @@ export class OpioidService {
   }
 
   public getBuprenorphine(): Opioid {
-    return this.getOpioid(2);
+    return this.getOpioid(this.buprenorphineTransdermalIndex);
   }
 
   public getFentanyl(): Opioid {
-    return this.getOpioid(5);
+    return this.getOpioid(this.fentanylTransdermalIndex);
   }
 
   public getOpioids(): Opioid[] {
@@ -28,7 +31,8 @@ export class OpioidService {
   }
 
   public getOpioidsWithoutPlasters(): Opioid[] {
-    return OPIOIDS.filter(item => item.index !== 2 && item.index !== 5);
+    return OPIOIDS.filter(item => item.index !== this.buprenorphineTransdermalIndex &&
+                          item.index !== this.fentanylTransdermalIndex);
   }
 
   public oneOfOpioidsWasChosen(results: Results): boolean {
