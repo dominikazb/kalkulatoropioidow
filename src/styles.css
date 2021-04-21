@@ -278,12 +278,21 @@ div.btn-toolbar {
 }
 
 .logo_ptmr {
-  height: 60px;
+  height: 70px;
+  width: auto;
 }
 
 .logo_glpharma {
-  height: 30px;
+  height: 35px;
   width: auto;
+}
+
+.company_div {
+  width: 40%;
+}
+
+.logo__wrapper {
+  height: 70px;
 }
 
 .shift_bottom_7px {
