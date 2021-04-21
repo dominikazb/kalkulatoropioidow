@@ -281,6 +281,11 @@ div.btn-toolbar {
   height: 60px;
 }
 
+.logo_glpharma {
+  height: 30px;
+  width: auto;
+}
+
 .shift_bottom_7px {
   padding-top: 7px;
   width: 100%;

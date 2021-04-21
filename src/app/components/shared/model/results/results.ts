@@ -11,6 +11,7 @@ export class Results {
   public opioidToConvertToIndex: number;
   public opioidToConvertTo: Opioid;
   public doseReduction: number;
+  public kidneyCheckbox: boolean;
 
   public sumOfMorphineEquivalents: MinMax;
   public opioidToConvertToDoseRange: MinMax;
@@ -55,6 +56,10 @@ export class Results {
 
   public setDoseReduction(doseReduction: number): void {
     this.doseReduction = doseReduction;
+  }
+
+  public setKidneyCheckbox(kidneyCheckbox: boolean): void {
+    this.kidneyCheckbox = kidneyCheckbox;
   }
 
   public setOpioidToConvertToDoseRange(doseRange: MinMax): void {

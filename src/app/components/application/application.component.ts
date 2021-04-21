@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {AbstractControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup} from '@angular/forms';
 import * as _ from 'underscore';
 import {FormsService} from '../shared/services/form/forms.service';
 import {Router} from '@angular/router';
@@ -35,6 +35,7 @@ export class ApplicationComponent implements OnInit {
     conversionFromText: string,
     optionallyText: string,
     btnResetText: string,
+    kidneyCheckbox: string,
     btnCalculateText: string
   } = applicationContent;
 
@@ -82,7 +83,9 @@ export class ApplicationComponent implements OnInit {
   }
 
   private buildForm(): void {
-    this.opioidConversionForm = new FormGroup({});
+    this.opioidConversionForm = new FormGroup({
+      kidneyCheckbox: new FormControl(this.resultsService.results ? this.resultsService.results.kidneyCheckbox : false)
+    });
 
     let firstOpioidForm: FormGroup;
     let secondOpioidForm: FormGroup;
@@ -141,6 +144,7 @@ export class ApplicationComponent implements OnInit {
     this.resultsService.results.setThirdOpioid(thirdOpioid);
     this.setFentanylData();
     this.setBuprenorphineData();
+    this.resultsService.results.setKidneyCheckbox(this.getControlValue('kidneyCheckbox'));
     this.setConversionToResults();
     this.setEmptyResultsCalculations();
   }
