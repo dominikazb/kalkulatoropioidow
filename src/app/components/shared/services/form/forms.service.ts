@@ -60,7 +60,7 @@ export class FormsService {
   public fillFormConversionTo(results?: Results): FormGroup {
     return new FormGroup({
       [this.formConversionToFields.opioidToCovertTo]: new FormControl(
-        results?.opioidToConvertTo.index ? results.opioidToConvertTo.index : 0
+        results?.opioidToConvertToIndex ? results.opioidToConvertToIndex : 0
       ),
       [this.formConversionToFields.doseReduction]: new FormControl(
         results?.doseReduction ? results.doseReduction : 0

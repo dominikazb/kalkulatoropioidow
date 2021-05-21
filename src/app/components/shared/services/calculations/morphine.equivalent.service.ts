@@ -74,7 +74,7 @@ export class MorphineEquivalentService {
   }
 
   public calculateMorphineEquivalentForBuprenorfinaPlaster(dailyDose: number): MinMax {
-    return new MinMax(dailyDose * 75, dailyDose * 115);
+    return dailyDose ? new MinMax(dailyDose * 75, dailyDose * 115) : new MinMax(0, 0);
   }
 
   public sumUpMorphineEquivalentRangeForAllDrugs(firstOpioidME: MinMax, secondOpioidME: MinMax,

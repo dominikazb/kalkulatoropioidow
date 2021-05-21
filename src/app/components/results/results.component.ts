@@ -40,7 +40,7 @@ export class ResultsComponent implements OnInit {
     this.results = this.resultsService.getResults();
     this.loadResultsOrRedirect();
 
-    if (this.results && this.results.opioidToConvertToIndex !== 0) {
+    if (this.results.opioidToConvertToIndex && this.results.opioidToConvertToIndex !== 0) {
       this.setDoseRangeForOpioidToConvertTo();
       this.setReducedDoseRangeForOpioidToConvertTo();
       this.setDoseExceededForOpioidToConvertTo();
@@ -93,7 +93,7 @@ export class ResultsComponent implements OnInit {
   }
 
   private setDoseExceededForOpioidToConvertTo(): void {
-    const opioidToConvertToIndex: number = this.resultsService.results.opioidToConvertToIndex;
+    const opioidToConvertToIndex: number = this.results.opioidToConvertToIndex;
     // @ts-ignore
     const doseCanBeExceeded = this.opioidInfoData[opioidToConvertToIndex].doseCanBeExceeded;
 

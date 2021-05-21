@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ResultsService} from '../../shared/services/results/results.service';
 import {Results} from '../../shared/model/results/results';
 import {CalculationsService} from '../../shared/services/calculations/calculations.service';
+import {OpioidIndices} from '../../shared/data/opioid/OpioidIndices';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -13,11 +14,7 @@ export class ResultsConversionToComponent implements OnInit {
   @Input() opioidInfoData: any;
 
   public results: Results;
-
-  public buprenorphineTransdermalIndex = 2;
-  public fentanylTransdermalIndex = 5;
-  public methadoneIndex = 7;
-
+  private opioidIndices = OpioidIndices;
   public listOfProposedFentanylPlasters: string[] = [];
   public listOfProposedBuprenorphinePlasters: string[] = [];
 
@@ -26,11 +23,11 @@ export class ResultsConversionToComponent implements OnInit {
 
   ngOnInit(): void {
     this.results = this.resultsService.results;
-    if (this.results.opioidToConvertToIndex === this.fentanylTransdermalIndex) {
+    if (this.results.opioidToConvertToIndex === this.opioidIndices.FentanylTransdermal.valueOf()) {
       this.listOfProposedFentanylPlasters = this.getListOfProposedFentanylPlasters();
     }
 
-    if (this.results.opioidToConvertToIndex === this.buprenorphineTransdermalIndex) {
+    if (this.results.opioidToConvertToIndex === this.opioidIndices.BuprenorphineTransdermal.valueOf()) {
       this.listOfProposedBuprenorphinePlasters = this.getListOfProposedBuprenorphinePlasters();
     }
   }
@@ -59,6 +56,6 @@ export class ResultsConversionToComponent implements OnInit {
   }
 
   public opioidToConvertToWasChosen(): boolean {
-    return this.results.opioidToConvertToIndex !== 0;
+    return !Number.isNaN(this.results.opioidToConvertToIndex) && this.results.opioidToConvertToIndex !== 0;
   }
 }

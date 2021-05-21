@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ResultsService} from '../../shared/services/results/results.service';
 import {Results} from '../../shared/model/results/results';
+import {OpioidIndices} from '../../shared/data/opioid/OpioidIndices';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -11,10 +12,7 @@ export class ResultsOpioidInfoComponent implements OnInit{
 
   @Input() opioidInfoData: any;
   public opioidsToShow: number[] = [];
-
-  public fentanylTransdermalIndex = 5;
-  public methadoneIndex = 7;
-  public morphinePillsIndex = 9;
+  public opioidIndices = OpioidIndices;
 
   constructor(private resultsService: ResultsService) { }
 
@@ -39,7 +37,7 @@ export class ResultsOpioidInfoComponent implements OnInit{
     const opioidsFiltered =
       opioidsToShow
         .filter((value, index) => opioidsToShow.indexOf(value) === index)
-        .filter(value => value !== 0 && value !== this.morphinePillsIndex);
+        .filter(value => value !== 0 && value !== this.opioidIndices.MorphinePills.valueOf());
     return opioidsFiltered;
   }
 }

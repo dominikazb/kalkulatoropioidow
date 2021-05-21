@@ -1,21 +1,21 @@
 <ng-container *ngIf="opioidToConvertToWasChosen()">
-  <ng-container *ngIf="results.opioidToConvertToIndex !== methadoneIndex">
+  <ng-container *ngIf="results.opioidToConvertToIndex !== opioidIndices.Methadone.valueOf()">
     <opioid-conversion-to
       [opioidInfoData]="opioidInfoData"></opioid-conversion-to>
   </ng-container>
 
-  <ng-container *ngIf="results.opioidToConvertToIndex === methadoneIndex">
+  <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.Methadone.valueOf()">
     <methadone-conversion-to
       [opioidInfoData]="opioidInfoData"
-      [methadoneIndex]="methadoneIndex"></methadone-conversion-to>
+      [methadoneIndex]="opioidIndices.Methadone.valueOf()"></methadone-conversion-to>
   </ng-container>
 
-  <ng-container *ngIf="results.opioidToConvertToIndex === fentanylTransdermalIndex">
+  <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
     <plaster-list
         [listOfProposedPlasters]="listOfProposedFentanylPlasters"></plaster-list>
   </ng-container>
 
-  <ng-container *ngIf="results.opioidToConvertToIndex === buprenorphineTransdermalIndex">
+  <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
     <plaster-list
       [listOfProposedPlasters]="listOfProposedBuprenorphinePlasters"></plaster-list>
   </ng-container>
@@ -37,6 +37,8 @@
   </ng-container>
   <br><br>
 </ng-container>
+
+<results-glpharma-info></results-glpharma-info>
 
 <results-opioid-info
   [opioidInfoData]="opioidInfoData"></results-opioid-info>

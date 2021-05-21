@@ -1,0 +1,59 @@
+{
+  "1": {
+    "index": 1,
+    "name": "Buprenorfina (tbl. podjęzykowe, s.c., i.v., i.m.)"
+  },
+  "2": {
+    "index": 2,
+    "name": "Buprenorfina (transdermalnie)"
+  },
+  "3": {
+    "index": 3,
+    "name": "Dihydrokodeina (tbl. doustne)"
+  },
+  "4": {
+    "index": 4,
+    "name": "Fentanyl (tbl. podjęzykowe, spray donosowy, i.v.)"
+  },
+  "5": {
+    "index": 5,
+    "name": "Fentanyl (transdermalnie)",
+    "text1": "Ostrożnie u pacjentów z nadmierną potliwością i gorączką. Istnieje ryzyko zwiększenia stężenia substancji czynnej w skutek nadmiernego uwalniania substancji czynnej z matrycy",
+    "text2": "Ostrożnie u pacjentów z hipoproteinemią (niedobór białek)",
+    "text3": "Fentanyl TTS rekomendowany jest do leczenia w bólu stabilnym, nie wymagającym częstej zmiany dawki",
+    "text4": "Do ustalenia dawki początkowej Fentanylu TTS powinno się dostosować inne opioidy krótko działające, oksykodon IR, morfina IR, tramadol w kroplach"
+  },
+  "6": {
+    "index": 6,
+    "name": "Kodeina (w składzie złożonych tbl. doustnych)"
+  },
+  "7": {
+    "index": 7,
+    "name": "Metadon"
+  },
+  "8": {
+    "index": 8,
+    "name": "Morfina (s.c., i.v., i.m.)"
+  },
+  "9": {
+    "index": 9,
+    "name": "Morfina (tbl. doustne)"
+  },
+  "10": {
+    "index": 10,
+    "name": "Oksykodon, chlorowodorek (tbl. doustne, i.v., s.c.)"
+  },
+  "11": {
+    "index": 11,
+    "name": "Tapentadol"
+  },
+  "12": {
+    "index": 12,
+    "name": "Tramadol (s.c. lub i.v.)"
+  },
+  "13": {
+    "index": 13,
+    "name": "Tramadol (tbl. doustne lub krople)",
+    "text1": "Dopuszczalna dawka Tramadolu na dobę to 400mg, według rekomendacji EAPC z 2012r można stosować oksykodon <=20"
+  }
+}

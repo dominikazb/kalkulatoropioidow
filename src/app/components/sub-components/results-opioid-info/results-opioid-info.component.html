@@ -1,6 +1,7 @@
 <ng-container *ngFor="let opioidNo of opioidsToShow">
 
-  <ng-container *ngIf="this.opioidInfoData[opioidNo].index !== fentanylTransdermalIndex && this.opioidInfoData[opioidNo].index !== methadoneIndex">
+  <ng-container *ngIf="this.opioidInfoData[opioidNo].index !== opioidIndices.FentanylTransdermal.valueOf() &&
+  this.opioidInfoData[opioidNo].index !== opioidIndices.Methadone.valueOf()">
     <hr class="dark_line">
     <span class="fontsize_14 darker_gray">
       {{this.opioidInfoData[opioidNo].text1}} <b class="color_black">{{this.opioidInfoData[opioidNo].text2}}</b>
@@ -9,7 +10,7 @@
     </span>
   </ng-container>
 
-  <ng-container *ngIf="this.opioidInfoData[opioidNo].index === fentanylTransdermalIndex">
+  <ng-container *ngIf="this.opioidInfoData[opioidNo].index === opioidIndices.FentanylTransdermal.valueOf()">
     <hr class="dark_line">
     <span class="fontsize_14 darker_gray">
       {{this.opioidInfoData[opioidNo].text1}} <b class="color_black">{{this.opioidInfoData[opioidNo].text2}}</b>
@@ -31,7 +32,7 @@
     </span>
   </ng-container>
 
-  <ng-container *ngIf="this.opioidInfoData[opioidNo].index === methadoneIndex">
+  <ng-container *ngIf="this.opioidInfoData[opioidNo].index === opioidIndices.Methadone.valueOf()">
     <hr class="dark_line">
     <span class="fontsize_14 darker_gray">
       <b class="color_black">{{this.opioidInfoData[opioidNo].text1}}</b><br><br>
@@ -40,7 +41,7 @@
       {{this.opioidInfoData[opioidNo].text5}}<br>
       {{this.opioidInfoData[opioidNo].text6}}<br>
       {{this.opioidInfoData[opioidNo].text7}}<br>
-      {{this.opioidInfoData[opioidNo].text8}}<br>
+      {{this.opioidInfoData[opioidNo].text8}}<br><br>
       {{this.opioidInfoData[opioidNo].text9}}<br>
       {{this.opioidInfoData[opioidNo].text10}}
     </span>
