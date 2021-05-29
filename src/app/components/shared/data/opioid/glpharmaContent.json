@@ -5,7 +5,8 @@
   },
   "2": {
     "index": 2,
-    "name": "Buprenorfina (transdermalnie)"
+    "name": "Buprenorfina (transdermalnie)",
+    "text1": "Ostrożnie u pacjentów z nadmierną potliwością i gorączką - istnieje ryzyko zwiększenia stężenia substancji czynnej wskutek nadmiernego uwalniania substancji czynnej z matrycy."
   },
   "3": {
     "index": 3,
@@ -41,7 +42,8 @@
   },
   "10": {
     "index": 10,
-    "name": "Oksykodon, chlorowodorek (tbl. doustne, i.v., s.c.)"
+    "name": "Oksykodon, chlorowodorek (tbl. doustne, i.v., s.c.)",
+    "text1": "Rozważ zastosowanie połączenia oksykodonu z naloksonem w przypadku konieczności redukcji zespołu poopioidowej dysfunkcji jelit lub zaparć występujących u pacjenta w trakcie leczenia lekami opioidowymi."
   },
   "11": {
     "index": 11,
@@ -53,7 +55,12 @@
   },
   "13": {
     "index": 13,
-    "name": "Tramadol (tbl. doustne lub krople)",
-    "text1": "Dopuszczalna dawka Tramadolu na dobę to 400mg, według rekomendacji EAPC z 2012r można stosować oksykodon <=20"
+    "name": "Tramadol (tbl. doustne lub krople)"
+  },
+  "14": {
+    "text": "U pacjentów z niewydolnością nerek rekomendowanym opioidem jest buprenorfina."
+  },
+  "15": {
+    "text": "W przypadku wątpliwości skorzystaj z informacji zawartej w charakterystyce produktu leczniczego."
   }
 }

@@ -70,7 +70,7 @@
     "doseCanBeExceeded": true,
     "doseLimit": 300,
     "doseLimitUnit": "µg/h",
-    "warning": "Maksymalna dawka fentanylu w plastrach nie powinna przekraczać 300 µg/h."
+    "warning": "Maksymalna dawka fentanylu w plastrach nie powinna przekraczać 300 µg/h. Rozważ dodatkową lub alternatywną metodę zwalczania bólu."
   },
   "6": {
     "index": 6,
@@ -160,7 +160,7 @@
     "text1": "Wykorzystany w kalkulatorze przelicznik doustnej morfiny na",
     "text2": "tramadol (s.c., i.v.)",
     "text3": "wynosi: 1:10.",
-    "text4": "",
+    "text4": "Dopuszcza się stosowanie silnych opioidów na II stopniu drabiny analgetycznej w zamian za dawki tramadolu powyżej 200mg, jeżeli kontrola bólu u pacjenta jest niewystarczająca, lub pacjent nie toleruje słabego opioidu.",
     "doseCanBeExceeded": true,
     "doseLimit": 400,
     "doseLimitUnit": "mg",
@@ -173,6 +173,7 @@
     "text2": "tramadol (doustnie)",
     "text3": "wynosi: 1:5 - 1:10. W wyniku kalkulacji otrzymasz obie liczby (przedział).",
     "text4": "Stosowanie tramadolu w kroplach umożliwia dokładnie miareczkowanie bólu. 20 kropli = 50 mg tramadolu.",
+    "text5": "Dopuszcza się stosowanie silnych opioidów na II stopniu drabiny analgetycznej w zamian za dawki tramadolu powyżej 200mg, jeżeli kontrola bólu u pacjenta jest niewystarczająca, lub pacjent nie toleruje słabego opioidu.",
     "doseCanBeExceeded": true,
     "doseLimit": 400,
     "doseLimitUnit": "mg",

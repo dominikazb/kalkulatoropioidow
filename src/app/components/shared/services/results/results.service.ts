@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Results} from '../../model/results/results';
-import {MinMax} from '../../model/opioid/minMax';
 
 @Injectable()
 export class ResultsService {

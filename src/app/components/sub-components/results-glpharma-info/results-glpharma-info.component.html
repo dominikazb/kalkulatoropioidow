@@ -8,5 +8,15 @@
         <li>{{glpharmaData[5].text4}}</li>
       </ul>
     </ng-container>
+    <ng-container *ngIf="buprenorphineTransdermalWasChosen">
+      <ul>
+        <li>{{glpharmaData[2].text1}}</li>
+      </ul>
+    </ng-container>
+    <ng-container *ngIf="oxycodoneWasChosen">
+      <ul>
+        <li>{{glpharmaData[10].text1}}</li>
+      </ul>
+    </ng-container>
   </div>
 </ng-container>

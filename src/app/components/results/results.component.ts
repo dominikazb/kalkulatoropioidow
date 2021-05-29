@@ -21,6 +21,7 @@ export class ResultsComponent implements OnInit {
     goBackText: string,
     noResultsText: string,
     contactText: string,
+    warningText: string,
     contactTextInfo: string
   } = resultsContent;
 
