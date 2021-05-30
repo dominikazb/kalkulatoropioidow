@@ -4,7 +4,7 @@
     <span class="header_dark">Uwagi dodatkowe</span>
     <hr class="light_line">
 
-    <ng-container *ngIf="fentanylTransdermalWasChosen">
+    <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
       <ul>
         <li>{{glpharmaData[5].text1}}</li>
         <li>{{glpharmaData[5].text2}}</li>
@@ -12,12 +12,12 @@
         <li>{{glpharmaData[5].text4}}</li>
       </ul>
     </ng-container>
-    <ng-container *ngIf="buprenorphineTransdermalWasChosen">
+    <ng-container *ngIf="this.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
       <ul>
         <li>{{glpharmaData[2].text1}}</li>
       </ul>
     </ng-container>
-    <ng-container *ngIf="oxycodoneWasChosen">
+    <ng-container *ngIf="this.opioidToConvertToIndex === opioidIndices.Oxycodone.valueOf()">
       <ul>
         <li>{{glpharmaData[10].text1}}</li>
       </ul>

@@ -10,45 +10,25 @@ import {OpioidIndices} from '../../shared/data/opioid/OpioidIndices';
 })
 export class ResultsGlpharmaInfoComponent implements OnInit {
 
-  public glpharmaData: {1: number, 2: number, 3: number, 4: number, 5: number, 6: number, 7: number,
-    8: number, 9: number, 10: number, 11: number, 12: number, 13: number, 14: number, 15: number
+  public glpharmaData: {1: any, 2: any, 3: any, 4: any, 5: any, 6: any, 7: any,
+    8: any, 9: any, 10: any, 11: any, 12: any, 13: any, 14: any, 15: any
   } = glpharmaContent;
 
-  public fentanylTransdermalWasChosen: boolean;
-  public buprenorphineTransdermalWasChosen: boolean;
-  public oxycodoneWasChosen: boolean;
-  private opioidToConvertToIndex: number;
+  public opioidToConvertToIndex: number;
+  public opioidIndices = OpioidIndices;
 
   constructor(private resultsService: ResultsService) { }
 
   ngOnInit(): void {
     this.opioidToConvertToIndex = this.resultsService.results.opioidToConvertToIndex;
-    this.checkIfFentanylTransdermalWasChosen();
-    this.checkIfTramadolWasChosen();
-    this.checkIfOxycodoneWasChosen();
-  }
-
-  private checkIfFentanylTransdermalWasChosen(): void {
-    this.fentanylTransdermalWasChosen =
-      this.opioidToConvertToIndex === OpioidIndices.FentanylTransdermal.valueOf();
-  }
-
-  private checkIfTramadolWasChosen(): void {
-    this.buprenorphineTransdermalWasChosen =
-      this.opioidToConvertToIndex === OpioidIndices.BuprenorphineTransdermal.valueOf();
-  }
-
-  private checkIfOxycodoneWasChosen(): void {
-    this.oxycodoneWasChosen =
-      this.opioidToConvertToIndex === OpioidIndices.Oxycodone.valueOf();
   }
 
   public oneOfGlPharmaOpioidsWasChosen(): boolean {
-    return this.opioidToConvertToIndex === OpioidIndices.BuprenorphineTransdermal.valueOf() ||
-      this.opioidToConvertToIndex === OpioidIndices.FentanylTransdermal.valueOf() ||
-      this.opioidToConvertToIndex === OpioidIndices.Methadone.valueOf() ||
-      this.opioidToConvertToIndex === OpioidIndices.MorphineIV.valueOf() ||
-      this.opioidToConvertToIndex === OpioidIndices.MorphinePills.valueOf() ||
-      this.opioidToConvertToIndex === OpioidIndices.Oxycodone.valueOf();
+    return this.opioidToConvertToIndex === this.opioidIndices.BuprenorphineTransdermal.valueOf() ||
+      this.opioidToConvertToIndex === this.opioidIndices.FentanylTransdermal.valueOf() ||
+      this.opioidToConvertToIndex === this.opioidIndices.Methadone.valueOf() ||
+      this.opioidToConvertToIndex === this.opioidIndices.MorphineIV.valueOf() ||
+      this.opioidToConvertToIndex === this.opioidIndices.MorphinePills.valueOf() ||
+      this.opioidToConvertToIndex === this.opioidIndices.Oxycodone.valueOf();
   }
 }

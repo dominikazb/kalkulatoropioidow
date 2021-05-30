@@ -14,7 +14,7 @@ export class ResultsConversionToComponent implements OnInit {
   @Input() opioidInfoData: any;
 
   public results: Results;
-  private opioidIndices = OpioidIndices;
+  public opioidIndices = OpioidIndices;
   public listOfProposedFentanylPlasters: string[] = [];
   public listOfProposedBuprenorphinePlasters: string[] = [];
 

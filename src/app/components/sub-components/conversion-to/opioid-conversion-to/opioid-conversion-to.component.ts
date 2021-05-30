@@ -13,7 +13,7 @@ export class OpioidConversionToComponent implements OnInit {
   @Input() opioidInfoData: any;
   @Input() listOfProposedBuprenorphinePlasters: string[];
 
-  private opioidIndices = OpioidIndices;
+  public opioidIndices = OpioidIndices;
   public results: Results;
 
   constructor(private resultsService: ResultsService) { }
