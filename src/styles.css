@@ -596,7 +596,7 @@ tr:nth-child(odd) {
 }
 
 tr:nth-child(even) {
-  background-color: #F8F8F8;
+  background-color: transparent;
 }
 
 th {
@@ -634,6 +634,10 @@ th {
 
 hr.dark_line {
   border: 0.5px solid #555555;
+}
+
+hr.light_line {
+  border: 0.5px solid #C0C0C0;
 }
 
 .padding_top_left_10 {
@@ -676,11 +680,57 @@ a.blad:hover {
   color: red;
 }
 
-.dark_background {
+.header_dark {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.very_light_gray_background {
+  padding: 10px 15px;
+  background-color: #efeeee;
+  border-radius: 10px;
+  color: #888;
+}
+
+.light_gray_background {
+  padding: 10px 15px;
+  background-color: #c4c3c3;
+  /*background-color: #979696;*/
+  border-radius: 10px;
+  color: white;
+}
+
+.medium_light_gray_background {
+  padding: 10px 15px;
+  background-color: #979696;
+  border-radius: 10px;
+  color: white;
+}
+
+.dark_gray_background {
   padding: 10px 15px;
   background-color: #555555;
   border-radius: 10px;
   color: white;
+}
+
+.orange_background {
+  padding: 10px 15px;
+  background-color: #FFA500;
+  border-radius: 10px;
+  color: white;
+}
+
+.border_solid_black {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: #C0C0C0 solid 1px;
+}
+
+.padding_left_right__10px {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .text_red {
@@ -689,4 +739,8 @@ a.blad:hover {
 
 .fontsize_14 {
   font-size: 14px;
+}
+
+h5 {
+  margin: 0px;
 }

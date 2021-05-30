@@ -1,5 +1,9 @@
 <ng-container *ngIf="oneOfGlPharmaOpioidsWasChosen()">
-  <div class="dark_background">
+  <div class="padding_top_30px"></div>
+  <div class="very_light_gray_background">
+    <span class="header_dark">Uwagi dodatkowe</span>
+    <hr class="light_line">
+
     <ng-container *ngIf="fentanylTransdermalWasChosen">
       <ul>
         <li>{{glpharmaData[5].text1}}</li>

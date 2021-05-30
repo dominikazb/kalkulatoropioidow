@@ -1,0 +1,57 @@
+{
+  "1": {
+    "index": 1,
+    "name": "Buprenorfina (tbl. podjęzykowe, s.c., i.v., i.m.)"
+  },
+  "2": {
+    "index": 2,
+    "name": "Buprenorfina (transdermalnie)"
+  },
+  "3": {
+    "index": 3,
+    "name": "Dihydrokodeina (tbl. doustne)"
+  },
+  "4": {
+    "index": 4,
+    "name": "Fentanyl (tbl. podjęzykowe, spray donosowy, i.v.)"
+  },
+  "5": {
+    "index": 5,
+    "name": "Fentanyl (transdermalnie)"
+  },
+  "6": {
+    "index": 6,
+    "name": "Kodeina (w składzie złożonych tbl. doustnych)"
+  },
+  "7": {
+    "index": 7,
+    "name": "Metadon"
+  },
+  "8": {
+    "index": 8,
+    "name": "Morfina (s.c., i.v., i.m.)",
+    "text1": "Zalecana dawka ratunkowa wynosi od 10-20% dawki dobowej (dobowego ekwiwalentu morfiny)",
+    "text2": "Dawkę należy podawać wykorzystując morfinę o krótkim czasie uwalniania",
+    "text3": "W przypadku pacjentów otrzymujących stałe leczenie z wykorzystaniem szybko działającej morfiny rozważ dawkę ratunkową w wysokości 25-50% dobowego ekwiwalentu morfiny"
+  },
+  "9": {
+    "index": 9,
+    "name": "Morfina (tbl. doustne)"
+  },
+  "10": {
+    "index": 10,
+    "name": "Oksykodon, chlorowodorek (tbl. doustne, i.v., s.c.)"
+  },
+  "11": {
+    "index": 11,
+    "name": "Tapentadol"
+  },
+  "12": {
+    "index": 12,
+    "name": "Tramadol (s.c. lub i.v.)"
+  },
+  "13": {
+    "index": 13,
+    "name": "Tramadol (tbl. doustne lub krople)"
+  }
+}

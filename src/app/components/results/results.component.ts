@@ -6,6 +6,7 @@ import {CalculationsService} from '../shared/services/calculations/calculations.
 import {OpioidService} from '../shared/services/opioid/opioid.service';
 import resultsContent from '../shared/data/textContent/resultsContent.json';
 import opioidInfoContent from '../shared/data/opioid/opioidInfoContent.json';
+import glpharmaContent from '../shared/data/opioid/glpharmaContent.json';
 
 @Component({
   selector: 'app-results',
@@ -27,10 +28,15 @@ export class ResultsComponent implements OnInit {
 
   public showResults: boolean;
   public results: Results;
+  public kidneyCheckboxWasChecked: boolean;
 
   public opioidInfoData: {1: number, 2: number, 3: number, 4: number, 5: number, 6: number, 7: number,
                            8: number, 9: number, 10: number, 11: number, 12: number, 13: number
   } = opioidInfoContent;
+
+  public glpharmaData: {1: number, 2: number, 3: number, 4: number, 5: number, 6: number, 7: number,
+    8: number, 9: number, 10: number, 11: number, 12: number, 13: number, 14: number, 15: number
+  } = glpharmaContent;
 
   constructor(public opioidService: OpioidService,
               private calculationsService: CalculationsService,
@@ -46,6 +52,7 @@ export class ResultsComponent implements OnInit {
       this.setReducedDoseRangeForOpioidToConvertTo();
       this.setDoseExceededForOpioidToConvertTo();
     }
+    this.checkIfKidneyCheckboxWasChecked();
   }
 
   private loadResultsOrRedirect(): void {
@@ -107,5 +114,9 @@ export class ResultsComponent implements OnInit {
         this.resultsService.results.opioidToConvertToDoseExceeded = true;
       }
     }
+  }
+
+  private checkIfKidneyCheckboxWasChecked(): void {
+    this.kidneyCheckboxWasChecked = this.resultsService.results.kidneyCheckbox;
   }
 }

@@ -8,20 +8,35 @@
       </div>
 
       <div *ngIf="showResults">
-        <div class="dark_background"><h4>{{resultsTextData.resultsText}}</h4></div><br>
+        <div class="light_gray_background"><h5>{{resultsTextData.resultsText}}</h5></div><br>
 
         <ng-container *ngIf="opioidService.oneOfOpioidsWasChosen(results)">
           <results-sum-up
             [resultsTextData]="resultsTextData"></results-sum-up>
-          <hr class="padding_bottom_20px padding_top_20px">
+          <div class="padding_bottom_20px padding_top_20px"></div>
         </ng-container>
 
-        <div class="dark_thick_frame">
-          <results-conversion-to
-            [opioidInfoData]="opioidInfoData"></results-conversion-to>
-        </div>
+        <results-conversion-to
+          [opioidInfoData]="opioidInfoData"></results-conversion-to>
+
+        <ng-container *ngIf="kidneyCheckboxWasChecked">
+          <div class="padding_top_30px"></div>
+          <div class="very_light_gray_background">
+            <span class="header_dark">Niewydolność nerek</span>
+            <hr class="light_line">
+            <span class="fontsize_14">{{glpharmaData[14].text}}</span>
+          </div>
+        </ng-container>
+
+        <rescue-dose></rescue-dose>
+
+        <results-glpharma-info></results-glpharma-info>
+
+        <results-opioid-info
+          [opioidInfoData]="opioidInfoData"></results-opioid-info>
+
         <div>
-          <div class="padding_bottom_10px"></div>
+          <hr class="padding_top_20px padding_bottom_20px">
           <p class="fontsize_14 darker_gray text-center">
             {{resultsTextData.warningText}}
           </p>
@@ -30,7 +45,7 @@
 
         <div class="row">
           <div class="col-md-3"></div>
-          <div class="col-md-6 red_background text-center">
+          <div class="col-md-6 orange_background text-center">
             <a class="blad" href="{{resultsTextData.contactText}}" target="_blank">
               {{resultsTextData.contactTextInfo}}
             </a>

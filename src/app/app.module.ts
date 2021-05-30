@@ -28,6 +28,7 @@ import {OpioidConversionToComponent} from './components/sub-components/conversio
 import {MethadoneConversionToComponent} from './components/sub-components/conversion-to/methadone-conversion-to/methadone-conversion-to.component';
 import {PlasterListComponent} from './components/sub-components/conversion-to/plaster-list/plaster-list.component';
 import { ResultsGlpharmaInfoComponent } from './components/sub-components/results-glpharma-info/results-glpharma-info.component';
+import { RescueDoseComponent } from './components/sub-components/conversion-to/rescue-dose/rescue-dose.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ResultsGlpharmaInfoComponent } from './components/sub-components/result
     ResultsOpioidInfoComponent,
     ResultsSumUpComponent,
     PlasterListComponent,
-    ResultsGlpharmaInfoComponent
+    ResultsGlpharmaInfoComponent,
+    RescueDoseComponent
   ],
   imports: [
     AppRoutingModule,

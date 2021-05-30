@@ -1,7 +1,10 @@
-<table class="table table-striped">
+<div class="dark_gray_background padding_bottom_20px">
+  <h5>{{results.opioidToConvertTo.description}}:</h5>
+</div>
+<table class="table text-white">
   <tbody>
     <tr>
-      <td style="width: 60%">{{results.opioidToConvertTo.description}}:</td>
+      <td style="width: 60%">Dawka dobowa:</td>
       <td *ngIf="results.opioidToConvertToDoseRange.min === results.opioidToConvertToDoseRange.max"
           style="width: 40%">
         {{results.opioidToConvertToDoseRange.min | number : '1.2-2'}} {{results.doseForResults}}
@@ -16,7 +19,7 @@
 
     <ng-container *ngIf="results.doseReduction > 0">
       <tr>
-        <td style="width: 60%">Dawka zredukowana o {{results.doseReduction}}%:</td>
+        <td style="width: 60%">Dawka dobowa zredukowana o {{results.doseReduction}}%:</td>
         <td *ngIf="results.opioidToConvertToReducedDoseRange.min ===
         results.opioidToConvertToReducedDoseRange.max" style="width: 40%">
           {{results.opioidToConvertToReducedDoseRange.min | number : '1.2-2'}} {{results.doseForResults}}
@@ -29,6 +32,10 @@
         </td>
       </tr>
     </ng-container>
-
   </tbody>
 </table>
+
+<ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
+  <plaster-list
+    [listOfProposedPlasters]="listOfProposedBuprenorphinePlasters"></plaster-list>
+</ng-container>
