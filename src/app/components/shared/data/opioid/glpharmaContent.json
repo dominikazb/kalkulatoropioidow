@@ -43,7 +43,9 @@
   "10": {
     "index": 10,
     "name": "Oksykodon, chlorowodorek (tbl. doustne, i.v., s.c.)",
-    "text1": "Rozważ zastosowanie połączenia oksykodonu z naloksonem w przypadku konieczności redukcji zespołu poopioidowej dysfunkcji jelit lub zaparć występujących u pacjenta w trakcie leczenia lekami opioidowymi."
+    "text1": "Rozważ zastosowanie połączenia oksykodonu z naloksonem w przypadku konieczności redukcji zespołu poopioidowej dysfunkcji jelit lub zaparć występujących u pacjenta w trakcie leczenia lekami opioidowymi (zastosuj np.",
+    "text2": "Oxylaxon",
+    "text3": ")"
   },
   "11": {
     "index": 11,
@@ -58,9 +60,17 @@
     "name": "Tramadol (tbl. doustne lub krople)"
   },
   "14": {
-    "text": "U pacjentów z niewydolnością nerek rekomendowanym opioidem jest buprenorfina."
+    "text1": "U pacjentów z niewydolnością nerek rekomendowanym opioidem jest buprenorfina (np. ",
+    "text2": "Melodyn",
+    "text3": ")"
   },
   "15": {
     "text": "W przypadku wątpliwości skorzystaj z informacji zawartej w charakterystyce produktu leczniczego."
+  },
+  "16": {
+    "buprenorphineLink": "http://www.google.pl",
+    "oxydolorLink": "http://www.google.pl",
+    "oxydolorFastLink": "http://www.google.pl",
+    "oxylaxonLink": "http://www.google.pl"
   }
 }

@@ -1,5 +1,5 @@
 <div class="dark_gray_background padding_bottom_20px">
-  <h5>{{results.opioidToConvertTo.description}}:</h5>
+  <span class="header_white">{{results.opioidToConvertTo.description}}:</span>
 </div>
 <table class="table text-white">
   <tbody>
@@ -34,8 +34,3 @@
     </ng-container>
   </tbody>
 </table>
-
-<ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
-  <plaster-list
-    [listOfProposedPlasters]="listOfProposedBuprenorphinePlasters"></plaster-list>
-</ng-container>

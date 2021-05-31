@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ResultsService} from '../../shared/services/results/results.service';
 import {Results} from '../../shared/model/results/results';
 import {CalculationsService} from '../../shared/services/calculations/calculations.service';
 import {OpioidIndices} from '../../shared/data/opioid/OpioidIndices';
+import {ContentService} from '../../shared/services/content/content.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -11,14 +12,13 @@ import {OpioidIndices} from '../../shared/data/opioid/OpioidIndices';
 })
 export class ResultsConversionToComponent implements OnInit {
 
-  @Input() opioidInfoData: any;
-
   public results: Results;
   public opioidIndices = OpioidIndices;
   public listOfProposedFentanylPlasters: string[] = [];
   public listOfProposedBuprenorphinePlasters: string[] = [];
 
-  constructor(public resultsService: ResultsService,
+  constructor(public contentService: ContentService,
+              public resultsService: ResultsService,
               private calculationsService: CalculationsService) { }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
-import infoModalContent from '../../shared/data/textContent/infoModalContent.json';
+import {ContentService} from '../../shared/services/content/content.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -11,41 +11,10 @@ import infoModalContent from '../../shared/data/textContent/infoModalContent.jso
 })
 export class InfoModalComponent implements OnInit {
 
-  public textData: {
-    title: string,
-    text1: string,
-    consent1: string,
-    consent2a: string,
-    consent2link: string,
-    consent2b: string,
-    consent2c: string,
-    consent2d: string,
-    subTitle1: string,
-    text2: string,
-    owner1: string,
-    owner2: string,
-    owner3: string,
-    owner4: string,
-    owner5: string,
-    owner6: string,
-    text3: string,
-    subTitle2: string,
-    text4: string,
-    text5: string,
-    text6: string,
-    text7: string,
-    text8: string,
-    subTitle3: string,
-    text9: string,
-    subTitle4: string,
-    text10: string,
-    btnText: string
-  } = infoModalContent;
-
   public infoModalForm: FormGroup;
 
-  constructor(public modalRef: BsModalRef) {
-  }
+  constructor(public contentService: ContentService,
+              public modalRef: BsModalRef) {}
 
   ngOnInit(): void {
     this.buildForm();

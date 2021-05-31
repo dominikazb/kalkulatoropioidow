@@ -4,27 +4,36 @@
     <div class="content_inside_resultspage">
 
       <div *ngIf="!showResults">
-        <h5 class="darker_gray text-center padding_bottom_20px padding_top_30px">{{resultsTextData.noResultsText}}</h5>
+        <h5
+          class="darker_gray text-center padding_bottom_20px padding_top_30px">{{contentService.resultsTextData.noResultsText}}</h5>
       </div>
 
       <div *ngIf="showResults">
-        <div class="light_gray_background"><h5>{{resultsTextData.resultsText}}</h5></div><br>
+        <div class="light_gray_background">
+          <span class="header_dark">{{contentService.resultsTextData.resultsText}}</span>
+        </div>
+        <div class="padding_bottom_10px"></div>
 
         <ng-container *ngIf="opioidService.oneOfOpioidsWasChosen(results)">
-          <results-sum-up
-            [resultsTextData]="resultsTextData"></results-sum-up>
+          <results-sum-up></results-sum-up>
           <div class="padding_bottom_20px padding_top_20px"></div>
         </ng-container>
 
-        <results-conversion-to
-          [opioidInfoData]="opioidInfoData"></results-conversion-to>
+        <results-conversion-to></results-conversion-to>
+
+        <!-- TODO: add kidney-failure-component here -->
 
         <ng-container *ngIf="kidneyCheckboxWasChecked">
           <div class="padding_top_30px"></div>
           <div class="very_light_gray_background">
-            <span class="header_dark">Niewydolność nerek</span>
+            <span class="header_dark">{{contentService.resultsTextData.kidneyFailureText}}</span>
             <hr class="light_line">
-            <span class="fontsize_14">{{glpharmaData[14].text}}</span>
+            <span class="fontsize_14">
+              {{contentService.glpharmaData[14].text1}}
+              <a href="{{contentService.glpharmaData[16].buprenorphineLink}}"
+                 target="_blank">{{contentService.glpharmaData[14].text2}}</a>
+              {{contentService.glpharmaData[14].text3}}
+            </span>
           </div>
         </ng-container>
 
@@ -32,13 +41,12 @@
 
         <results-glpharma-info></results-glpharma-info>
 
-        <results-opioid-info
-          [opioidInfoData]="opioidInfoData"></results-opioid-info>
+        <results-opioid-info></results-opioid-info>
 
         <div>
-          <hr class="padding_top_20px padding_bottom_20px">
+          <div class="padding_top_20px padding_bottom_20px"></div>
           <p class="fontsize_14 darker_gray text-center">
-            {{resultsTextData.warningText}}
+            {{contentService.resultsTextData.warningText}}
           </p>
         </div>
         <br>
@@ -46,8 +54,8 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-6 orange_background text-center">
-            <a class="blad" href="{{resultsTextData.contactText}}" target="_blank">
-              {{resultsTextData.contactTextInfo}}
+            <a class="blad" href="{{contentService.resultsTextData.contactText}}" target="_blank">
+              {{contentService.resultsTextData.contactTextInfo}}
             </a>
           </div>
           <div class="col-md-3"></div>

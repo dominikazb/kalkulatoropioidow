@@ -27,8 +27,9 @@ import {ResultsSumUpComponent} from './components/sub-components/results-sum-up/
 import {OpioidConversionToComponent} from './components/sub-components/conversion-to/opioid-conversion-to/opioid-conversion-to.component';
 import {MethadoneConversionToComponent} from './components/sub-components/conversion-to/methadone-conversion-to/methadone-conversion-to.component';
 import {PlasterListComponent} from './components/sub-components/conversion-to/plaster-list/plaster-list.component';
-import { ResultsGlpharmaInfoComponent } from './components/sub-components/results-glpharma-info/results-glpharma-info.component';
-import { RescueDoseComponent } from './components/sub-components/conversion-to/rescue-dose/rescue-dose.component';
+import {ResultsGlpharmaInfoComponent} from './components/sub-components/results-glpharma-info/results-glpharma-info.component';
+import {RescueDoseComponent} from './components/sub-components/conversion-to/rescue-dose/rescue-dose.component';
+import {ContentService} from './components/shared/services/content/content.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { RescueDoseComponent } from './components/sub-components/conversion-to/r
   ],
   providers: [
     CalculationsService,
+    ContentService,
     FormsService,
     MorphineEquivalentService,
     OpioidService,

@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ResultsService} from '../../shared/services/results/results.service';
 import {Results} from '../../shared/model/results/results';
 import {OpioidResults} from '../../shared/model/results/opioid.results';
 import {OpioidService} from '../../shared/services/opioid/opioid.service';
+import {ContentService} from '../../shared/services/content/content.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -11,14 +12,12 @@ import {OpioidService} from '../../shared/services/opioid/opioid.service';
 })
 export class ResultsSumUpComponent implements OnInit {
 
-  @Input() resultsTextData: any;
-
   public opioidsForHTML: OpioidResults[] = [];
   public plastersForHTML: OpioidResults[] = [];
-
   public results: Results;
 
-  constructor(public opioidService: OpioidService,
+  constructor(public contentService: ContentService,
+              public opioidService: OpioidService,
               private resultsService: ResultsService) { }
 
   ngOnInit(): void {

@@ -3,51 +3,30 @@
   <span class="header_dark">Dawka doraźna</span>
   <hr class="light_line">
 
-  <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.BuprenorphinePills.valueOf()">
+  <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.BuprenorphinePills.valueOf() ||
+      opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-    </ul>
-  </ng-container>
-
-  <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
-    <ul class="fontsize_14 padding_top_5px">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
+      <li>{{contentService.rescueDoseData[1].text1}}</li>
     </ul>
   </ng-container>
 
   <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.Dihydrocodeine.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
+      <li>{{contentService.rescueDoseData[3].text1}}</li>
     </ul>
   </ng-container>
 
-  <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.FentanylPills.valueOf()">
+  <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.FentanylPills.valueOf() ||
+      opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-    </ul>
-  </ng-container>
-
-  <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
-    <ul class="fontsize_14 padding_top_5px">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
+      <li>{{contentService.rescueDoseData[4].text1}}</li>
+      <li>{{contentService.rescueDoseData[4].text2}}</li>
     </ul>
   </ng-container>
 
   <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.Codeine.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
+      <li>{{contentService.rescueDoseData[6].text1}}</li>
     </ul>
   </ng-container>
 
@@ -62,21 +41,28 @@
   <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.MorphinePills.valueOf() ||
       opioidToConvertToIndex === opioidIndices.MorphineIV.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>{{rescueDoseData[8].text1}}</li>
-      <li>{{rescueDoseData[8].text2}}</li>
-      <li>{{rescueDoseData[8].text3}}</li>
+      <li>{{contentService.rescueDoseData[8].text1}}</li>
+      <li>{{contentService.rescueDoseData[8].text2}}</li>
+      <li>{{contentService.rescueDoseData[8].text3}}</li>
     </ul>
   </ng-container>
 
   <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.Oxycodone.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
+      <li>{{contentService.rescueDoseData[10].text1}}</li>
+      <li>
+        <span>{{contentService.rescueDoseData[10].text2}}</span>
+        <span>
+          <a href="{{contentService.glpharmaData[16].oxydolorFastLink}}" target="_blank">
+            {{contentService.rescueDoseData[10].text3}}
+          </a>
+        </span>
+        <span>{{contentService.rescueDoseData[10].text4}}</span>
+      </li>
     </ul>
   </ng-container>
 
-  <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.Tapentadon.valueOf()">
+  <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.Tapentadol.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
       <li>text</li>
       <li>text</li>

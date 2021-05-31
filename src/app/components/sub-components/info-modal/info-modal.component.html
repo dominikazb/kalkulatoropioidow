@@ -1,10 +1,10 @@
 <div class="modal-content">
   <div class="modal-header d-block">
-    <h3 class="modal-title text-center text_red">{{textData.title}}</h3>
+    <h3 class="modal-title text-center text_red">{{contentService.infoModalData.title}}</h3>
   </div>
   <div class="modal-body">
     <p class="fontsize_14 justify_text">
-      {{textData.text1}}
+      {{contentService.infoModalData.text1}}
     </p>
 
     <form [formGroup]="infoModalForm" (submit)="onSubmit()">
@@ -17,7 +17,7 @@
                  type="checkbox"
                  value="">
           <label class="form-check-label fontsize_15 text_red" for="checkBox1">
-            {{textData.consent1}}
+            {{contentService.infoModalData.consent1}}
           </label>
         </div>
 
@@ -28,49 +28,49 @@
                  type="checkbox"
                  value="">
           <label class="form-check-label fontsize_15 text_red" for="checkBox2">
-            {{textData.consent2a}}
-            <a href="{{textData.consent2link}}" target="_blank">{{textData.consent2b}}</a>
-            {{textData.consent2c}}
-            <a href="{{textData.consent2link}}" target="_blank">{{textData.consent2d}}</a>.
+            {{contentService.infoModalData.consent2a}}
+            <a href="{{contentService.infoModalData.consent2link}}" target="_blank">{{contentService.infoModalData.consent2b}}</a>
+            {{contentService.infoModalData.consent2c}}
+            <a href="{{contentService.infoModalData.consent2link}}" target="_blank">{{contentService.infoModalData.consent2d}}</a>.
           </label>
         </div>
 
         <br><hr><br>
 
-        <h5>{{textData.subTitle1}}</h5>
+        <h5>{{contentService.infoModalData.subTitle1}}</h5>
 
-        <p class="justify_text">{{textData.text2}}</p>
+        <p class="justify_text">{{contentService.infoModalData.text2}}</p>
 
         <br>
 
-        <b>{{textData.owner1}}</b><br>
-        <b>{{textData.owner2}}</b><br>
-        <b>{{textData.owner3}}</b><br>
-        <b>{{textData.owner4}}</b><br>
-        <b>{{textData.owner5}}</b><br>
-        <b>{{textData.owner6}}</b>
+        <b>{{contentService.infoModalData.owner1}}</b><br>
+        <b>{{contentService.infoModalData.owner2}}</b><br>
+        <b>{{contentService.infoModalData.owner3}}</b><br>
+        <b>{{contentService.infoModalData.owner4}}</b><br>
+        <b>{{contentService.infoModalData.owner5}}</b><br>
+        <b>{{contentService.infoModalData.owner6}}</b>
 
         <br><br><br>
 
-        <h5>{{textData.subTitle2}}</h5>
+        <h5>{{contentService.infoModalData.subTitle2}}</h5>
         <p class="justify_text">
-          {{textData.text3}}
-          <a href="{{textData.consent2link}}" target="_blank">{{textData.consent2link}}</a>
+          {{contentService.infoModalData.text3}}
+          <a href="{{contentService.infoModalData.consent2link}}" target="_blank">{{contentService.infoModalData.consent2link}}</a>
         </p>
-        <p class="justify_text">{{textData.text4}}</p>
-        <p class="justify_text">{{textData.text5}}</p>
-        <p class="justify_text">{{textData.text6}}</p>
-        <p class="justify_text">{{textData.text7}}</p>
-        <h5>{{textData.subTitle3}}</h5>
-        <p class="justify_text">{{textData.text8}}</p>
-        <h5>{{textData.subTitle4}}</h5>
-        <p class="justify_text">{{textData.text9}}</p>
+        <p class="justify_text">{{contentService.infoModalData.text4}}</p>
+        <p class="justify_text">{{contentService.infoModalData.text5}}</p>
+        <p class="justify_text">{{contentService.infoModalData.text6}}</p>
+        <p class="justify_text">{{contentService.infoModalData.text7}}</p>
+        <h5>{{contentService.infoModalData.subTitle3}}</h5>
+        <p class="justify_text">{{contentService.infoModalData.text8}}</p>
+        <h5>{{contentService.infoModalData.subTitle4}}</h5>
+        <p class="justify_text">{{contentService.infoModalData.text9}}</p>
       </div>
       <div class="modal-footer">
         <button [disabled]="!infoModalForm.valid"
                 type="submit"
                 class="btn btn-danger"
-                id="btnSaveIt">{{textData.btnText}}</button>
+                id="btnSaveIt">{{contentService.infoModalData.btnText}}</button>
       </div>
     </form>
   </div>

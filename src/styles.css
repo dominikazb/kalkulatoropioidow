@@ -680,6 +680,20 @@ a.blad:hover {
   color: red;
 }
 
+.light_gray_color {
+  color: #E0E0E0;
+}
+
+.light_gray_color_darker {
+  color: #C8C8C8;
+}
+
+.header_white {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
 .header_dark {
   font-size: 20px;
   font-weight: bold;
@@ -696,14 +710,6 @@ a.blad:hover {
 .light_gray_background {
   padding: 10px 15px;
   background-color: #c4c3c3;
-  /*background-color: #979696;*/
-  border-radius: 10px;
-  color: white;
-}
-
-.medium_light_gray_background {
-  padding: 10px 15px;
-  background-color: #979696;
   border-radius: 10px;
   color: white;
 }
@@ -712,7 +718,7 @@ a.blad:hover {
   padding: 10px 15px;
   background-color: #555555;
   border-radius: 10px;
-  color: white;
+  color: #E0E0E0;
 }
 
 .orange_background {

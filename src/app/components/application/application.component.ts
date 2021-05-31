@@ -9,7 +9,7 @@ import {OpioidService} from '../shared/services/opioid/opioid.service';
 import {OpioidResults} from '../shared/model/results/opioid.results';
 import {MinMax} from '../shared/model/opioid/minMax';
 import {Results} from '../shared/model/results/results';
-import applicationContent from '../shared/data/textContent/applicationContent.json';
+import {ContentService} from '../shared/services/content/content.service';
 
 @Component({
   selector: 'app-application',
@@ -27,19 +27,6 @@ export class ApplicationComponent implements OnInit {
     doseReduction: 'doseReduction'
   };
 
-  public textData: {
-    title: string,
-    addAnotherText: string,
-    fentanylText: string,
-    buprenorphineText: string,
-    conversionFromText: string,
-    optionallyText: string,
-    btnResetText: string,
-    kidneyCheckbox: string,
-    btnCalculateText: string
-  } = applicationContent;
-
-
   public opioidConversionForm: FormGroup;
   private screenWidth: number;
   public firstIsCollapsed: boolean;
@@ -47,7 +34,8 @@ export class ApplicationComponent implements OnInit {
   public fentanylIsCollapsed: boolean;
   public buprenorphineIsCollapsed: boolean;
 
-  constructor(private formsService: FormsService,
+  constructor(public contentService: ContentService,
+              private formsService: FormsService,
               private opioidService: OpioidService,
               private resultsService: ResultsService,
               private router: Router) { }

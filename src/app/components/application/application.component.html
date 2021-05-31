@@ -2,11 +2,11 @@
   <div class="empty_space_20px"></div>
   <div class="content">
     <div class="content_inside">
-      <h4 class="title">{{textData.title}}</h4>
+      <h4 class="title">{{contentService.applicationData.title}}</h4>
       <hr class="padding_bottom_10px">
 
       <form [formGroup]="opioidConversionForm" (ngSubmit)="onSubmit()">
-        <h5>{{textData.conversionFromText}}</h5>
+        <h5>{{contentService.applicationData.conversionFromText}}</h5>
 
         <div class="converted_opioid__wrapper_top">
           <form-opioid
@@ -16,13 +16,13 @@
         </div>
         <div class="padding_bottom_20px"></div>
 
-        <h6 class="gray padding_bottom_10px">{{textData.optionallyText}}</h6>
+        <h6 class="gray padding_bottom_10px">{{contentService.applicationData.optionallyText}}</h6>
 
         <div class="converted_opioid__wrapper">
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse1.toggle()"
              [attr.aria-expanded]="!firstIsCollapsed">
-            <i class="fas fa-plus-circle"></i> {{textData.addAnotherText}}
+            <i class="fas fa-plus-circle"></i> {{contentService.applicationData.addAnotherText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
@@ -41,7 +41,7 @@
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse2.toggle()"
              [attr.aria-expanded]="!secondIsCollapsed">
-            <i class="fas fa-plus-circle"></i> {{textData.addAnotherText}}
+            <i class="fas fa-plus-circle"></i> {{contentService.applicationData.addAnotherText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
@@ -60,7 +60,7 @@
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse3.toggle()"
              [attr.aria-expanded]="!fentanylIsCollapsed">
-            <i class="fas fa-plus-circle"></i> {{textData.fentanylText}}
+            <i class="fas fa-plus-circle"></i> {{contentService.applicationData.fentanylText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
@@ -76,7 +76,7 @@
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse4.toggle()"
              [attr.aria-expanded]="!buprenorphineIsCollapsed">
-            <i class="fas fa-plus-circle"></i> {{textData.buprenorphineText}}
+            <i class="fas fa-plus-circle"></i> {{contentService.applicationData.buprenorphineText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
@@ -96,7 +96,7 @@
               id="kidneyDisease"
               formControlName="kidneyCheckbox"
               name="kidneyCheckbox">
-            <label class="form-check-label darker_gray" for="kidneyDisease">{{textData.kidneyCheckbox}}</label>
+            <label class="form-check-label darker_gray" for="kidneyDisease">{{contentService.applicationData.kidneyCheckbox}}</label>
           </div>
         </div>
 
@@ -109,12 +109,12 @@
             <div class="btn-group" role="group">
               <input class="btn btn-secondary my-1 btn-block mr-1"
                      type="reset"
-                     value="{{textData.btnResetText}}">
+                     value="{{contentService.applicationData.btnResetText}}">
             </div>
             <div class="btn-group" role="group">
               <input class="btn btn-danger my-1 btn-block mr-1"
                      type="submit"
-                     value="{{textData.btnCalculateText}}">
+                     value="{{contentService.applicationData.btnCalculateText}}">
             </div>
           </div>
         </div>

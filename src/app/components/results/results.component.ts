@@ -4,9 +4,7 @@ import {Results} from '../shared/model/results/results';
 import {Router} from '@angular/router';
 import {CalculationsService} from '../shared/services/calculations/calculations.service';
 import {OpioidService} from '../shared/services/opioid/opioid.service';
-import resultsContent from '../shared/data/textContent/resultsContent.json';
-import opioidInfoContent from '../shared/data/opioid/opioidInfoContent.json';
-import glpharmaContent from '../shared/data/opioid/glpharmaContent.json';
+import {ContentService} from '../shared/services/content/content.service';
 
 @Component({
   selector: 'app-results',
@@ -14,31 +12,16 @@ import glpharmaContent from '../shared/data/opioid/glpharmaContent.json';
 })
 export class ResultsComponent implements OnInit {
 
-  public resultsTextData: {
-    resultsText: string,
-    opioidText: string,
-    dailyDoseText: string,
-    morphineEquivalentText: string,
-    goBackText: string,
-    noResultsText: string,
-    contactText: string,
-    warningText: string,
-    contactTextInfo: string
-  } = resultsContent;
-
   public showResults: boolean;
   public results: Results;
   public kidneyCheckboxWasChecked: boolean;
 
-  public opioidInfoData: {1: any, 2: any, 3: any, 4: any, 5: any, 6: any, 7: any,
-                           8: any, 9: any, 10: any, 11: any, 12: any, 13: any
-  } = opioidInfoContent;
+  // TODO: kidney failure component <a href> for reformatting
+  // TODO: wynieść kidney failure do osobnego komponentu
+  // TODO: add content-service for managing all the json content
 
-  public glpharmaData: {1: any, 2: any, 3: any, 4: any, 5: any, 6: any, 7: any,
-    8: any, 9: any, 10: any, 11: any, 12: any, 13: any, 14: any, 15: any
-  } = glpharmaContent;
-
-  constructor(public opioidService: OpioidService,
+  constructor(public contentService: ContentService,
+              public opioidService: OpioidService,
               private calculationsService: CalculationsService,
               private resultsService: ResultsService,
               private router: Router) { }
@@ -103,11 +86,11 @@ export class ResultsComponent implements OnInit {
   private setDoseExceededForOpioidToConvertTo(): void {
     const opioidToConvertToIndex: number = this.results.opioidToConvertToIndex;
     // @ts-ignore
-    const doseCanBeExceeded = this.opioidInfoData[opioidToConvertToIndex].doseCanBeExceeded;
+    const doseCanBeExceeded = this.contentService.opioidInfoData[opioidToConvertToIndex].doseCanBeExceeded;
 
     if (doseCanBeExceeded) {
       // @ts-ignore
-      const doseLimit = this.opioidInfoData[opioidToConvertToIndex].doseLimit;
+      const doseLimit = this.contentService.opioidInfoData[opioidToConvertToIndex].doseLimit;
 
       if (this.calculationsService.opioidToConvertToDoseWasExceeded(
         this.resultsService.results.opioidToConvertToDoseRange, doseLimit)) {

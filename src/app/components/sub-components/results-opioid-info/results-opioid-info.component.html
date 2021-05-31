@@ -5,50 +5,50 @@
 
   <ng-container *ngFor="let opioidNo of opioidsToShow">
     <div class="padding_left_right__10px">
-      <ng-container *ngIf="this.opioidInfoData[opioidNo].index !== opioidIndices.FentanylTransdermal.valueOf() &&
-      this.opioidInfoData[opioidNo].index !== opioidIndices.Methadone.valueOf()">
+      <ng-container *ngIf="contentService.opioidInfoData[opioidNo].index !== opioidIndices.FentanylTransdermal.valueOf() &&
+      contentService.opioidInfoData[opioidNo].index !== opioidIndices.Methadone.valueOf()">
         <span class="fontsize_14 darker_gray">
-          {{this.opioidInfoData[opioidNo].text1}} <b class="color_black">{{this.opioidInfoData[opioidNo].text2}}</b>
-          {{this.opioidInfoData[opioidNo].text3}}<br>
-          {{this.opioidInfoData[opioidNo].text4}}<br>
-          {{this.opioidInfoData[opioidNo].text5}}
+          {{contentService.opioidInfoData[opioidNo].text1}} <b class="color_black">{{contentService.opioidInfoData[opioidNo].text2}}</b>
+          {{contentService.opioidInfoData[opioidNo].text3}}<br>
+          {{contentService.opioidInfoData[opioidNo].text4}}<br>
+          {{contentService.opioidInfoData[opioidNo].text5}}
         </span>
         <hr>
       </ng-container>
 
-      <ng-container *ngIf="this.opioidInfoData[opioidNo].index === opioidIndices.FentanylTransdermal.valueOf()">
+      <ng-container *ngIf="contentService.opioidInfoData[opioidNo].index === opioidIndices.FentanylTransdermal.valueOf()">
         <span class="fontsize_14 darker_gray">
-          {{this.opioidInfoData[opioidNo].text1}} <b class="color_black">{{this.opioidInfoData[opioidNo].text2}}</b>
-          {{this.opioidInfoData[opioidNo].text3}}<br><br>
-          {{this.opioidInfoData[opioidNo].text4}}<br>
-          {{this.opioidInfoData[opioidNo].text5}}<br>
-          {{this.opioidInfoData[opioidNo].text6}}<br>
-          {{this.opioidInfoData[opioidNo].text7}}<br>
-          {{this.opioidInfoData[opioidNo].text8}}<br>
-          {{this.opioidInfoData[opioidNo].text9}}<br>
-          {{this.opioidInfoData[opioidNo].text10}}<br>
-          {{this.opioidInfoData[opioidNo].text11}}<br>
-          {{this.opioidInfoData[opioidNo].text12}}<br>
-          {{this.opioidInfoData[opioidNo].text13}}<br>
-          {{this.opioidInfoData[opioidNo].text14}}<br>
-          {{this.opioidInfoData[opioidNo].text15}}<br>
-          {{this.opioidInfoData[opioidNo].text16}}<br><br>
-          {{this.opioidInfoData[opioidNo].text17}}
+          {{contentService.opioidInfoData[opioidNo].text1}} <b class="color_black">{{contentService.opioidInfoData[opioidNo].text2}}</b>
+          {{contentService.opioidInfoData[opioidNo].text3}}<br><br>
+          {{contentService.opioidInfoData[opioidNo].text4}}<br>
+          {{contentService.opioidInfoData[opioidNo].text5}}<br>
+          {{contentService.opioidInfoData[opioidNo].text6}}<br>
+          {{contentService.opioidInfoData[opioidNo].text7}}<br>
+          {{contentService.opioidInfoData[opioidNo].text8}}<br>
+          {{contentService.opioidInfoData[opioidNo].text9}}<br>
+          {{contentService.opioidInfoData[opioidNo].text10}}<br>
+          {{contentService.opioidInfoData[opioidNo].text11}}<br>
+          {{contentService.opioidInfoData[opioidNo].text12}}<br>
+          {{contentService.opioidInfoData[opioidNo].text13}}<br>
+          {{contentService.opioidInfoData[opioidNo].text14}}<br>
+          {{contentService.opioidInfoData[opioidNo].text15}}<br>
+          {{contentService.opioidInfoData[opioidNo].text16}}<br><br>
+          {{contentService.opioidInfoData[opioidNo].text17}}
         </span>
         <hr>
       </ng-container>
 
-      <ng-container *ngIf="this.opioidInfoData[opioidNo].index === opioidIndices.Methadone.valueOf()">
+      <ng-container *ngIf="contentService.opioidInfoData[opioidNo].index === opioidIndices.Methadone.valueOf()">
         <span class="fontsize_14 darker_gray">
-          <b class="color_black">{{this.opioidInfoData[opioidNo].text1}}</b><br><br>
-          {{this.opioidInfoData[opioidNo].text2}} <b class="color_black">{{this.opioidInfoData[opioidNo].text3}}</b>
-          {{this.opioidInfoData[opioidNo].text4}}<br><br>
-          {{this.opioidInfoData[opioidNo].text5}}<br>
-          {{this.opioidInfoData[opioidNo].text6}}<br>
-          {{this.opioidInfoData[opioidNo].text7}}<br>
-          {{this.opioidInfoData[opioidNo].text8}}<br><br>
-          {{this.opioidInfoData[opioidNo].text9}}<br>
-          {{this.opioidInfoData[opioidNo].text10}}
+          <b class="color_black">{{contentService.opioidInfoData[opioidNo].text1}}</b><br><br>
+          {{contentService.opioidInfoData[opioidNo].text2}} <b class="color_black">{{contentService.opioidInfoData[opioidNo].text3}}</b>
+          {{contentService.opioidInfoData[opioidNo].text4}}<br><br>
+          {{contentService.opioidInfoData[opioidNo].text5}}<br>
+          {{contentService.opioidInfoData[opioidNo].text6}}<br>
+          {{contentService.opioidInfoData[opioidNo].text7}}<br>
+          {{contentService.opioidInfoData[opioidNo].text8}}<br><br>
+          {{contentService.opioidInfoData[opioidNo].text9}}<br>
+          {{contentService.opioidInfoData[opioidNo].text10}}
         </span>
         <hr>
       </ng-container>

@@ -9,7 +9,7 @@ export enum OpioidIndices {
   MorphineIV = 8,
   MorphinePills = 9,
   Oxycodone = 10,
-  Tapentadon = 11,
+  Tapentadol = 11,
   TramadolIV = 12,
   TramadolPills = 13
 }

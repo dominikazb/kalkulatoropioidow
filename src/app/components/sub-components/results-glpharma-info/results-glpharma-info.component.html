@@ -6,21 +6,25 @@
 
     <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
       <ul>
-        <li>{{glpharmaData[5].text1}}</li>
-        <li>{{glpharmaData[5].text2}}</li>
-        <li>{{glpharmaData[5].text3}}</li>
-        <li>{{glpharmaData[5].text4}}</li>
+        <li>{{contentService.glpharmaData[5].text1}}</li>
+        <li>{{contentService.glpharmaData[5].text2}}</li>
+        <li>{{contentService.glpharmaData[5].text3}}</li>
+        <li>{{contentService.glpharmaData[5].text4}}</li>
       </ul>
     </ng-container>
-    <ng-container *ngIf="this.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
-      <ul>
-        <li>{{glpharmaData[2].text1}}</li>
-      </ul>
-    </ng-container>
+
     <ng-container *ngIf="this.opioidToConvertToIndex === opioidIndices.Oxycodone.valueOf()">
-      <ul>
-        <li>{{glpharmaData[10].text1}}</li>
-      </ul>
+      <span class="fontsize_14">
+        {{contentService.glpharmaData[10].text1}}
+        <a href="{{contentService.glpharmaData[16].oxylaxonLink}}" target="_blank">
+          {{contentService.glpharmaData[10].text2}}
+        </a>
+        {{contentService.glpharmaData[10].text3}}
+      </span>
+    </ng-container>
+
+    <ng-container *ngIf="this.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
+      <span class="fontsize_14">{{contentService.glpharmaData[2].text1}}</span>
     </ng-container>
   </div>
 </ng-container>

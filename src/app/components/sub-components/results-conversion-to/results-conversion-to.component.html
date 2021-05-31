@@ -2,19 +2,21 @@
   <div class="dark_gray_background">
     <ng-container *ngIf="results.opioidToConvertToIndex !== opioidIndices.Methadone.valueOf()">
       <opioid-conversion-to
-        [opioidInfoData]="opioidInfoData"
         [listOfProposedBuprenorphinePlasters]="listOfProposedBuprenorphinePlasters"></opioid-conversion-to>
     </ng-container>
 
     <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.Methadone.valueOf()">
-      <methadone-conversion-to
-        [opioidInfoData]="opioidInfoData"
-        [methadoneIndex]="opioidIndices.Methadone.valueOf()"></methadone-conversion-to>
+      <methadone-conversion-to></methadone-conversion-to>
     </ng-container>
 
     <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
       <plaster-list
           [listOfProposedPlasters]="listOfProposedFentanylPlasters"></plaster-list>
+    </ng-container>
+
+    <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
+      <plaster-list
+        [listOfProposedPlasters]="listOfProposedBuprenorphinePlasters"></plaster-list>
     </ng-container>
 
     <ng-container *ngIf="results.opioidToConvertToDoseExceeded">
@@ -27,7 +29,8 @@
           <div class="col-md-11">
             <div class="bottom_warning">
               <h6>
-                {{this.opioidInfoData[results.opioidToConvertToIndex].warning}}
+                {{contentService.opioidInfoData[2].warning}}
+                <!-- TODO: change this!!!! to results.opioidToConvertToIndex !!!!!!!!!!! -->
               </h6>
             </div>
           </div>

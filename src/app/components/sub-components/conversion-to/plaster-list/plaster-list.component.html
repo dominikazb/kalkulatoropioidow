@@ -1,8 +1,13 @@
 <table class="table">
   <tbody>
     <tr *ngIf="listOfProposedPlasters.length > 0">
-      <td class="text-white fontsize_14">
-        Proponowane plastry:
+      <td *ngIf="results.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()"
+          class="text-white fontsize_14">
+        Proponowane plastry (np. <a href="{{contentService.glpharmaData[16].buprenorphineLink}}" target="_blank">
+        Melodyn</a>):
+      </td>
+      <td *ngIf="results.opioidToConvertToIndex !== opioidIndices.BuprenorphineTransdermal.valueOf()" class="text-white fontsize_14">
+        Proponowane plastryXX:
       </td>
       <td>
         <ul *ngFor="let plaster of listOfProposedPlasters">

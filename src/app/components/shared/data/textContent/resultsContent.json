@@ -6,5 +6,6 @@
   "noResultsText" : "Nie wybrano żadnych leków.",
   "contactText" : "https://mistrzpolikarp.pl/kalkulator-kontakt/",
   "warningText": "W przypadku wątpliwości skorzystaj z informacji zawartej w charakterystyce produktu leczniczego.",
-  "contactTextInfo" : "Widzisz BŁĄD na stronie? Pomóż nam i napisz!"
+  "contactTextInfo" : "Widzisz BŁĄD na stronie? Pomóż nam i napisz!",
+  "kidneyFailureText": "Niewydolność nerek"
 }

@@ -10,7 +10,6 @@ import {OpioidIndices} from '../../../shared/data/opioid/OpioidIndices';
 })
 export class OpioidConversionToComponent implements OnInit {
 
-  @Input() opioidInfoData: any;
   @Input() listOfProposedBuprenorphinePlasters: string[];
 
   public opioidIndices = OpioidIndices;
