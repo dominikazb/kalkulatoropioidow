@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Results} from '../../../shared/model/results/results';
 import {MinMax} from '../../../shared/model/opioid/minMax';
 import {ResultsService} from '../../../shared/services/results/results.service';
-import {OpioidIndices} from '../../../shared/data/opioid/OpioidIndices';
 import {ContentService} from '../../../shared/services/content/content.service';
 
 @Component({
@@ -12,13 +11,11 @@ import {ContentService} from '../../../shared/services/content/content.service';
 })
 export class MethadoneConversionToComponent implements OnInit {
 
-  // TODO: change for content service (?)
   public results: Results;
   public methadoneProposedDailyDose: MinMax;
   public methadoneProposedDailyDoseReduced: MinMax;
   public methadoneSingleDose: MinMax;
   public methadoneSingleDoseReduced: MinMax;
-  public opioidIndices = OpioidIndices;
 
   constructor(public contentService: ContentService,
               private resultsService: ResultsService) { }

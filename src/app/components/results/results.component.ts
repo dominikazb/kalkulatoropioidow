@@ -14,11 +14,8 @@ export class ResultsComponent implements OnInit {
 
   public showResults: boolean;
   public results: Results;
-  public kidneyCheckboxWasChecked: boolean;
 
   // TODO: kidney failure component <a href> for reformatting
-  // TODO: wynieść kidney failure do osobnego komponentu
-  // TODO: add content-service for managing all the json content
 
   constructor(public contentService: ContentService,
               public opioidService: OpioidService,
@@ -35,7 +32,6 @@ export class ResultsComponent implements OnInit {
       this.setReducedDoseRangeForOpioidToConvertTo();
       this.setDoseExceededForOpioidToConvertTo();
     }
-    this.checkIfKidneyCheckboxWasChecked();
   }
 
   private loadResultsOrRedirect(): void {
@@ -97,9 +93,5 @@ export class ResultsComponent implements OnInit {
         this.resultsService.results.opioidToConvertToDoseExceeded = true;
       }
     }
-  }
-
-  private checkIfKidneyCheckboxWasChecked(): void {
-    this.kidneyCheckboxWasChecked = this.resultsService.results.kidneyCheckbox;
   }
 }

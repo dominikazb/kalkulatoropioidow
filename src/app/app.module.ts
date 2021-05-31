@@ -30,6 +30,7 @@ import {PlasterListComponent} from './components/sub-components/conversion-to/pl
 import {ResultsGlpharmaInfoComponent} from './components/sub-components/results-glpharma-info/results-glpharma-info.component';
 import {RescueDoseComponent} from './components/sub-components/conversion-to/rescue-dose/rescue-dose.component';
 import {ContentService} from './components/shared/services/content/content.service';
+import {KidneyFailureComponent} from './components/sub-components/kidney-failure/kidney-failure.component';
 
 @NgModule({
   declarations: [
@@ -41,15 +42,16 @@ import {ContentService} from './components/shared/services/content/content.servi
     FormFentanylComponent,
     FormOpioidComponent,
     InfoModalComponent,
+    KidneyFailureComponent,
     MethadoneConversionToComponent,
     OpioidConversionToComponent,
+    RescueDoseComponent,
     ResultsComponent,
     ResultsConversionToComponent,
+    ResultsGlpharmaInfoComponent,
     ResultsOpioidInfoComponent,
     ResultsSumUpComponent,
-    PlasterListComponent,
-    ResultsGlpharmaInfoComponent,
-    RescueDoseComponent
+    PlasterListComponent
   ],
   imports: [
     AppRoutingModule,

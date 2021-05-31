@@ -60,14 +60,19 @@
   },
   "11": {
     "index": 11,
-    "name": "Tapentadol"
+    "name": "Tapentadol",
+    "text1": "Zalecana dawka ratunkowa wynosi od 10-20% dawki dobowej (dobowego ekwiwalentu morfiny)"
   },
   "12": {
     "index": 12,
-    "name": "Tramadol (s.c. lub i.v.)"
+    "name": "Tramadol (s.c. lub i.v.)",
+    "text1": "Sprawdź czy osiągnięto maksymalną dawkę terapeutyczną dla tramadolu",
+    "text2": "W przypadku braku skuteczności leczenia i konieczności stosowania dodatkowych leków przeciwbólowych rozważ zmianę tramadolu na morfinę lub oksykodon"
   },
   "13": {
     "index": 13,
-    "name": "Tramadol (tbl. doustne lub krople)"
+    "name": "Tramadol (tbl. doustne lub krople)",
+    "text1": "Sprawdź czy osiągnięto maksymalną dawkę terapeutyczną dla tramadolu",
+    "text2": "W przypadku braku skuteczności leczenia i konieczności stosowania dodatkowych leków przeciwbólowych rozważ zmianę tramadolu na morfinę lub oksykodon"
   }
 }

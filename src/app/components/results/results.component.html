@@ -9,11 +9,6 @@
       </div>
 
       <div *ngIf="showResults">
-        <div class="light_gray_background">
-          <span class="header_dark">{{contentService.resultsTextData.resultsText}}</span>
-        </div>
-        <div class="padding_bottom_10px"></div>
-
         <ng-container *ngIf="opioidService.oneOfOpioidsWasChosen(results)">
           <results-sum-up></results-sum-up>
           <div class="padding_bottom_20px padding_top_20px"></div>
@@ -21,21 +16,7 @@
 
         <results-conversion-to></results-conversion-to>
 
-        <!-- TODO: add kidney-failure-component here -->
-
-        <ng-container *ngIf="kidneyCheckboxWasChecked">
-          <div class="padding_top_30px"></div>
-          <div class="very_light_gray_background">
-            <span class="header_dark">{{contentService.resultsTextData.kidneyFailureText}}</span>
-            <hr class="light_line">
-            <span class="fontsize_14">
-              {{contentService.glpharmaData[14].text1}}
-              <a href="{{contentService.glpharmaData[16].buprenorphineLink}}"
-                 target="_blank">{{contentService.glpharmaData[14].text2}}</a>
-              {{contentService.glpharmaData[14].text3}}
-            </span>
-          </div>
-        </ng-container>
+        <kidney-failure></kidney-failure>
 
         <rescue-dose></rescue-dose>
 

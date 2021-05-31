@@ -128,8 +128,8 @@ export class ContentService {
     8: { index: string, name: string, text1: string, text2: string, text3: string },
     9: { index: string, name: string, text1: string, text2: string, text3: string },
     10: { index: string, name: string, text1: string, text2: string, text3: string, text4: string },
-    11: { index: string, name: string },
-    12: { index: string, name: string },
-    13: { index: string, name: string }
+    11: { index: string, name: string, text1: string },
+    12: { index: string, name: string, text1: string, text2: string },
+    13: { index: string, name: string, text1: string, text2: string }
   } = rescueDoseContent;
 }

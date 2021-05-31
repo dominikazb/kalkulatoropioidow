@@ -53,7 +53,6 @@
       <li>
         <span>{{contentService.rescueDoseData[10].text2}}</span>
         <span>
-          <!-- TODO: zmienić 16 na... -->
           <a href="{{contentService.glpharmaData[16].oxydolorFastLink}}" target="_blank">
             {{contentService.rescueDoseData[10].text3}}
           </a>
@@ -65,18 +64,15 @@
 
   <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.Tapentadol.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
+      <li>{{contentService.rescueDoseData[11].text1}}</li>
     </ul>
   </ng-container>
 
   <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.TramadolIV.valueOf() ||
     opioidToConvertToIndex === opioidIndices.TramadolPills.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
+      <li>{{contentService.rescueDoseData[12].text1}}</li>
+      <li>{{contentService.rescueDoseData[12].text2}}</li>
     </ul>
   </ng-container>
 </div>
