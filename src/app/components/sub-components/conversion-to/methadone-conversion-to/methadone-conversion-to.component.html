@@ -22,16 +22,16 @@
     <tr>
       <td *ngIf="results.opioidToConvertToDoseRange.min === results.opioidToConvertToDoseRange.max"
           colspan="2" class="fontsize_14 light_gray_color_darker" colspan="2">
-          {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText1}}
+          {{contentService.opioidInfoData[7].methadoneDoseText1}}
           {{methadoneProposedDailyDose.min | number : '1.2-2'}}
-          {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText4}}
+          {{contentService.opioidInfoData[7].methadoneDoseText4}}
       </td>
       <td *ngIf="results.opioidToConvertToDoseRange.min !== results.opioidToConvertToDoseRange.max"
           colspan="2" class="fontsize_14 light_gray_color_darker">
-          {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText1}}
+          {{contentService.opioidInfoData[7].methadoneDoseText1}}
           {{methadoneProposedDailyDose.min | number : '1.2-2'}} -
           {{methadoneProposedDailyDose.max | number : '1.2-2'}}
-          {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText4}}
+          {{contentService.opioidInfoData[7].methadoneDoseText4}}
       </td>
     </tr>
 
@@ -55,16 +55,16 @@
       <tr>
         <td *ngIf="results.opioidToConvertToReducedDoseRange.min === results.opioidToConvertToReducedDoseRange.max"
             colspan="2" class="fontsize_14 light_gray_color_darker">
-            {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText1}}
+            {{contentService.opioidInfoData[7].methadoneDoseText1}}
             {{methadoneProposedDailyDoseReduced.min | number : '1.2-2'}}
-            {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText4}}
+            {{contentService.opioidInfoData[7].methadoneDoseText4}}
         </td>
         <td *ngIf="results.opioidToConvertToReducedDoseRange.min !== results.opioidToConvertToReducedDoseRange.max"
             colspan="2" class="fontsize_14 light_gray_color_darker">
-            {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText1}}
+            {{contentService.opioidInfoData[7].methadoneDoseText1}}
             {{methadoneProposedDailyDoseReduced.min | number : '1.2-2'}} -
             {{methadoneProposedDailyDoseReduced.max | number : '1.2-2'}}
-            {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText4}}
+            {{contentService.opioidInfoData[7].methadoneDoseText4}}
         </td>
       </tr>
     </ng-container>
@@ -72,7 +72,7 @@
     <!-- ------------- Dawka doraźna ------------- -->
     <tr>
       <td style="width: 60%">
-        {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText2}}
+        {{contentService.opioidInfoData[7].methadoneDoseText2}}
       </td>
       <td *ngIf="results.opioidToConvertToDoseRange.min === results.opioidToConvertToDoseRange.max"
           style="width: 40%">
@@ -88,7 +88,7 @@
     <!-- ------------- Dawka doraźna zredukowana o ------------- -->
     <tr *ngIf="results.doseReduction > 0">
       <td style="width: 60%">
-        {{contentService.opioidInfoData[opioidIndices.Methadone.valueOf()].methadoneDoseText3}} {{results.doseReduction}}%:
+        {{contentService.opioidInfoData[7].methadoneDoseText3}} {{results.doseReduction}}%:
       </td>
       <td *ngIf="results.opioidToConvertToDoseRange.min === results.opioidToConvertToDoseRange.max"
           style="width: 40%">

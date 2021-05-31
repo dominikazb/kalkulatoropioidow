@@ -25,6 +25,7 @@
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
+    "suppressImplicitAnyIndexErrors": true,
     "strictTemplates": true
   }
 }

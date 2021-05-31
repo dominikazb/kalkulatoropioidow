@@ -19,8 +19,8 @@
   <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.FentanylPills.valueOf() ||
       opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>{{contentService.rescueDoseData[4].text1}}</li>
-      <li>{{contentService.rescueDoseData[4].text2}}</li>
+      <li>{{contentService.rescueDoseData[5].text1}}</li>
+      <li>{{contentService.rescueDoseData[5].text2}}</li>
     </ul>
   </ng-container>
 
@@ -41,9 +41,9 @@
   <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.MorphinePills.valueOf() ||
       opioidToConvertToIndex === opioidIndices.MorphineIV.valueOf()">
     <ul class="fontsize_14 padding_top_5px">
-      <li>{{contentService.rescueDoseData[8].text1}}</li>
-      <li>{{contentService.rescueDoseData[8].text2}}</li>
-      <li>{{contentService.rescueDoseData[8].text3}}</li>
+      <li>{{contentService.rescueDoseData[9].text1}}</li>
+      <li>{{contentService.rescueDoseData[9].text2}}</li>
+      <li>{{contentService.rescueDoseData[9].text3}}</li>
     </ul>
   </ng-container>
 
@@ -53,6 +53,7 @@
       <li>
         <span>{{contentService.rescueDoseData[10].text2}}</span>
         <span>
+          <!-- TODO: zmienić 16 na... -->
           <a href="{{contentService.glpharmaData[16].oxydolorFastLink}}" target="_blank">
             {{contentService.rescueDoseData[10].text3}}
           </a>

@@ -14,7 +14,7 @@ export class PlasterListComponent implements OnInit {
   @Input() listOfProposedPlasters: string[];
   public opioidIndices = OpioidIndices;
 
-  //TODO: proponowane plastry --> link nie wyświetla się ładnie
+  // TODO: proponowane plastry --> link nie wyświetla się ładnie
 
   public results: Results;
 
