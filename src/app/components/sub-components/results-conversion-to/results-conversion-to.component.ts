@@ -4,6 +4,7 @@ import {Results} from '../../shared/model/results/results';
 import {CalculationsService} from '../../shared/services/calculations/calculations.service';
 import {OpioidIndices} from '../../shared/data/opioid/OpioidIndices';
 import {ContentService} from '../../shared/services/content/content.service';
+import {OpioidService} from '../../shared/services/opioid/opioid.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -19,6 +20,7 @@ export class ResultsConversionToComponent implements OnInit {
 
   constructor(public contentService: ContentService,
               public resultsService: ResultsService,
+              public opioidService: OpioidService,
               private calculationsService: CalculationsService) { }
 
   ngOnInit(): void {
@@ -53,9 +55,5 @@ export class ResultsConversionToComponent implements OnInit {
         this.calculationsService.getListOfProposedBuprenorphinePlasters(this.results.opioidToConvertToReducedDoseRange, this.results);
     }
     return buprenorphinePlasters.filter((value, index) => buprenorphinePlasters.indexOf(value) === index);
-  }
-
-  public opioidToConvertToWasChosen(): boolean {
-    return !Number.isNaN(this.results.opioidToConvertToIndex) && this.results.opioidToConvertToIndex !== 0;
   }
 }

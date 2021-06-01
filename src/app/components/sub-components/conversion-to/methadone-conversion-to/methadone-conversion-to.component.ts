@@ -3,6 +3,7 @@ import {Results} from '../../../shared/model/results/results';
 import {MinMax} from '../../../shared/model/opioid/minMax';
 import {ResultsService} from '../../../shared/services/results/results.service';
 import {ContentService} from '../../../shared/services/content/content.service';
+import {OpioidIndices} from '../../../shared/data/opioid/OpioidIndices';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -16,6 +17,7 @@ export class MethadoneConversionToComponent implements OnInit {
   public methadoneProposedDailyDoseReduced: MinMax;
   public methadoneSingleDose: MinMax;
   public methadoneSingleDoseReduced: MinMax;
+  public methadoneIndex = OpioidIndices.Methadone.valueOf();
 
   constructor(public contentService: ContentService,
               private resultsService: ResultsService) { }

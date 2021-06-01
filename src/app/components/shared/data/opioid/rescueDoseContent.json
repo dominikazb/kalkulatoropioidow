@@ -2,17 +2,17 @@
   "1": {
     "index": 1,
     "name": "Buprenorfina (tbl. podjęzykowe, s.c., i.v., i.m.)",
-    "text1": "W przypadku konieczności wykorzystania dawki ratunkowej zastosuj buprenorfinę podjęzykowo w dawce 0.2-0.4 mg"
+    "text1": "W przypadku konieczności wykorzystania dawki ratunkowej zastosuj buprenorfinę podjęzykowo w dawce 0.2-0.4 mg."
   },
   "2": {
     "index": 2,
     "name": "Buprenorfina (transdermalnie)",
-    "text1": "W przypadku konieczności wykorzystania dawki ratunkowej zastosuj buprenorfinę podjęzykowo w dawce 0.2-0.4 mg"
+    "text1": "W przypadku konieczności wykorzystania dawki ratunkowej zastosuj buprenorfinę podjęzykowo w dawce 0.2-0.4 mg."
   },
   "3": {
     "index": 3,
     "name": "Dihydrokodeina (tbl. doustne)",
-    "text1": "Zalecana dawka ratunkowa wynosi od 10-20% dawki dobowej (dobowego ekwiwalentu morfiny)"
+    "text1": "Zalecana dawka ratunkowa wynosi od 10-20% dawki dobowej (dobowego ekwiwalentu morfiny)."
   },
   "4": {
     "index": 4,
@@ -30,11 +30,7 @@
   "6": {
     "index": 6,
     "name": "Kodeina (w składzie złożonych tbl. doustnych)",
-    "text1": "Zalecana dawka ratunkowa wynosi od 10-20% dawki dobowej (dobowego ekwiwalentu morfiny)"
-  },
-  "7": {
-    "index": 7,
-    "name": "Metadon"
+    "text1": "Zalecana dawka ratunkowa wynosi od 10-20% dawki dobowej (dobowego ekwiwalentu morfiny)."
   },
   "8": {
     "index": 8,
@@ -61,7 +57,7 @@
   "11": {
     "index": 11,
     "name": "Tapentadol",
-    "text1": "Zalecana dawka ratunkowa wynosi od 10-20% dawki dobowej (dobowego ekwiwalentu morfiny)"
+    "text1": "Zalecana dawka ratunkowa wynosi od 10-20% dawki dobowej (dobowego ekwiwalentu morfiny)."
   },
   "12": {
     "index": 12,

@@ -15,8 +15,6 @@ export class ResultsComponent implements OnInit {
   public showResults: boolean;
   public results: Results;
 
-  // TODO: kidney failure component <a href> for reformatting
-
   constructor(public contentService: ContentService,
               public opioidService: OpioidService,
               private calculationsService: CalculationsService,

@@ -2,7 +2,6 @@ import {Opioid} from '../../model/opioid/opioid';
 import {OPIOIDS} from '../../data/opioid/opioids';
 import {Results} from '../../model/results/results';
 import {OpioidResults} from '../../model/results/opioid.results';
-import {OpioidIndices} from '../../data/opioid/OpioidIndices';
 
 export class OpioidService {
 
@@ -50,5 +49,9 @@ export class OpioidService {
 
   public plasterWasChosen(opioidResults: OpioidResults): boolean {
     return !Number.isNaN(opioidResults.dose) && (opioidResults.dose !== 0);
+  }
+
+  public opioidToConvertToWasChosen(results: Results): boolean {
+    return !Number.isNaN(results.opioidToConvertToIndex) && results.opioidToConvertToIndex !== 0;
   }
 }

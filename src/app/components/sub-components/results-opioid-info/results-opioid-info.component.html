@@ -7,8 +7,8 @@
     <div class="padding_left_right__10px">
       <ng-container *ngIf="contentService.opioidInfoData[opioidNo].index !== opioidIndices.FentanylTransdermal.valueOf() &&
       contentService.opioidInfoData[opioidNo].index !== opioidIndices.Methadone.valueOf()">
-        <span class="fontsize_14 darker_gray">
-          {{contentService.opioidInfoData[opioidNo].text1}} <b class="color_black">{{contentService.opioidInfoData[opioidNo].text2}}</b>
+        <span class="fontsize_14 text_color__darker_gray">
+          {{contentService.opioidInfoData[opioidNo].text1}} <b class="text_color__black">{{contentService.opioidInfoData[opioidNo].text2}}</b>
           {{contentService.opioidInfoData[opioidNo].text3}}<br>
           {{contentService.opioidInfoData[opioidNo].text4}}<br>
           {{contentService.opioidInfoData[opioidNo].text5}}
@@ -17,8 +17,8 @@
       </ng-container>
 
       <ng-container *ngIf="contentService.opioidInfoData[opioidNo].index === opioidIndices.FentanylTransdermal.valueOf()">
-        <span class="fontsize_14 darker_gray">
-          {{contentService.opioidInfoData[opioidNo].text1}} <b class="color_black">{{contentService.opioidInfoData[opioidNo].text2}}</b>
+        <span class="fontsize_14 text_color__darker_gray">
+          {{contentService.opioidInfoData[opioidNo].text1}} <b class="text_color__black">{{contentService.opioidInfoData[opioidNo].text2}}</b>
           {{contentService.opioidInfoData[opioidNo].text3}}<br><br>
           {{contentService.opioidInfoData[opioidNo].text4}}<br>
           {{contentService.opioidInfoData[opioidNo].text5}}<br>
@@ -39,9 +39,9 @@
       </ng-container>
 
       <ng-container *ngIf="contentService.opioidInfoData[opioidNo].index === opioidIndices.Methadone.valueOf()">
-        <span class="fontsize_14 darker_gray">
-          <b class="color_black">{{contentService.opioidInfoData[opioidNo].text1}}</b><br><br>
-          {{contentService.opioidInfoData[opioidNo].text2}} <b class="color_black">{{contentService.opioidInfoData[opioidNo].text3}}</b>
+        <span class="fontsize_14 text_color__darker_gray">
+          <b class="text_color__black">{{contentService.opioidInfoData[opioidNo].text1}}</b><br><br>
+          {{contentService.opioidInfoData[opioidNo].text2}} <b class="text_color__black">{{contentService.opioidInfoData[opioidNo].text3}}</b>
           {{contentService.opioidInfoData[opioidNo].text4}}<br><br>
           {{contentService.opioidInfoData[opioidNo].text5}}<br>
           {{contentService.opioidInfoData[opioidNo].text6}}<br>

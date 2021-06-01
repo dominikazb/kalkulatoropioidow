@@ -1,4 +1,4 @@
-<ng-container *ngIf="opioidToConvertToWasChosen()">
+<ng-container *ngIf="opioidService.opioidToConvertToWasChosen(results)">
   <div class="dark_gray_background">
     <ng-container *ngIf="results.opioidToConvertToIndex !== opioidIndices.Methadone.valueOf()">
       <opioid-conversion-to
@@ -20,18 +20,13 @@
     </ng-container>
 
     <ng-container *ngIf="results.opioidToConvertToDoseExceeded">
-      <div class="padding_top_20px"></div>
       <div class="red_background">
         <div class="row">
-          <div class="col-md-1">
-            <h2><i class="fas fa-exclamation-triangle"></i></h2>
+          <div class="col-md-1 d-flex justify-content-center align-items-center fontsize_25">
+              <i class="fas fa-exclamation-triangle"></i>
           </div>
-          <div class="col-md-11">
-            <div class="bottom_warning">
-              <h6>
-                {{contentService.opioidInfoData[2].warning}}
-              </h6>
-            </div>
+          <div class="col-md-11 d-flex justify-content-center align-items-center">
+            <h6>{{contentService.opioidInfoData[2].warning}}</h6>
           </div>
         </div>
       </div>

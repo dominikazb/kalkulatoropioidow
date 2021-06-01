@@ -4,27 +4,25 @@
     <span class="header_dark">Uwagi dodatkowe</span>
     <hr class="light_line">
 
+    <!-- TODO: shift bullets to the left -->
     <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
-      <ul>
-        <li>{{contentService.glpharmaData[5].text1}}</li>
-        <li>{{contentService.glpharmaData[5].text2}}</li>
-        <li>{{contentService.glpharmaData[5].text3}}</li>
-        <li>{{contentService.glpharmaData[5].text4}}</li>
+      <ul class="fontsize_14">
+        <li>{{contentService.glpharmaData['FentanylTransdermal'].text1}}</li>
+        <li>{{contentService.glpharmaData['FentanylTransdermal'].text2}}</li>
+        <li>{{contentService.glpharmaData['FentanylTransdermal'].text3}}</li>
+        <li>{{contentService.glpharmaData['FentanylTransdermal'].text4}}</li>
       </ul>
     </ng-container>
 
     <ng-container *ngIf="this.opioidToConvertToIndex === opioidIndices.Oxycodone.valueOf()">
       <span class="fontsize_14">
-        {{contentService.glpharmaData[10].text1}}
-        <a href="{{contentService.glpharmaData[16].oxylaxonLink}}" target="_blank">
-          {{contentService.glpharmaData[10].text2}}
-        </a>
-        {{contentService.glpharmaData[10].text3}}
+        {{contentService.glpharmaData['Oxycodone'].text1}}
+        <a href="{{contentService.glpharmaData['chplLinks'].oxylaxonLink}}" class="light_gray_text__link" target="_blank">{{contentService.glpharmaData['Oxycodone'].text2}}</a>{{contentService.glpharmaData['Oxycodone'].text3}}
       </span>
     </ng-container>
 
     <ng-container *ngIf="this.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
-      <span class="fontsize_14">{{contentService.glpharmaData[2].text1}}</span>
+      <span class="fontsize_14">{{contentService.glpharmaData['BuprenorphineTransdermal'].text1}}</span>
     </ng-container>
   </div>
 </ng-container>

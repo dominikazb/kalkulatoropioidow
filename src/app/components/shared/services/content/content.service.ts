@@ -66,22 +66,11 @@ export class ContentService {
   } = resultsContent;
 
   public glpharmaData: {
-    1: { index: string, name: string },
-    2: { index: string, name: string, text1: string },
-    3: { index: string, name: string },
-    4: { index: string, name: string },
-    5: { index: string, name: string, text1: string, text2: string, text3: string, text4: string },
-    6: { index: string, name: string },
-    7: { index: string, name: string },
-    8: { index: string, name: string },
-    9: { index: string, name: string },
-    10: { index: string, name: string, text1: string, text2: string, text3: string },
-    11: { index: string, name: string },
-    12: { index: string, name: string },
-    13: { index: string, name: string },
-    14: { text1: string, text2: string, text3: string },
-    15: { text: string }
-    16: { buprenorphineLink: string, oxydolorLink: string, oxydolorFastLink: string, oxylaxonLink: string }
+    BuprenorphineTransdermal: { index: string, name: string, text1: string },
+    FentanylTransdermal: { index: string, name: string, text1: string, text2: string, text3: string, text4: string },
+    Oxycodone: { index: string, name: string, text1: string, text2: string, text3: string },
+    kidneyFailure: { text1: string, text2: string, text3: string },
+    chplLinks: { buprenorphineLink: string, oxydolorLink: string, oxydolorFastLink: string, oxylaxonLink: string }
   } = glpharmaContent;
 
   public opioidInfoData: {

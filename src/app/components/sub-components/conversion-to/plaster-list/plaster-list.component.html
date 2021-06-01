@@ -3,9 +3,8 @@
     <tr *ngIf="listOfProposedPlasters.length > 0">
       <td *ngIf="results.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()"
           class="text-white fontsize_14">
-        Proponowane plastry (np. <a
-        href="{{contentService.glpharmaData[16].buprenorphineLink}}"
-                                    target="_blank">
+        Proponowane plastry (np. <a class="white_text__link"
+        href="{{contentService.glpharmaData['chplLinks'].buprenorphineLink}}" target="_blank">
         Melodyn</a>):
       </td>
       <td *ngIf="results.opioidToConvertToIndex !== opioidIndices.BuprenorphineTransdermal.valueOf()" class="text-white fontsize_14">

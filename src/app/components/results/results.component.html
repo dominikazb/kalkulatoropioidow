@@ -5,7 +5,7 @@
 
       <div *ngIf="!showResults">
         <h5
-          class="darker_gray text-center padding_bottom_20px padding_top_30px">{{contentService.resultsTextData.noResultsText}}</h5>
+          class="text_color__darker_gray text-center padding_bottom_20px padding_top_30px">{{contentService.resultsTextData.noResultsText}}</h5>
       </div>
 
       <div *ngIf="showResults">
@@ -26,7 +26,7 @@
 
         <div>
           <div class="padding_top_20px padding_bottom_20px"></div>
-          <p class="fontsize_14 darker_gray text-center">
+          <p class="fontsize_14 text_color__darker_gray text-center">
             {{contentService.resultsTextData.warningText}}
           </p>
         </div>
@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-6 orange_background text-center">
-            <a class="blad" href="{{contentService.resultsTextData.contactText}}" target="_blank">
+            <a class="error" href="{{contentService.resultsTextData.contactText}}" target="_blank">
               {{contentService.resultsTextData.contactTextInfo}}
             </a>
           </div>

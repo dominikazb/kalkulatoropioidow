@@ -10,8 +10,6 @@ import {ContentService} from '../../shared/services/content/content.service';
 })
 export class ResultsGlpharmaInfoComponent implements OnInit {
 
-  // TODO: oxylaxon --> link is not formatted properly
-
   public opioidToConvertToIndex: number;
   public opioidIndices = OpioidIndices;
 
