@@ -197,20 +197,16 @@ export class CalculationsService {
       if (results.opioidToConvertToIndex === this.fentanylTransdermalIndex) {
 
         const plasterValue: number = value;
-        const fentanylPlasterMinus25 =
+        const fentanylPlasterMinus25percent =
           opioidToConvertToDoseRange.min - (opioidToConvertToDoseRange.min * 25 / 100);
-        const fentanylPlasterPlus15 =
+        const fentanylPlasterPlus15percent =
           opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 15 / 100);
 
-        if (plasterValue >= 14 && plasterValue <= 25) {
-          listOfPossiblePlasters.push(key);
-        }
-        if (plasterValue >= fentanylPlasterMinus25 && plasterValue <= fentanylPlasterPlus15) {
+        if (plasterValue >= fentanylPlasterMinus25percent && plasterValue <= fentanylPlasterPlus15percent) {
           listOfPossiblePlasters.push(key);
         }
       }
     });
-
     return listOfPossiblePlasters;
   }
 
@@ -233,15 +229,16 @@ export class CalculationsService {
       if (results.opioidToConvertToIndex === this.buprenorphineTransdermalIndex) {
 
         const plasterValue: number = value;
-        const buprenorphinePlasterMinus15 =
+        const buprenorphinePlasterMinus15percent =
           opioidToConvertToDoseRange.min - (opioidToConvertToDoseRange.min * 15 / 100);
-        const buprenorphinePlasterPlus8 =
+        const buprenorphinePlasterPlus8percent =
           opioidToConvertToDoseRange.max + (opioidToConvertToDoseRange.max * 8 / 100);
 
-        if (plasterValue >= 8 && plasterValue <= 17.5) {
-          listOfPossiblePlasters.push(key);
+        if (buprenorphinePlasterMinus15percent >= 8 && buprenorphinePlasterMinus15percent <= 17.5 ||
+            buprenorphinePlasterPlus8percent >= 8 && buprenorphinePlasterPlus8percent <= 17.5) {
+          listOfPossiblePlasters.push('Plaster: 17.5 μg/h (pół plastra 35 μg/h)');
         }
-        if (plasterValue >= buprenorphinePlasterMinus15 && plasterValue <= buprenorphinePlasterPlus8) {
+        if (plasterValue >= buprenorphinePlasterMinus15percent && plasterValue <= buprenorphinePlasterPlus8percent) {
           listOfPossiblePlasters.push(key);
         }
       }
