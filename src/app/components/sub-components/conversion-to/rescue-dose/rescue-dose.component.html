@@ -17,7 +17,7 @@
 
     <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.FentanylPills.valueOf() ||
         opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
-      <ul class="fontsize_14 padding_top_5px">
+      <ul class="fontsize_14 padding_top_5px shift_left_20px">
         <li>{{contentService.rescueDoseData[opioidIndices.FentanylPills.valueOf()].text1}}</li>
         <li>{{contentService.rescueDoseData[opioidIndices.FentanylPills.valueOf()].text2}}</li>
       </ul>
@@ -29,7 +29,7 @@
 
     <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.MorphinePills.valueOf() ||
         opioidToConvertToIndex === opioidIndices.MorphineIV.valueOf()">
-      <ul class="fontsize_14 padding_top_5px">
+      <ul class="fontsize_14 padding_top_5px shift_left_20px">
         <li>{{contentService.rescueDoseData[opioidIndices.MorphinePills.valueOf()].text1}}</li>
         <li>{{contentService.rescueDoseData[opioidIndices.MorphinePills.valueOf()].text2}}</li>
         <li>{{contentService.rescueDoseData[opioidIndices.MorphinePills.valueOf()].text3}}</li>
@@ -37,7 +37,7 @@
     </ng-container>
 
     <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.Oxycodone.valueOf()">
-      <ul class="fontsize_14 padding_top_5px">
+      <ul class="fontsize_14 padding_top_5px shift_left_20px">
         <li>{{contentService.rescueDoseData[opioidIndices.Oxycodone.valueOf()].text1}}</li>
         <li>
           {{contentService.rescueDoseData[opioidIndices.Oxycodone.valueOf()].text2}}
@@ -52,7 +52,7 @@
 
     <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.TramadolIV.valueOf() ||
       opioidToConvertToIndex === opioidIndices.TramadolPills.valueOf()">
-      <ul class="fontsize_14 padding_top_5px">
+      <ul class="fontsize_14 padding_top_5px shift_left_20px">
         <li>{{contentService.rescueDoseData[opioidIndices.TramadolIV.valueOf()].text1}}</li>
         <li>{{contentService.rescueDoseData[opioidIndices.TramadolIV.valueOf()].text2}}</li>
       </ul>

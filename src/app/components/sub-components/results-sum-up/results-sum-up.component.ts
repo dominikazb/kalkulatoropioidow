@@ -16,8 +16,6 @@ export class ResultsSumUpComponent implements OnInit {
   public plastersForHTML: OpioidResults[] = [];
   public results: Results;
 
-  // TODO: table is not striped anymore... :(
-
   constructor(public contentService: ContentService,
               public opioidService: OpioidService,
               private resultsService: ResultsService) { }

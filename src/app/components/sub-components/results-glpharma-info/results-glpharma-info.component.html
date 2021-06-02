@@ -4,9 +4,8 @@
     <span class="header_dark">Uwagi dodatkowe</span>
     <hr class="light_line">
 
-    <!-- TODO: shift bullets to the left -->
     <ng-container *ngIf="opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
-      <ul class="fontsize_14">
+      <ul class="fontsize_14 shift_left_20px">
         <li>{{contentService.glpharmaData['FentanylTransdermal'].text1}}</li>
         <li>{{contentService.glpharmaData['FentanylTransdermal'].text2}}</li>
         <li>{{contentService.glpharmaData['FentanylTransdermal'].text3}}</li>
