@@ -1,17 +1,20 @@
 <div class="dark_gray_background padding_bottom_20px">
   <span class="header_white">{{results.opioidToConvertTo.description}}:</span>
 </div>
-<!-- TODO: Do poprawy tabelka z wynikami w wersji mobilnej -->
 <table class="table text-white">
+  <thead>
+  <tr>
+    <th scope="col" class="w-60"></th>
+    <th scope="col" class="w-40"></th>
+  </tr>
+  </thead>
   <tbody>
     <tr>
-      <td style="width: 60%">Dawka dobowa:</td>
-      <td *ngIf="results.opioidToConvertToDoseRange.min === results.opioidToConvertToDoseRange.max"
-          style="width: 40%">
+      <td>Dawka dobowa:</td>
+      <td *ngIf="results.opioidToConvertToDoseRange.min === results.opioidToConvertToDoseRange.max">
         {{results.opioidToConvertToDoseRange.min | number : '1.2-2'}} {{results.doseForResults}}
       </td>
-      <td *ngIf="results.opioidToConvertToDoseRange.min !== results.opioidToConvertToDoseRange.max"
-          style="width: 40%">
+      <td *ngIf="results.opioidToConvertToDoseRange.min !== results.opioidToConvertToDoseRange.max">
         {{results.opioidToConvertToDoseRange.min | number : '1.2-2'}}
         - {{results.opioidToConvertToDoseRange.max | number : '1.2-2'}}
         {{results.doseForResults}}
@@ -20,13 +23,13 @@
 
     <ng-container *ngIf="results.doseReduction > 0">
       <tr>
-        <td style="width: 60%">Dawka dobowa zredukowana o {{results.doseReduction}}%:</td>
+        <td>Dawka dobowa zredukowana o {{results.doseReduction}}%:</td>
         <td *ngIf="results.opioidToConvertToReducedDoseRange.min ===
-        results.opioidToConvertToReducedDoseRange.max" style="width: 40%">
+        results.opioidToConvertToReducedDoseRange.max">
           {{results.opioidToConvertToReducedDoseRange.min | number : '1.2-2'}} {{results.doseForResults}}
         </td>
         <td *ngIf="results.opioidToConvertToReducedDoseRange.min !==
-        results.opioidToConvertToReducedDoseRange.max" style="width: 40%">
+        results.opioidToConvertToReducedDoseRange.max">
           {{results.opioidToConvertToReducedDoseRange.min | number : '1.2-2'}}
           - {{results.opioidToConvertToReducedDoseRange.max | number : '1.2-2'}}
           {{results.doseForResults}}
