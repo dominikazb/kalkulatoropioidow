@@ -31,6 +31,9 @@ import {ResultsGlpharmaInfoComponent} from './components/sub-components/results-
 import {RescueDoseComponent} from './components/sub-components/conversion-to/rescue-dose/rescue-dose.component';
 import {ContentService} from './components/shared/services/content/content.service';
 import {KidneyFailureComponent} from './components/sub-components/kidney-failure/kidney-failure.component';
+import {DatabaseService} from './components/shared/services/database/database.service';
+import {HttpClientModule} from '@angular/common/http';
+import {ResultsForDatabaseService} from './components/shared/services/database/results.for.database.service';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,7 @@ import {KidneyFailureComponent} from './components/sub-components/kidney-failure
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
     NgbModule,
     ModalModule.forRoot(),
     ReactiveFormsModule,
@@ -65,9 +69,11 @@ import {KidneyFailureComponent} from './components/sub-components/kidney-failure
   providers: [
     CalculationsService,
     ContentService,
+    DatabaseService,
     FormsService,
     MorphineEquivalentService,
     OpioidService,
+    ResultsForDatabaseService,
     ResultsService,
     TotalDailyDoseService
   ],

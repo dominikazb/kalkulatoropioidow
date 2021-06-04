@@ -5,6 +5,9 @@ import {Router} from '@angular/router';
 import {CalculationsService} from '../shared/services/calculations/calculations.service';
 import {OpioidService} from '../shared/services/opioid/opioid.service';
 import {ContentService} from '../shared/services/content/content.service';
+import {DatabaseService} from '../shared/services/database/database.service';
+import {ResultsForDatabase} from '../shared/services/database/results.for.database';
+import {ResultsForDatabaseService} from '../shared/services/database/results.for.database.service';
 
 @Component({
   selector: 'app-results',
@@ -19,6 +22,8 @@ export class ResultsComponent implements OnInit {
               public opioidService: OpioidService,
               private calculationsService: CalculationsService,
               private resultsService: ResultsService,
+              private databaseService: DatabaseService,
+              private resultsForDatabaseService: ResultsForDatabaseService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -30,6 +35,7 @@ export class ResultsComponent implements OnInit {
       this.setReducedDoseRangeForOpioidToConvertTo();
       this.setDoseExceededForOpioidToConvertTo();
     }
+    this.sendResultsToDatabase();
   }
 
   private loadResultsOrRedirect(): void {
@@ -91,5 +97,10 @@ export class ResultsComponent implements OnInit {
         this.resultsService.results.opioidToConvertToDoseExceeded = true;
       }
     }
+  }
+
+  private sendResultsToDatabase(): void {
+    const resultsForDatabase: ResultsForDatabase = this.resultsForDatabaseService.setResultsForDatabase(this.results);
+    this.databaseService.saveDataToDatabase(resultsForDatabase).then(() => {});
   }
 }

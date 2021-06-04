@@ -85,8 +85,8 @@ export class CalculationsService {
     let max = 0;
 
     if (opioidToConvertToIndex === this.buprenorphineTransdermalIndex) {
-      const minTemp = (sumOfMorphineEquivalents.min / 75) / 24 * 1000;
-      const maxTemp = (sumOfMorphineEquivalents.max / 115) / 24 * 1000;
+      const minTemp = (sumOfMorphineEquivalents.min / 115) / 24 * 1000;
+      const maxTemp = (sumOfMorphineEquivalents.max / 75) / 24 * 1000;
       min = minTemp < maxTemp ? minTemp : maxTemp;
       max = minTemp < maxTemp ? maxTemp : minTemp;
       results.setDoseForResults('μg/h');
@@ -105,8 +105,8 @@ export class CalculationsService {
     } else {
       OPIOIDS.forEach(drugModel => {
         if (drugModel.index === opioidToConvertToIndex) {
-          const minTemp = sumOfMorphineEquivalents.min / opioid.minMultiplier;
-          const maxTemp = sumOfMorphineEquivalents.max / opioid.maxMultiplier;
+          const minTemp = sumOfMorphineEquivalents.min / opioid.maxMultiplier;
+          const maxTemp = sumOfMorphineEquivalents.max / opioid.minMultiplier;
           min = minTemp < maxTemp ? minTemp : maxTemp;
           max = minTemp < maxTemp ? maxTemp : minTemp;
           results.setDoseForResults('mg/dzień');
