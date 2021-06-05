@@ -31,14 +31,14 @@ export class MethadoneConversionToComponent implements OnInit {
   }
 
   private setMethadoneProposedDailyDose(): void {
-    this.methadoneProposedDailyDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 2,
-      this.results.opioidToConvertToDoseRange.max / 2);
+    this.methadoneProposedDailyDose = new MinMax(this.results.opioidToConvertToDoseRange.min / 4,
+      this.results.opioidToConvertToDoseRange.max / 3);
   }
 
   private setMethadoneProposedDailyDoseReduced(): void {
     if (this.results.doseReduction > 0) {
-      this.methadoneProposedDailyDoseReduced = new MinMax(this.results.opioidToConvertToReducedDoseRange.min / 2,
-        this.results.opioidToConvertToReducedDoseRange.max / 2);
+      this.methadoneProposedDailyDoseReduced = new MinMax(this.results.opioidToConvertToReducedDoseRange.min / 4,
+        this.results.opioidToConvertToReducedDoseRange.max / 3);
     }
   }
 

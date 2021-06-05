@@ -14,14 +14,20 @@ export class PlasterListComponent implements OnInit {
   @Input() listOfProposedPlasters: string[];
   public opioidIndices = OpioidIndices;
 
-  // TODO: PODLINKOWAC CHPLE!
+  // TODO: przesunąć wynik plastra bardziej w prawo
 
   public results: Results;
+  public doseReductionWasChosen: boolean;
 
   constructor(public contentService: ContentService,
               private resultsService: ResultsService) { }
 
   ngOnInit(): void {
     this.results = this.resultsService.results;
+    this.doseReductionWasChosen = this.checkIfDoseReductionWasChosen();
+  }
+
+  public checkIfDoseReductionWasChosen(): boolean {
+    return this.results.doseReduction !== 0;
   }
 }
