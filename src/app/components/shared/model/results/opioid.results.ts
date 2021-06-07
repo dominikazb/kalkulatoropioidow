@@ -13,11 +13,11 @@ export class OpioidResults {
     this.opioid = opioid;
     this.numberOfDoses = numberOfDoses;
     this.dose = dose;
-    this.unit = unit;
+    this.unit = unit ? unit : 'mg';
   }
 
   public setDailyDose(dailyDose: number): void {
-    this.dailyDose = dailyDose;
+    this.dailyDose = dailyDose ? dailyDose : 0;
   }
 
   public setMorphineEquivalent(morphineEquivalent: MinMax): void {

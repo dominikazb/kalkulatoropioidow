@@ -1,8 +1,8 @@
-import glpharmaContent from '../../data/opioid/glpharmaContent.json';
+import glpharmaContent from '../../data/textContent/glpharmaContent.json';
 import resultsContent from '../../data/textContent/resultsContent.json';
-import opioidInfoContent from '../../data/opioid/opioidInfoContent.json';
+import opioidInfoContent from '../../data/textContent/opioidInfoContent.json';
 import applicationContent from '../../data/textContent/applicationContent.json';
-import rescueDoseContent from '../../data/opioid/rescueDoseContent.json';
+import rescueDoseContent from '../../data/textContent/rescueDoseContent.json';
 import {Injectable} from '@angular/core';
 import infoModalContent from '../../data/textContent/infoModalContent.json';
 

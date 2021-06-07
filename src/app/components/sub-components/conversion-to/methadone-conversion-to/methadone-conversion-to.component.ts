@@ -44,7 +44,7 @@ export class MethadoneConversionToComponent implements OnInit {
 
   private setMethadoneSingleDose(): void {
     this.methadoneSingleDose = new MinMax(this.results.sumOfMorphineEquivalents.min / 30,
-      this.results.opioidToConvertToDoseRange.max / 30);
+      this.results.sumOfMorphineEquivalents.max / 30);
   }
 
   private setMethadoneSingleDoseReduced(): void {
@@ -54,4 +54,6 @@ export class MethadoneConversionToComponent implements OnInit {
       this.methadoneSingleDoseReduced = new MinMax(minReduced / 30, maxReduced / 30);
     }
   }
+
+  // TODO: Czy warning dla metadonu nie powinien wyświetlać się od innej wartości? (nie dla dawki dobowej)
 }

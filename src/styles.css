@@ -515,16 +515,6 @@ and (max-device-width: 1024px) {
   }
 }
 
-th.w-40 {
-  border: none;
-  padding: 0px;
-}
-
-th.w-60 {
-  border: none;
-  padding: 0px;
-}
-
 hr.light_line {
   border: 0.5px solid #C0C0C0;
 }
@@ -637,6 +627,10 @@ a.light_gray_text__link {
 a.light_gray_text__link:hover {
   color: #CCC;
   text-decoration: none;
+}
+
+ul.shift_left_10px {
+  margin-left: -10px;
 }
 
 ul.shift_left_20px {

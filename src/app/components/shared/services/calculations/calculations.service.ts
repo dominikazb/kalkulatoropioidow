@@ -95,8 +95,10 @@ export class CalculationsService {
       max = this.calculateFentanylDoseRange(sumOfMorphineEquivalents.max);
       results.setDoseForResults('μg/h');
     } else if (opioidToConvertToIndex === this.methadoneIndex) {
-      min = this.setMethadoneDoseRange(sumOfMorphineEquivalents.min);
-      max = this.setMethadoneDoseRange(sumOfMorphineEquivalents.max);
+      const minTemp = this.setMethadoneDoseRange(sumOfMorphineEquivalents.min);
+      const maxTemp = this.setMethadoneDoseRange(sumOfMorphineEquivalents.max);
+      min = minTemp < maxTemp ? minTemp : maxTemp;
+      max = minTemp < maxTemp ? maxTemp : minTemp;
       results.setDoseForResults('mg/dzień');
     } else if (opioidToConvertToIndex === this.oxycodoneIndex) {
       min = sumOfMorphineEquivalents.min / 2 * 100 / 90;
@@ -137,6 +139,7 @@ export class CalculationsService {
   }
 
   public opioidToConvertToDoseWasExceeded(doseRange: MinMax, maximumDose: number): boolean {
+    // TODO: Metadon... tu chyba powinna być inna przekroczona dawka brana pod uwagę
     return doseRange.min >= maximumDose || doseRange.max >= maximumDose;
   }
 
@@ -216,7 +219,7 @@ export class CalculationsService {
 
     buprenorphinePlasters
       .set(17.5, 'Plaster: 17.5 μg/h (pół plastra 35 μg/h)')
-      .set(26.25, 'Plaster: 26.2 5μg/h (pół plastra 52.5 μg/h)')
+      .set(26.25, 'Plaster: 26.25 μg/h (pół plastra 52.5 μg/h)')
       .set(35, 'Plaster: 35 μg/h')
       .set(52.5, 'Plaster: 52.5 μg/h')
       .set(70, 'Plaster: 70 μg/h')

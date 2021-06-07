@@ -30,12 +30,11 @@ export class ResultsComponent implements OnInit {
     this.results = this.resultsService.getResults();
     this.loadResultsOrRedirect();
 
-    if (this.results.opioidToConvertToIndex && this.results.opioidToConvertToIndex !== 0) {
+    if (this.opioidService.opioidToConvertToWasChosen(this.results)) {
       this.setDoseRangeForOpioidToConvertTo();
       this.setReducedDoseRangeForOpioidToConvertTo();
       this.setDoseExceededForOpioidToConvertTo();
     }
-    this.sendResultsToDatabase();
   }
 
   private loadResultsOrRedirect(): void {
@@ -43,6 +42,7 @@ export class ResultsComponent implements OnInit {
       if (this.opioidService.oneOfOpioidsWasChosen(this.results)) {
         this.getData();
         this.showResults = true;
+        this.saveResultsToDatabase();
       } else {
         this.hideResults();
       }
@@ -99,9 +99,9 @@ export class ResultsComponent implements OnInit {
     }
   }
 
-  private sendResultsToDatabase(): void {
+  private saveResultsToDatabase(): void {
     const resultsForDatabase: ResultsForDatabase = this.resultsForDatabaseService.setResultsForDatabase(this.results);
     // TODO: uncomment when API ready
-    // this.databaseService.saveDataToDatabase(resultsForDatabase).then(() => {});
+    this.databaseService.saveDataToDatabase(resultsForDatabase).then(() => {});
   }
 }

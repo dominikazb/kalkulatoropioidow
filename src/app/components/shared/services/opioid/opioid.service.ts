@@ -52,6 +52,10 @@ export class OpioidService {
   }
 
   public opioidToConvertToWasChosen(results: Results): boolean {
-    return !Number.isNaN(results.opioidToConvertToIndex) && results.opioidToConvertToIndex !== 0;
+    if (results !== undefined) {
+      return !Number.isNaN(results.opioidToConvertToIndex) && results.opioidToConvertToIndex !== 0;
+    } else {
+      return false;
+    }
   }
 }
