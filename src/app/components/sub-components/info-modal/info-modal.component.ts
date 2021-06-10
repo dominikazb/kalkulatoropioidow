@@ -12,7 +12,6 @@ import {ContentService} from '../../shared/services/content/content.service';
 export class InfoModalComponent implements OnInit {
 
   public infoModalForm: FormGroup;
-  // TODO: do modala trzeba dodać treść o zapisywaniu wyniku wyszukiwania w bazie danych
 
   constructor(public contentService: ContentService,
               public modalRef: BsModalRef) {}
@@ -24,7 +23,8 @@ export class InfoModalComponent implements OnInit {
   public buildForm(): void {
     this.infoModalForm = new FormGroup({
       checkBox1: new FormControl(false, Validators.requiredTrue),
-      checkBox2: new FormControl(false, Validators.requiredTrue)
+      checkBox2: new FormControl(false, Validators.requiredTrue),
+      checkbox3: new FormControl(false, Validators.requiredTrue)
     });
   }
 

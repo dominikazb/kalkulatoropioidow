@@ -18,6 +18,7 @@ export class ContentService {
     consent2b: string,
     consent2c: string,
     consent2d: string,
+    consent3: string,
     subTitle1: string,
     text2: string,
     owner1: string,
