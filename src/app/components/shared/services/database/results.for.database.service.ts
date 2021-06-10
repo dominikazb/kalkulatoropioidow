@@ -1,4 +1,4 @@
-import {ResultsForDatabase} from './results.for.database';
+import {ResultsForDatabase} from '../../model/results/results.for.database';
 import {Results} from '../../model/results/results';
 
 export class ResultsForDatabaseService {

@@ -6,7 +6,7 @@ import {CalculationsService} from '../shared/services/calculations/calculations.
 import {OpioidService} from '../shared/services/opioid/opioid.service';
 import {ContentService} from '../shared/services/content/content.service';
 import {DatabaseService} from '../shared/services/database/database.service';
-import {ResultsForDatabase} from '../shared/services/database/results.for.database';
+import {ResultsForDatabase} from '../shared/model/results/results.for.database';
 import {ResultsForDatabaseService} from '../shared/services/database/results.for.database.service';
 import {OpioidIndices} from '../shared/data/opioid/OpioidIndices';
 

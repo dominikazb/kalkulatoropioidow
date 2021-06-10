@@ -1,5 +1,5 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {ResultsForDatabase} from './results.for.database';
+import {ResultsForDatabase} from '../../model/results/results.for.database';
 import {Injectable} from '@angular/core';
 
 @Injectable()

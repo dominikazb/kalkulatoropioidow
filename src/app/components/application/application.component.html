@@ -105,13 +105,14 @@
         <form-conversion-to [parentFormGroup]="opioidConversionForm"></form-conversion-to>
 
         <div class="d-flex justify-content-end padding_bottom_20px">
-          <div class="btn-toolbar" role="toolbar">
-            <div class="btn-group" role="group">
+          <div class="row">
+            <div class="col-md-6 d-flex justify-content-end"></div>
+            <div class="col-md-3 d-flex justify-content-end">
               <input class="btn btn-secondary my-1 btn-block mr-1"
                      type="reset"
                      value="{{contentService.applicationData.btnResetText}}">
             </div>
-            <div class="btn-group" role="group">
+            <div class="col-md-3 d-flex justify-content-end">
               <input class="btn btn-danger my-1 btn-block mr-1"
                      type="submit"
                      value="{{contentService.applicationData.btnCalculateText}}">

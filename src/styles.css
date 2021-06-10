@@ -643,3 +643,7 @@ th.col-md-6.hide_border.padding_0 {
 th.col-md-8.hide_border.padding_0 {
   padding: 0px;
 }
+
+div.col-md-3.d-flex.justify-content-end {
+  padding: 0px;
+}
