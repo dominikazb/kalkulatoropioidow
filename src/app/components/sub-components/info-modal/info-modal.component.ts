@@ -24,7 +24,7 @@ export class InfoModalComponent implements OnInit {
     this.infoModalForm = new FormGroup({
       checkBox1: new FormControl(false, Validators.requiredTrue),
       checkBox2: new FormControl(false, Validators.requiredTrue),
-      checkbox3: new FormControl(false, Validators.requiredTrue)
+      checkBox3: new FormControl(false, Validators.requiredTrue)
     });
   }
 
