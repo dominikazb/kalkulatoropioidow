@@ -53,7 +53,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   private setFormsCollapsing(): void {
-    if (this.screenWidth < 767) {
+    if (this.screenWidth <= 767) {
       this.setFormsCollapsingValues(true, true, true, true);
     } else {
       this.setFormsCollapsingValues(false, false, false, false);

@@ -12,6 +12,7 @@ import {ContentService} from '../../shared/services/content/content.service';
 export class InfoModalComponent implements OnInit {
 
   public infoModalForm: FormGroup;
+  // TODO: do modala trzeba dodać treść o zapisywaniu wyniku wyszukiwania w bazie danych
 
   constructor(public contentService: ContentService,
               public modalRef: BsModalRef) {}

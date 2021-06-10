@@ -232,11 +232,6 @@
   padding-top:30px;
 }
 
-/*div.container.h-100 {*/
-/*  width: 100%;*/
-/*  padding: 0px;*/
-/*}*/
-
 .text_color__gray {
   color: #CCC;
 }
@@ -349,20 +344,8 @@ a.link_beige:hover {
   }
 }
 
-@media (max-width: 300px) {
-  div {
-    width:100%;
-  }
-}
-@media (min-width: 301px) and (max-width: 600px) {
-  div {
-    width:100%;
-  }
-}
-@media (min-width: 601px) and (max-width: 768px) {
-  div {
-    width:100%;
-  }
+div {
+  width:100%;
 }
 
 @media (max-width: 768px) {
@@ -463,7 +446,7 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-@media only screen and (max-width: 760px), (min-device-width : 768px)
+@media only screen and (max-width: 800px), (min-device-width : 801px)
 and (max-device-width: 1024px) {
   table, thead, tbody, th, td, tr {
     display: block;

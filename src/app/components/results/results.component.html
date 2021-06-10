@@ -22,7 +22,9 @@
 
         <results-glpharma-info></results-glpharma-info>
 
-        <results-opioid-info></results-opioid-info>
+        <ng-container *ngIf="results.opioidToConvertToIndex !== opioidIndices.MorphinePills.valueOf()">
+          <results-opioid-info></results-opioid-info>
+        </ng-container>
 
         <div>
           <div class="padding_top_20px padding_bottom_20px"></div>

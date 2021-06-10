@@ -8,6 +8,7 @@ import {ContentService} from '../shared/services/content/content.service';
 import {DatabaseService} from '../shared/services/database/database.service';
 import {ResultsForDatabase} from '../shared/services/database/results.for.database';
 import {ResultsForDatabaseService} from '../shared/services/database/results.for.database.service';
+import {OpioidIndices} from '../shared/data/opioid/OpioidIndices';
 
 @Component({
   selector: 'app-results',
@@ -17,6 +18,7 @@ export class ResultsComponent implements OnInit {
 
   public showResults: boolean;
   public results: Results;
+  public opioidIndices = OpioidIndices;
 
   constructor(public contentService: ContentService,
               public opioidService: OpioidService,
