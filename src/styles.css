@@ -620,27 +620,7 @@ ul.shift_left_20px {
   margin-left: -20px;
 }
 
-th.col-md-4.hide_border {
-  border: none;
-}
-
-th.col-md-6.hide_border {
-  border: none;
-}
-
-th.col-md-8.hide_border {
-  border: none;
-}
-
-th.col-md-4.hide_border.padding_0 {
-  padding: 0px;
-}
-
-th.col-md-6.hide_border.padding_0 {
-  padding: 0px;
-}
-
-th.col-md-8.hide_border.padding_0 {
+th.padding_0 {
   padding: 0px;
 }
 
