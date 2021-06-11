@@ -104,6 +104,6 @@ export class ResultsComponent implements OnInit {
   private saveResultsToDatabase(): void {
     const resultsForDatabase: ResultsForDatabase = this.resultsForDatabaseService.setResultsForDatabase(this.results);
     // TODO: uncomment when API ready
-    this.databaseService.saveDataToDatabase(resultsForDatabase).then(() => {});
+    // this.databaseService.saveDataToDatabase(resultsForDatabase).then(() => {});
   }
 }
