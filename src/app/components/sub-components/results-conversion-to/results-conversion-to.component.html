@@ -9,12 +9,14 @@
       <methadone-conversion-to></methadone-conversion-to>
     </ng-container>
 
-    <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()">
+    <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.FentanylTransdermal.valueOf()
+      && listOfProposedFentanylPlasters.length > 0">
       <plaster-list
           [listOfProposedPlasters]="listOfProposedFentanylPlasters"></plaster-list>
     </ng-container>
 
-    <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()">
+    <ng-container *ngIf="results.opioidToConvertToIndex === opioidIndices.BuprenorphineTransdermal.valueOf()
+      && listOfProposedBuprenorphinePlasters.length > 0">
       <plaster-list
         [listOfProposedPlasters]="listOfProposedBuprenorphinePlasters"></plaster-list>
     </ng-container>
