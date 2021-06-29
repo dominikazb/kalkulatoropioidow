@@ -636,3 +636,17 @@ div.col-md-3.d-flex.justify-content-end {
 table.table {
   margin: 0px;
 }
+
+@media (max-width: 767px) {
+  h6.title.text_color__darker_gray {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  div.col-md-6.light_gray_background.text-center {
+    margin-top: 15px;
+  }
+}
+
+
