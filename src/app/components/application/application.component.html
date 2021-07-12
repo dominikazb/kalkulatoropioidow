@@ -21,13 +21,13 @@
         <div class="converted_opioid__wrapper">
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse1.toggle()"
-             [attr.aria-expanded]="!firstIsCollapsed">
+             [attr.aria-expanded]="!secondOpioidIsCollapsed">
             <i class="fas fa-plus-circle"></i> {{contentService.applicationData.addAnotherText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
 
-          <div #collapse1="ngbCollapse" [(ngbCollapse)]="firstIsCollapsed">
+          <div #collapse1="ngbCollapse" [(ngbCollapse)]="secondOpioidIsCollapsed">
             <form-opioid
               [name]="opioidConversionFormFields.secondOpioid"
               [parentFormGroup]="opioidConversionForm">
@@ -40,13 +40,13 @@
         <div class="converted_opioid__wrapper">
           <a class="link_beige display_none padding_top_5px"
              (click)="collapse2.toggle()"
-             [attr.aria-expanded]="!secondIsCollapsed">
+             [attr.aria-expanded]="!thirdOpioidIsCollapsed">
             <i class="fas fa-plus-circle"></i> {{contentService.applicationData.addAnotherText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
 
-          <div #collapse2="ngbCollapse" [(ngbCollapse)]="secondIsCollapsed">
+          <div #collapse2="ngbCollapse" [(ngbCollapse)]="thirdOpioidIsCollapsed">
             <form-opioid
               [name]="opioidConversionFormFields.thirdOpioid"
               [parentFormGroup]="opioidConversionForm">

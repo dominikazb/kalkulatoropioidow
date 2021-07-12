@@ -29,8 +29,8 @@ export class ApplicationComponent implements OnInit {
 
   public opioidConversionForm: FormGroup;
   private screenWidth: number;
-  public firstIsCollapsed: boolean;
-  public secondIsCollapsed: boolean;
+  public secondOpioidIsCollapsed: boolean;
+  public thirdOpioidIsCollapsed: boolean;
   public fentanylIsCollapsed: boolean;
   public buprenorphineIsCollapsed: boolean;
 
@@ -54,18 +54,23 @@ export class ApplicationComponent implements OnInit {
 
   private setFormsCollapsing(): void {
     if (this.screenWidth <= 767) {
-      this.setFormsCollapsingValues(true, true, true, true);
+      if (this.resultsService.results && this.opioidService.oneOfOpioidsWasChosen(this.resultsService.results)) {
+        this.secondOpioidIsCollapsed = !this.opioidService.opioidWasChosen(this.resultsService.results.secondOpioid);
+        this.thirdOpioidIsCollapsed = !this.opioidService.opioidWasChosen(this.resultsService.results.thirdOpioid);
+        this.fentanylIsCollapsed = !this.opioidService.plasterWasChosen(this.resultsService.results.fentanyl);
+        this.buprenorphineIsCollapsed = !this.opioidService.plasterWasChosen(this.resultsService.results.buprenorphine);
+      } else {
+        this.setFormCollapsingValues(true, true, true, true);
+      }
     } else {
-      this.setFormsCollapsingValues(false, false, false, false);
+      this.setFormCollapsingValues(false, false, false, false);
     }
   }
 
-  private setFormsCollapsingValues(firstIsCollapsed: boolean,
-                                   secondIsCollapsed: boolean,
-                                   fentanylIsCollapsed: boolean,
-                                   buprenorphineIsCollapsed: boolean): any {
-    this.firstIsCollapsed = firstIsCollapsed;
-    this.secondIsCollapsed = secondIsCollapsed;
+  private setFormCollapsingValues(secondOpioidIsCollapsed: boolean, thirdOpioidIsCollapsed: boolean,
+                                  fentanylIsCollapsed: boolean, buprenorphineIsCollapsed: boolean): void {
+    this.secondOpioidIsCollapsed = secondOpioidIsCollapsed;
+    this.thirdOpioidIsCollapsed = thirdOpioidIsCollapsed;
     this.fentanylIsCollapsed = fentanylIsCollapsed;
     this.buprenorphineIsCollapsed = buprenorphineIsCollapsed;
   }
