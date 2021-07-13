@@ -256,6 +256,7 @@
   background-color: #F8F8F8;
   border-radius: 10px;
   padding: 10px 8px 3px;
+  -webkit-backface-visibility: hidden;
 }
 
 .text_color__darker_gray {
@@ -302,6 +303,7 @@ a.link_beige:hover {
   text-decoration: none;
   color: red;
   cursor: pointer;
+  -webkit-backface-visibility: hidden;
 }
 
 .display_none {
