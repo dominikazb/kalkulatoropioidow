@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ResultsService} from '../../shared/services/results/results.service';
-import {OpioidIndices} from '../../shared/data/opioid/OpioidIndices';
-import {ContentService} from '../../shared/services/content/content.service';
+import {ResultsService} from '../../../shared/services/results/results.service';
+import {OpioidIndices} from '../../../shared/data/opioid/OpioidIndices';
+import {ContentService} from '../../../shared/services/content/content.service';
 
 @Component({
   // tslint:disable-next-line:component-selector

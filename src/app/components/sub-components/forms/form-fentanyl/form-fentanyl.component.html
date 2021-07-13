@@ -9,7 +9,7 @@
       <select [formControlName]="formsService.formFentanylFields.fentanylDose"
               [id]="formsService.formFentanylFields.fentanylDose"
               [name]="formsService.formFentanylFields.fentanylDose"
-              class="form-control">
+              class="form-control no_flickering">
         <option *ngFor="let dose of fentanylDoses" [value]="dose">{{dose}}</option>
       </select>
     </div>

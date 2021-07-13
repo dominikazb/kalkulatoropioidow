@@ -6,7 +6,7 @@
         <select [formControlName]="formsService.formConversionToFields.opioidToCovertTo"
                 [id]="formsService.formConversionToFields.opioidToCovertTo"
                 [name]="formsService.formConversionToFields.opioidToCovertTo"
-                class="form-control">
+                class="form-control no_flickering">
           <option selected disabled value=0>-- wybierz lek --</option>
           <option *ngFor="let opioid of opioids" [value]="opioid.index">{{opioid.description}}</option>
         </select>
@@ -26,7 +26,7 @@
       <select [formControlName]="formsService.formConversionToFields.doseReduction"
               [id]="formsService.formConversionToFields.doseReduction"
               [name]="formsService.formConversionToFields.doseReduction"
-              class="form-control">
+              class="form-control no_flickering">
         <option *ngFor="let doseReduction of doseReductionRange"
                 [value]="doseReduction">{{doseReduction}}%</option>
       </select>

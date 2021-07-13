@@ -4,7 +4,7 @@
       <select [formControlName]="name+formsService.formOpioidFields.index"
               [id]="name+formsService.formOpioidFields.index"
               [name]="name+formsService.formOpioidFields.index"
-              class="form-control">
+              class="form-control no_flickering">
         <option selected disabled value=0>-- wybierz lek --</option>
         <option *ngFor="let opioid of opioids" [value]="opioid.index">{{opioid.description}}</option>
       </select>
@@ -14,7 +14,7 @@
       <select [formControlName]="name+formsService.formOpioidFields.numberOfDoses"
               [id]="name+formsService.formOpioidFields.numberOfDoses"
               [name]="name+formsService.formOpioidFields.numberOfDoses"
-              class="form-control">
+              class="form-control no_flickering">
         <option selected disabled value=0>razy/doba</option>
         <option *ngFor="let number of numberOfDoses" [value]="number">{{number}}</option>
       </select>
@@ -36,7 +36,7 @@
       <select [formControlName]="name+formsService.formOpioidFields.unit"
               [id]="name+formsService.formOpioidFields.unit"
               [name]="name+formsService.formOpioidFields.unit"
-              class="form-control">
+              class="form-control no_flickering">
         <option *ngFor="let unit of units" [value]="unit">{{unit}}</option>
       </select>
     </div>

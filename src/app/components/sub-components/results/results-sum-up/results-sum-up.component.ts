@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ResultsService} from '../../shared/services/results/results.service';
-import {Results} from '../../shared/model/results/results';
-import {OpioidResults} from '../../shared/model/results/opioid.results';
-import {OpioidService} from '../../shared/services/opioid/opioid.service';
-import {ContentService} from '../../shared/services/content/content.service';
+import {ResultsService} from '../../../shared/services/results/results.service';
+import {Results} from '../../../shared/model/results/results';
+import {OpioidResults} from '../../../shared/model/results/opioid.results';
+import {OpioidService} from '../../../shared/services/opioid/opioid.service';
+import {ContentService} from '../../../shared/services/content/content.service';
 
 @Component({
   // tslint:disable-next-line:component-selector

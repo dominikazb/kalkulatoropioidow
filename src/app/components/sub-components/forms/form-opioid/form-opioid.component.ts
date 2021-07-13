@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {OpioidService} from '../../shared/services/opioid/opioid.service';
-import {Opioid} from '../../shared/model/opioid/opioid';
-import {FormsService} from '../../shared/services/form/forms.service';
+import {OpioidService} from '../../../shared/services/opioid/opioid.service';
+import {Opioid} from '../../../shared/model/opioid/opioid';
+import {FormsService} from '../../../shared/services/form/forms.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
