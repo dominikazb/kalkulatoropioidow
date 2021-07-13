@@ -38,14 +38,13 @@
 
         <div class="converted_opioid__wrapper">
           <a class="link_beige display_none padding_top_5px"
-             (click)="collapse2.toggle()"
-             [attr.aria-expanded]="!thirdOpioidIsCollapsed">
+             (click)="toggleThirdOpioidIsCollapsed()">
             <i class="fas fa-plus-circle"></i> {{contentService.applicationData.addAnotherText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
 
-          <div #collapse2="ngbCollapse" [(ngbCollapse)]="thirdOpioidIsCollapsed">
+          <div [ngClass]="thirdOpioidIsCollapsed ? 'collapsed' : 'not_collapsed'">
             <form-opioid
               [name]="opioidConversionFormFields.thirdOpioid"
               [parentFormGroup]="opioidConversionForm">
@@ -57,14 +56,13 @@
 
         <div class="converted_opioid__wrapper">
           <a class="link_beige display_none padding_top_5px"
-             (click)="collapse3.toggle()"
-             [attr.aria-expanded]="!fentanylIsCollapsed">
+             (click)="toggleFentanylIsCollapsed()">
             <i class="fas fa-plus-circle"></i> {{contentService.applicationData.fentanylText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
 
-          <div #collapse3="ngbCollapse" [(ngbCollapse)]="fentanylIsCollapsed">
+          <div [ngClass]="fentanylIsCollapsed ? 'collapsed' : 'not_collapsed'">
             <form-fentanyl [parentFormGroup]="opioidConversionForm"></form-fentanyl>
           </div>
         </div>
@@ -73,14 +71,13 @@
 
         <div class="converted_opioid__wrapper">
           <a class="link_beige display_none padding_top_5px"
-             (click)="collapse4.toggle()"
-             [attr.aria-expanded]="!buprenorphineIsCollapsed">
+             (click)="toggleBuprenorphineIsCollapsed()">
             <i class="fas fa-plus-circle"></i> {{contentService.applicationData.buprenorphineText}}
           </a>
 
           <div class="padding_bottom_10px"></div>
 
-          <div #collapse4="ngbCollapse" [(ngbCollapse)]="buprenorphineIsCollapsed">
+          <div [ngClass]="buprenorphineIsCollapsed ? 'collapsed' : 'not_collapsed'">
             <form-buprenorphine [parentFormGroup]="opioidConversionForm"></form-buprenorphine>
           </div>
         </div>

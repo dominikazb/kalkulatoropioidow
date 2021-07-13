@@ -52,10 +52,6 @@ export class ApplicationComponent implements OnInit {
     this.setFormsCollapsing();
   }
 
-  public toggleSecondOpioidIsCollapsed(): boolean {
-    return this.secondOpioidIsCollapsed = !this.secondOpioidIsCollapsed;
-  }
-
   private setFormsCollapsing(): void {
     if (this.screenWidth <= 767) {
       if (this.resultsService.results && this.opioidService.oneOfOpioidsWasChosen(this.resultsService.results)) {
@@ -77,6 +73,22 @@ export class ApplicationComponent implements OnInit {
     this.thirdOpioidIsCollapsed = thirdOpioidIsCollapsed;
     this.fentanylIsCollapsed = fentanylIsCollapsed;
     this.buprenorphineIsCollapsed = buprenorphineIsCollapsed;
+  }
+
+  public toggleSecondOpioidIsCollapsed(): boolean {
+    return this.secondOpioidIsCollapsed = !this.secondOpioidIsCollapsed;
+  }
+
+  public toggleThirdOpioidIsCollapsed(): boolean {
+    return this.thirdOpioidIsCollapsed = !this.thirdOpioidIsCollapsed;
+  }
+
+  public toggleFentanylIsCollapsed(): boolean {
+    return this.fentanylIsCollapsed = !this.fentanylIsCollapsed;
+  }
+
+  public toggleBuprenorphineIsCollapsed(): boolean {
+    return this.buprenorphineIsCollapsed = !this.buprenorphineIsCollapsed;
   }
 
   private buildForm(): void {
