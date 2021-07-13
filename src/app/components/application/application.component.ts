@@ -43,27 +43,23 @@ export class ApplicationComponent implements OnInit {
   ngOnInit(): void {
     this.buildForm();
     this.getScreenSize();
+    this.setFormsCollapsing();
     this.resultsService.results = new Results();
   }
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(): void {
     this.screenWidth = window.innerWidth;
-    this.setFormsCollapsing();
   }
 
   private setFormsCollapsing(): void {
-    if (this.screenWidth <= 767) {
-      if (this.resultsService.results && this.opioidService.oneOfOpioidsWasChosen(this.resultsService.results)) {
-        this.secondOpioidIsCollapsed = !this.opioidService.opioidWasChosen(this.resultsService.results.secondOpioid);
-        this.thirdOpioidIsCollapsed = !this.opioidService.opioidWasChosen(this.resultsService.results.thirdOpioid);
-        this.fentanylIsCollapsed = !this.opioidService.plasterWasChosen(this.resultsService.results.fentanyl);
-        this.buprenorphineIsCollapsed = !this.opioidService.plasterWasChosen(this.resultsService.results.buprenorphine);
-      } else {
-        this.setFormCollapsingValues(true, true, true, true);
-      }
+    if (this.resultsService.results) {
+      this.secondOpioidIsCollapsed = !this.opioidService.opioidWasChosen(this.resultsService.results.secondOpioid);
+      this.thirdOpioidIsCollapsed = !this.opioidService.opioidWasChosen(this.resultsService.results.thirdOpioid);
+      this.fentanylIsCollapsed = !this.opioidService.plasterWasChosen(this.resultsService.results.fentanyl);
+      this.buprenorphineIsCollapsed = !this.opioidService.plasterWasChosen(this.resultsService.results.buprenorphine);
     } else {
-      this.setFormCollapsingValues(false, false, false, false);
+      this.setFormCollapsingValues(true, true, true, true);
     }
   }
 
