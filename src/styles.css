@@ -259,6 +259,10 @@
   -webkit-backface-visibility: hidden;
 }
 
+.no_flickering {
+  -webkit-backface-visibility: hidden;
+}
+
 .text_color__darker_gray {
   color: #888;
 }
