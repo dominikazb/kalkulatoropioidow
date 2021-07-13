@@ -41,8 +41,8 @@ export class ApplicationComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.getScreenSize();
     this.buildForm();
+    this.getScreenSize();
     this.resultsService.results = new Results();
   }
 
