@@ -52,6 +52,10 @@ export class ApplicationComponent implements OnInit {
     this.setFormsCollapsing();
   }
 
+  public toggleSecondOpioidIsCollapsed(): boolean {
+    return this.secondOpioidIsCollapsed = !this.secondOpioidIsCollapsed;
+  }
+
   private setFormsCollapsing(): void {
     if (this.screenWidth <= 767) {
       if (this.resultsService.results && this.opioidService.oneOfOpioidsWasChosen(this.resultsService.results)) {

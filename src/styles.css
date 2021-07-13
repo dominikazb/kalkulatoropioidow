@@ -304,8 +304,6 @@ a.link_beige:hover {
   cursor: pointer;
 }
 
-
-
 @media (max-width: 767px) {
   .display_none {
     display: inherit;
@@ -634,6 +632,14 @@ table.table {
   div.col-md-6.light_gray_background.text-center {
     margin-top: 15px;
   }
+}
+
+.not_collapsed {
+  display: block;
+}
+
+.collapsed {
+  display: none;
 }
 
 
