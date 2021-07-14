@@ -28,7 +28,6 @@ export class ApplicationComponent implements OnInit {
   };
 
   public opioidConversionForm: FormGroup;
-  private screenWidth: number;
   public secondOpioidIsCollapsed: boolean;
   public thirdOpioidIsCollapsed: boolean;
   public fentanylIsCollapsed: boolean;
@@ -42,14 +41,8 @@ export class ApplicationComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
-    this.getScreenSize();
     this.setFormsCollapsing();
     this.resultsService.results = new Results();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  getScreenSize(): void {
-    this.screenWidth = window.innerWidth;
   }
 
   private setFormsCollapsing(): void {

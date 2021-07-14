@@ -638,8 +638,15 @@ table.table {
   display: block;
 }
 
-.collapsed {
-  display: none;
+@media (max-width: 767px) {
+  .collapsed {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .collapsed {
+    display: block;
+  }
 }
 
 .no_flickering {
