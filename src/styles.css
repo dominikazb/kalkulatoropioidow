@@ -320,12 +320,14 @@ a.link_beige:hover {
   div.row {
     text-align: center;
     margin:0px;
+    transition: none;
   }
 }
 @media (min-width: 769px) {
   div.row {
     text-align: justify;
     margin:0px;
+    transition: none;
   }
 }
 
@@ -650,5 +652,9 @@ table.table {
 }
 
 select.form-control {
+  transition: none;
+}
+
+div.converted_opioid__wrapper {
   transition: none;
 }
